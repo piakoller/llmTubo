@@ -24,31 +24,31 @@ def getLLMResponse(input_text, no_words, category):
     response = llm.invoke(prompt.format(category=category, input_text=input_text, no_words=no_words))
     return response
 
-# ClinicalTrials.gov search
-def search_clinical_trials(diagnosis, symptoms, stage):
-    search_terms = f"{diagnosis} {symptoms} {stage}".strip().replace("  ", " ")
-    query = search_terms.replace(" ", "+")
-    url = f"https://clinicaltrials.gov/api/v2/studies?query.term={query}&pageSize=5"
-    try:
-        response = requests.get(url)
-        response.raise_for_status()
-        data = response.json()
-        studies = data.get("studies", [])
-        trial_summaries = []
-        for study in studies:
-            protocol = study.get("protocolSection", {})
-            id_module = protocol.get("identificationModule", {})
-            status_module = protocol.get("statusModule", {})
-            desc_module = protocol.get("descriptionModule", {})
-            title = id_module.get("officialTitle", "No title")
-            nct_id = id_module.get("nctId", "")
-            status = status_module.get("overallStatus", "Unknown")
-            summary = desc_module.get("briefSummary", "No summary")
-            trial_summaries.append((title, nct_id, status, summary))
-        return trial_summaries
-    except requests.RequestException as e:
-        print(f"API error: {e}")
-        return []
+# # ClinicalTrials.gov search
+# def search_clinical_trials(diagnosis, symptoms, stage):
+#     search_terms = f"{diagnosis} {symptoms} {stage}".strip().replace("  ", " ")
+#     query = search_terms.replace(" ", "+")
+#     url = f"https://clinicaltrials.gov/api/v2/studies?query.term={query}&pageSize=5"
+#     try:
+#         response = requests.get(url)
+#         response.raise_for_status()
+#         data = response.json()
+#         studies = data.get("studies", [])
+#         trial_summaries = []
+#         for study in studies:
+#             protocol = study.get("protocolSection", {})
+#             id_module = protocol.get("identificationModule", {})
+#             status_module = protocol.get("statusModule", {})
+#             desc_module = protocol.get("descriptionModule", {})
+#             title = id_module.get("officialTitle", "No title")
+#             nct_id = id_module.get("nctId", "")
+#             status = status_module.get("overallStatus", "Unknown")
+#             summary = desc_module.get("briefSummary", "No summary")
+#             trial_summaries.append((title, nct_id, status, summary))
+#         return trial_summaries
+#     except requests.RequestException as e:
+#         print(f"API error: {e}")
+#         return []
 
 # Hilfsfunktionen
 class AgentRunner:
@@ -80,6 +80,27 @@ def combine_contexts(*contexts):
         elif isinstance(ctx, str):
             combined.append(ctx)
     return "\n\n".join(combined)
+
+def extract_study_data(trials):
+    data = []
+    
+    # Durchlauf durch die Trials, die in der API-Antwort enthalten sind
+    for title, nct_id, status, summary in trials:
+        # Extrahieren der relevanten Daten
+        study = {
+            "Titel": title,
+            "Status": status,
+            "NCT_ID": nct_id,
+            "Link": f"https://clinicaltrials.gov/study/{nct_id}",
+            "Beschreibung": summary
+        }
+        
+        data.append(study)
+    
+    return data
+
+def make_clickable(link):
+    return f'<a href="{link}" target="_blank">Studie öffnen</a>' if link else ""
 
 # Load patient data
 df = pd.read_excel(TUBO_EXCEL_FILE_PATH, skiprows=8)
@@ -124,23 +145,34 @@ patient = Patient(
     prognosis_score=prognosis_score,
 )
 
-# Generate recommendation and search trials
 if st.button("Multi-Agenten Empfehlung generieren"):
     with st.spinner("Agenten arbeiten..."):
+        # Kontextaufbau für Diagnostik
         base_context = f"""
-        Patient ID: {patient.id}
         Diagnose: {patient.main_diagnosis}
+        Beschreibung: {patient.main_diagnosis_text}
+        Nebendiagnosen: {patient.secondary_diagnoses}
         Klinik: {patient.clinical_info}
         PET-CT: {patient.pet_ct_report}
         Symptome: {patient.accompanying_symptoms}
         Prognose: {patient.prognosis_score}
+        Leitlinie: {guideline_provider}
         """
 
+        studien_context = f"""	
+        Diagnose: {patient.main_diagnosis}
+        Symptome: {patient.accompanying_symptoms}
+        Stadium: {patient.ann_arbor_stage}
+        """
+        
+        # Initialisiere Agenten
         diagnostik_agent = DiagnostikAgent()
         studien_agent = StudienAgent()
         therapie_agent = TherapieAgent()
 
-        # Diagnostik synchron starten
+        # --------------------
+        # Schritt 1: Diagnostik (synchron)
+        # --------------------
         diag_runner = AgentRunner(diagnostik_agent, "Diagnostik", base_context)
         diag_runner.run()
 
@@ -148,47 +180,77 @@ if st.button("Multi-Agenten Empfehlung generieren"):
             st.error("Diagnostik fehlgeschlagen. Bitte prüfen.")
             st.stop()
 
-        # Studien Agent parallel starten
-        studien_runner = AgentRunner(studien_agent, "Studien", diag_runner.result)
+        # --------------------
+        # Schritt 2: Studien & Therapie parallel
+        # --------------------
+        studien_runner = AgentRunner(studien_agent, "Studien", studien_context)
+        therapie_runner = AgentRunner(therapie_agent, "Therapie", diag_runner.result)
+
         studien_thread = threading.Thread(target=studien_runner.run)
+        therapie_thread = threading.Thread(target=therapie_runner.run)
+
         studien_thread.start()
+        therapie_thread.start()
 
         studien_thread.join()
+        therapie_thread.join()
 
+        # --------------------
+        # Fehlerbehandlung
+        # --------------------
         if studien_runner.exception:
             st.error("Fehler beim Studien-Agent.")
             st.stop()
+        if therapie_runner.exception:
+            st.error("Fehler beim Therapie-Agent.")
+            st.stop()
 
-       # Therapie Agent
-        combined_context = combine_contexts(diag_runner.result, studien_runner.result)
-        therapie_runner = AgentRunner(therapie_agent, "Therapie", combined_context)
-        therapie_runner.run()
-
-        # Therapieempfehlung anzeigen
+        # --------------------
+        # Ergebnisse anzeigen
+        # --------------------
         st.success("Empfehlung generiert!")
+
+        # Therapieempfehlung
         st.markdown("### 🧬 Therapieempfehlung")
         st.markdown(therapie_runner.result)
 
-        # Bericht generieren
+        # Studienempfehlung
+        st.markdown("### 🔬 Empfohlene klinische Studien")
+
+        # study_list = studien_runner.result.split("\n\n")
+
+        study_data = extract_study_data(studien_runner.result)
+        # print(study_data)
+
+        df = pd.DataFrame(study_data)
+        st.dataframe(df)
+
+        # st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
+
+        # --------------------
+        # Bericht erzeugen
+        # --------------------
         report_agent = ReportAgent(output_dir="generated_report", file_type="pdf")
-        report_markdown = report_agent.generate_report_text(therapie_runner.result)
-        report_agent.save_report(report_markdown, selected_patient_id)
+        report_pdf = report_agent.generate_report_text(therapie_runner.result)
+        report_agent.save_report(report_pdf, selected_patient_id)
 
-        # PDF-Datei laden und Download-Button anzeigen
         pdf_path = os.path.join("generated_report", f"{selected_patient_id}.pdf")
-
         if os.path.exists(pdf_path):
             with open(pdf_path, "rb") as f:
-                pdf_bytes = f.read()
-
-            st.download_button(
-                label="📥 Bericht als PDF herunterladen",
-                data=pdf_bytes,
-                file_name=f"{selected_patient_id}_bericht.pdf",
-                mime="application/pdf",
-            )
+                st.download_button(
+                    label="📥 Bericht als PDF herunterladen",
+                    data=f.read(),
+                    file_name=f"{selected_patient_id}_bericht.pdf",
+                    mime="application/pdf",
+                )
         else:
             st.error("⚠️ PDF konnte nicht gefunden werden.")
 
+        # --------------------
         # Laufzeiten anzeigen
-        st.info(f"⏱️ Diagnostik: {diag_runner.runtime:.2f}s | Studien: {studien_runner.runtime:.2f}s | Therapie: {therapie_runner.runtime:.2f}s")
+        # --------------------
+        st.info(
+            f"⏱️ Diagnostik: {diag_runner.runtime:.2f}s | "
+            f"Studien: {studien_runner.runtime:.2f}s | "
+            f"Therapie: {therapie_runner.runtime:.2f}s"
+        )

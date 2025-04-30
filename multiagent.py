@@ -2,7 +2,7 @@ from langchain_ollama import OllamaLLM
 from langchain.prompts import PromptTemplate
 import requests
 import os
-import subprocess
+import urllib.parse
 
 # Basis-Agent-Klasse
 class Agent:
@@ -32,47 +32,65 @@ class DiagnostikAgent(Agent):
 
 class StudienAgent(Agent):
     def __init__(self):
-        super().__init__("Studienrecherche", "Filtere relevante klinische Studien von clinicaltrials.gov basierend auf Diagnose und Patientenprofil.")
+        super().__init__(
+            "Studienrecherche",
+            "Filtere relevante klinische Studien von clinicaltrials.gov basierend auf Diagnose und Patientenprofil und präsentiere die Ergebnisse strukturiert."
+        )
 
+    # def search_clinical_trials(self, diagnosis, symptoms, stage):
+    #     search_terms = f"{diagnosis} {symptoms} {stage}".strip().replace("  ", " ")
+    #     query = urllib.parse.quote_plus(search_terms)  # URL-sichere Kodierung
+    #     url = f"https://clinicaltrials.gov/api/v2/studies?query.term={query}&pageSize=5"
+    #     try:
+    #         response = requests.get(url)
+    #         response.raise_for_status()
+    #         data = response.json()
+    #         studies = data.get("studies", [])
+    #         trial_summaries = []
+    #         for study in studies:
+    #             protocol = study.get("protocolSection", {})
+    #             id_module = protocol.get("identificationModule", {})
+    #             status_module = protocol.get("statusModule", {})
+    #             desc_module = protocol.get("descriptionModule", {})
+    #             title = id_module.get("officialTitle", "No title")
+    #             nct_id = id_module.get("nctId", "")
+    #             status = status_module.get("overallStatus", "Unknown")
+    #             summary = desc_module.get("briefSummary", "No summary")
+    #             trial_summaries.append({"Titel": title, "Ort": "Noch keine Information", "Sponsor": "Noch keine Information", "Link": f"https://clinicaltrials.gov/study/{nct_id}"})
+    #         return trial_summaries
+    #     except requests.RequestException as e:
+    #         print(f"API error: {e}")
+    #         return []
+
+    # ClinicalTrials.gov search
     def search_clinical_trials(self, diagnosis, symptoms, stage):
         search_terms = f"{diagnosis} {symptoms} {stage}".strip().replace("  ", " ")
         query = search_terms.replace(" ", "+")
-
         url = f"https://clinicaltrials.gov/api/v2/studies?query.term={query}&pageSize=5"
-
         try:
             response = requests.get(url)
             response.raise_for_status()
             data = response.json()
             studies = data.get("studies", [])
             trial_summaries = []
-
             for study in studies:
                 protocol = study.get("protocolSection", {})
                 id_module = protocol.get("identificationModule", {})
                 status_module = protocol.get("statusModule", {})
                 desc_module = protocol.get("descriptionModule", {})
-
                 title = id_module.get("officialTitle", "No title")
                 nct_id = id_module.get("nctId", "")
                 status = status_module.get("overallStatus", "Unknown")
                 summary = desc_module.get("briefSummary", "No summary")
-
-                trial_summaries.append(f"**{title}**\nStatus: `{status}`\n[NCT ID: {nct_id}](https://clinicaltrials.gov/study/{nct_id})\n_{summary}_\n")
-
+                trial_summaries.append((title, nct_id, status, summary))
             return trial_summaries
-
         except requests.RequestException as e:
             print(f"API error: {e}")
             return []
 
     def respond(self, diagnosis_context):
-        lines = diagnosis_context.split("\n")
-        diagnosis = ""
-        symptoms = ""
-        stage = ""
-
-        for line in lines:
+        diagnosis, symptoms, stage = "", "", ""
+        for line in diagnosis_context.split("\n"):
             if "Diagnose" in line and ":" in line:
                 diagnosis = line.split(":", 1)[1].strip()
             elif "Symptome" in line and ":" in line:
@@ -81,11 +99,14 @@ class StudienAgent(Agent):
                 stage = line.split(":", 1)[1].strip()
 
         trials = self.search_clinical_trials(diagnosis, symptoms, stage)
+        # trials = self.search_clinical_trials(patient.main_diagnosis, patient.accompanying_symptoms, patient.ann_arbor_stage)
 
         if not trials:
             return "Keine passenden klinischen Studien gefunden."
 
-        return "\n".join(trials)
+        # Gib eine Liste von Dictionaries zurück, passend zur extract_study_data Funktion
+        return trials
+
     
 class TherapieAgent(Agent):
     def __init__(self):
