@@ -229,32 +229,78 @@ class ReportAgent:
         logger.info(f"ReportAgent initialized. Output directory: '{output_dir}', File type: '{self.file_type}'")
 
 
-    def generate_report_text(self, context: str) -> str:
-        """Uses LLM to structure the context into a report format."""
+    def generate_report_text(self, context: str, patient_data: dict, board_date: str) -> str:
+        """Uses LLM to structure the context into a report format, incorporating patient data."""
         logger.info("Generating report text...")
-        prompt = PromptTemplate(
-            input_variables=["context"],
-            template="""
-            Du bist ein medizinischer Redakteur. Formatiere die folgende diagnostische Zusammenfassung und Therapieempfehlung in einen strukturierten medizinischen Bericht im Markdown-Format.
-            Verwende klare Überschriften (z.B. ## Hintergrund, ## Diagnostische Zusammenfassung, ## Therapieempfehlung, ## Begründung, ## Nächste Schritte).
 
-            Eingabeinformationen:
+        # Prepare patient info string for the prompt
+        # Adjust keys based on your actual patient_data dictionary
+        patient_info_str = f"""
+            Patient: {patient_data.get('last_name', 'Nachname')}, {patient_data.get('first_name', 'Vorname')}
+            Geburtsdatum: {patient_data.get('dob', 'XX.XX.XXXX')}
+            PID: {patient_data.get('pid', 'XXXXXXXX')}
+            """
+
+        # The main diagnosis might be in patient_data or context, adjust as needed
+        main_diagnosis_str = patient_data.get('main_diagnosis_text', 'Hauptdiagnose nicht spezifiziert')
+
+        prompt = PromptTemplate(
+            input_variables=["patient_info", "board_date", "main_diagnosis", "context"],
+            template="""
+            Du bist ein medizinischer Sekretär/Assistent, der Tumorboard-Protokolle im Stil des Inselspitals Bern (Schweiz) verfasst.
+            Erstelle ein Protokoll für das Endokrine Tumorboard vom {board_date}.
+
+            **Patientendaten:**
+            {patient_info}
+
+            **Hauptdiagnose (basierend auf vorliegenden Informationen):**
+            1. {main_diagnosis}
+
+            Der folgende `{context}` enthält eine Zusammenfassung der aktuellen diagnostischen Situation durch einen Experten und die daraus resultierende aktuelle Therapieempfehlung des Tumorboards.
+
+            **Eingabeinformationen (Aktuelle Beurteilung & Empfehlung):**
             ---
             {context}
             ---
 
-            Strukturierter Bericht (Markdown):
+            **Deine Aufgabe:**
+            Formatiere **nur** die Informationen aus dem `{context}` in ein medizinisches Protokoll im Markdown-Format.
+            Orientiere dich am Stil des Inselspitals, insbesondere bei den Abschnitten 'Beurteilung' und 'Empfehlungen'.
+            Fasse die diagnostische Einschätzung aus dem `{context}` unter der Überschrift '## Beurteilung' zusammen.
+            Liste die aktuelle Therapieempfehlung(en) aus dem `{context}` unter der Überschrift '## Empfehlungen' auf, idealerweise als Bullet Points (`*` oder `•`).
+
+            **WICHTIG:**
+            *   Füge **keine** historischen Daten (frühere Scans, Behandlungen, Empfehlungen, Labore, Verläufe) hinzu, die nicht explizit im `{context}` stehen.
+            *   Erfinde **keine** Patientendaten, Adressen, Board-Teilnehmer oder Abteilungsleiter.
+            *   Generiere **keinen** Briefkopf oder Fusszeile.
+            *   Konzentriere dich darauf, die *aktuelle Beurteilung* und die *neuen Empfehlungen* basierend auf dem `{context}` klar darzustellen.
+
+            **Protokoll (Markdown):**
+
+            ## Beurteilung
+            [Hier die Zusammenfassung der diagnostischen Einschätzung aus dem context einfügen]
+
+            ## Empfehlungen
+            [Hier die aktuelle(n) Therapieempfehlung(en) aus dem context als Bullet Points auflisten]
+
             """
         )
         chain = prompt | self.llm
         try:
-            report_text = chain.invoke({"context": context})
+            report_text = chain.invoke({
+                "patient_info": patient_info_str,
+                "board_date": board_date,
+                "main_diagnosis": main_diagnosis_str,
+                "context": context
+                })
             logger.info("Report text generated successfully.")
-            return report_text
+            # Prepend a basic header to the LLM output
+            header = f"# Endokrines Tumorboard vom {board_date}\n\n"
+            full_report = header + patient_info_str + f"\n## Diagnosen\n1. {main_diagnosis_str}\n\n" + report_text
+            return full_report
         except Exception as e:
             logger.error(f"LLM invocation failed during report generation: {e}", exc_info=True)
             raise RuntimeError("LLM call failed during report generation") from e
-
 
     def save_report(self, report_text: str, filename_base: str) -> str:
         """Saves the generated report text to a file."""

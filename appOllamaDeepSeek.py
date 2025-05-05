@@ -7,9 +7,9 @@ from langchain_ollama import OllamaLLM
 from patient import Patient
 from settings import TUBO_EXCEL_FILE_PATH
 
-# LLM mit Ollama
+# LLM mit Ollama and DeepSeek
 def getLLMResponse(input_text, no_words, category):
-    llm = OllamaLLM(model="llama3.2", temperature=0.7)
+    llm = OllamaLLM(model="deepseek-r1", temperature=0.7)
 
     template = """Write a {category} on {input_text} in less than {no_words} words"""
     prompt = PromptTemplate(input_variables=["input_text", "no_words", "category"], template=template)

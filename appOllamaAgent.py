@@ -243,7 +243,7 @@ if st.button("Multi-Agenten Empfehlung generieren"):
                     # --- Display Study Information ---
 
                     # Use a subheader for the title for clear separation
-                    st.markdown(f"#### Studie {i+1}")
+                    st.subheader(f"Studie {i+1}")
                     st.markdown(f"{title}" if title else "_Kein Titel verfügbar._", unsafe_allow_html=True)
                     # Display key metadata using markdown and columns for alignment
                     col1, col2 = st.columns([1, 4]) # Adjust ratio as needed
@@ -285,22 +285,51 @@ if st.button("Multi-Agenten Empfehlung generieren"):
 
         # --- Generate and Offer Report Download ---
         st.markdown("### 📄 Bericht")
-        # Check if Therapie succeeded before generating report
         if "Therapie" not in errors and results.get("Therapie"):
             try:
                 with st.spinner("Generiere Bericht..."):
                     start_report_time = time.perf_counter()
-                    # Ensure diagnostik_output exists (it should if Therapie ran)
-                    report_base_context = f"{diagnostik_output}\n\nTherapie Empfehlung:\n{results['Therapie']}"
-                    # Run Report Agent Synchronously (often fast enough)
-                    report_text = report_agent.generate_report_text(report_base_context)
-                    report_filename_base = f"{selected_patient_id}_bericht"
+                    # Combine relevant info for the report context for the LLM
+                    llm_input_context = f"Diagnostische Zusammenfassung:\n{diagnostik_output}\n\nNeue Therapie Empfehlung:\n{results['Therapie']}"
+
+                    # Get current date for the board meeting
+                    from datetime import date
+                    board_date_str = date.today().strftime("%d.%m.%Y") # Format TT.MM.JJJJ
+
+                    # Prepare patient data dict (ensure keys match those used in ReportAgent)
+                    # You might need to fetch more patient details if needed
+                    report_patient_data = {
+                        'last_name': patient_data.get('id', selected_patient_id).split('_')[0] if '_' in patient_data.get('id', selected_patient_id) else patient_data.get('id', selected_patient_id), # Example: Extract last name if ID format is Name_ID
+                        'first_name': "", # Add if available
+                        'dob': "", # Add if available
+                        'pid': selected_patient_id, # Use the ID as PID or fetch real PID
+                        'main_diagnosis_text': patient_data.get('main_diagnosis_text', 'N/A')
+                    }
+
+
+                    # Call generate_report_text with new arguments
+                    report_text = report_agent.generate_report_text(
+                        context=llm_input_context,
+                        patient_data=report_patient_data,
+                        board_date=board_date_str
+                    )
+
+                    report_filename_base = f"{selected_patient_id}_bericht_{board_date_str}" # Add date to filename
                     report_filepath = report_agent.save_report(report_text, report_filename_base)
                     runtimes["Report"] = time.perf_counter() - start_report_time
                     logging.info(f"Report generated and saved to {report_filepath} in {runtimes['Report']:.2f}s.")
 
-                # (Download button logic remains the same)
-                # ...
+                # (Download button logic remains the same, adjust filename if needed)
+                if os.path.exists(report_filepath):
+                    with open(report_filepath, "r", encoding="utf-8") as f:
+                         st.download_button(
+                            label=f"📥 Bericht als {REPORT_FILE_TYPE.upper()} herunterladen",
+                            data=f.read(),
+                            file_name=f"{report_filename_base}.{REPORT_FILE_TYPE}", # Use updated filename
+                            mime=f"text/{REPORT_FILE_TYPE}",
+                        )
+                else:
+                     st.error(f"⚠️ Berichtdatei ({report_filepath}) konnte nicht gefunden werden nach dem Speichern.")
             except Exception as e:
                 st.error(f"Fehler beim Erstellen oder Speichern des Berichts: {e}")
                 logging.error("Report generation/saving failed.", exc_info=True)
