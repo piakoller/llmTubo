@@ -12,6 +12,7 @@ from langchain.prompts import PromptTemplate
 CLINICAL_TRIALS_API_URL = "https://clinicaltrials.gov/api/v2/studies"
 CLINICAL_TRIALS_PAGE_SIZE = 5
 REQUESTS_TIMEOUT = 30 # Timeout for API calls in seconds
+MAX_LOCATIONS_TO_DISPLAY = 5
 
 # --- Logging ---
 # Logger can be configured externally, but setting a default here is helpful
@@ -23,10 +24,11 @@ if not logger.hasHandlers():
 # --- Agent Runner ---
 class AgentRunner:
     """Handles the execution of an agent, capturing results, runtime, and exceptions."""
-    def __init__(self, agent: 'Agent', name: str, context: str):
+    def __init__(self, agent: 'Agent', name: str, context: str, extra_args: dict = None):
         self.agent = agent
         self.name = name
         self.context = context
+        self.extra_args = extra_args or {}
         self.result = None
         self.runtime = None
         self.exception = None
@@ -78,8 +80,6 @@ class Agent(ABC):
             raise RuntimeError(f"LLM call failed for {self.name}") from e
 
 
-# --- Concrete Agent Implementations ---
-
 class DiagnostikAgent(Agent):
     """Analyzes diagnosis, symptoms, and clinical reports."""
     def __init__(self, llm: OllamaLLM):
@@ -103,23 +103,32 @@ class DiagnostikAgent(Agent):
 
 class StudienAgent(Agent):
     """Searches for relevant clinical trials on clinicaltrials.gov."""
-    def __init__(self, llm: OllamaLLM):
+    def __init__(self, llm: OllamaLLM, location: str = None):
         # This agent currently doesn't use the LLM directly, but keeps the interface consistent
         super().__init__(
             "Studienrecherche",
-            "Filtere relevante klinische Studien von clinicaltrials.gov basierend auf Diagnose, Symptomen und Stadium.",
+            "Filtere relevante klinische Studien von clinicaltrials.gov basierend auf Diagnose, Symptomen, Stadium und Ort.",
             llm
         )
+        self.location = location
+        logger.info(f"StudienAgent initialized with location: '{self.location}'")
 
-    def _search_clinical_trials(self, diagnosis: str, symptoms: str, stage: str) -> list[tuple[str, str, str, str]]:
+
+    def _search_clinical_trials(self, diagnosis: str) -> list[dict]:
         """Performs the search on clinicaltrials.gov API."""
-        if not diagnosis: # Basic validation
-             logger.warning("Skipping clinical trial search: Diagnosis is missing.")
-             return []
+        if not diagnosis:  # Basic validation
+            logger.warning("Skipping clinical trial search: Diagnosis is missing.")
+            return []
 
-        search_terms = f"{diagnosis} {symptoms} {stage}".strip().replace("  ", " ")
+        search_terms = f"{diagnosis}"
         query = urllib.parse.quote_plus(search_terms)
         url = f"{CLINICAL_TRIALS_API_URL}?query.term={query}&pageSize={CLINICAL_TRIALS_PAGE_SIZE}"
+
+        if self.location:
+            encoded_location = urllib.parse.quote_plus(self.location.strip())
+            url += f"&query.locn={encoded_location}"
+            logger.info(f"Adding location filter to URL: '{self.location}'")
+
         logger.info(f"Searching clinical trials with URL: {url}")
 
         try:
@@ -127,92 +136,135 @@ class StudienAgent(Agent):
             response.raise_for_status() # Raises HTTPError for bad responses (4xx or 5xx)
             data = response.json()
             studies = data.get("studies", [])
-            trial_summaries = []
+            trial_summaries = [] # This will now be a list of dictionaries
+
             for study in studies:
                 protocol = study.get("protocolSection", {})
                 id_module = protocol.get("identificationModule", {})
                 status_module = protocol.get("statusModule", {})
                 desc_module = protocol.get("descriptionModule", {})
+                locations_module = protocol.get("contactsLocationsModule", {})
 
                 title = id_module.get("officialTitle", "N/A")
                 nct_id = id_module.get("nctId", "N/A")
                 status = status_module.get("overallStatus", "Unknown")
                 summary = desc_module.get("briefSummary", "No summary provided.")
 
-                trial_summaries.append((title, nct_id, status, summary))
+                # --- Extract Location Data ---
+                locations_list = []
+                api_locations = locations_module.get("locations", []) # Get the list of locations
+                for loc in api_locations:
+                    facility = loc.get("facility", {})
+                    city = loc.get("city", "N/A")
+                    country = loc.get("country", "N/A")
+                    # Format the location string
+                    location_str = f"{city}, {country}"
+                    if city: # Add state if available
+                         location_str = f"{facility}, {city}, {country}"
+                    locations_list.append(location_str)
+                # --- End Extract Location Data ---
 
-            logger.info(f"Found {len(trial_summaries)} clinical trials for query: '{search_terms}'")
+                # Append a dictionary for the study instead of a tuple
+                trial_summaries.append({
+                    "title": title,
+                    "nct_id": nct_id,
+                    "status": status,
+                    "summary": summary,
+                    "locations": locations_list # Add the list of locations
+                })
+
+            logger.info(f"Found {len(trial_summaries)} clinical trials for query: '{search_terms}'{f' in {self.location}' if self.location else ''}")
             return trial_summaries
 
         except requests.exceptions.Timeout:
-             logger.error(f"API request timed out for clinical trials search: {url}")
-             return []
+            logger.error(f"API request timed out for clinical trials search: {url}")
+            return []
         except requests.exceptions.RequestException as e:
             logger.error(f"API error during clinical trials search ({url}): {e}")
             return []
-        except Exception as e: # Catch potential JSON parsing errors etc.
+        except Exception as e:  # Catch potential JSON parsing errors etc.
             logger.error(f"Unexpected error during clinical trials processing: {e}", exc_info=True)
             return []
 
-    def _parse_context(self, diagnosis_context: str) -> tuple[str, str, str]:
-        """Extracts diagnosis, symptoms, and stage from the context string."""
-        diagnosis, symptoms, stage = "", "", ""
+    def _parse_context(self, diagnosis_context: str) -> str: # Return type hint is str now
+        """Extracts diagnosis from the context string for search terms."""
+        diagnosis = ""
         context_lines = diagnosis_context.strip().split('\n')
         for line in context_lines:
-            line_lower = line.lower()
-            if ":" in line:
-                 key, value = line.split(":", 1)
-                 key = key.strip().lower()
-                 value = value.strip()
-                 if "diagnose" in key:
-                     diagnosis = value
-                 elif "symptome" in key:
-                     symptoms = value
-                 elif "stadium" in key: # Check for 'stadium'
-                     stage = value
+            line = line.strip()
+            if line.lower().startswith("diagnose:"):
+                 # Assuming format "Diagnose: CODE (TEXT)"
+                 parts = line.split(":", 1)[1].strip().split("(", 1)
+                 if len(parts) > 1:
+                    main_diagnosis_text = parts[1].split(")", 1)[0].strip()
+                    if main_diagnosis_text:
+                         diagnosis = main_diagnosis_text
+                    else: # Fallback if parentheses are empty
+                         diagnosis = parts[0].strip()
+                 else:
+                    # If no text in parentheses, just use the code/value after "Diagnose:"
+                    diagnosis = line.split(":", 1)[1].strip()
+                 break
+        return diagnosis
 
-        logger.debug(f"Parsed context for studies: D='{diagnosis}', S='{symptoms}', St='{stage}'")
-        return diagnosis, symptoms, stage
-
-
-    def respond(self, diagnosis_context: str) -> list[tuple[str, str, str, str]]:
-        """Parses context, searches trials, and returns results."""
-        diagnosis, symptoms, stage = self._parse_context(diagnosis_context)
-
-        trials = self._search_clinical_trials(diagnosis, symptoms, stage)
+    def respond(self, diagnosis_context: str) -> list[dict]:
+        """Parses context, searches trials using the stored location, and returns results as list of dicts."""
+        diagnosis_search_term = self._parse_context(diagnosis_context)
+        trials = self._search_clinical_trials(diagnosis_search_term)
 
         if not trials:
             logger.info("No suitable clinical trials found or search failed.")
-            return [] # Return empty list consistently
+            return []
 
-        # Return list of tuples directly, matching expected format in app
+        # Return list of dictionaries directly
         return trials
-
 
 class TherapieAgent(Agent):
     """Generates a therapy recommendation based on provided information."""
-    def __init__(self, llm: OllamaLLM):
+    def __init__(self, llm: OllamaLLM, guideline_provider: str):
         super().__init__(
             "Therapieempfehlung",
             "Erstelle eine detaillierte, leitlinienbasierte Therapieempfehlung basierend auf der Diagnoseanalyse.",
              llm
          )
+        # Store the guideline provider
+        self.guideline_provider = guideline_provider
+        logger.info(f"TherapieAgent initialized with guideline: {self.guideline_provider}")
 
     def respond(self, context: str) -> str:
         """Uses LLM to generate therapy recommendations."""
         template = """
-        Du bist ein Onkologie-Experte, spezialisiert auf Therapieplanung. Deine Rolle ist: {role}
-        Basierend auf der folgenden diagnostischen Zusammenfassung und den ursprünglichen Patienteninformationen (implizit im Kontext enthalten), erstelle eine umfassende und begründete Therapieempfehlung. Berücksichtige die angegebene Leitlinie.
+            # Therapieempfehlung für Tumorboard
 
-        Diagnostische Zusammenfassung / Kontext:
-        ---
-        {context}
-        ---
+            Du bist ein erfahrener Onkologie-Experte, spezialisiert auf Therapieplanung. Deine Aufgabe ist es, basierend auf der bereitgestellten diagnostischen Zusammenfassung und unter strikter Berücksichtigung der angegebenen Leitlinie, eine präzise und begründete Therapieempfehlung für den besprochenen Patienten zu erstellen.
 
-        Therapieempfehlung (inkl. Begründung):
-        """
-        return self._invoke_llm(template, {"role": self.role_description, "context": context})
+            **Deine Rolle:** {role}
 
+            **Leitlinie für diese Empfehlung:** {guideline_provider}
+
+            **Patienten-Kontext und Diagnostische Zusammenfassung:**
+            ---
+            {context}
+            ---
+
+            **Anweisungen für die Erstellung der Therapieempfehlung:**
+            1.  Analysiere die bereitgestellten Informationen im Abschnitt "Patienten-Kontext und Diagnostische Zusammenfassung" sorgfältig.
+            2.  Berücksichtige **ausschließlich** die angegebene Leitlinie: **{guideline_provider}**. Ignoriere andere Leitlinien oder allgemeine Informationen, es sei denn, sie sind im Kontext als relevant aufgeführt.
+            3.  Formuliere **EINE EINZIGE, KONKRETE THERAPIETHERAPIE**, die am besten zu den Fakten im Kontext und der angegebenen Leitlinie passt.
+            4.  Sollte im Kontext bereits eine mögliche Therapie vorgeschlagen sein, bewerte diese kritisch im Licht der Leitlinie und integriere oder ersetze sie durch die am besten begründete Empfehlung.
+            5.  Gib eine klare und prägnante Begründung für die empfohlene Therapie. Die Begründung muss sich explizit auf die relevanten Punkte aus dem Patienten-Kontext (Diagnose, Stadium, relevante Vorerkrankungen etc.) und die Empfehlungen der Leitlinie beziehen.
+            6.  Sollten die im Kontext enthaltenen Informationen für eine definitive Therapieempfehlung unzureichend sein (z.B. fehlendes Staging, unklare Histologie), gib dies an und schlage notwendige weitere diagnostische Schritte vor.
+            7.  Gib **ausschließlich** die Therapieempfehlung und die Begründung aus. Verwende dabei die unten angegebene Struktur der Überschriften. Füge keine zusätzlichen einleitenden oder abschliessenden Sätze hinzu, die nicht Teil der Empfehlung oder Begründung sind.
+
+            **Deine Antwort (Im folgenden Markdown-Format):**
+
+            **Therapieempfehlung:**
+            [Hier deine einzige, konkrete Therapieempfehlung einfügen. Beginne direkt mit der Empfehlung.]
+
+            **Begründung:**
+            [Hier deine detaillierte Begründung einfügen. Beziehe dich auf den Kontext und die Leitlinie.]
+            """
+        return self._invoke_llm(template, {"role": self.role_description, "guideline_provider": self.guideline_provider, "context": context})
 
 class ReportAgent:
     """Generates and saves a structured medical report."""

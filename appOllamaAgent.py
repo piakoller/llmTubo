@@ -54,6 +54,7 @@ with st.sidebar:
     st.header("Einstellungen")
     selected_patient_id = st.selectbox("Patienten-ID auswählen", df_patients["ID"].unique().tolist())
     guideline_provider = st.selectbox("Leitlinie wählen", ["ESMO", "Onkopedia", "S3"])
+    selected_location = st.text_input("Suche Klinische Studien in (Land/Ort)", value="Switzerland")
 
 # --- Patient Data Display and Input ---
 try:
@@ -92,7 +93,8 @@ patient_data = {
     "ann_arbor_stage": ann_arbor_stage,
     "accompanying_symptoms": accompanying_symptoms,
     "prognosis_score": prognosis_score,
-    "guideline": guideline_provider
+    "guideline": guideline_provider,
+    "location": selected_location
 }
 
 # Alternative: Use the Patient class if it provides more methods/logic
@@ -110,8 +112,8 @@ if st.button("Multi-Agenten Empfehlung generieren"):
 
             # Initialize Agents with the shared LLM instance
             diagnostik_agent = DiagnostikAgent(llm)
-            studien_agent = StudienAgent(llm)
-            therapie_agent = TherapieAgent(llm)
+            studien_agent = StudienAgent(llm, location=patient_data.get('location'))
+            therapie_agent = TherapieAgent(llm, patient_data['guideline'])
             report_agent = ReportAgent(llm, output_dir=REPORT_DIR, file_type=REPORT_FILE_TYPE)
             logging.info("Agents initialized.")
 
@@ -138,9 +140,11 @@ if st.button("Multi-Agenten Empfehlung generieren"):
         # Context specifically for StudienAgent
         studien_context = f"""
             Diagnose: {patient_data['main_diagnosis']}
-            Symptome: {patient_data['accompanying_symptoms']}
-            Stadium: {patient_data['ann_arbor_stage']}
         """
+        # If needed include more details for the StudienAgent context
+        # Symptome: {patient_data['accompanying_symptoms']}
+        # Stadium: {patient_data['ann_arbor_stage']}
+        
         logging.info("Contexts prepared.")
 
         # --- Agent Execution ---
@@ -175,8 +179,8 @@ if st.button("Multi-Agenten Empfehlung generieren"):
             logging.info(f"Diagnostik Agent finished in {runtimes['Diagnostik']:.2f}s. Starting Therapie Agent.")
             diagnostik_output = results["Diagnostik"]
 
-            # Step 4: Start Therapie Agent (needs Diagnostik output)
-            therapie_runner = AgentRunner(therapie_agent, "Therapie", diagnostik_output)
+            # Step 4: Start Therapie Agent (needs Diagnostik output)        
+            therapie_runner = AgentRunner(therapie_agent, "Therapie", patient_data['guideline'], diagnostik_output)
             therapie_thread = threading.Thread(target=therapie_runner.run, name="TherapieThread")
             threads.append(therapie_thread)
             therapie_thread.start()
@@ -235,38 +239,47 @@ if st.button("Multi-Agenten Empfehlung generieren"):
                 # Add a little vertical space before the first study
                 st.write("")
 
-                # Iterate through the list of study tuples
-                for i, (title, nct_id, status, summary) in enumerate(study_list):
-                    # Construct the link URL
+                # --- MODIFIED display loop to handle list of dicts ---
+                for i, study in enumerate(study_list):
+                    # Access data using dictionary keys
+                    title = study.get("title", "N/A")
+                    nct_id = study.get("nct_id", "N/A")
+                    status = study.get("status", "Unknown")
+                    summary = study.get("summary", "No summary provided.")
+                    locations = study.get("locations", []) # Get the list of locations
+
                     link_url = f"https://clinicaltrials.gov/study/{nct_id}" if nct_id and nct_id != "N/A" else None
 
-                    # --- Display Study Information ---
-
-                    # Use a subheader for the title for clear separation
                     st.subheader(f"Studie {i+1}")
                     st.markdown(f"{title}" if title else "_Kein Titel verfügbar._", unsafe_allow_html=True)
-                    # Display key metadata using markdown and columns for alignment
-                    col1, col2 = st.columns([1, 4]) # Adjust ratio as needed
+
+                    col1, col2 = st.columns([1, 4])
                     with col1:
                         st.markdown("**NCT ID:**")
                         st.markdown("**Status:**")
+                        st.markdown("**Orte:**")
                         if link_url:
                             st.markdown("**Link:**")
                     with col2:
-                        st.markdown(f"`{nct_id}`" if nct_id else "N/A") # Use code formatting for ID
+                        st.markdown(f"`{nct_id}`" if nct_id else "N/A")
                         st.markdown(status if status else "Unbekannt")
+                        # --- Display Locations ---
+                        if locations:
+                            # Join locations with a separator, or use bullet points
+                            st.markdown(", ".join(locations))
+                            # Alternative: bullet points
+                            # for loc in locations:
+                            #     st.markdown(f"- {loc}")
+                        else:
+                            st.markdown("Keine Orte verfügbar")
                         if link_url:
-                            # Create a clickable markdown link
                             st.markdown(f"[Zur Studie auf ClinicalTrials.gov]({link_url})", unsafe_allow_html=True)
                         else:
                             st.markdown("Kein Link verfügbar")
 
-                    # Use an expander for the potentially long description
                     with st.expander("Kurzbeschreibung"):
-                        # Display summary, handle if it's missing or empty
                         st.markdown(summary if summary else "_Keine Beschreibung verfügbar._")
 
-                    # Add a visual divider between studies
                     st.divider()
                 # --- End of Study Loop ---
 
