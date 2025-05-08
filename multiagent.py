@@ -1,18 +1,26 @@
+# multiagent.py
 import requests
 import os
 import urllib.parse
 import time
 import logging
 from abc import ABC, abstractmethod
+from typing import List, Dict, Any
+from typing import Union
 
 from langchain_ollama import OllamaLLM
 from langchain.prompts import PromptTemplate
 
+from geopy.geocoders import Nominatim
+from geopy.distance import geodesic
+
 # --- Configuration ---
 CLINICAL_TRIALS_API_URL = "https://clinicaltrials.gov/api/v2/studies"
-CLINICAL_TRIALS_PAGE_SIZE = 5
+CLINICAL_TRIALS_PAGE_SIZE = 10
 REQUESTS_TIMEOUT = 30 # Timeout for API calls in seconds
-MAX_LOCATIONS_TO_DISPLAY = 5
+MAX_LOCATIONS_TO_DISPLAY = 3
+GEOLOCATOR = Nominatim(user_agent="llm_tumorboard_app") 
+GEOCODE_CACHE = {}  # Cache for geocoding results
 
 # --- Logging ---
 # Logger can be configured externally, but setting a default here is helpful
@@ -20,6 +28,31 @@ logger = logging.getLogger(__name__)
 if not logger.hasHandlers():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - [%(threadName)s] - %(message)s")
 
+def get_geopoint(location_string: str) -> Union[tuple[float, float], None]:
+    """Geocodes a location string to latitude and longitude using Nominatim."""
+    if not location_string or not location_string.strip():
+        return None
+    normalized_location = location_string.strip().lower()
+    if normalized_location in GEOCODE_CACHE:
+        return GEOCODE_CACHE[normalized_location]
+
+    logger.info(f"Geocoding location: '{location_string}'")
+    try:
+        # Increase timeout for geocoding as it's an external service call
+        location = GEOLOCATOR.geocode(location_string, timeout=10)
+        if location:
+            geopoint = (location.latitude, location.longitude)
+            GEOCODE_CACHE[normalized_location] = geopoint
+            logger.info(f"Geocoded '{location_string}' to {geopoint}")
+            return geopoint
+        else:
+            logger.warning(f"Could not geocode location: '{location_string}'")
+            GEOCODE_CACHE[normalized_location] = None # Cache failed lookups too
+            return None
+    except Exception as e:
+        logger.error(f"Geocoding failed for '{location_string}': {e}")
+        GEOCODE_CACHE[normalized_location] = None # Cache failed lookups too
+        return None
 
 # --- Agent Runner ---
 class AgentRunner:
@@ -110,79 +143,143 @@ class StudienAgent(Agent):
             "Filtere relevante klinische Studien von clinicaltrials.gov basierend auf Diagnose, Symptomen, Stadium und Ort.",
             llm
         )
-        self.location = location
-        logger.info(f"StudienAgent initialized with location: '{self.location}'")
+        self.location_string = location
+        logger.info(f"StudienAgent initialized with location: '{self.location_string}'")
 
+        if self.location_string:
+            # Geocode the user's input location once during initialization
+            self.location_geopoint = get_geopoint(self.location_string)
+        if not self.location_geopoint:
+            logger.warning(f"Could not geocode provided location: '{self.location_string}'. Distance calculation will not be possible.")
+        logger.info(f"StudienAgent initialized with location string: '{self.location_string}'. Geopoint: {self.location_geopoint}")
 
-    def _search_clinical_trials(self, diagnosis: str) -> list[dict]:
-        """Performs the search on clinicaltrials.gov API."""
-        if not diagnosis:  # Basic validation
-            logger.warning("Skipping clinical trial search: Diagnosis is missing.")
-            return []
+    def _search_clinical_trials(self, diagnosis: str) -> List[Dict[str, Any]]:
+        """
+        Performs the search on clinicaltrials.gov API (v2 endpoint),
+        calculates distances, and extracts location data.
+        """
+        if not diagnosis:
+             logger.warning("Skipping clinical trial search: Diagnosis is missing.")
+             return []
 
         search_terms = f"{diagnosis}"
         query = urllib.parse.quote_plus(search_terms)
-        url = f"{CLINICAL_TRIALS_API_URL}?query.term={query}&pageSize={CLINICAL_TRIALS_PAGE_SIZE}"
 
-        if self.location:
-            encoded_location = urllib.parse.quote_plus(self.location.strip())
+        # Build base URL
+        # url = f"{CLINICAL_TRIALS_API_URL}?query.term={query}&pageSize={CLINICAL_TRIALS_PAGE_SIZE}"
+        url = f"{CLINICAL_TRIALS_API_URL}?query.term={query}"
+
+        # Use query.locn for filtering by location string BEFORE getting results
+        # This is still useful for limiting the initial search pool to relevant areas.
+        # Distance calculation refines this *after* fetching.
+        if self.location_string:
+            encoded_location = urllib.parse.quote_plus(self.location_string.strip())
             url += f"&query.locn={encoded_location}"
-            logger.info(f"Adding location filter to URL: '{self.location}'")
+            logger.info(f"Adding location string filter to URL: '{self.location_string}' using query.locn")
 
         logger.info(f"Searching clinical trials with URL: {url}")
 
         try:
             response = requests.get(url, timeout=REQUESTS_TIMEOUT)
-            response.raise_for_status() # Raises HTTPError for bad responses (4xx or 5xx)
+            response.raise_for_status()
             data = response.json()
             studies = data.get("studies", [])
-            trial_summaries = [] # This will now be a list of dictionaries
+            processed_studies = [] # List to hold studies with added distance info
 
             for study in studies:
                 protocol = study.get("protocolSection", {})
                 id_module = protocol.get("identificationModule", {})
                 status_module = protocol.get("statusModule", {})
                 desc_module = protocol.get("descriptionModule", {})
+                # Use contactsLocationsModule for V2 geoPoint
                 locations_module = protocol.get("contactsLocationsModule", {})
 
                 title = id_module.get("officialTitle", "N/A")
-                nct_id = id_module.get("nctId", "N/A")
-                status = status_module.get("overallStatus", "Unknown")
-                summary = desc_module.get("briefSummary", "No summary provided.")
+                nct_id = id_module.get("nctId", "NCT ID nicht verfügbar")
+                status = status_module.get("overallStatus", "Status unbekannt")
+                summary = desc_module.get("briefSummary", "Keine Zusammenfassung verfügbar.")
 
-                # --- Extract Location Data ---
-                locations_list = []
-                api_locations = locations_module.get("locations", []) # Get the list of locations
+                locations_list_with_distances = []
+                api_locations = locations_module.get("locations", [])
+
+                min_distance_km = float('inf') # Track minimum distance for this study
+
+                # Process each location within the study
                 for loc in api_locations:
-                    facility = loc.get("facility", {})
+                    facility = loc.get("facility", "N/A")
                     city = loc.get("city", "N/A")
+                    state = loc.get("state", "") # State is optional
                     country = loc.get("country", "N/A")
-                    # Format the location string
-                    location_str = f"{city}, {country}"
-                    if city: # Add state if available
-                         location_str = f"{facility}, {city}, {country}"
-                    locations_list.append(location_str)
-                # --- End Extract Location Data ---
+                    geo_point_data = loc.get("geoPoint") # Get geopoint data
 
-                # Append a dictionary for the study instead of a tuple
-                trial_summaries.append({
+                    location_str_parts = [facility] # Start with facility
+                    if city and city != "N/A":
+                         location_str_parts.append(city)
+                    if state and state != "": # Only add state if it exists
+                         location_str_parts.append(state)
+                    if country and country != "N/A":
+                         location_str_parts.append(country)
+
+                    # Join parts, removing any N/A or empty strings and duplicates
+                    location_parts_cleaned = [p for p in location_str_parts if p not in ["N/A", ""] and p is not None]
+                    # Remove potential duplicates like "Bern, Bern, Switzerland" if state=city
+                    location_parts_unique = []
+                    for p in location_parts_cleaned:
+                        if p not in location_parts_unique:
+                            location_parts_unique.append(p)
+                    location_str = ", ".join(location_parts_unique)
+                    if not location_str: location_str = "Keine Ortsangaben verfügbar" # Fallback if all parts are missing
+
+                    distance_km = None # Distance for this specific location
+
+                    # Calculate distance if source location was geocoded and study location has geopoint
+                    if self.location_geopoint and geo_point_data:
+                        try:
+                            study_lat = geo_point_data.get('lat')
+                            study_lon = geo_point_data.get('lon')
+                            if study_lat is not None and study_lon is not None:
+                                study_geopoint = (study_lat, study_lon)
+                                distance_km = geodesic(self.location_geopoint, study_geopoint).km
+                                min_distance_km = min(min_distance_km, distance_km) # Update min distance for the study
+                        except Exception as e:
+                            logger.debug(f"Could not calculate geodesic distance for study {nct_id}, location {location_str}: {e}")
+                            # distance_km remains None
+
+                    locations_list_with_distances.append({
+                        "name": location_str,
+                        "distance_km": distance_km # Store distance for this specific location
+                    })
+
+                # Handle case where min_distance_km is still infinity (no locations or geocoding failed)
+                final_min_distance = min_distance_km if min_distance_km != float('inf') else None
+
+                processed_studies.append({
                     "title": title,
                     "nct_id": nct_id,
                     "status": status,
                     "summary": summary,
-                    "locations": locations_list # Add the list of locations
+                    "locations": locations_list_with_distances, # List now contains dicts with distance
+                    "min_distance_km": final_min_distance # Store the minimum distance for sorting
                 })
 
-            logger.info(f"Found {len(trial_summaries)} clinical trials for query: '{search_terms}'{f' in {self.location}' if self.location else ''}")
-            return trial_summaries
+            logger.info(f"Found {len(processed_studies)} studies after initial API filter.")
+
+            # --- Sort studies by minimum distance ---
+            # Sorts studies where min_distance_km is not None first, then by distance ascending
+            # Studies with no geocodable locations will appear at the end
+            sorted_studies = sorted(processed_studies, key=lambda x: x.get('min_distance_km') if x.get('min_distance_km') is not None else float('inf'))
+            logger.info(f"Sorted {len(sorted_studies)} studies by minimum distance.")
+            # --- End Sort ---
+
+            return sorted_studies
 
         except requests.exceptions.Timeout:
-            logger.error(f"API request timed out for clinical trials search: {url}")
-            return []
+             logger.error(f"API request timed out for clinical trials search: {url}")
+             return []
         except requests.exceptions.RequestException as e:
             logger.error(f"API error during clinical trials search ({url}): {e}")
             return []
-        except Exception as e:  # Catch potential JSON parsing errors etc.
+        except Exception as e:
             logger.error(f"Unexpected error during clinical trials processing: {e}", exc_info=True)
             return []
 

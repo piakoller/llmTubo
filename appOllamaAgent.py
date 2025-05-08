@@ -1,3 +1,4 @@
+# appOllamaAgent.py
 import pandas as pd
 import streamlit as st
 import time
@@ -8,7 +9,7 @@ import os
 from langchain_ollama import OllamaLLM
 
 # Assuming multiagent.py and patient.py are in the same directory or accessible
-from multiagent import DiagnostikAgent, StudienAgent, TherapieAgent, ReportAgent, AgentRunner
+from multiagent import DiagnostikAgent, StudienAgent, TherapieAgent, ReportAgent, AgentRunner, get_geopoint
 from patient import Patient
 from settings import TUBO_EXCEL_FILE_PATH # Assuming settings.py exists
 
@@ -23,9 +24,6 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - [%(threadName)s] - %(message)s"
 )
-
-# --- Helper Functions ---
-# AgentRunner moved to multiagent.py for better organization
 
 def load_data(file_path):
     """Loads patient data from the specified Excel file."""
@@ -54,7 +52,7 @@ with st.sidebar:
     st.header("Einstellungen")
     selected_patient_id = st.selectbox("Patienten-ID auswählen", df_patients["ID"].unique().tolist())
     guideline_provider = st.selectbox("Leitlinie wählen", ["ESMO", "Onkopedia", "S3"])
-    selected_location = st.text_input("Suche Klinische Studien in (Land/Ort)", value="Switzerland")
+    selected_location = st.text_input("Suche Klinische Studien in (Land/Ort)", value="Bern, Switzerland")
 
 # --- Patient Data Display and Input ---
 try:
@@ -104,6 +102,14 @@ patient_data = {
 # --- Agent Execution Logic ---
 if st.button("Multi-Agenten Empfehlung generieren"):
     start_time_total = time.perf_counter()
+    # Perform geocoding once here before initializing agents
+    user_geopoint = None
+    if patient_data.get('location'):
+        with st.spinner(f"Geokodierung von '{patient_data['location']}'..."):
+            user_geopoint = get_geopoint(patient_data['location'])
+            if not user_geopoint:
+                 st.warning(f"Konnte '{patient_data['location']}' nicht geokodieren. Studien können nicht nach Entfernung sortiert werden.")
+
     with st.spinner("Initialisiere LLM und Agenten..."):
         try:
             # Initialize LLM
@@ -228,6 +234,15 @@ if st.button("Multi-Agenten Empfehlung generieren"):
 
         # Studienempfehlung
         st.markdown("### 🔬 Empfohlene klinische Studien")
+
+        location_info = patient_data.get('location')
+        if location_info and user_geopoint:
+             st.info(f"Suche auf ClinicalTrials.gov nach Studien in '{location_info}'. Studien sind nach der Entfernung des nächstgelegenen Standorts zu Ihrem Suchort sortiert. Es werden die ersten 3 Standorte pro Studie angezeigt.")
+        elif location_info and not user_geopoint:
+             st.warning(f"Konnnte '{location_info}' nicht geokodieren. Studien konnten nicht nach Entfernung sortiert werden. Die Anzeige erfolgt basierend auf der API-Reihenfolge.")
+        else:
+             st.info("Kein Ort für die Studiensuche angegeben.")
+
         study_list = results.get("Studien", []) # Default to empty list
 
         if "Studien" in errors:
@@ -243,42 +258,64 @@ if st.button("Multi-Agenten Empfehlung generieren"):
                 for i, study in enumerate(study_list):
                     # Access data using dictionary keys
                     title = study.get("title", "N/A")
-                    nct_id = study.get("nct_id", "N/A")
-                    status = study.get("status", "Unknown")
-                    summary = study.get("summary", "No summary provided.")
-                    locations = study.get("locations", []) # Get the list of locations
+                    nct_id = study.get("nct_id", "NCT ID nicht verfügbar")
+                    status = study.get("status", "Status unbekannt")
+                    summary = study.get("summary", "Keine Zusammenfassung verfügbar.")
+                    locations_with_distances = study.get("locations", []) # List of dicts: [{"name": "...", "distance_km": ...}]
+                    min_distance_km = study.get("min_distance_km") # Overall min distance for the study
 
-                    link_url = f"https://clinicaltrials.gov/study/{nct_id}" if nct_id and nct_id != "N/A" else None
+                    # Limit the number of locations displayed
+                    locations_to_display = locations_with_distances[:3]
+                    more_locations_count = len(locations_with_distances) - len(locations_to_display)
 
-                    st.subheader(f"Studie {i+1}")
-                    st.markdown(f"{title}" if title else "_Kein Titel verfügbar._", unsafe_allow_html=True)
+                    link_url = f"https://clinicaltrials.gov/study/{nct_id}" if nct_id and nct_id != "NCT ID nicht verfügbar" else None
 
+
+                    st.subheader(f"Studie {i+1}: {title}")
+
+                    # Display key metadata and distances
                     col1, col2 = st.columns([1, 4])
                     with col1:
                         st.markdown("**NCT ID:**")
                         st.markdown("**Status:**")
-                        st.markdown("**Orte:**")
-                        if link_url:
-                            st.markdown("**Link:**")
+                        # Add Min Distance label
+                        st.markdown("**Nächster Ort:**")
                     with col2:
-                        st.markdown(f"`{nct_id}`" if nct_id else "N/A")
-                        st.markdown(status if status else "Unbekannt")
-                        # --- Display Locations ---
-                        if locations:
-                            # Join locations with a separator, or use bullet points
-                            st.markdown(", ".join(locations))
-                            # Alternative: bullet points
-                            # for loc in locations:
-                            #     st.markdown(f"- {loc}")
-                        else:
-                            st.markdown("Keine Orte verfügbar")
-                        if link_url:
-                            st.markdown(f"[Zur Studie auf ClinicalTrials.gov]({link_url})", unsafe_allow_html=True)
-                        else:
-                            st.markdown("Kein Link verfügbar")
+                         st.markdown(f"`{nct_id}`")
+                         st.markdown(status)
+                         # Display the minimum distance for the study
+                         if min_distance_km is not None:
+                              st.markdown(f"{min_distance_km:.1f} km entfernt") # Format distance to 1 decimal place
+                         else:
+                              st.markdown("Entfernung unbekannt")
+
+
+                    # Display individual Locations with their distances, sorted by distance
+                    st.markdown("**Standorte:**") # Label for individual locations
+                    if locations_to_display:
+                        # Sort locations by distance (ascending)
+                        sorted_locations = sorted(locations_to_display, key=lambda loc: loc.get("distance_km", float('inf')))
+                        for loc_data in sorted_locations:
+                            loc_name = loc_data.get("name", "Keine Ortsangaben verfügbar")
+                            loc_distance = loc_data.get("distance_km")
+                            if loc_distance is not None:
+                                st.markdown(f"- {loc_name} ({loc_distance:.1f} km)")
+                            else:
+                                st.markdown(f"- {loc_name} (Entfernung unbekannt)")
+                        if more_locations_count > 0:
+                            st.markdown(f"... und {more_locations_count} weitere Standorte.") # Indicate if more exist
+                    else:
+                        st.markdown("Keine Standorte verfügbar")
+
+                    # Add Link below locations
+                    if link_url:
+                        st.markdown(f"**Link:** [Zur Studie auf ClinicalTrials.gov]({link_url})", unsafe_allow_html=True)
+                    else:
+                        st.markdown("**Link:** Nicht verfügbar")
+
 
                     with st.expander("Kurzbeschreibung"):
-                        st.markdown(summary if summary else "_Keine Beschreibung verfügbar._")
+                        st.markdown(summary)
 
                     st.divider()
                 # --- End of Study Loop ---
