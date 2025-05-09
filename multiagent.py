@@ -191,8 +191,8 @@ class StudienAgent(Agent):
                 id_module = protocol.get("identificationModule", {})
                 status_module = protocol.get("statusModule", {})
                 desc_module = protocol.get("descriptionModule", {})
-                # Use contactsLocationsModule for V2 geoPoint
                 locations_module = protocol.get("contactsLocationsModule", {})
+                moreInfoModule = protocol.get("moreInfoModule", {})
 
                 title = id_module.get("officialTitle", "N/A")
                 nct_id = id_module.get("nctId", "NCT ID nicht verfügbar")
@@ -201,8 +201,9 @@ class StudienAgent(Agent):
 
                 locations_list_with_distances = []
                 api_locations = locations_module.get("locations", [])
-
+                
                 min_distance_km = float('inf') # Track minimum distance for this study
+                contact = moreInfoModule.get("contact", {})
 
                 # Process each location within the study
                 for loc in api_locations:

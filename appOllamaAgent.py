@@ -19,6 +19,8 @@ LLM_TEMPERATURE = 0.7
 REPORT_DIR = "generated_report"
 REPORT_FILE_TYPE = "md" # Stick to markdown as per ReportAgent implementation
 
+DEBUG_MODE = True # Set to True for detailed logging
+
 # --- Logging Setup ---
 logging.basicConfig(
     level=logging.INFO,
@@ -159,44 +161,132 @@ if st.button("Multi-Agenten Empfehlung generieren"):
         errors = {}
         threads = []
 
-        # Step 1 & 2: Start Diagnostik and Studien Agents in Parallel
-        logging.info("Starting Diagnostik and Studien agents in parallel.")
-        diag_runner = AgentRunner(diagnostik_agent, "Diagnostik", base_context)
-        studien_runner = AgentRunner(studien_agent, "Studien", studien_context)
+        if DEBUG_MODE:
+            logging.getLogger().setLevel(logging.DEBUG)
+            logging.debug("Debug mode is enabled. Only StudienAgent will run.")
 
-        diag_thread = threading.Thread(target=diag_runner.run, name="DiagnostikThread")
-        studien_thread = threading.Thread(target=studien_runner.run, name="StudienThread")
+            # StudienAgent synchron ausführen
+            studien_runner = AgentRunner(studien_agent, "Studien", studien_context)
+            studien_runner.run()
 
-        threads.extend([diag_thread, studien_thread])
-        diag_thread.start()
-        studien_thread.start()
+            # Ergebnisse anzeigen
+            runtimes["Studien"] = studien_runner.runtime
+            results["Studien"] = studien_runner.result
 
-        # Step 3: Wait specifically for Diagnostik to finish
-        diag_thread.join()
-        runtimes["Diagnostik"] = diag_runner.runtime
-        if diag_runner.exception:
-            errors["Diagnostik"] = diag_runner.exception
-            st.error(f"Diagnostik Agent fehlgeschlagen: {diag_runner.exception}")
-            logging.error("Diagnostik Agent failed.", exc_info=diag_runner.exception)
-            # Decide if stopping is necessary - Therapy depends on it
-            st.stop()
+            if studien_runner.exception:
+                errors["Studien"] = studien_runner.exception
+                st.error(f"Studien Agent fehlgeschlagen: {studien_runner.exception}")
+            else:
+                st.success(f"Studien Agent erfolgreich in {runtimes['Studien']:.2f}s ausgeführt.")
+                st.markdown("### 🔬 Empfohlene klinische Studien")
+
+                location_info = patient_data.get('location')
+                if location_info and user_geopoint:
+                    st.info(f"Suche auf ClinicalTrials.gov nach Studien in '{location_info}'. Studien sind nach der Entfernung des nächstgelegenen Standorts zu Ihrem Suchort sortiert. Es werden die ersten 3 Standorte pro Studie angezeigt.")
+                elif location_info and not user_geopoint:
+                    st.warning(f"Konnte '{location_info}' nicht geokodieren. Studien konnten nicht nach Entfernung sortiert werden.")
+                else:
+                    st.info("Kein Ort für die Studiensuche angegeben.")
+
+                study_list = results.get("Studien", [])
+                if not study_list:
+                    st.info("Keine passenden klinischen Studien gefunden oder Agent hat keine zurückgegeben.")
+                else:
+                    for i, study in enumerate(study_list):
+                        title = study.get("title", "N/A")
+                        nct_id = study.get("nct_id", "NCT ID nicht verfügbar")
+                        status = study.get("status", "Status unbekannt")
+                        summary = study.get("summary", "Keine Zusammenfassung verfügbar.")
+                        locations_with_distances = study.get("locations", [])
+                        min_distance_km = study.get("min_distance_km")
+                        locations_to_display = locations_with_distances[:3]
+                        more_locations_count = len(locations_with_distances) - len(locations_to_display)
+                        link_url = f"https://clinicaltrials.gov/study/{nct_id}" if nct_id else None
+
+                        st.subheader(f"Studie {i+1}: {title}")
+
+                        col1, col2 = st.columns([1, 4])
+                        with col1:
+                            st.markdown("**NCT ID:**")
+                            st.markdown("**Status:**")
+                            st.markdown("**Nächster Ort:**")
+                        with col2:
+                            st.markdown(f"`{nct_id}`")
+                            st.markdown(status)
+                            if min_distance_km is not None:
+                                st.markdown(f"{min_distance_km:.1f} km entfernt")
+                            else:
+                                st.markdown("Entfernung unbekannt")
+
+                        st.markdown("**Standorte:**")
+                        if locations_to_display:
+                            sorted_locations = sorted(locations_to_display, key=lambda loc: loc.get("distance_km", float('inf')))
+                            for loc_data in sorted_locations:
+                                loc_name = loc_data.get("name", "Keine Ortsangaben verfügbar")
+                                loc_distance = loc_data.get("distance_km")
+                                if loc_distance is not None:
+                                    st.markdown(f"- {loc_name} ({loc_distance:.1f} km)")
+                                else:
+                                    st.markdown(f"- {loc_name} (Entfernung unbekannt)")
+                            if more_locations_count > 0:
+                                st.markdown(f"... und {more_locations_count} weitere Standorte.")
+                        else:
+                            st.markdown("Keine Standorte verfügbar")
+
+                        if link_url:
+                            st.markdown(f"**Link:** [Zur Studie auf ClinicalTrials.gov]({link_url})", unsafe_allow_html=True)
+                        else:
+                            st.markdown("**Link:** Nicht verfügbar")
+
+                        with st.expander("Kurzbeschreibung"):
+                            st.markdown(summary)
+
+                        st.divider()
+
+
+                        st.stop()
+
         else:
-            results["Diagnostik"] = diag_runner.result
-            logging.info(f"Diagnostik Agent finished in {runtimes['Diagnostik']:.2f}s. Starting Therapie Agent.")
-            diagnostik_output = results["Diagnostik"]
+            logging.getLogger().setLevel(logging.INFO)
 
-            # Step 4: Start Therapie Agent (needs Diagnostik output)        
-            therapie_runner = AgentRunner(therapie_agent, "Therapie", patient_data['guideline'], diagnostik_output)
-            therapie_thread = threading.Thread(target=therapie_runner.run, name="TherapieThread")
-            threads.append(therapie_thread)
-            therapie_thread.start()
+            # Step 1 & 2: Start Diagnostik and Studien Agents in Parallel
+            logging.info("Starting Diagnostik and Studien agents in parallel.")
+            diag_runner = AgentRunner(diagnostik_agent, "Diagnostik", base_context)
+            studien_runner = AgentRunner(studien_agent, "Studien", studien_context)
 
-        # Step 5 & 6: Wait for any remaining threads (Studien and Therapie)
-        # We already joined diag_thread, so we wait for the others in the list
-        active_threads = [t for t in threads if t.is_alive()]
-        for t in active_threads:
-             t.join()
-        logging.info("Studien and Therapie agents finished.")
+            diag_thread = threading.Thread(target=diag_runner.run, name="DiagnostikThread")
+            studien_thread = threading.Thread(target=studien_runner.run, name="StudienThread")
+
+            threads.extend([diag_thread, studien_thread])
+            diag_thread.start()
+            studien_thread.start()
+
+            # Step 3: Wait specifically for Diagnostik to finish
+            diag_thread.join()
+            runtimes["Diagnostik"] = diag_runner.runtime
+            if diag_runner.exception:
+                errors["Diagnostik"] = diag_runner.exception
+                st.error(f"Diagnostik Agent fehlgeschlagen: {diag_runner.exception}")
+                logging.error("Diagnostik Agent failed.", exc_info=diag_runner.exception)
+                # Decide if stopping is necessary - Therapy depends on it
+                st.stop()
+            else:
+                results["Diagnostik"] = diag_runner.result
+                logging.info(f"Diagnostik Agent finished in {runtimes['Diagnostik']:.2f}s. Starting Therapie Agent.")
+                diagnostik_output = results["Diagnostik"]
+
+                # Step 4: Start Therapie Agent (needs Diagnostik output)        
+                therapie_runner = AgentRunner(therapie_agent, "Therapie", patient_data['guideline'], diagnostik_output)
+                therapie_thread = threading.Thread(target=therapie_runner.run, name="TherapieThread")
+                threads.append(therapie_thread)
+                therapie_thread.start()
+
+            # Step 5 & 6: Wait for any remaining threads (Studien and Therapie)
+            # We already joined diag_thread, so we wait for the others in the list
+            active_threads = [t for t in threads if t.is_alive()]
+            for t in active_threads:
+                t.join()
+            logging.info("Studien and Therapie agents finished.")
 
         # Collect results and handle errors for Studien
         runtimes["Studien"] = studien_runner.runtime
