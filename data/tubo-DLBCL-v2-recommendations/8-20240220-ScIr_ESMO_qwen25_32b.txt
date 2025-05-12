@@ -1,0 +1,23 @@
+<beurteilung>
+Die Patientin wurde ursprünglich mit einem diffusen großzelligen B-Zell-Lymphom (DLBCL) der Nasennebenhöhlen diagnostiziert, das sich als Stadium IAE klassifizieren ließ und ein hohes Intermediär-Risiko aufwies (IPI 3 von 5). Die Patientin erhielt eine Chemotherapie mit R-CHOP über sechs Zyklen, was zu einer metabolischen und morphologischen vollständigen Remission führte. Im April 2023 trat ein rezidivierender zerebraler Lymphombefall auf, der sich durch multifokale subkortikale Läsionen mit perifokalem Ödem zeigte. Die Patientin erhielt eine Systemtherapie nach dem PRIMAIN-Protokoll über zwei Zyklen und erreichte eine Regression der zerebralen Läsionen, was durch MRI bestätigt wurde.
+
+Die aktuelle MR-Schädel-Aufnahme vom 31.01.2024 zeigt eine vollständige Regression der zerebralen Lymphommanifestation ohne neue Manifestation eines ZNS-Lymphoms. Die Patientin hat jedoch seit zwei Wochen intermittierend "schwarze Flecken" visuell links, was auf eine mögliche Glaskörperinfiltration hinweist.
+
+Die Patientin ist somit in einer vollständigen Remission, aber es besteht ein potenzieller Hinweis auf eine Glaskörperinfiltration, die weiterhin beobachtet werden muss.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf der aktuellen Lage und den Leitlinien wird empfohlen:
+
+1. **Erhaltungstherapie**: Die Patientin sollte eine Erhaltungstherapie mit Procarbazin für sechs Monate erhalten, um das Rezidivrisiko zu senken.
+2. **Augenärztliche Kontrolle**: Eine regelmäßige augenärztliche Kontrolle ist erforderlich, um die mögliche Glaskörperinfiltration zu überwachen und gegebenenfalls eine spezifische Behandlung einzuleiten.
+3. **Regelmäßige Überwachung**: Regelmäßige klinische Untersuchungen sowie MR-Schädel-Aufnahmen zur Überwachung der zerebralen Läsionen sind erforderlich, um ein frühes Rezidiv zu erkennen und gegebenenfalls eine adäquate Therapie einzuleiten.
+</therapieempfehlung>
+
+<begründung>
+Die Empfehlungen basieren auf den aktuellen Leitlinien für die Behandlung von DLBCL, insbesondere im Kontext der zerebralen Manifestation und des Rezidivs. Die Erhaltungstherapie mit Procarbazin ist eine etablierte Methode zur Senkung des Rezidivriskos nach erfolgreicher Systemtherapie. Die regelmäßige augenärztliche Kontrolle ist notwendig, um die mögliche Glaskörperinfiltration zu überwachen und gegebenenfalls eine spezifische Behandlung einzuleiten.
+
+Die Leitlinien empfehlen für Patienten mit DLBCL in vollständiger Remission nach erfolgreicher Therapie eine regelmäßige Überwachung, um ein frühes Rezidiv zu erkennen. Dies ist besonders wichtig bei Patienten mit zerebraler Manifestation und hohem Intermediär-Risiko (IPI 3 von 5), wie in diesem Fall.
+
+Die regelmäßige klinische Überwachung sowie MR-Schädel-Aufnahmen sind daher notwendig, um eine mögliche Rezidivierung frühzeitig zu erkennen und gegebenenfalls eine adäquate Therapie einzuleiten.
+</begründung>

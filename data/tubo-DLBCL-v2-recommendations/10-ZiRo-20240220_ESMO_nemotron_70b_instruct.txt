@@ -1,0 +1,30 @@
+<beurteilung>
+Die Patientin weist eine Diagnose eines diffusen großzelligen B-Zell-Lymphoms (DLBCL) zervikal rechts, NOS, Keimzentrums-Typ, Double-Expressor Phänotyp ED 01/2024. Die Ultraschalluntersuchung vom 22.01.24 zeigt eine sonographisch nicht komplett darstellbare, inhomogene Raumforderung mit hypo-, teilweise anechogenen und hyperechogenen Anteilen sowie randständiger Vaskularisation.
+
+Die Stanzbiopsie/FNP Level III rechts bestätigt die Diagnose eines DLBCL, NOS (WHO HAEM-5/ICC 2022) mit positiven CD20, CD19, partiell positivem CD30, negativem CD10, MUM1, positivem Bcl-6, Bcl-2 und MYC. Der Ki-67-Wert liegt bei 60%.
+
+Zusätzlich weist die Patientin relevante Nebendiagnosen wie arterielle Hypertonie, Tachykardes Vorhofflimmern und eine frische bis subakute LWK1-Fraktur bei Osteoporose (ED 22.08.2023). Die retrospektive Beobachtung einer zunehmenden Schwellung zervikal rechts seit Mitte Dezember 2023, begleitet von Größenprogredienz und teils lokalen Schmerzen, führte zur ärztlichen Vorstellung.
+
+Die Frage nach der Präsentation/Diskussion des PET/CT-Berichts vom 19.02.2024 und dem Vorschlag für 2 Zyklen R-mini-CHOP mit anschließender PET/CT-Verlaufskontrolle (TTE steht aus, bei Anzeichen relevanter Herzinsuffizienz R-GCVP) unterstreicht die Notwendigkeit einer sorgfältigen Beurteilung der Therapieoptionen.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf die Diagnose und den aktuellen Zustand der Patientin empfehle ich folgende Therapie:
+
+1. **Initialtherapie:** 6 Zyklen R-CHOP (Rituximab, Cyclophosphamid, Doxorubicin, Vincristin, Prednison) alle 21 Tage, gemäß den ESMO-Leitlinien für Patienten mit DLBCL und einem IPI-Score von 2 oder höher. Diese Therapie ist die Standardbehandlung für Patienten mit DLBCL und hat sich in zahlreichen Studien als effektiv erwiesen.
+
+2. **CNS-Prophylaxe:** Intravenöse Hochdosis-Methotrexat-Behandlung zur Prophylaxe einer zentralnervösen Lymphom-Progression, insbesondere bei Patienten mit hohem IPI-Score oder extranodalen Erkrankungen.
+
+3. **Begleitende Maßnahmen:**
+   - **Kardiale Überwachung:** Regelmäßige Kontrolle der kardialen Funktion (LVEF) vor und während der Behandlung, um eine mögliche Kardiotoxizität zu überwachen.
+   - **Geriatrische Bewertung:** Eine umfassende geriatrische Bewertung zur Beurteilung der körperlichen Leistungsfähigkeit und der Erfassung von Komorbiditäten, um die Therapieentscheidungen anzupassen.
+
+4. **Verlaufskontrolle:** Regelmäßige PET/CT-Untersuchungen nach 3-4 Zyklen der Therapie zur Überprüfung des Ansprechens auf die Behandlung und Anpassung der Therapie bei Bedarf.
+</therapieempfehlung>
+
+<begründung>
+Meine Empfehlung basiert auf den ESMO-Leitlinien für die Behandlung von DLBCL-Patienten, die R-CHOP als Standardtherapie für Patienten mit einem IPI-Score von 2 oder höher empfehlen. Die CNS-Prophylaxe mit intravenöser Hochdosis-Methotrexat-Behandlung ist bei Patienten mit hohem Risiko für eine zentralnervöse Progression angezeigt.
+
+Die Begleitmaßnahmen, einschließlich der kardialen Überwachung und der geriatrischen Bewertung, sollen die Sicherheit und Effektivität der Therapie gewährleisten. Die regelmäßigen Verlaufskontrollen mittels PET/CT ermöglichen eine frühzeitige Anpassung der Therapie bei unzureichendem Ansprechen oder Progression.
+
+Die individuellen Faktoren der Patientin, wie die Nebendiagnosen und der allgemeine Gesundheitszustand, wurden bei der Therapieentscheidung berücksichtigt. Die gewählte Therapie soll das bestmögliche Outcome für die Patientin erzielen, während sie gleichzeitig das Risiko von Nebenwirkungen minimiert.

@@ -1,0 +1,11 @@
+<beurteilung>
+Der Patient weist eine T- und Histiocyten-reiche große B-Zell-Lymphom (THRLBCL) im Ann-Arbor Stadium IV mit Begleitsymptomen auf, was als hochrisikosituationsbezogen klassifiziert wird. Die Diagnose wurde am 06.07.2023 durch eine lymphknotenbiopsie bestätigt und die Prognose-Scores sind nicht verfügbar. Der Patient hat bereits sechs Zyklen R-CHOP erhalten, was zu einer partiellen metabolischen Antwort führte (Deauville Score 4). Nach der zweiten Linie Chemotherapie mit R-DHAP und R-ICE wurde eine apheresis von stammzellen durchgeführt. Der aktuelle PET-CT-Befund zeigt jedoch immer noch residuale metabolische Aktivität, was auf eine partielle Antwort hinweist.
+</beurteilung>
+
+<therapieempfehlung>
+Es wird empfohlen, den Patienten mit einem weiteren Zyklus R-ICE zu behandeln, bevor eine hochdosierte Chemotherapie (HDC) und autogene Stammzelltransplantation (ASCT) erfolgt. Dies berücksichtigt die bisherige Reaktion auf das R-ICE-Schema und die erfolgreiche Sammlung von stammzellen.
+</therapieempfehlung>
+
+<begründung>
+Basierend auf den ESMO-Leitlinien für diffuse große B-Zell-Lymphome (DLBCL) wird bei Patienten unter 65-70 Jahren mit guter allgemeiner Gesundheit und ohne erhebliche Organfunktionsstörungen eine Rettungschemotherapie mit Rituximab und Chemotherapeutika empfohlen, gefolgt von einer hochdosierte Chemotherapie (HDC) und autogene Stammzelltransplantation (ASCT), wenn die Patienten auf die Therapie ansprechen. Die R-DHAP- und R-ICE-Schemata haben ähnliche Ergebnisse gezeigt. Da der Patient bereits erfolgreich mit R-ICE behandelt wurde, wird dieses Schema als nächstes empfohlen. Ein weiterer Zyklus R-ICE vor der HDC/ASCT könnte die Chancen auf eine vollständige Remission erhöhen.
+</begründung>

@@ -1,0 +1,22 @@
+<beurteilung>
+Die Patientin weist eine diffuses großzellige B-Zell-Lymphom (DLBCL) mit einem Double-Expressor Phänotyp auf, der sich zervikal rechts lokalisiert hat. Die Läsion ist inhomogen und misst ca. 6 x 3 x 6 cm. Histologisch wurde ein DLBCL bestätigt, das CD20 positiv, CD19 positiv, Bcl-6 positiv, Bcl-2 positiv und MYC positiv ist. Die Ki-67-Proliferationsrate beträgt 60%. Es gibt keine Informationen über das Ann-Arbor Stadium oder Prognose-Scores wie IPI oder aaIPI.
+
+Die Patientin hat eine Arterielle Hypertonie, tachykardes Vorhofflimmern und eine frische bis subakute LWK1-Fraktur bei Osteoporose. Sie berichtet über einen ungewollten Gewichtsverlust von 5 kg in den letzten 3-4 Monaten sowie gelegentliche lokale Schmerzen im Bereich der Läsion.
+
+Die Patientin ist bisher nicht behandelt worden und es gibt keine Informationen über die PET/CT, die noch ausstehend ist. Die Patienteninformationen sind jedoch unvollständig, da das Ann-Arbor Stadium und Prognose-Scores fehlen.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf den verfügbaren Informationen und den ESMO-Leitlinien für DLBCL empfiehlt sich eine Behandlung mit R-CHOP (Rituximab, Cyclophosphamide, Doxorubicin, Vincristin, Prednisolon) in Kombination mit einer PET/CT zur Staging und Response-Evaluation. Die Patienteninformationen sind jedoch unvollständig, insbesondere das Ann-Arbor Stadium und Prognose-Scores fehlen.
+
+Es wird empfohlen:
+1. Das Ann-Arbor Stadium zu bestimmen.
+2. Die PET/CT-Befunde abzuwarten, um die Staging und Response-Evaluation durchzuführen.
+3. Basierend auf dem Ann-Arbor Stadium und Prognose-Scores eine Therapieentscheidung zu treffen.
+
+Falls das Patientenalter unter 60 Jahren liegt und keine schwerwiegenden Komorbiditäten vorliegen, wird R-CHOP × 6 empfohlen. Bei höherem Risiko oder Bulky Disease könnte eine intensivierte Behandlung mit R-ACVBP in Betracht gezogen werden.
+</therapieempfehlung>
+
+<begründung>
+Die ESMO-Leitlinien für DLBCL legen die Verwendung von R-CHOP als Standardbehandlung für Patienten unter 60 Jahren ohne Bulky Disease fest. Bei höherem Risiko oder Bulky Disease wird eine intensivierte Behandlung wie R-ACVBP empfohlen (ESMO Leitlinien, Tabelle 3). Die PET/CT ist das gold standard für die Staging und Response-Evaluation in DLBCL-Patienten (ESMO Leitlinien, Abschnitt "Response evaluation"). Ohne vollständige Informationen zum Ann-Arbor Stadium und Prognose-Scores kann jedoch eine präzise Therapieempfehlung nicht getroffen werden. Es ist daher dringend empfohlen, die fehlenden Daten zu ergänzen, um eine fundierte Entscheidung treffen zu können.
+</begründung>

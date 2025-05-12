@@ -1,0 +1,25 @@
+<beurteilung>
+Der Patient hat ein ZNS-Rezidiv eines DLBCL NOS der Adnexe rechts mit einem IPI-Score von mind. 3 und Stadium IVBE. Die Diagnose wurde im Jahr 2017 gestellt, nachdem eine CT-Abdomen Vergrößerungen des rechten Ovariums und Cervix uteri sowie eine Läsion in der Lebersegment VIII zeigte. Histologisch wurde ein diffus großzelliges B-Zell-Lymphom bestätigt.
+
+Nach einer Adnexektomie und Chemotherapie mit R-CHOP erreichte der Patient eine komplett Remission, die jedoch durch ein ZNS-Rezidiv im Jahr 2018 unterbrochen wurde. Hierfür erfolgte eine Kraniotomie und eine Therapie nach dem MATRix-Schema sowie intrathekalen Therapien im Rahmen des IELSG42-Protokolls (MARIETTA Trial). Nach der Hochdosischemotherapie mit Carmustin und Thiotepa sowie autologer Stammzelltransplantation blieb das Lymphom rezidivfrei bis zum aktuellen Zeitpunkt.
+
+Der Patient hat eine Morbide Adipositas, Rippenserienfrakturen und eine gering dislozierte Sternumfraktur nach Reanimation. Zudem gibt es Hinweise auf eine chronische Leukenzephalopathie im Verlauf der Behandlung.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf den aktuellen Patienteninformationen und den ESMO-Leitlinien für DLBCL empfiehlt sich die folgende Therapie:
+
+1. **Regelmäßige Kontrolle:** Da der Patient in einer Remission ist, sollte eine regelmäßige Kontrolle durchgeführt werden, um ein frühes Rezidiv zu erkennen.
+2. **MRI-Überwachung:** Die MRI vom 15.02.24 zeigte keine Hinweise auf ein Lymphomrezidiv, jedoch deutliche Zeichen der chronischen Leukenzephalopathie. Eine regelmäßige Überwachung durch MRIs ist daher sinnvoll.
+3. **Symptomatische Therapie:** Die Morbide Adipositas und die Rippenserienfrakturen sollten symptomatisch behandelt werden, um das allgemeine Wohlbefinden des Patienten zu verbessern.
+
+Falls ein Rezidiv auftritt oder sich neue Symptome entwickeln, sollte eine erneute histologische Bestätigung durchgeführt werden und die Behandlung entsprechend der aktuellen Leitlinien angepasst werden.
+</therapieempfehlung>
+
+<begründung>
+Die ESMO-Leitlinien empfehlen für Patienten mit DLBCL, die in einer Remission sind, eine regelmäßige Kontrolle und Überwachung. Da der Patient bereits eine komplett Remission erreicht hat und keine Hinweise auf ein aktuelles Rezidiv vorliegen, ist es wichtig, die Überwachung durch MRIs fortzuführen, um ein frühes Wiederauftreten des Lymphoms zu erkennen.
+
+Die chronische Leukenzephalopathie stellt eine zusätzliche Herausforderung dar und sollte bei der Überwachung berücksichtigt werden. Die Morbide Adipositas und die Rippenserienfrakturen können das allgemeine Wohlbefinden des Patienten beeinträchtigen, weshalb eine symptomatische Therapie sinnvoll ist.
+
+Sollte ein Rezidiv auftreten oder sich neue Symptome entwickeln, sollte eine erneute histologische Bestätigung erfolgen und die Behandlung entsprechend der aktuellen Leitlinien angepasst werden. Dies kann beinhalten, dass eine intensivierte Chemotherapie mit R-DHAP oder R-ICE in Betracht gezogen wird, insbesondere wenn der Patient für eine autologe Stammzelltransplantation geeignet ist.
+</begründung>

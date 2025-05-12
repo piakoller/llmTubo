@@ -1,0 +1,32 @@
+<beurteilung>
+Der Patient weist ein Diffuses large B-Zell-Lymphom (DLBCL) im Stadium IVE auf, mit extranodaler Beteiligung der Knochen- und Muskelläsionen. Die Erstmanifestation fand im Jahr 2015 statt, wobei eine Raumforderung des proximalen Humerus rechts sowie Verdachtsmomente für Metastasen im linken Humeruskopf und im Musculus iliopsoas rechts festgestellt wurden. Die Biopsie ergab positive Marker CD20, Pax-5, MUM1, bcl-2 und bcl-6; negative Marker waren CD10, CD30, Cyclin-D1, EBER und CD5. Der Patient erhielt eine Kombinationstherapie aus Mabthera (Rituximab) und CHOP sowie DepoCyte und Radiotherapie. Aktuell besteht ein solitäres Befund im medialen Oberschenkel rechts, der als Neurinom verdächtig ist.
+
+Die Patienteninformationen weisen auf eine komplexe Verlaufsgeschichte hin, mit mehreren Therapiestufen und lokalen Behandlungen wie Radiotherapie und chirurgische Interventionsmaßnahmen. Die aktuelle PET-CT zeigt einen solitären Befund im Oberschenkel rechts, der als Neurinom verdächtig ist.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf den aktuellen Leitlinien und dem Patientenprofil wird empfohlen:
+
+1. **Diagnostische Prozeduren:**
+   - Eine Biopsie des solitären Befunds im Oberschenkel rechts zur histologischen Bestätigung oder Ausschlussdiagnose.
+   - Eventuell eine weitere PET-CT zur Überwachung der aktiven Lymphomtumoren und möglicherweise auch zur Beurteilung der Wirksamkeit der Therapie.
+
+2. **Therapeutische Maßnahmen:**
+   - Da das DLBCL im Stadium IVE steht, wird eine intensivere Therapie empfohlen.
+   - Eine Kombinationstherapie mit R-CHOP (Rituximab, Cyclophosphamide, Doxorubicin, Vincristin und Prednisolon) über 6 bis 8 Zyklen sollte in Betracht gezogen werden. 
+   - Bei guter allgemeiner Verfassung des Patienten kann eine intensivierte Therapie mit R-ACVBP (Rituximab, Doxorubicin, Vindesine, Cyclophosphamide, Bleomycin und Prednisolon) in Betracht gezogen werden.
+   - Bei fortschreitender Erkrankung oder Rezidiv sollte eine High-Dose-Chemotherapie (HDC) mit autologer Stammzelltransplantation (ASCT) in Betracht gezogen werden.
+
+3. **Zusätzliche Maßnahmen:**
+   - Bei Verdachtsmomenten auf zentrale Nervensystem-Beteiligung oder bei Patienten mit hohem Risiko für eine ZNS-Progression sollte eine ZNS-Prophylaxe in Betracht gezogen werden.
+</therapieempfehlung>
+
+<begründung>
+Die Therapieempfehlungen basieren auf den aktuellen Leitlinien der ESMO, die spezifisch für DLBCL im Stadium IVE formuliert sind. Die Kombinationstherapie mit R-CHOP ist das Standardverfahren und hat sich als wirksam erwiesen. Bei Patienten mit hohem Risiko oder fortschreitender Erkrankung kann eine intensivierte Therapie wie R-ACVBP in Betracht gezogen werden, um die Überlebensrate zu verbessern.
+
+Die aktuelle PET-CT zeigt einen solitären Befund im Oberschenkel rechts, der als Neurinom verdächtig ist. Eine histologische Bestätigung durch Biopsie ist notwendig, um eine korrekte Therapieentscheidung treffen zu können. Zudem sollte die aktuelle Tumorbelastung und mögliche Rezidive überwacht werden.
+
+Die Prognose-Scores (IPI und aa-IPI) sind nicht angegeben, was die spezifische Risikokategorisierung erschwert. Allerdings berücksichtigt die Therapieempfehlung das Stadium IVE und die extranodale Beteiligung, welche als prognostisch ungünstig gelten.
+
+Die ZNS-Prophylaxe wird in Betracht gezogen, da Patienten mit DLBCL im Stadium IVE ein erhöhtes Risiko für eine zentrale Nervensystem-Beteiligung haben. Eine ZNS-Prophylaxe kann das Rezidivrisiko reduzieren.
+</begründung>

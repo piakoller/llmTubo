@@ -1,0 +1,29 @@
+<beurteilung>
+Der Patient hat ein ZNS-Rezidiv eines DLBCL NOS der Adnexe rechts mit einem IPI-Score von mind. 3 und Stadium IVBE. Die Diagnose wurde im Jahr 2017 gestellt, nachdem eine CT-Abdomen Vergrößerungen des rechten Ovariums und Cervix uteri sowie eine Läsion in der Lebersegment VIII zeigte. Histologisch wurde ein diffus großzelliges B-Zell-Lymphom bestätigt.
+
+Nach einer Adnexektomie und Chemotherapie mit R-CHOP erreichte der Patient eine komplett Remission, jedoch trat im Jahr 2018 ein ZNS-Rezidiv auf. Dies führte zu einer weiteren Therapie inklusive MATRix-Schema, intrathekalen Therapien sowie einer autologen Stammzelltransplantation.
+
+Der aktuelle Befund vom 15.02.24 zeigt keine Hinweise für ein Lymphomrezidiv, jedoch deutliche Zeichen der chronischen Leukenzephalopathie posttherapeutisch nach Chemotherapie. Es gibt keine neuen intrakraniellen Läsionen oder Hinweise auf Lokalrezidiv.
+
+Relevante Nebendiagnosen sind unter anderem eine Post-Zoster-Neuralgie, Pneumonie, Niereninsuffizienz und Morbide Adipositas. Der Patient hat auch eine Geschichte von akutem Kreislaufstillstand und Rippenserienfrakturen nach Reanimation.
+
+Die aktuelle Fragestellung des Tumorboards betrifft die Interpretation der MRI vom 15.02.24, insbesondere ob Hinweise für ein Rezidiv vorhanden sind.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf den aktuellen Befunden und dem Leitlinien-Dokument wird empfohlen:
+
+- **Weiterer Beobachtungszeitraum:** Da die aktuelle MRI keine Hinweise für ein Lymphomrezidiv zeigt, sollte der Patient in regelmäßigen Abständen überwacht werden. Eine erneute MRI nach 3 bis 6 Monaten könnte hilfreich sein, um eine mögliche Progression zu erkennen.
+- **Folgebehandlung:** Da keine aktuelle Lymphomprogression feststellbar ist, sollte die bisherige Therapie fortgesetzt werden. Es gibt keinen Anlass für eine intensivere oder alternative Therapie.
+- **Symptomatische Behandlung:** Die chronische Leukenzephalopathie und andere Nebendiagnosen sollten symptomatisch behandelt werden. Eine multidisziplinäre Betreuung, einschließlich Neurologie und Onkologie, ist empfehlenswert.
+
+Die Therapieempfehlungen berücksichtigen die Prognose-Scores (IPI ≥ 3) und das Stadium IVBE der Erkrankung. Die bisherige Behandlung inklusive autologer Stammzelltransplantation hat eine Remission erreicht, weshalb es sinnvoll ist, den Patienten weiterhin zu beobachten.
+</therapieempfehlung>
+
+<begründung>
+Die Empfehlungen basieren auf der aktuellen Leitlinie für DLBCL (ESMO Clinical Practice Guidelines). Die Leitlinien empfehlen eine regelmäßige Überwachung und Beurteilung des Patientenstatus, insbesondere bei Patienten mit einem hohen IPI-Score. Da die aktuelle MRI keine Hinweise auf ein Rezidiv zeigt, ist es sinnvoll, den Patienten weiterhin zu beobachten und gegebenenfalls eine erneute Bildgebung nach 3 bis 6 Monaten durchzuführen.
+
+Die bisherige Therapie inklusive autologer Stammzelltransplantation hat eine Remission erreicht. Daher ist es sinnvoll, die aktuelle Behandlung fortzusetzen und den Patienten weiterhin zu beobachten. Die chronische Leukenzephalopathie und andere Nebendiagnosen sollten symptomatisch behandelt werden.
+
+Die multidisziplinäre Betreuung des Patienten ist wichtig, um alle relevanten Aspekte der Erkrankung und der Behandlung zu berücksichtigen.
+</begründung>

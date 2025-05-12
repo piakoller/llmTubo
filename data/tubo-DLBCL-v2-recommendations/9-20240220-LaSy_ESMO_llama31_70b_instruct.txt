@@ -1,0 +1,28 @@
+<beurteilung>
+Der Patient wurde mit einem ZNS-Rezidiv eines DLBCL NOS der Adnexe rechts diagnostiziert, Stadium IVBE, IPI-Score mind. 3. Die Erkrankung hat sich auf mehrere Körperregionen ausgedehnt, einschließlich des Ovars, der Cervix uteri und der Leber. Der Patient zeigt B-Symptome und Aszites.
+
+Die Histologie ergab ein diffus grosszelliges B-Zell-Lymphom, NOS, CD20+, CD30-, CD10-MUM1+, Bcl-6 negativ, Bcl-2 positiv, MYC+, CD5-. Die Zytologie der Spülflüssigkeit Abdomen zeigte keine malignen Zellen.
+
+Der Patient wurde bereits mit einer Chemotherapie mit R-CHOP behandelt und hat eine komplette Remission erlangt. Es gab jedoch ein akutes anurisches Nierenversagen im Rahmen der 3. MTX Gabe, das zu einer passageren Dialysepflichtigkeit führte.
+
+Der Patient zeigt außerdem mehrere relevante Nebendiagnosen, einschließlich einer Post-Zoster-Neuralgie Oberschenkel links bei St.n. Herpes Zoster, Hospitalisation bei Pneumonie, St.n. Niereninsuffizienz bei St.n. MTX-Intoxikation und einem akuten Kreislaufstillstand am 14.03.18 bei akuter Luftembolie.
+
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf die Patienteninformationen und den Leitlinien empfehle ich eine Therapie mit R-CHOP21 × 6–8 für den Patienten, da er ein Stadium IVBE und einen IPI-Score mind. 3 hat. Die Behandlung sollte jedoch an die spezifischen Bedürfnisse des Patienten angepasst werden, insbesondere aufgrund seiner Nebendiagnosen.
+
+Es ist wichtig, dass der Patient engmaschig überwacht wird, um mögliche Komplikationen frühzeitig zu erkennen und zu behandeln. Eine regelmäßige Überprüfung der Nierenfunktion und der Blutwerte ist erforderlich, um das Risiko einer Niereninsuffizienz zu minimieren.
+
+Außerdem sollte der Patient auf mögliche CNS-Manifestationen überwacht werden, da er ein hohes Risiko für eine CNS-Progression hat. Eine regelmäßige Überprüfung der CNS-Symptome und -Befunde ist erforderlich.
+
+</therapieempfehlung>
+
+<begründung>
+Meine Empfehlung basiert auf den Leitlinien für die Behandlung von DLBCL, die eine Chemotherapie mit R-CHOP21 × 6–8 für Patienten mit einem Stadium IVBE und einem IPI-Score mind. 3 empfehlen.
+
+Die Anpassung der Therapie an die spezifischen Bedürfnisse des Patienten ist erforderlich, da er mehrere relevante Nebendiagnosen hat, die seine Behandlung beeinflussen könnten. Die regelmäßige Überprüfung der Nierenfunktion und der Blutwerte ist erforderlich, um das Risiko einer Niereninsuffizienz zu minimieren.
+
+Die Überwachung auf mögliche CNS-Manifestationen ist ebenfalls erforderlich, da der Patient ein hohes Risiko für eine CNS-Progression hat. Eine regelmäßige Überprüfung der CNS-Symptome und -Befunde ist erforderlich, um frühzeitig zu erkennen und zu behandeln.
+
+Insgesamt basiert meine Empfehlung auf einer sorgfältigen Abwägung der Patienteninformationen und den Leitlinien, um eine optimale Therapie für den Patienten zu empfehlen.

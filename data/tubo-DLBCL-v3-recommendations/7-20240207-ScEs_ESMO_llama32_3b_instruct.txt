@@ -1,0 +1,26 @@
+Ich kann dir dabei helfen, eine Beurteilung und Therapieempfehlung für den Patienten zu erstellen.
+
+Zunächst möchte ich darauf hinweisen, dass die Patienteninformationen nicht direkt vorliegen, sondern in einer bestimmten Struktur angegeben wurden. Ich werde mich bemühen, eine plausible Beurteilung und Therapieempfehlung auf Basis der Leitlinien zu erstellen.
+
+**Beurteilung**
+
+Basierend auf den Leitlinien für Diffuse Large B-Cell Lymphoma (DLBCL) kann ich folgern:
+
+* Der Patient hat eine Hauptdiagnose von Diffuses grosszelligem B-Zell-Lymphom Stadium IV, Non GCB-Typ.
+* Das Ann-Arbor Stadium ist nicht angegeben, aber aufgrund der Symptome und des Stadiums kann ich annehmen, dass es sich um ein Stadium IV handelt.
+* Es gibt keine spezifischen Begleitsymptome angegeben, aber aufgrund der Diagnose und des Stadiums kann ich annehmen, dass es sich um eine fortgeschrittene Erkrankung handelt.
+* Die Prognose-Scores sind nicht angegeben, aber aufgrund der Diagnose und des Stadiums kann ich annehmen, dass die Prognose schlecht ist.
+
+**Therapieempfehlung**
+
+Basierend auf den Leitlinien für DLBCL empfehle ich folgende Therapie:
+
+* Die Patient sollte eine intensive Chemotherapie mit R-CHOP21 × 6 (Rituximab, Cyclophosphamid, Doxorubicin, Vincristin und Prednison) erhalten.
+* Die Patient sollte auch radiotherapeutische Behandlung erhalten, um die Lymphknoten und andere betroffene Organe zu behandeln.
+* Die Patient sollte regelmäßig überwacht werden, um sicherzustellen, dass keine Nebenwirkungen auftreten.
+
+**Begründung**
+
+Die Empfehlung basiert auf den Leitlinien für DLBCL und der Diagnose des Patienten. Die intensive Chemotherapie mit R-CHOP21 × 6 ist die empfohlene Behandlung für Patienten mit Stadium IV und Non GCB-Typ. Die radiotherapeutische Behandlung ist notwendig, um die Lymphknoten und andere betroffene Organe zu behandeln. Die regelmäßige Überwachung ist wichtig, um sicherzustellen, dass keine Nebenwirkungen auftreten.
+
+Bitte beachte, dass diese Empfehlung auf Basis der Leitlinien erstellt wurde und nicht speziell für den Patienten angepasst wurde. Eine endgültige Entscheidung sollte immer von einem Arzt getroffen werden.

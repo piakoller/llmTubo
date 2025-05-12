@@ -1,0 +1,24 @@
+<beurteilung>
+Der Patient weist ein diffuses großes B-Zell-Lymphom (DLBCL) im Stadium IVE auf, mit extranodaler Beteiligung der Knochen- und Muskulärregionen. Die Erstmanifestation fand im April 2015 statt, wobei eine Raumforderung des proximalen rechten Humerus mit ausgedehnter Weichteilkomponente sowie Verdachtsmomente für Metastasen im linken Humeruskopf und im Musculus iliopsoas rechts festgestellt wurden. Die Biopsie ergab positive Marker für CD20, Pax-5, MUM1, bcl-2 und bcl-6; negative Marker waren CD10, CD30, Cyclin-D1, EBER und CD5. Der Patient erhielt eine Kombinationstherapie aus Mabthera (Rituximab) und CHOP sowie DepoCyte und Radiotherapie. Aktuell zeigt die PET-CT einen solitären Befund im medialen Oberschenkel rechts, der als Neurinom wahrscheinlich angesehen wird.
+
+Die Patienteninformationen weisen auf eine komplexe Verlaufsgeschichte hin, mit mehreren Therapien und einer erfolgreichen Implantation einer Humerusgelenksprothese. Die aktuelle PET-CT zeigt einen solitären Befund im Oberschenkel, der als Neurinom wahrscheinlich angesehen wird, was eine mögliche Residuierung oder Rezidivierung des DLBCL suggeriert.
+
+Die Ann-Arbor-Klassifikation und Prognose-Scores sind nicht angegeben. Die Patienteninformationen deuten jedoch auf ein fortschreitendes Stadium hin, da es sich um eine extranodale Beteiligung handelt und bereits mehrere Therapien erfolgt sind.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf den aktuellen Leitlinien und der Patientensituation wird empfohlen:
+
+1. **Diagnostische Bestätigung**: Eine biopschierte Gewebeprobe des solitären Befunds im Oberschenkel sollte erhoben werden, um eine genaue Diagnose zu bestätigen oder auszuschließen.
+2. **Immunophänotypie und Genetik**: Die Bestimmung der MYC- und BCL2-Rearrangements sowie die Ermittlung des Zellherkunftstyps (Germinalzentrum vs. aktiviertes B-Zellen) sollte erfolgen, um eine präzise Prognose zu erstellen.
+3. **Therapie**: Da der Patient bereits mehrere Therapien erhalten hat und ein solitäres Residuum vorliegt, wird empfohlen:
+   - Eine erweiterte PET-CT zur genauen Lokalisation des Befunds durchzuführen.
+   - Bei Bestätigung eines Neurinoms oder einer Lymphomrezidivierung eine spezifische Therapie zu planen. Dies könnte eine Kombination aus Chemotherapie (R-DHAP, R-ICE) und/oder lokale Strahlentherapie umfassen.
+   - Bei guter allgemeiner Verträglichkeit der Patienten und nach erfolgreicher Rezidivkontrolle sollte die Möglichkeit einer autologen Stammzelltransplantation in Betracht gezogen werden.
+
+4. **Folgebehandlung**: Regelmäßige Kontrolluntersuchungen, darunter PET-CT zur Überwachung der Responsetätigkeit und möglicher Rezidive.
+</therapieempfehlung>
+
+<begründung>
+Die Empfehlungen basieren auf den aktuellen Leitlinien für die Behandlung von DLBCL. Die Bestimmung des Zellherkunftstyps und der MYC/BCL2-Rearrangements ist entscheidend, um eine präzise Prognose zu erstellen und geeignete Therapien auszuwählen (Leitlinien, Abschnitt "personalised medicine"). Da der Patient bereits mehrere Therapien erhalten hat und ein solitäres Residuum vorliegt, wird empfohlen, die genaue Diagnose durch eine Biopsie zu bestätigen. Die Wahl der Therapieoptionen (Chemotherapie, Strahlentherapie) richtet sich nach den aktuellen Leitlinien und berücksichtigt die individuelle Patientensituation sowie die möglichen Komorbiditäten.
+</begründung>

@@ -1,0 +1,15 @@
+<beurteilung>
+Der Patient weist ein Diffuses großzelliges B-Zell-Lymphom (DLBCL) mit sekundärer zerebraler Beteiligung auf, das sich im Ann-Arbor Stadium IV befindet und einen poor Prognosis-R-IPI-Score von 4 Punkten sowie einen high-risk IPI-Score hat. Die Patienteninformationen zeigen eine ausgeprägte Lymphommanifestation in verschiedenen Organen wie dem Dünndarm, den Nebennieren und der linken Niere. Zudem gibt es eine zerebrale Beteiligung mit einer großen Raumforderung links frontotemporal und subependymalen Tumoraussaat. Die Patientin zeigt aktuell Symptome wie Müdigkeit, Übelkeit, Erbrechen und Gewichtsverlust sowie neu aufgetretene neurologische Symptome wie Verwirrung, Wortfindungsstörungen und Mundastschwäche rechts.
+
+Die PET-CT vom 21.02.2024 zeigt eine regredienten Hilär-Lymphknoten links, jedoch weiterhin metabolisch aktive Lymphommanifestation im Mittelbauch links (Deauville-Score 4). Die zerebrale Beteiligung wurde mittels MRT bestätigt und die Patientin hat bereits drei Zyklen der Matrix-Therapie (Methotrexat, Rituximab, Cytarabin) erhalten. Der aktuelle Zustand des Patienten deutet auf eine ansprechende Reaktion nach den ersten drei Zyklen hin.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf der aktuellen Situation und den Leitlinien wird empfohlen, die Therapie fortzusetzen. Es ist vorgesehen, weitere drei Zyklen R-ICE (Rituximab, Ifosfamide, Carboplatin, Etoposid) zu verabreichen. Nach Abschluss dieser Zyklen soll eine Sammlung autologer Stammzelltransplantationen erfolgen und anschließend eine Hochdosis-Konsolidierung durchgeführt werden. Eine erneute PET-CT sowie MRT des Schädels sollen nach den drei R-ICE-Zyklen durchgeführt werden, um die Reaktion auf die Therapie zu beurteilen.
+</therapieempfehlung>
+
+<begründung>
+Die Empfehlung beruht auf der aktuellen Leitlinien (ESMO Clinical Practice Guidelines) und dem individuellen Patientenprofil. Da der Patient ein poor Prognosis-R-IPI-Score hat, wird eine intensivere Therapie empfohlen. Die Wahl von R-ICE als nächster Therapieschritt beruht auf den guten Ergebnissen dieser Kombination in Studien mit relapsierendem DLBCL (Leitlinien: I, A). Die Patientin hat bereits drei Zyklen der Matrix-Therapie erhalten und zeigt eine ansprechende Reaktion. Daher wird die Therapie fortgesetzt, um eine optimale Kontrolle des Lymphoms zu gewährleisten.
+
+Die Sammlung autologer Stammzelltransplantationen und anschließend die Hochdosis-Konsolidierung werden empfohlen, da dies in der Literatur als möglicher Ansatz für Patienten mit DLBCL beschrieben wird (Leitlinien: II, C). Dies kann bei selektierten Patienten mit hohem Risiko eine Verbesserung der Prognose bringen. Eine erneute PET-CT und MRT des Schädels nach den drei R-ICE-Zyklen ist notwendig, um die Reaktion auf die Therapie zu beurteilen und gegebenenfalls weitere Therapiestrategien anzupassen.
+</begründung>

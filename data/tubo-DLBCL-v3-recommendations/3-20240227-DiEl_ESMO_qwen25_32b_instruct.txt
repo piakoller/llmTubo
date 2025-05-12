@@ -1,0 +1,11 @@
+<beurteilung>
+Der Patient weist ein Diffuses großzelliges B-Zell-Lymphom (DLBCL) mit sekundärer zerebraler Beteiligung auf, das sich im Ann-Arbor Stadium IV befindet und einen poor Prognosis R-IPI-Score von 4 Punkten sowie einen high-risk IPI-Score hat. Die Patienteninformationen zeigen eine ausgeprägte Lymphommanifestation in verschiedenen Organen wie dem Dünndarm, den Nebennieren und der linken Niere. Zudem gibt es eine zerebrale Beteiligung mit einer großen Raumforderung links frontotemporal und subependymalen Tumoraussaat. Die Patientin hat bereits sechs Zyklen R-CHOP erhalten, gefolgt von drei Zyklen der IELSG-42 Studie (Marietta)-Matrix (Methotrexat, Rituximab, Cytarabin). Der aktuelle PET-CT-Befund zeigt eine Deauville-Score 4 mit regredienten Lymphommanifestationen und residueller stoffwechselaktiver Befall im Mittelbauch links. Die zerebrale Manifestation wurde durch MRT bestätigt.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf den aktuellen Leitlinien und der Patientensituation wird empfohlen, die aktuelle Therapie mit der IELSG-42 Studie (Marietta)-Matrix fortzusetzen. Es ist jedoch wichtig, eine genaue Beurteilung des Verlaufs durch weitere Bildgebung mittels PET-CT und MR Schädel nach Abschluss der drei Zyklen Matrix zu gewährleisten. Falls die Patientin gut auf die aktuelle Therapie anspricht, sollte eine mögliche Konsolidation mit autologem Stammzelltransplant (ASCT) in Betracht gezogen werden, insbesondere bei fortschreitender Progression oder Residuum.
+</therapieempfehlung>
+
+<begründung>
+Die Empfehlung basiert auf den aktuellen ESMO-Leitlinien für DLBCL. Da der Patient ein poor Prognosis R-IPI-Score und einen high-risk IPI-Score hat, wird eine intensivere Therapie empfohlen (ESMO Leitlinien, Tabelle 3). Die aktuelle Behandlung mit der Matrix-Therapie ist geeignet für Patienten mit rezidiviertem oder progressiven DLBCL und zeigt positive Ansprechraten. Eine mögliche Konsolidation durch ASCT wird in der Literatur als Option für selektierte Patienten mit hohem Risiko diskutiert (ESMO Leitlinien, Tabelle 3). Die zerebrale Beteiligung erfordert eine intensive Therapie und regelmäßige Überwachung. Es ist wichtig, den Verlauf der Erkrankung genau zu beobachten und gegebenenfalls die Therapie anzupassen.
+</begründung>

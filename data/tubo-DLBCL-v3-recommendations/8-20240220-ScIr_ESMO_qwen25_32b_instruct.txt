@@ -1,0 +1,19 @@
+<beurteilung>
+Der Patient weist ein diffuses großzelliges B-Zell-Lymphom (DLBCL) der Nasennebenhöhlen auf, das sich in einem Stadium IAE befindet und als hochintermediärer Risikofaktor klassifiziert wird. Die Erkrankung wurde ursprünglich mit R-CHOP-Chemotherapie behandelt und führte zu einer metabolisch und morphologischen vollständigen Remission. Im April 2023 trat ein rezidivierender zerebraler Lymphombefall auf, der durch eine stereotaktische Biopsie bestätigt wurde. Die Systemtherapie nach dem PRIMAIN-Protokoll führte zu einer Regression des Tumors, was durch die MRI und PET/CT-Befunde bestätigt wird.
+
+Der Patient hat seit Januar 2024 eine vollständige Regression der zerebralen Lymphommanifestation. Aktuell weist er intermittierend "schwarze Flecken" visuell links auf, was einer Glaskörperinfiltration zugeschrieben wurde.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf den aktuellen Befunden und der vorherigen Therapieerfolge wird eine Erhaltungstherapie mit Procarbazin für 6 Monate empfohlen. Diese Empfehlung berücksichtigt die vollständige Regression des zerebralen Lymphoms sowie das Vorliegen einer Glaskörperinfiltration, die möglicherweise durch die vorherige Therapie verursacht wurde.
+
+Zusätzlich zur Erhaltungstherapie sollte eine sorgfältige Überwachung der Glaskörperinfiltration durch Augenärztliche Kontrollen eingeleitet werden. Bei Fortschreiten oder Veränderungen dieser Infiltration kann eine spezifische Ophthalmologe-Therapie notwendig sein.
+</therapieempfehlung>
+
+<begründung>
+Die Empfehlung zur Erhaltungstherapie mit Procarbazin basiert auf den aktuellen Leitlinien und der erfolgreichen Behandlung des Patienten in der Vergangenheit. Die vollständige Regression des zerebralen Lymphoms nach der Systemtherapie nach dem PRIMAIN-Protokoll deutet darauf hin, dass eine Erhaltungstherapie sinnvoll ist, um einen erneuten Rezidiv zu verhindern.
+
+Die Glaskörperinfiltration stellt ein neues Symptom dar und sollte daher genau überwacht werden. Eine spezifische Ophthalmologe-Therapie kann notwendig sein, falls die Infiltration fortschreitet oder sich ändert. Diese Überwachung ist wichtig, um mögliche Komplikationen frühzeitig zu erkennen und entsprechend zu behandeln.
+
+Die Leitlinien empfehlen für Patienten mit DLBCL eine personalisierte Therapieansatz, der die individuellen Faktoren des Patienten berücksichtigt. In diesem Fall unterstützt die vollständige Regression nach der vorherigen intensiven Chemotherapie die Wahl einer Erhaltungstherapie zur Prävention eines erneuten Rezidivs.
+</begründung>

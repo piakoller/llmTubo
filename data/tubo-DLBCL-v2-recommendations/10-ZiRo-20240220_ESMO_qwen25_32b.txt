@@ -1,0 +1,26 @@
+<beurteilung>
+Die Patientin weist eine diffuses großzellige B-Zell-Lymphom (DLBCL) mit einem Double-Expressor Phänotyp auf, der sich zervikal rechts lokalisiert hat. Die Läsion ist inhomogen und misst ca. 6 x 3 x 6 cm. Histologisch wurde ein DLBCL bestätigt, das CD20 positiv, CD19 positiv, Bcl-6 positiv, Bcl-2 positiv und MYC positiv ist. Die Zellproliferation (Ki-67) beträgt 60%. Es gibt einen ungewollten Gewichtsverlust von 5 kg innerhalb der letzten 3-4 Monate sowie gelegentliche lokale Schmerzen im Bereich der Läsion.
+
+Die Patientin hat eine arterielle Hypertonie, tachykardes Vorhofflimmern und eine frische bis subakute LWK1-Fraktur bei Osteoporose. Die Ann-Arbor Stadien-Informationen sind noch nicht verfügbar, ebenso der Befund des PET/CT vom 19.02.2024.
+
+Die Patientin ist in einem Alter von über 60 Jahren und weist daher als alter Patient mit DLBCL auf. Die Prognose-Scores (IPI oder aaIPI) sind noch nicht berechnet, was die genaue Klassifizierung der Risikogruppe erschwert.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf den aktuellen Leitlinien und dem Patientenprofil wird eine Therapie mit R-miniCHOP empfohlen. Diese Therapieoption ist besonders für Patienten über 60 Jahren geeignet, die möglicherweise an Herzinsuffizienz leiden oder andere Komorbiditäten aufweisen.
+
+Die Behandlung sollte wie folgt durchgeführt werden:
+- Zwei Zyklen R-miniCHOP (Rituximab, Cyclophosphamide, Minidosis Doxorubicin, Vincristin und Prednisolon)
+- Nach der zweiten Runde eine PET/CT Verlaufskontrolle
+- Bei Anzeichen von Herzinsuffizienz kann die Therapie auf R-GCVP (Rituximab, Gemcitabine, Cyclophosphamide, Vincristin und Prednisolon) umgestellt werden.
+
+Es wird empfohlen, den Befund des PET/CT vom 19.02.2024 zu präsentieren und zu diskutieren, da dieser für die weitere Therapieentscheidung entscheidend ist.
+</therapieempfehlung>
+
+<begründung>
+Die Empfehlung basiert auf den Leitlinien der ESMO, welche für Patienten über 60 Jahren eine Behandlung mit R-miniCHOP empfehlen. Diese Therapieoption bietet einen guten Kompromiss zwischen Wirksamkeit und Toxizität, insbesondere bei Patienten mit Herzinsuffizienz oder anderen Komorbiditäten.
+
+Die Wahl der R-miniCHOP-Therapie berücksichtigt die mögliche Herzerkrankung des Patienten sowie den ungewollten Gewichtsverlust und lokale Schmerzen. Die PET/CT Verlaufskontrolle nach zwei Zyklen ist wichtig, um die Wirksamkeit der Therapie zu beurteilen und gegebenenfalls Anpassungen vorzunehmen.
+
+Die mögliche Umstellung auf R-GCVP bei Herzinsuffizienz berücksichtigt die speziellen Bedürfnisse des Patienten und minimiert das Risiko von Herztoxizität.
+</begründung>

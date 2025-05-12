@@ -1,0 +1,25 @@
+<beurteilung>
+Der Patient wurde mit einem diffusen großen B-Zell-Lymphom (DLBCL) im Stadium IVE diagnostiziert. Die Erkrankung hat sich auf den proximalen Humerus rechts mit einer ausgedehnten Weichteilkomponente und Verdacht auf Metastasen im linken Humeruskopf und im Musculus iliopsoas rechts erstreckt. Die Biopsie ergab ein positives Ergebnis für CD20, Pax-5, MUM1, bcl-2, bcl-6 und war negativ für CD10, CD30, Cyclin-D1, EBER, CD5 und MIB-1.
+
+Der Patient hat bereits eine Therapie mit Mabthera und CHOP erhalten und wurde anschließend mit DepoCyte behandelt. Eine Radiotherapie des Humerus und Schulter rechts mit 40 Gy wurde durchgeführt. Zudem erhielt der Patient eine Monotherapie mit Mabthera.
+
+Aktuell zeigt der PET-CT-Bericht einen solitären Befund medialer Oberschenkel rechts, der als Neurinom interpretiert wird und sehr schmerzhaft ist.
+
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf die aktuelle Situation des Patienten und den Leitlinien für das Management von DLBCL empfehle ich eine Therapie, die auf die Behandlung des Neurinoms und der verbleibenden Lymphomerkrankung ausgerichtet ist.
+
+1. **Behandlung des Neurinoms**: Eine lokale Behandlung des Neurinoms könnte durchgeführt werden, um die Symptome zu lindern und das Wachstum zu kontrollieren.
+2. **Systemische Therapie**: Eine systemische Therapie mit einer Kombination aus Chemotherapeutika und gegebenenfalls Rituximab könnte in Betracht gezogen werden, um die verbleibende Lymphomerkrankung zu behandeln.
+
+Es ist wichtig, dass der Patient von einem multidisziplinären Team betreut wird, das aus Onkologen, Radiologen und anderen Fachärzten besteht, um eine optimale Behandlung zu gewährleisten.
+
+</therapieempfehlung>
+
+<begründung>
+Die Empfehlung basiert auf den Leitlinien für die Behandlung von DLBCL und berücksichtigt die individuellen Faktoren des Patienten, wie das Vorhandensein eines Neurinoms und die verbleibende Lymphomerkrankung.
+
+Die lokale Behandlung des Neurinoms könnte durchgeführt werden, um die Symptome zu lindern und das Wachstum zu kontrollieren. Die systemische Therapie mit einer Kombination aus Chemotherapeutika und gegebenenfalls Rituximab könnte in Betracht gezogen werden, um die verbleibende Lymphomerkrankung zu behandeln.
+
+Es ist wichtig, dass der Patient von einem multidisziplinären Team betreut wird, das aus Onkologen, Radiologen und anderen Fachärzten besteht, um eine optimale Behandlung zu gewährleisten.

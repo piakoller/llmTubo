@@ -1,0 +1,27 @@
+<beurteilung>
+Die Patientin weist eine Diagnose eines diffusen großzelligen B-Zell-Lymphoms (DLBCL) zervikal rechts, NOS, Keimzentrums-Typ, Double-Expressor Phänotyp ED 01/2024. Die Ultraschalluntersuchung vom 22.01.24 zeigt eine sonographisch nicht komplett darstellbare, ca. 6 x 3 x 6 cm große, inhomogene Raumforderung mit teils hypo-, teils anechogenen Anteilen und randständiger Vaskularisation.
+
+Die Stanzbiopsie/FNP Level III rechts vom 22.01.24 bestätigt die Diagnose eines DLBCL, NOS (WHO HAEM-5/ICC 2022) mit positiven CD20, CD19, partiell positivem CD30, negativem CD10, MUM1, positivem Bcl-6, Bcl-2, MYC und CD5 sowie einem Ki-67-Wert von 60%.
+
+Relevante Nebendiagnosen umfassen eine arterielle Hypertonie, ein Tachykardes Vorhofflimmern und eine frische bis subakute LWK1-Fraktur bei Osteoporose (ED 22.08.2023). Die Patientin berichtet über einen ungewollten Gewichtsverlust von 5kg innerhalb von 3-4 Monaten sowie gelegentlich lokale Schmerzen im Bereich der zervikalen Läsion.
+
+Die Fragestellung des Tumorboards betrifft die Präsentation/Diskussion des PET/CT-Berichts vom 19.02.2024, dessen Inhalt jedoch nicht vorliegt.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf die Diagnose eines diffusen großzelligen B-Zell-Lymphoms (DLBCL) und unter Berücksichtigung der Patientenalter (>60 Jahre), des Ann-Arbor-Stadiums (nicht explizit genannt, aber anhand der Beschreibung wahrscheinlich III-IV) sowie der Nebendiagnosen empfehle ich folgende Therapie:
+
+1. **Initialtherapie:** R-CHOP21 (Rituximab, Cyclophosphamid, Doxorubicin, Vincristin, Prednison) für 6 Zyklen, alle 21 Tage, unter Berücksichtigung der Patientenalter und -gesundheit. Aufgrund des Alters (>60 Jahre) und der Nebendiagnosen (arterielle Hypertonie, Tachykardes Vorhofflimmern, frische bis subakute LWK1-Fraktur bei Osteoporose) sollte die Therapie sorgfältig überwacht und ggf. angepasst werden.
+
+2. **Zusätzliche Maßnahmen:**
+   - **CNS-Prophylaxe:** Intravenöse Hochdosis-Methotrexat könnte in Betracht gezogen werden, insbesondere aufgrund des hohen Risikos für CNS-Relapse bei Patienten mit hohem IPI und extranodalen Erkrankungen.
+   - **Schmerzmanagement:** Ein Schmerzmanagement-Plan sollte etabliert werden, um die lokalen Schmerzen im Bereich der zervikalen Läsion zu adressieren.
+   - **Osteoporose-Behandlung:** Eine Behandlung der Osteoporose sollte in Betracht gezogen werden, um das Risiko weiterer Frakturen zu minimieren.
+
+3. **Überwachung und Response-Evaluation:**
+   - Regelmäßige Überwachungen sollten durchgeführt werden, um den Therapieerfolg zu überwachen und mögliche Nebenwirkungen frühzeitig zu erkennen.
+   - Eine FGD-PET/CT-Untersuchung nach Abschluss der Therapie sollte durchgeführt werden, um den metabolischen Response zu bewerten.
+</therapieempfehlung>
+
+<begründung>
+Meine Empfehlung basiert auf den Leitlinien für die Behandlung von DLBCL-Patienten, insbesondere unter Berücksichtigung des Patientenalters und der Nebendiagnosen. Die Wahl der R-CHOP21-Therapie als Initialtherapie folgt den Empfehlungen für Patienten >60 Jahre mit einem IPI, das aufgrund der Beschreibung wahrscheinlich hoh ist. Die zusätzlichen Maßnahmen wie CNS-Prophylaxe und Schmerzmanagement sind auf die spezifischen Bedürfnisse der Patientin abgestimmt. Die Überwachung und Response-Evaluation mittels FGD-PET/CT-Untersuchung nach Therapieabschluss folgen den Empfehlungen für die Bewertung des Therapieerfolgs.</begründung>

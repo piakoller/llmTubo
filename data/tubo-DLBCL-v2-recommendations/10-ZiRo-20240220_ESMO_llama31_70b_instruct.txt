@@ -1,0 +1,18 @@
+<beurteilung>
+Der Patient wurde mit einem diffusen großzelligen B-Zell-Lymphom (DLBCL) im zervikalen Bereich rechts diagnostiziert. Die Diagnose wurde durch eine Stanzbiopsie und histologische Untersuchungen bestätigt. Der Patient hat keine Begleitsymptome, aber es gibt Hinweise auf eine zunehmende Schwellung seit Dezember 2023 und einen ungewollten Gewichtsverlust von 5 kg innerhalb von 3-4 Monaten.
+
+Die Prognose-Scores sind nicht explizit genannt, aber die Patientin hat mehrere relevante Nebendiagnosen wie arterielle Hypertonie, Tachykardes Vorhofflimmern und eine frische bis subakute LWK1-Fraktur bei Osteoporose.
+
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf die Diagnose und den Patienteninformationen empfehle ich eine Therapie mit 2 Zyklen R-mini-CHOP, gefolgt von einer PET/CT-Verlaufskontrolle. Diese Behandlung ist für Patienten mit einem DLBCL und ohne Begleitsymptome geeignet.
+
+</therapieempfehlung>
+
+<begründung>
+Diese Empfehlung basiert auf den Leitlinien für die Behandlung von DLBCL-Patienten, insbesondere für junge Patienten ohne Begleitsymptome. Die Wahl der R-mini-CHOP-Therapie ist geeignet, da sie eine wirksame und gut verträgliche Option für Patienten mit einem DLBCL darstellt.
+
+Die PET/CT-Verlaufskontrolle nach 2 Zyklen dient dazu, den Therapieerfolg zu überprüfen und gegebenenfalls die Behandlung anzupassen. Diese Vorgehensweise ist im Einklang mit den Leitlinien und soll eine optimale Behandlung des Patienten gewährleisten.
+
+Es ist wichtig, dass der Patient regelmäßig von einem Onkologen betreut wird, um den Therapieerfolg zu überwachen und gegebenenfalls Anpassungen an der Behandlung vorzunehmen.

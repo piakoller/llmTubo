@@ -1,0 +1,37 @@
+<beurteilung>
+Der Patient weist ein diffuses großzelliges B-Zell-Lymphom (DLBCL) Non-GCB-Typ im Stadium IV auf. Die Erkrankung ist nodal und extranodal mit Infiltrationen in der Ösophagus, Magen, linker Niere, Pleura, rechter Thoraxwand sowie neuroforaminale/intraspinale Infiltration in Höhe BWK 9 rechts. Es gibt keinen Hinweis auf Begleitsymptome oder spezifische Prognose-Scores wie IPI oder aaIPI. Die PET/CT zeigt eine intensiv stoffwechselaktive Erkrankung mit mehreren extranodalen Infiltrationen und Pleuraerguss rechts.
+
+Die Patientendaten sind jedoch unvollständig, insbesondere hinsichtlich des Alteres des Patienten, der Performance Status (PS), der Serum-LDH-Werte sowie möglicher Komorbiditäten. Diese Informationen sind entscheidend für die Prognose und die Auswahl der Therapie.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf den verfügbaren Daten empfiehlt sich eine intensivere Therapie, da das Lymphom im Stadium IV mit mehreren extranodalen Infiltrationen vorliegt. Die genaue Therapieentscheidung hängt jedoch von weiteren Patientenparametern ab:
+
+1. **Für Patienten ≤60 Jahre:**
+   - R-ACVBP (Rituximab, Doxorubicin, Vindesine, Cyclophosphamide, Bleomycin und Prednisolon) oder
+   - R-CHOP21 × 8 mit IF-RT auf die vorherigen bulky Sites.
+
+2. **Für Patienten >60 Jahre:**
+   - R-CHOP21 × 6–8.
+   
+3. **Bei Patienten, die für eine autologe Stammzellentransplantation (ASCT) geeignet sind:**
+   - Eine Kombination von R-DHAP oder R-ICE als Salvage-Therapie gefolgt von ASCT bei remissionsfähigen Patienten.
+
+4. **CNS-Prophylaxe:**
+   - Da der Patient mehrere extranodale Infiltrationen hat, sollte eine CNS-Prophylaxe in Betracht gezogen werden (z.B. intravenöse hochdosierte Methotrexat).
+
+5. **Folgebehandlung und Überwachung:**
+   - Regelmäßige klinische Untersuchungen sowie Blutuntersuchungen nach 3, 6, 12 und 24 Monaten.
+   - Minimale radiologische Untersuchungen (CT) nach 6, 12 und 24 Monaten.
+
+</therapieempfehlung>
+
+<begründung>
+Die Therapieentscheidung basiert auf den aktuellen Leitlinien der ESMO für DLBCL. Da das Lymphom im Stadium IV mit mehreren extranodalen Infiltrationen vorliegt, ist eine intensivere Therapie erforderlich. Die genaue Wahl hängt von weiteren Patientendaten ab, insbesondere dem Alter und der Gesundheit des Patienten.
+
+Für jüngere Patienten (≤60 Jahre) wird R-ACVBP oder R-CHOP21 × 8 mit IF-RT auf die vorherigen bulky Sites empfohlen. Bei älteren Patienten (>60 Jahre) ist R-CHOP21 × 6–8 die Standardbehandlung.
+
+Die CNS-Prophylaxe wird in Betracht gezogen, da der Patient mehrere extranodale Infiltrationen hat und somit ein erhöhtes Risiko für eine zentrale Nervensystem (CNS) Progression aufweist. Die Überwachung nach der Therapie ist entscheidend, um mögliche Rezidive frühzeitig zu erkennen.
+
+Die genaue Therapiewahl sollte basierend auf den vollständigen Patienteninformationen und einer detaillierten klinischen Bewertung erfolgen.
+</begründung>

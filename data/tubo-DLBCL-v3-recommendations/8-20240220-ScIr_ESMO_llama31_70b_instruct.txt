@@ -1,0 +1,23 @@
+<beurteilung>
+Der Patient wurde mit einem diffusen grosszelligen B-Zell-Lymphom vom Nasennebenhöhlen diagnostiziert, das als NOS (nicht KeimzentrumsPhänotyp) klassifiziert wurde. Der IPI-Wert betrug 3 von 5, was eine hohe Zwischenrisikoindikation darstellt. Die Erkrankung war im Stadium IAE und der Patient hatte mehrere Begleitsymptome wie Druckgefühl im Gesicht, Verschwommensehen, Doppelbilder und Riechminderung.
+
+Der Patient wurde mit einer Chemotherapie mit R-CHOP behandelt und zeigte eine komplette Remission nach 6 Zyklen. Es folgten mehrere PET-CT-Untersuchungen, die eine anhaltende komplette Remission bestätigten. Der Patient litt jedoch unter einem Rezidiv mit zerebraler Manifestation und wurde mit einer Systemtherapie nach PRIMAIN-Protokoll behandelt.
+
+Der aktuelle Zustand des Patienten zeigt eine Regression der Lymphom-Manifestation, aber es gibt Hinweise auf eine mögliche Glaskörperinfiltration. Der Patient benötigt eine sorgfältige Überwachung und ggf. eine Anpassung seiner Therapie.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf die aktuelle Situation des Patienten empfehle ich eine Fortsetzung der Therapie mit Procarbazin für 6 Monate, wie vom Lymphomboard empfohlen. Es ist wichtig, den Patienten regelmäßig zu überwachen und ggf. die Therapie anzupassen, wenn sich sein Zustand verändert.
+
+Es sollte auch eine sorgfältige Überwachung der Glaskörperinfiltration erfolgen, um sicherzustellen, dass diese nicht auf ein Fortschreiten des Lymphoms hinweist. Der Patient sollte regelmäßig von einem Augenarzt untersucht werden, um seine Sehfähigkeit zu überwachen.
+
+Es ist wichtig, den Patienten über die möglichen Nebenwirkungen der Therapie aufzuklären und ihn dazu zu ermutigen, alle Fragen oder Bedenken, die er hat, mit seinem Arzt zu besprechen.
+</therapieempfehlung>
+
+<begründung>
+Meine Empfehlung basiert auf den Leitlinien für die Behandlung von diffusen grosszelligen B-Zell-Lymphomen und den individuellen Umständen des Patienten. Die Fortsetzung der Therapie mit Procarbazin für 6 Monate ist eine empfohlene Behandlungsoption für Patienten, die eine komplette Remission nach einer Chemotherapie erzielt haben.
+
+Die sorgfältige Überwachung des Patienten und ggf. Anpassung seiner Therapie sind wichtig, um sicherzustellen, dass der Patient optimal behandelt wird und alle möglichen Nebenwirkungen minimiert werden. Die regelmäßige Untersuchung durch einen Augenarzt ist ebenfalls wichtig, um die Sehfähigkeit des Patienten zu überwachen und ggf. eine Glaskörperinfiltration frühzeitig zu erkennen.
+
+Es ist auch wichtig, den Patienten über die möglichen Nebenwirkungen der Therapie aufzuklären und ihn dazu zu ermutigen, alle Fragen oder Bedenken, die er hat, mit seinem Arzt zu besprechen. Dies hilft dem Patienten, sich besser auf seine Behandlung vorzubereiten und alle notwendigen Schritte zu unternehmen, um seine Gesundheit zu erhalten.
+</begründung>

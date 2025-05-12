@@ -1,0 +1,19 @@
+<beurteilung>
+Der Patient weist eine T- und Histiocyten-reiche große B-Zell-Lymphom (THRLBCL) im Ann-Arbor Stadium IV mit Begleitsymptomen auf, was als hochrisikosituationsbezogen klassifiziert wird. Die Diagnose wurde am 06.07.2023 durch eine lymphknotenbiopsie bestätigt und die Prognose-Scores sind nicht spezifisch angegeben. Der Patient hat bereits eine R-CHOP-Chemotherapie in sechs Zyklen erhalten, wobei nach drei Zyklen eine metabolische Remission festgestellt wurde. Nach dem Ende der Behandlung am 24.10.2023 zeigte die PET-CT vom 01.12.2023 jedoch einen starken Verdacht auf Rezidiv mit hypermetabolischer Aktivität in sternalen, femoralen und möglicherweise hilaren Läsionen (Deauville-Score 5). Eine biopsie des Sternums bestätigte die Rezidivierung. Die CAR-T-Therapie wurde aufgrund der fehlenden CD19-Ausdrückung nicht indiziert.
+
+Nach dem Beginn der Rettungschemotherapie mit einem Zyklus R-DHAP und einem Zyklus R-ICE zeigte die PET-CT vom 20.02.2024 eine partielle metabolische Reaktion (Deauville-Score 4) mit residueller metabolischer Aktivität in bekannten Läsionen.
+</beurteilung>
+
+<therapieempfehlung>
+Es wird empfohlen, die Rettungschemotherapie fortzusetzen. Da der Patient eine partielle Reaktion auf die bisherige Therapie gezeigt hat (Deauville-Score 4), sollte die Behandlung mit weiteren Zyklen von R-ICE oder R-DHAP fortgesetzt werden, wobei die Toleranz des Patienten berücksichtigt wird. Nach erfolgreicher Reaktion auf die Rettungschemotherapie (Deauville-Score ≤ 2) sollte eine autologe Stammzellentransplantation (ASCT) in Erwägung gezogen werden, sofern der Patient für diese Prozedur geeignet ist.
+
+Falls keine weitere Zytostatikatherapie möglich oder nicht ausreichend wirksam ist, sollten klinische Studien mit neuen Therapeutika in Betracht gezogen werden.
+</therapieempfehlung>
+
+<begründung>
+Basierend auf den ESMO-Leitlinien für die Behandlung von Diffusen großen B-Zell-Lymphomen (DLBCL) bei Patienten, die eine Rezidivierung nach einer erfolgreichen ersten Linientherapie erfahren haben, wird empfohlen, dass Patienten mit guter allgemeiner Gesundheit und ohne schwerwiegende Organfunktionsstörungen Rettungschemotherapieregimen erhalten sollten. Diese Regime können R-DHAP oder R-ICE umfassen (ESMO Leitlinien, Grade A und B). Da der Patient eine partielle Reaktion auf die bisherige Therapie gezeigt hat, sollte die Behandlung fortgesetzt werden.
+
+Die ESMO-Leitlinien empfehlen außerdem, dass bei erfolgreicher Rettungschemotherapie (Deauville-Score ≤ 2) eine autologe Stammzellentransplantation in Erwägung gezogen wird. Da der Patient jedoch nur eine partielle Reaktion gezeigt hat (Deauville-Score 4), sollte die Behandlung mit weiteren Zyklen von R-ICE oder R-DHAP fortgesetzt werden, wobei die Toleranz des Patienten berücksichtigt wird.
+
+Falls keine weitere Zytostatikatherapie möglich ist oder nicht ausreichend wirksam, sollten klinische Studien mit neuen Therapeutika in Betracht gezogen werden. Dies entspricht den Leitlinien und berücksichtigt die individuellen Faktoren des Patienten.
+</begründung>

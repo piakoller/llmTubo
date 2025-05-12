@@ -1,0 +1,23 @@
+<beurteilung>
+Die Patienteninformationen deuten auf eine Diagnose von Lymphom à grandes cellules B riche en lymphocytes T / histiocytes (THRLBCL) hin, die im Juli 2023 bestätigt wurde. Der Patient befindet sich im Ann-Arbor Stadium IVB mit einem hohen Risiko laut dem Internationalen Prognostic Index (IPI). Die Behandlung begann mit R-CHOP (Rituximab, Cyclophosphamid, Doxorubicin, Vincristin und Prednison) für 6 Zyklen alle 21 Tage. Nach drei Zyklen zeigte der PET-CT Scan eine metabolische Remission. Der sechste Zyklus wurde im Oktober 2023 abgeschlossen.
+
+Im Dezember 2023 wies ein PET-CT Scan auf eine mögliche Rezidiv hin, die durch eine Knochenbiopsie bestätigt wurde. Eine Behandlung mit CAR-T-Zellen wurde aufgrund fehlender CD19-Expression nicht in Betracht gezogen. Stattdessen erhielt der Patient im Januar 2024 einen Zyklus von R-DHAP (Rituximab, Cisplatin, Cytarabin und Dexamethason) gefolgt von einem Zyklus von R-ICE (Rituximab, Ifosfamid, Carboplatin und Etoposid) im Februar 2024. Im Februar 2024 wurde eine Stammzellenapherese durchgeführt.
+
+Der aktuelle PET-CT-Bericht vom 20. Februar 2024 zeigt eine partielle metabolische Antwort mit residueler Aktivität in bekannten Läsionen, was einem Deauville-Score von 4 entspricht.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf die aktuelle Situation und den Leitlinien empfehle ich folgende Schritte:
+
+1. **Weiterführung der Salvage-Therapie**: Der Patient hat bereits R-DHAP und R-ICE erhalten. Als nächstes Salvage-Regimen könnte R-GDP (Rituximab, Cisplatin, Gemcitabin und Dexamethason) in Betracht gezogen werden, da es eine ähnliche Wirksamkeit wie R-DHAP aber mit weniger Toxizität gezeigt hat.
+
+2. **Überprüfung der CNS-Prophylaxe**: Aufgrund des hohen Risikos für ein CNS-Relaps sollte die CNS-Prophylaxe überprüft und ggf. intravenöse hochdosierte Methotrexat-Behandlung in Betracht gezogen werden, um eine effiziente Krankheitskontrolle zu gewährleisten.
+
+3. **Regelmäßige Verfolgung**: Es sollte eine regelmäßige Verfolgung des Patienten alle 3 Monate für ein Jahr, alle 6 Monate für zwei weitere Jahre und dann jährlich durchgeführt werden, um das Auftreten von sekundären Tumoren oder anderen langfristigen Nebenwirkungen der Chemotherapie zu überwachen.
+
+4. **Berücksichtigung von klinischen Studien**: Der Patient sollte für eine Teilnahme an klinischen Studien in Betracht gezogen werden, um von neuen Therapieoptionen zu profitieren.
+</therapieempfehlung>
+
+<begründung>
+Meine Empfehlungen basieren auf den Leitlinien für die Behandlung von diffusen großen B-Zell-Lymphomen (DLBCL) und berücksichtigen die individuellen Faktoren des Patienten, wie das Ann-Arbor Stadium IVB, das hohe Risiko laut dem IPI und die bereits durchgeführten Therapieversuche. Die Auswahl von R-GDP als nächstes Salvage-Regimen basiert auf der Suche nach einer ähnlichen Wirksamkeit mit reduzierter Toxizität im Vergleich zu R-DHAP. Die Überprüfung der CNS-Prophylaxe ist aufgrund des hohen Risikos für ein CNS-Relaps erforderlich. Die regelmäßige Verfolgung soll das Auftreten von sekundären Tumoren oder anderen langfristigen Nebenwirkungen der Chemotherapie überwachen. Die Berücksichtigung von klinischen Studien bietet dem Patienten die Möglichkeit, von neuen Therapieoptionen zu profitieren.
+</begründung>

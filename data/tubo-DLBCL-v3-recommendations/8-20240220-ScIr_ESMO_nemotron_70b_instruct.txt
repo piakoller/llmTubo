@@ -1,0 +1,34 @@
+<beurteilung>
+Die Patientin leidet an einem diffusen, großzelligen B-Zell-Lymphom (DLBCL) der Nasennebenhöhle (Stadium IAE), das im September 2019 diagnostiziert wurde. Die Erkrankung manifestierte sich durch Druckgefühl im Gesicht, Verschwommensehen, Doppelbilder und Riechminderung. Eine CT-Untersuchung der Nasennebenhöhle zeigte eine Raumforderung mit Arrosion der angrenzenden Sinuswandungen und intraorbitale Ausdehnung. Die Biopsie bestätigte die Diagnose eines DLBCL (NOS, nicht KeimzentrumsPhänotyp) mit einem Internationalen Prognostik-Index (IPI) von 3/5, was als "high intermediate risk" eingestuft wird.
+
+Die Patientin erhielt eine Chemotherapie mit R-CHOP über insgesamt 6 Zyklen, beginningend im Oktober 2019. PET-CT-Untersuchungen im Dezember 2019 und Februar 2020 zeigten eine metabolische und morphologische komplette Remission.
+
+Im April 2023 trat ein Rezidiv des Lymphoms mit zerebraler Manifestation auf, was durch MRI und stereotaktische Biopsie bestätigt wurde. Die Patientin erhielt daraufhin einen ersten Zyklus der Systemtherapie nach dem PRIMAIN-Protokoll, gefolgt von einer PET/CT-Untersuchung, die keine Hinweise auf extrakraniellen Lymphombefall zeigte. Eine weitere Therapie mit zwei Zyklen nach dem PRIMAIN-Protokoll folgte, und eine MRI-Untersuchung im Juli 2023 zeigte eine Regression der Lymphom-Manifestation.
+
+Zur Zeit der letzten Untersuchung (Januar 2024) zeigt die Patientin eine vollständige Regress der Lymphom-Manifestation ohne neue Manifestationen eines ZNS-Lymphoms. Sie berichtet jedoch über intermittierende "schwarze Flecken" im visuellen Bereich links, was auf eine Glaskörperinfiltration hinweist.
+
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf die aktuelle Situation und den Verlauf der Erkrankung empfehle ich folgende Therapieschritte:
+
+1. **Weitere Abklärung der Glaskörperinfiltration**: Eine augenärztliche Konsultation und gegebenenfalls weitere diagnostische Schritte (z.B. Ophthalmoskopie, Visustestungen) sollten durchgeführt werden, um die Auswirkungen der Glaskörperinfiltration auf die Sehfähigkeit und das allgemeine Wohlbeinden der Patientin zu bewerten.
+
+2. **Überprüfung der aktuellen Therapie**: Angesichts des Rezidivs und der aktuellen Symptome sollte die Wirksamkeit der bisherigen Therapie überprüft werden. Eine Anpassung der Therapie könnte notwendig sein, um die Erkrankung effektiv zu kontrollieren.
+
+3. **Betrachtung von CNS-Prophylaxe**: Angesichts des zerebralen Rezidivs und der aktuellen Symptome (Glaskörperinfiltration) sollte eine CNS-Prophylaxe in Betracht gezogen werden, um das Risiko weiterer zerebraler Manifestationen zu minimieren.
+
+4. **Regelmäßige Verfolgung**: Regelmäßige Untersuchungen (z.B. alle 3 Monate) sollten durchgeführt werden, um den Verlauf der Erkrankung und die Wirksamkeit der Therapie zu überwachen und gegebenenfalls Anpassungen vorzunehmen.
+
+</therapieempfehlung>
+
+<begründung>
+Meine Empfehlung basiert auf folgenden Überlegungen:
+
+- **Aktueller Gesundheitszustand**: Die Patientin zeigt eine vollständige Regress der Lymphom-Manifestation, was ein positives Zeichen für die Wirksamkeit der bisherigen Therapie ist. Dennoch müssen die aktuellen Symptome (Glaskörperinfiltration) abgeklärt und behandelt werden.
+
+- **Rezidiv und zerebrale Manifestation**: Der Rezidiv des Lymphoms mit zerebraler Manifestation unterstreicht die Notwendigkeit einer gründlichen Überprüfung der Therapie und gegebenenfalls einer Anpassung, um das Risiko weiterer Komplikationen zu minimieren.
+
+- **Leitlinienkonformität**: Meine Empfehlungen sind konform mit den empfohlenen Leitlinien für die Behandlung von DLBCL-Patienten, insbesondere in Bezug auf die Überprüfung der Therapie nach Rezidiv und die Betrachtung von CNS-Prophylaxe.
+
+- **Individuelle Patientenfaktoren**: Die Empfehlungen berücksichtigen die individuellen Umstände der Patientin, einschließlich ihrer aktuellen Symptome und des Verlaufs der Erkrankung.

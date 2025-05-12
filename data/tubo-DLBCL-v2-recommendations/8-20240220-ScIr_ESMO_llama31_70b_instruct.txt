@@ -1,0 +1,28 @@
+<beurteilung>
+Der Patient wurde mit einem diffusen grosszelligen B-Zell-Lymphom vom Nasennebenhöhlen diagnostiziert, das als NOS (nicht KeimzentrumsPhänotyp) klassifiziert wurde. Der IPI-Wert betrug 3 von 5, was eine hohe Zwischenrisikoindikation darstellt. Die Erkrankung war im Stadium IAE und der Patient hatte mehrere Begleitsymptome wie Druckgefühl im Gesicht, Verschwommensehen, Doppelbilder und Riechminderung.
+
+Der Patient wurde mit einer Chemotherapie behandelt (R-CHOP) und zeigte eine komplette Remission in der PET-CT-Untersuchung. Es folgten mehrere Zyklen der Therapie, und der Patient erhielt auch eine Strahlentherapie.
+
+Der Patient entwickelte ein Rezidiv mit zerebralen Manifestationen und wurde mit einer neuen Therapie behandelt (PRIMAIN-Protokoll). Der Patient zeigte eine gute Ansprechbarkeit auf die Therapie, und die Läsionen im Schädel gingen zurück.
+
+Der Patient hat seit kurzem intermittierend "schwarze Flecken" visuell links und wurde auf eine Glaskörperinfiltration untersucht. Die augenärztliche Kontrolle ergab keine Hinweise auf eine Erkrankung des Auges.
+
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf die aktuelle Situation des Patienten und den Leitlinien empfehle ich folgende Therapie:
+
+* Eine Fortsetzung der aktuellen Therapie (PRIMAIN-Protokoll) mit dem Ziel, die Läsionen im Schädel weiter zurückzudrängen und die Erkrankung unter Kontrolle zu halten.
+* Eine regelmäßige Überwachung des Patienten durch PET-CT-Untersuchungen, um den Fortschritt der Therapie zu überwachen und mögliche Anzeichen einer Progression frühzeitig zu erkennen.
+* Eine enge Zusammenarbeit mit dem Augenarzt, um die Glaskörperinfiltration weiter zu überwachen und gegebenenfalls eine adäquate Behandlung einzuleiten.
+
+</therapieempfehlung>
+
+<begründung>
+Meine Empfehlung basiert auf den Leitlinien für die Behandlung von diffusen grosszelligen B-Zell-Lymphomen. Der Patient hat bereits eine gute Ansprechbarkeit auf die Therapie gezeigt, und es ist wichtig, diese Therapie fortzusetzen, um die Läsionen im Schädel weiter zurückzudrängen und die Erkrankung unter Kontrolle zu halten.
+
+Die regelmäßige Überwachung des Patienten durch PET-CT-Untersuchungen ist wichtig, um den Fortschritt der Therapie zu überwachen und mögliche Anzeichen einer Progression frühzeitig zu erkennen. Dies ermöglicht es, gegebenenfalls die Therapie anzupassen oder eine neue Therapie einzuleiten.
+
+Die enge Zusammenarbeit mit dem Augenarzt ist wichtig, um die Glaskörperinfiltration weiter zu überwachen und gegebenenfalls eine adäquate Behandlung einzuleiten. Dies ist besonders wichtig, da der Patient bereits Anzeichen einer Visusstörung gezeigt hat.
+
+Insgesamt basiert meine Empfehlung auf den Leitlinien und dem individuellen Patientenprofil. Es ist wichtig, den Patienten regelmäßig zu überwachen und die Therapie anzupassen, um die beste mögliche Behandlungsergebnis zu erzielen.

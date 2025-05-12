@@ -1,0 +1,24 @@
+<beurteilung>
+Der Patient wurde mit einem diffusen großzelligen B-Zell-Lymphom (DLBCL) diagnostiziert, das sich im zervikalen Bereich rechts befindet. Die Diagnose wurde durch eine Stanzbiopsie und histopathologische Untersuchungen bestätigt. Der Patient hat keine Begleitsymptome und die Prognose-Scores sind nicht angegeben.
+
+Die relevante Nebendiagnose ist die arterielle Hypertonie, das Tachykardes Vorhofflimmern und die frische bis subakute LWK1-Fraktur bei Osteoporose. Diese Nebendiagnosen können die Behandlung des Lymphoms beeinflussen und müssen daher bei der Therapiewahl berücksichtigt werden.
+
+Die Patientin hat seit Dezember 2023 eine zunehmende Schwellung im zervikalen Bereich rechts bemerkt und wurde aufgrund von Größenprogredienz und teils lokalen Schmerzen ärztlich vorgestellt. Die histopathologische Untersuchung ergab ein DLBCL, NOS, Keimzentrums-Typ, Double-Expressor Phänotyp ED 01/2024.
+
+Die PET/CT-Aufnahmen vom 19.02.2024 zeigen keine Anzeichen für eine Fortschreitung der Erkrankung.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf die Diagnose und den Leitlinien empfehle ich eine Behandlung mit R-CHOP (Rituximab, Cyclophosphamid, Doxorubicin, Vincristin und Prednison) für 6 Zyklen. Diese Behandlung ist laut den Leitlinien die Standardbehandlung für Patienten mit DLBCL.
+
+Aufgrund der Nebendiagnosen arterielle Hypertonie, Tachykardes Vorhofflimmern und frische bis subakute LWK1-Fraktur bei Osteoporose empfehle ich eine sorgfältige Überwachung und Anpassung der Behandlung an die individuellen Bedürfnisse des Patienten.
+
+Es ist wichtig, den Patienten über die möglichen Nebenwirkungen der Behandlung aufzuklären und ihn zu ermutigen, alle Fragen oder Bedenken offen zu äußern.
+</therapieempfehlung>
+
+<begründung>
+Die Empfehlung basiert auf den Leitlinien für die Behandlung von DLBCL. Die R-CHOP-Behandlung ist laut den Leitlinien die Standardbehandlung für Patienten mit DLBCL.
+
+Die Berücksichtigung der Nebendiagnosen arterielle Hypertonie, Tachykardes Vorhofflimmern und frische bis subakute LWK1-Fraktur bei Osteoporose ist wichtig, um sicherzustellen, dass die Behandlung an die individuellen Bedürfnisse des Patienten angepasst wird.
+
+Die sorgfältige Überwachung und Anpassung der Behandlung an die individuellen Bedürfnisse des Patienten sind entscheidend, um eine optimale Behandlungsergebnis zu erzielen.

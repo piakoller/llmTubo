@@ -1,0 +1,14 @@
+<beurteilung>
+Der Patient wurde mit einem diffusen grosszelligen B-Zell-Lymphom Stadium IV diagnostiziert, das als Non GCB-Typ klassifiziert wurde. Die Biopsie vom 09.02.2024 ergab ein diffuses grosszelliges B-Zell-Lymphom ohne Rearrangement von BCL2, BCL6 und MYC. Der Patient zeigt eine intensive Stoffwechselaktivität in nodalen und extranodalen Lymphommanifestationen, einschließlich Pleuraerguss rechts bei Thoraxwandinfiltration und neuroforaminale/intraspinale Infiltration in Höhe BWK 9 rechts.
+
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf die Diagnose und den Leitlinien empfehle ich eine Therapie mit R-CHOP (Rituximab, Cyclophosphamid, Doxorubicin, Vincristin und Prednison) für 6 Zyklen alle 21 Tage. Aufgrund des hohen Tumorloads und der nodalen sowie extranodalen Lymphommanifestationen ist eine sorgfältige Überwachung und ggf. eine Anpassung der Therapie notwendig.
+
+</therapieempfehlung>
+
+<begründung>
+Die Empfehlung basiert auf den Leitlinien für die Behandlung von diffusen grosszelligen B-Zell-Lymphomen (DLBCL). Die Wahl von R-CHOP als Erstlinientherapie ist bei Patienten mit einem IPI-Score von 0-1 und ohne Bulky-Disease empfohlen. Da der Patient ein Stadium IV aufweist, aber keine Bulky-Disease hat, ist R-CHOP eine angemessene Therapieoption. Die Überwachung und Anpassung der Therapie sind notwendig, um eine optimale Behandlung zu gewährleisten und mögliche Nebenwirkungen zu minimieren.
+
+</begründung>

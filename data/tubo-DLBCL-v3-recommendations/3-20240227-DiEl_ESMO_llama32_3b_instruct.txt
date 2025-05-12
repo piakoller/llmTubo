@@ -1,0 +1,20 @@
+Ich kann dir dabei helfen, eine Beurteilung und Therapieempfehlung für den Patienten zu erstellen.
+
+<beurteilung>
+Der Patient leidet an Diffus grosszelligem B-Zell-Lymphom (DLBCL) mit sekundärer zerebraler Beteiligung, NOS, Stadium IV. Die Prognose-Scores sind nicht angegeben, aber die IPI und aaIPI liegen bei 4 bzw. 3, was als high-risk-Kategorie gilt. Der Patient zeigt Symptome wie Müdigkeit, Übelkeit mit Erbrechen und Gewichtsverlust seit 6 Monaten. Die CT-Abdomen vom 23.02.2023 zeigen multiple vergrößerte Lymphknoten retroperitoneal, paraaortal sowie Lymphknotenkonglomerate mesenterial und einige vergrößerte mesenteriale Lymphknoten mit Fettdichte.
+
+Basierend auf den Leitlinien ist eine intensive Chemotherapie mit R-CHOP 21 × 6 oder R-ACVBP 21 × 6 empfohlen. Da der Patient jedoch auch Symptome wie Übelkeit und Erbrechen zeigt, könnte eine intensivere Therapie erforderlich sein.
+
+<therapieempfehlung>
+Die Therapieempfehlung für den Patienten wäre:
+
+* R-CHOP 21 × 6 mit radiotherapeutischer Konsolidierung
+* Überwachung der Symptome und des Leber- und Nierenfunktionen während der Chemotherapie
+* Überprüfung der PET-CT nach 3 Zyklen, um die Wirksamkeit der Therapie zu bewerten
+
+<begründung>
+Die Entscheidung für eine intensive Chemotherapie mit R-CHOP 21 × 6 oder R-ACVBP 21 × 6 basiert auf den Leitlinien und den individuellen Patientenfaktoren. Die IPI und aaIPI liegen bei 4 bzw. 3, was als high-risk-Kategorie gilt. Der Patient zeigt Symptome wie Übelkeit und Erbrechen, die eine intensivere Therapie erforderlich machen könnten.
+
+Es ist wichtig, dass der Patient während der Chemotherapie überwacht wird, um mögliche Nebenwirkungen wie Leber- und Nierenversagen zu vermeiden. Die Überprüfung der PET-CT nach 3 Zyklen ermöglicht die Bewertung der Wirksamkeit der Therapie und die Entscheidung für eine weitere Behandlung.
+
+Bitte beachte, dass diese Empfehlung auf den gegebenen Patienteninformationen basiert und individuell angepasst werden sollte. Es ist wichtig, dass du dich an die Leitlinien hältst und die Therapieempfehlung auf Basis der aktuellen medizinischen Literatur erstellst.

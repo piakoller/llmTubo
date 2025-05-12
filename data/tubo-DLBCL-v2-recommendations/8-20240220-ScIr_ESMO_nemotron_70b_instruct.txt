@@ -1,0 +1,28 @@
+<beurteilung>
+Die Patientin leidet an einem diffusen, großzelligen B-Zell-Lymphom (DLBCL) der Nasennebenhöhle (Stadium IAE), das im September 2019 diagnostiziert wurde. Die Erkrankung manifestierte sich durch Druckgefühl im Gesicht, Verschwommensehen, Doppelbilder und Riechminderung. Eine CT-Untersuchung der Nasennebenhöhle zeigte eine Raumforderung mit Arrosion der angrenzenden Sinuswandungen und intraorbitale Ausdehnung. Die Biopsie bestätigte die Diagnose eines DLBCL (NOS, nicht KeimzentrumsPhänotyp) mit einem Internationalen Prognostic Index (IPI) von 3/5, was als "high intermediate risk" eingestuft wird.
+
+Die Patientin erhielt eine Chemotherapie mit R-CHOP über insgesamt 6 Zyklen, beginningend im Oktober 2019. PET-CT-Untersuchungen im Dezember 2019 und Februar 2020 zeigten eine metabolische und morphologische komplette Remission.
+
+Im April 2023 trat ein Rezidiv des Lymphoms mit zerebraler Manifestation auf, was durch MRI und stereotaktische Biopsie bestätigt wurde. Die Patientin erhielt daraufhin einen ersten Zyklus der Systemtherapie nach dem PRIMAIN-Protokoll, gefolgt von einer PET/CT-Untersuchung, die keine Hinweise auf extrakraniellen Lymphombefall zeigte. Eine weitere Therapie mit zwei Zyklen nach dem PRIMAIN-Protokoll folgte, und eine MRI-Untersuchung im Juli 2023 zeigte eine Regression der Lymphom-Manifestation.
+
+Zur Zeit der letzten Untersuchung im Januar 2024 zeigte sich bei der Patientin ein vollständiger Regress der Lymphom-Manifestation ohne neue Manifestationen eines ZNS-Lymphoms. Die Patientin berichtete jedoch über intermittierende "schwarze Flecken" im visuellen Bereich links, was auf eine Glaskörperinfiltration hinweist.
+
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf die aktuelle Situation und den Verlauf der Erkrankung empfehle ich folgende Therapieschritte:
+
+1. **Weitere Abklärung der Glaskörperinfiltration**: Eine augenärztliche Konsultation und gegebenenfalls weitere diagnostische Schritte (z.B. Ophthalmoskopie, Visustest) sollten durchgeführt werden, um die Auswirkungen der Lymphomerkrankung auf das Auge genauer zu untersuchen.
+
+2. **Erhaltungstherapie mit Procarbazin**: Wie bereits vom Lymphomboard empfohlen, sollte die Erhaltungstherapie mit Procarbazin für 6 Monate fortgesetzt werden, um das Risiko eines erneuten Rezidivs zu minimieren.
+
+3. **Regelmäßige Verfolgungsuntersuchungen**: Um frühzeitig mögliche Anzeichen eines erneuten Rezidivs oder Nebenwirkungen der Therapie zu erkennen, sollten regelmäßige Verfolgungsuntersuchungen (einschließlich PET/CT und MRI) durchgeführt werden. Die Frequenz dieser Untersuchungen sollte an die spezifischen Bedürfnisse der Patientin angepasst werden.
+
+4. **Überwachung der Nebenwirkungen**: Da die Patientin bereits eine Chemotherapie und Strahlentherapie hinter sich hat, ist es wichtig, mögliche langfristige Nebenwirkungen (z.B. Infertilität, sekundäre Tumoren) zu überwachen und gegebenenfalls frühzeitig zu intervenieren.
+
+5. **Palliative Maßnahmen**: Sollte die Erkrankung progredieren oder die Patientin nicht auf die Therapie ansprechen, sollten palliative Maßnahmen in Betracht gezogen werden, um die Lebensqualität der Patientin zu verbessern.
+
+</therapieempfehlung>
+
+<begründung>
+Meine Empfehlungen basieren auf den Leitlinien für die Behandlung von DLBCL-Patienten, insbesondere unter Berücksichtigung des Rezidivs mit zerebraler Manifestation und der aktuellen Remission. Die Entscheidung für eine Erhaltungstherapie mit Procarbazin folgt den Empfehlungen des Lymphomboards und zielt darauf ab, das Risiko eines erneuten Rezidivs zu minimieren. Die regelmäßigen Verfolgungsuntersuchungen sind essentiell, um frühzeitig mögliche Anzeichen eines erneuten Rezidivs oder Nebenwirkungen der Therapie zu erkennen. Die Überwachung der Nebenwirkungen ist aufgrund der vorherigen Therapien unerlässlich, um langfristige Gesundheitsprobleme zu vermeiden. Palliative Maßnahmen bleiben als Option für den Fall einer Progression der Erkrankung oder fehlender Ansprechbarkeit auf die Therapie.

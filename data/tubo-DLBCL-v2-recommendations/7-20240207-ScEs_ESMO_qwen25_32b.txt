@@ -1,0 +1,25 @@
+<beurteilung>
+Der Patient weist ein diffuses großzelliges B-Zell-Lymphom (DLBCL) Non-GCB-Typ im Stadium IV auf. Die Erkrankung ist nodal und extranodal mit Infiltrationen in der Ösophagus, Magen, linker Niere, Pleura, rechter Thoraxwand sowie neuroforaminale/intraspinale Infiltration in Höhe BWK 9 rechts. Es gibt keinen Hinweis auf Begleitsymptome oder spezifische Prognose-Scores wie IPI oder aaIPI. Die PET/CT zeigt eine intensiv stoffwechselaktive Erkrankung mit Pleuraerguss und Thoraxwandinfiltration.
+
+Die Diagnose wurde durch Biopsie des linken Axillarknotens bestätigt, wobei keine Rearrangements von BCL2, BCL6 oder MYC nachgewiesen wurden. Die aktuelle Situation deutet auf eine fortschreitende und systemische Erkrankung hin.
+</beurteilung>
+
+<therapieempfehlung>
+Basierend auf den aktuellen Leitlinien der ESMO für diffuse großzellige B-Zell-Lymphome (DLBCL) empfiehlt sich eine intensivierte Therapie, da die Erkrankung im Stadium IV und extranodal ist. Die Empfehlungen sind wie folgt:
+
+1. **Chemotherapie mit R-CHOP21**: Sechs bis acht Zyklen von CHOP (Cyclophosphamide, Doxorubicin, Vincristin, Prednisolon) in Kombination mit Rituximab (R). Die Anwendung erfolgt alle 21 Tage.
+   
+2. **Zusätzliche Radiotherapie**: Da es sich um eine extranodale Erkrankung handelt und die PET/CT eine intensiv stoffwechselaktive Erkrankung zeigt, sollte eine zusätzliche Involved-Field-Radiotherapie (IF-RT) in den Bereichen der vorherigen massiven Infiltrationen erwogen werden.
+
+3. **CNS-Prophylaxe**: Da die Patienteninformationen keine spezifischen Hinweise auf das Alter oder die allgemeine Gesundheit des Patienten geben, sollte eine CNS-Prophylaxe in Betracht gezogen werden, insbesondere bei Patienten mit einem hohen Risiko für zentrale Nervensystem-Progression.
+
+4. **Folgebehandlung**: Eine sorgfältige Überwachung der Reaktion auf die Therapie durch eine FDG-PET/CT nach dem Ende der Behandlung ist empfohlen, um mögliche Residuen oder Progressionen zu identifizieren.
+</therapieempfehlung>
+
+<begründung>
+Die Empfehlungen basieren auf den aktuellen Leitlinien der ESMO für diffuse großzellige B-Zell-Lymphome. Da die Erkrankung im Stadium IV und extranodal ist, wird eine intensivierte Therapie empfohlen, um das Risiko von Progressionen zu minimieren. Die zusätzliche Involved-Field-Radiotherapie kann bei Patienten mit massiven Infiltrationen hilfreich sein, um lokale Kontrolle der Erkrankung sicherzustellen.
+
+Die CNS-Prophylaxe wird in Betracht gezogen, da die Patienteninformationen keinen spezifischen Hinweis auf das Alter oder die allgemeine Gesundheit des Patienten geben. Bei Patienten mit einem hohen Risiko für zentrale Nervensystem-Progression ist eine Prophylaxe wichtig.
+
+Die Überwachung der Reaktion auf die Therapie durch FDG-PET/CT nach dem Ende der Behandlung ist ein wichtiger Bestandteil, um mögliche Residuen oder Progressionen zu identifizieren und gegebenenfalls zusätzliche Maßnahmen einzuleiten.
+</begründung>
