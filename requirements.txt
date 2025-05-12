@@ -1,7 +1,16 @@
-sentence-transformers
-uvicorn
-ctransformers
-langchain
-python-box
-streamlit
-langchain_community
+sentence-transformers>=2.2.2
+uvicorn[standard]>=0.22.0
+ctransformers>=0.2.0
+langchain>=0.0.200
+python-box>=6.1.0
+streamlit>=1.25.0
+langchain_community>=0.0.1
+langchain_ollama
+openpyxl
+
+# Additional common dependencies
+fastapi>=0.95.0
+pydantic>=1.10.0
+numpy>=1.23.0
+pandas>=1.5.0
+scikit-learn>=1.1.0
