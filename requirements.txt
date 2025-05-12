@@ -7,6 +7,7 @@ streamlit>=1.25.0
 langchain_community>=0.0.1
 langchain_ollama
 openpyxl
+geopy
 
 # Additional common dependencies
 fastapi>=0.95.0

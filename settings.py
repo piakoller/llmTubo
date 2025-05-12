@@ -1,7 +1,7 @@
 from pathlib import Path
 
 DATA_ROOT_DIR = Path(
-    "/Users/pia/OneDrive - Universitaet Bern/Clement, Christoph Ludwig (STUDENTS)'s files - Tumorboard"
+    "/home/pia/projects/llmTubo/data"
 )
 TUBO_EXCEL_FILE_PATH = DATA_ROOT_DIR / "tubo-20240227-v2.xlsx"
 

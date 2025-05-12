@@ -1,0 +1,24 @@
+# config.py
+
+# --- LLM Configuration ---
+LLM_MODEL = "qwen3:32b"
+LLM_TEMPERATURE = 0.7
+
+# --- File Paths & Directories ---
+TUBO_EXCEL_FILE_PATH = "path/to/your/TUBO_Rohdaten_anonymisiert.xlsx"  # <--- IMPORTANT: Update this path
+REPORT_DIR = "generated_report"
+REPORT_FILE_TYPE = "md"
+
+# --- Clinical Trials API ---
+CLINICAL_TRIALS_API_URL = "https://clinicaltrials.gov/api/v2/studies"
+CLINICAL_TRIALS_PAGE_SIZE = 20
+REQUESTS_TIMEOUT = 30
+MAX_LOCATIONS_TO_DISPLAY_PER_STUDY = 3
+
+# --- Geocoding ---
+GEOCODER_USER_AGENT = "llm_tumorboard_app"
+GEOCODE_TIMEOUT = 10
+
+# --- Logging ---
+LOG_LEVEL = "INFO"
+LOG_FORMAT = "%(asctime)s - %(levelname)s - [%(threadName)s] - %(name)s - %(module)s.%(funcName)s - %(message)s"
