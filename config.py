@@ -1,11 +1,15 @@
 # config.py
+from pathlib import Path
 
 # --- LLM Configuration ---
 LLM_MODEL = "qwen3:32b"
 LLM_TEMPERATURE = 0.7
 
 # --- File Paths & Directories ---
-TUBO_EXCEL_FILE_PATH = "path/to/your/TUBO_Rohdaten_anonymisiert.xlsx"  # <--- IMPORTANT: Update this path
+DATA_ROOT_DIR = Path(
+    "/home/pia/projects/llmTubo/data"
+)
+TUBO_EXCEL_FILE_PATH = DATA_ROOT_DIR / "tubo-20240227-v2.xlsx"
 REPORT_DIR = "generated_report"
 REPORT_FILE_TYPE = "md"
 
