@@ -9,7 +9,7 @@ LLM_TEMPERATURE = 0.7
 DATA_ROOT_DIR = Path(
     "/home/pia/projects/llmTubo/data"
 )
-TUBO_EXCEL_FILE_PATH = DATA_ROOT_DIR / "tubo-20240227-v2.xlsx"
+TUBO_EXCEL_FILE_PATH = DATA_ROOT_DIR / "tubo-DLBCL-v2.xlsx"
 REPORT_DIR = "generated_report"
 REPORT_FILE_TYPE = "md"
 
