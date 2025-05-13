@@ -2,8 +2,10 @@
 import logging
 import urllib.parse
 import requests
+import os
 from typing import List, Dict, Any
 from langchain_ollama import OllamaLLM
+from langchain.prompts import PromptTemplate
 
 from .base_agent import Agent # Relative import
 import config # Global config

@@ -49,6 +49,60 @@ class AgentWorkflowManager:
                 logger.info(f"Geocoded '{self.patient_data['location']}' to {self.user_geopoint}")
 
 
+    def _parse_diagnosis_for_studien_agent(self, full_patient_context: str) -> str:
+        """
+        Extracts the diagnosis search term for the StudienAgent from the full patient context,
+        looking for a line starting with 'Diagnose:'.
+        This function is adapted from your provided _parse_context.
+        """
+        diagnosis_search_term = ""
+        context_lines = full_patient_context.strip().split('\n')
+        for line in context_lines:
+            line_stripped = line.strip() # Work with the stripped line for matching
+            # Check for "Diagnose:" and also "Diagnose-Kürzel:" as a common variation
+            if line_stripped.lower().startswith("diagnose:") or \
+               line_stripped.lower().startswith("diagnose-kürzel:"):
+                
+                # Determine which prefix was found for accurate splitting
+                prefix_to_split = "diagnose:" if line_stripped.lower().startswith("diagnose:") else "diagnose-kürzel:"
+                
+                try:
+                    # Get the content after "Diagnose:" or "Diagnose-Kürzel:"
+                    content_after_prefix = line_stripped.split(":", 1)[1].strip()
+                    
+                    # Check for text in parentheses: "CODE (TEXT)"
+                    parts = content_after_prefix.split("(", 1)
+                    if len(parts) > 1 and parts[1].endswith(")"): # Ensure closing parenthesis exists
+                        # Extract text from "TEXT)"
+                        text_in_parentheses = parts[1][:-1].strip() # Remove trailing ')' and strip
+                        if text_in_parentheses:
+                            diagnosis_search_term = text_in_parentheses
+                            logger.info(f"Parsed diagnosis for StudienAgent (from text in parentheses): '{diagnosis_search_term}' from line: '{line_stripped}'")
+                            break 
+                        else: # Parentheses are empty like "CODE ()"
+                            diagnosis_search_term = parts[0].strip() # Use the code part
+                            logger.info(f"Parsed diagnosis for StudienAgent (from code, empty parentheses): '{diagnosis_search_term}' from line: '{line_stripped}'")
+                            break
+                    else: # No parentheses, or malformed
+                        diagnosis_search_term = content_after_prefix # Use the whole content after "Diagnose:"
+                        logger.info(f"Parsed diagnosis for StudienAgent (no parentheses): '{diagnosis_search_term}' from line: '{line_stripped}'")
+                        break
+                except IndexError:
+                    logger.warning(f"Could not properly parse line starting with 'Diagnose:' or 'Diagnose-Kürzel:': '{line_stripped}'")
+                    continue # Try next line
+        
+        if not diagnosis_search_term:
+            logger.warning(f"Could not find a 'Diagnose:' or 'Diagnose-Kürzel:' line to parse for StudienAgent in context. Context snippet: {full_patient_context[:200]}...")
+            # Fallback: use the 'main_diagnosis' field directly if parsing fails
+            diagnosis_search_term = self.patient_data.get('main_diagnosis', '').strip()
+            if diagnosis_search_term:
+                logger.info(f"Falling back to 'main_diagnosis' field for StudienAgent: '{diagnosis_search_term}'")
+            else:
+                diagnosis_search_term = "tumor" # Last resort fallback
+                logger.warning(f"Using generic 'tumor' for StudienAgent as all parsing attempts failed.")
+
+        return diagnosis_search_term.strip()
+    
     def _prepare_contexts(self) -> tuple[str, str]:
         """Prepares contexts for different agents."""
         logger.info("Preparing agent contexts...")
@@ -67,15 +121,12 @@ class AgentWorkflowManager:
             Vorstellungsart: {self.patient_data.get('presentation_type', 'N/A')}
         """
         # Context specifically for StudienAgent - focused on diagnosis
-        # Ensure there's a fallback if main_diagnosis_text is empty
-        studien_diagnosis_term = self.patient_data.get('main_diagnosis_text', '').strip()
-        if not studien_diagnosis_term:
-            studien_diagnosis_term = self.patient_data.get('main_diagnosis', '').strip()
-        if not studien_diagnosis_term:
-            logger.warning("No diagnosis term found for StudienAgent context. Using 'tumor' as a generic fallback.")
-            studien_diagnosis_term = "tumor" # Generic fallback, less ideal
+        # The `_parse_diagnosis_for_studien_agent` function will now parse this `base_context`.
+        studien_search_term = self._parse_diagnosis_for_studien_agent(base_context)
+        
+        # The context for StudienAgent is now the output of this parser.
+        studien_context = studien_search_term 
 
-        studien_context = studien_diagnosis_term # Pass only the diagnosis string
         logger.info(f"Base context prepared. Studien context based on: '{studien_context}'")
         return base_context, studien_context
 
