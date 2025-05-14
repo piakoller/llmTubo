@@ -26,3 +26,6 @@ GEOCODE_TIMEOUT = 10
 # --- Logging ---
 LOG_LEVEL = "INFO"
 LOG_FORMAT = "%(asctime)s - %(levelname)s - [%(threadName)s] - %(name)s - %(module)s.%(funcName)s - %(message)s"
+
+# --- LLM Interaction Logging ---
+LLM_INTERACTIONS_CSV_FILE = "/home/pia/projects/llmTubo/logs/llm_interactions.csv" # Path for LLM I/O log
