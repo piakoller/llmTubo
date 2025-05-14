@@ -1,0 +1,247 @@
+timestamp,agent_name,rendered_prompt,raw_response,final_response,error_message
+2025-05-14T13:25:26.444324,Diagnostik,"
+        Du bist ein medizinischer Experte für Diagnostik. Deine Rolle ist: Analysiere Diagnose, Symptome und klinische Berichte und fasse die wichtigsten Punkte zusammen.
+        Analysiere den folgenden Patientenkontext und fasse die relevanten diagnostischen Informationen, das Stadium und wichtige klinische Punkte klar und prägnant zusammen.
+
+        Kontext:
+        ---
+        
+            Patient ID: 1-20240227-ChNo
+            Leitlinie: ESMO
+            Diagnose-Kürzel: DLBCL
+            Hauptdiagnose (Text): Diffuses grosszelliges B-Zell-Lymphom Stadium IV, R-IPI 3 Pkte, ED 09/2023 
+- Klinik: Tumor Schädel frontal rechts 
+- 31.08.23 MRI Schädel: Läsion frontoparietal rechts, zentriert um das Os frontale mit grossem extra- und intrakraniellen Anteil. Impression des rechten Frontal-lappens, kein assoziiertes Parenchymödem. Keine Herniation. 
+- 07.09.23 offene Biopsie (Dr. Zubak, Dr. Bader) 
+
+Histologie (IGMP B2023.35224): Diffuses grosszelliges B-Zell-Lymphom, NOS, IHC: Mib 80%, Bcl-6 +, Bcl-2 +, MYC - 
+FISH: MYC, BCL2: Keine Translokation, BCL6: Translokation 
+- 11.09.23 Serologien HIV, HBV, HCV: negativ 
+- 20.09.23 Kryokonservierung 
+- 21.09.23 PET/CT: Axilläre Lymphadenopathien rechts, Splenomegalie mit splenischer Befall, Masse Frontal rechts 
+- 25.09.23 R-CHOP, 1. Zyklus 
+- 26.09.23 Lymphomboard: Eskalation auf MATRix/R-ICE gem. MARIETTA Trial 
+- 16.10.23 – 17.12.23 : MATRix, 3 Zyklen 
+- 14.12.23 PET-CT+ cMRI: Partielle Remission (Deauville 4) 
+- 19.12.23 – 20.02.24: R-ICE, 3 Zyklen (Stammzellsammlung aus den 2. Zyklus) 
+- 19.02.24 cMRI: Befund ausstehend 
+- 22.02.24 PET/CT: Befund ausstehend 
+            Stadium: IV
+            Nebendiagnosen: -
+            Klinik/Fragestellung: Remissionsstatus? Konsolidierung mit HD-CHT (geplant 06.03.24) und ASZT (geplant 13.03.24)? 
+            PET-CT Bericht: Klinische Angaben und Fragestellung:
+DLBCL Stadium IV, Standortbestimmung vor Induktionschemotherapie
+Remissionsstatus?
+ 
+ 
+PET-CT vom 22.02.2024
+ 
+ 
+Gerät: Siemens Biograph Vision Quadra
+Technik:  Körperstamm unter Koregistrierung einer CT-Hals-Thorax-Abdomen mit i.v.KM 68 min nach Applikation, über einen i.v. Zugang cubital rechts. 
+Blutzucker:  6.4 mmol/l
+Prämedikation:  keine 
+Radiodiagnostikum: 367 MBq 2- stoffwechselaktive Lymphknoten rechts axillär, exemplarisch ausgemessen der grösste mit einer Durchmesser von FDG 
+ 
+ 
+Befund:  2-[18F]FDG-PET-CT vom 14.12.2023 zum Vergleich vorliegend.
+ 
+Bloodpool: SUVmax. 2.1 
+Leberpool: SUVmax. 3.1 
+ 
+Hals: Gering anreichernde Lymphknoten bds. zervikal ohne pathologische Vergrösserung, - i.e.L. reaktiv entzündlich. Symmetrische Darstellung der Halsweichteile. Symmetrisch vermehrte Tracerbelegung in den Speicheldrüsen. 
+ 
+Thorax: Gering stoffwechselaktive LK links axillär. Etwas grössenregrediente weiterhin deutlich vergrösserte LK rechts axillär mit heterogen moderat bis intensiver Tracerbelegung. Neue moderat stoffwechselaktive Verdichtungen in beiden posterioren Lungenoberlappen. Keine stoffwechselaktiven Lymphknoten mediastinal oder hilär. Keine stoffwechselaktiven intrapulmonalen Rundherde. Kein Pleura- oder Perikarderguss. Regelrechte Kontrastierung der grossen mediastinalen Gefässe. 
+ 
+Abdomen: 
+Milz mit homogener Tracerbelegung unterhalb des Leberuptakes, im Verlauf in kraniokaudaler Ausdehnung etwas grössenregredient 14.8 cm VU 17 cm). 
+Im Übrigen kein Nachweis malignomsuspekter Lymphknoten abdominal. Sonst grobmorphologisch unauffällige Darstellung der Abdominalorgane. Regelrechte Darstellung beider Nieren mit physiologischer Tracerexkretion, kein Harnstau. Bauch- und Beckenarterien regelrecht perfundiert. 
+ 
+Skelett/Extremitäten: Regrediente homogen moderate Tracerbelegung im Knochenmark der Wirbelsäule, sternal, Becken, Rippen, sowie der proximalen Humeri und Femura.
+ 
+Beurteilung: 
+• Im Verlauf etwas grössenregrediente weiterhin deutlich vergrösserte LK rechts axillär mit heterogen moderat bis intensiver Tracerbelegung. Nur gering stoffwechselaktive LK links axillär. 
+• Milz mit homogener Tracerbelegung unterhalb des Leberuptakes und etwas grössenregredient ohne Hinweis auf persistierende Lymphommanifestation.
+• Neue moderat stoffwechselaktive Verdichtungen in beiden posterioren Lungenoberlappen i.e.L. entzündlich. 
+• Die ossäre Lymphommanifestationen der Schädelkalotte hochfrontal rechts mit bekannter intra- und extrakranieller Komponente sind im Untersuchungsvolumen nicht mitabgebildet. Siehe Befund MRT Schädel vom 19.02.2024. Bitte bei der nächsten Untersuchung wie im Befund 12/2023 erwähnt explizit Schädel mitanfordern. 
+• Deauville Score  4
+            Begleitsymptome: B
+            Prognose Score: IPI: 3
+            Vorstellungsart: Folgevorstellung
+        
+        ---
+
+        Zusammenfassung der Diagnostik:
+        ","<think>
+Okay, let's start by looking at the patient's main diagnosis. It's a diffuse large B-cell lymphoma (DLBCL) stage IV. The IPI score is 3, which is intermediate to high risk. The patient has extranodal involvement in the right frontal skull, axillary lymph nodes, and spleen. The initial biopsy showed DLBCL, NOS, with some specific markers like Bcl-6 and Bcl-2 positive, MYC negative. There's a translocation in BCL6 but none in MYC or BCL2.
+
+The treatment started with R-CHOP, then escalated to MATRix and R-ICE based on the MARIETTA trial. After three cycles of MATRix, a PET/CT showed partial remission (Deauville 4). Then three cycles of R-ICE followed. The latest PET/CT (2/24) shows some regression but still active axillary lymph nodes and new lung opacities, which might be inflammatory. The spleen is smaller but still shows uptake. The bone marrow involvement has regressed. The Deauville score is 4, indicating partial remission. The question now is about consolidation with high-dose chemo and ASCT. The next steps are planned for March 2024.
+
+I need to make sure I capture all the key points: staging, treatment response, current status, and next steps. Also, mention the prognostic factors like IPI 3 and the presence of B symptoms. The new lung findings need to be noted as possibly infectious. The skull lesion wasn't imaged in the latest PET/CT, so that's a consideration for further imaging. The summary should be concise but comprehensive, highlighting the remission status, remaining disease, and upcoming treatments.
+</think>
+
+**Zusammenfassung der Diagnostik, Stadium und klinischen Punkte:**
+
+1. **Diagnose und Stadium:**  
+   - **Hauptdiagnose:** Diffuses grosszelliges B-Zell-Lymphom (DLBCL), *non Hodgkin*, *non-spezifisch* (NOS), **Stadium IV** (ESMO-Leitlinie).  
+   - **Extranodale Beteiligung:** Frontalos rechts (intrakraniell/extrakraniell), axilläre Lymphknoten, Milz (splenische Befall).  
+   - **Prognose:** **IPI-Score 3** (intermedia bis hochrisiko), **R-IPI nicht angegeben**.  
+   - **Begleitsymptome:** B-Symptom (gewichtsabnahme, Fieber, Nachtschweiß).
+
+2. **Histologie und Biomarker:**  
+   - **Histologie:** DLBCL NOS mit **Bcl-6+**, **Bcl-2+**, **MYC-**.  
+   - **FISH:** **BCL6-Translokation** (ohne MYC/BCL2-Translokation).  
+   - **Mib-1 (Ki-67):** 80% (hochproliferativ).
+
+3. **Therapieverlauf:**  
+   - **Induktionstherapie:** R-CHOP (1. Zyklus), danach **Eskalation auf MATRix/R-ICE** gemäß **MARIETTA Trial**.  
+   - **PET/CT (14.12.2023):** **Partielle Remission** (Deauville 4) nach 3 MATRix-Zyklen.  
+   - **R-ICE-Therapie:** 3 Zyklen (Stammzellsammlung im 2. Zyklus geplant).  
+   - **Aktueller Stand (22.02.2024):**  
+     - **Axilläre Lymphknoten (rechts):** Größenregression, aber **heterogene Tracerbelegung** (persistierende Aktivität).  
+     - **Milz:** Homogene Traceraufnahme unter Leberuptake, **Größenregression** (14,8 cm vs. 17 cm).  
+     - **Neue Lungenverdichtungen** (posteriores Oberlappen, beidseitig): **Mögliche Entzündung** (i. e. L.).  
+     - **Knochenmark:** Regrediente Tracerbelegung (Wirbelsäule, Becken, Rippen).  
+     - **Deauville Score 4** → **Partielle Remission** (keine vollständige Regression).  
+
+4. **Klinische Fragen und Planung:**  
+   - **Remissionsstatus?** PET/CT (22.02.2024) deutet auf **persistierende aktive Läsionen** (axillär) hin.  
+   - **Konsolidierungstherapie geplant:** **HD-CHT** (6.03.2024) und **ASZT** (13.03.2024).  
+   - **Offene Punkte:**  
+     - **Neue Lungenverdichtungen** → Differenzialdiagnose (Infekt vs. Lymphomprogress).  
+     - **Schädel-Läsion** nicht in PET/CT (22.02.2024) abgebildet → **MRT Schädel** (19.02.2024) ausstehend.  
+
+5. **Prognostische Faktoren:**  
+   - **Hochrisikoprofil:** IPI 3, B-Symptom, extranodale Beteiligung (Schädel).  
+   - **Wichtige Therapieziele:** Sicherung der konsolidierenden Therapie (ASZT) nach Teilremission.  
+
+**Fazit:** Der Patient ist in **Teilremission** mit persistierenden aktiven Läsionen (axillär). Die geplante Konsolidierung mit HD-CHT und ASZT zielt auf eine **Langzeitremission** ab. Die neuen Lungenverdichtungen erfordern **klinische und radiologische Abklärung**. Die Schädel-Läsion muss in der nächsten MRT überwacht werden.","**Zusammenfassung der Diagnostik, Stadium und klinischen Punkte:**
+
+1. **Diagnose und Stadium:**  
+   - **Hauptdiagnose:** Diffuses grosszelliges B-Zell-Lymphom (DLBCL), *non Hodgkin*, *non-spezifisch* (NOS), **Stadium IV** (ESMO-Leitlinie).  
+   - **Extranodale Beteiligung:** Frontalos rechts (intrakraniell/extrakraniell), axilläre Lymphknoten, Milz (splenische Befall).  
+   - **Prognose:** **IPI-Score 3** (intermedia bis hochrisiko), **R-IPI nicht angegeben**.  
+   - **Begleitsymptome:** B-Symptom (gewichtsabnahme, Fieber, Nachtschweiß).
+
+2. **Histologie und Biomarker:**  
+   - **Histologie:** DLBCL NOS mit **Bcl-6+**, **Bcl-2+**, **MYC-**.  
+   - **FISH:** **BCL6-Translokation** (ohne MYC/BCL2-Translokation).  
+   - **Mib-1 (Ki-67):** 80% (hochproliferativ).
+
+3. **Therapieverlauf:**  
+   - **Induktionstherapie:** R-CHOP (1. Zyklus), danach **Eskalation auf MATRix/R-ICE** gemäß **MARIETTA Trial**.  
+   - **PET/CT (14.12.2023):** **Partielle Remission** (Deauville 4) nach 3 MATRix-Zyklen.  
+   - **R-ICE-Therapie:** 3 Zyklen (Stammzellsammlung im 2. Zyklus geplant).  
+   - **Aktueller Stand (22.02.2024):**  
+     - **Axilläre Lymphknoten (rechts):** Größenregression, aber **heterogene Tracerbelegung** (persistierende Aktivität).  
+     - **Milz:** Homogene Traceraufnahme unter Leberuptake, **Größenregression** (14,8 cm vs. 17 cm).  
+     - **Neue Lungenverdichtungen** (posteriores Oberlappen, beidseitig): **Mögliche Entzündung** (i. e. L.).  
+     - **Knochenmark:** Regrediente Tracerbelegung (Wirbelsäule, Becken, Rippen).  
+     - **Deauville Score 4** → **Partielle Remission** (keine vollständige Regression).  
+
+4. **Klinische Fragen und Planung:**  
+   - **Remissionsstatus?** PET/CT (22.02.2024) deutet auf **persistierende aktive Läsionen** (axillär) hin.  
+   - **Konsolidierungstherapie geplant:** **HD-CHT** (6.03.2024) und **ASZT** (13.03.2024).  
+   - **Offene Punkte:**  
+     - **Neue Lungenverdichtungen** → Differenzialdiagnose (Infekt vs. Lymphomprogress).  
+     - **Schädel-Läsion** nicht in PET/CT (22.02.2024) abgebildet → **MRT Schädel** (19.02.2024) ausstehend.  
+
+5. **Prognostische Faktoren:**  
+   - **Hochrisikoprofil:** IPI 3, B-Symptom, extranodale Beteiligung (Schädel).  
+   - **Wichtige Therapieziele:** Sicherung der konsolidierenden Therapie (ASZT) nach Teilremission.  
+
+**Fazit:** Der Patient ist in **Teilremission** mit persistierenden aktiven Läsionen (axillär). Die geplante Konsolidierung mit HD-CHT und ASZT zielt auf eine **Langzeitremission** ab. Die neuen Lungenverdichtungen erfordern **klinische und radiologische Abklärung**. Die Schädel-Läsion muss in der nächsten MRT überwacht werden.",
+2025-05-14T13:26:08.455854,Therapieempfehlung,"
+            # Therapieempfehlung für Tumorboard
+
+            Du bist ein erfahrener Onkologie-Experte, spezialisiert auf Therapieplanung. Deine Aufgabe ist es, basierend auf der bereitgestellten diagnostischen Zusammenfassung und unter strikter Berücksichtigung der angegebenen Leitlinie, eine präzise und begründete Therapieempfehlung für den besprochenen Patienten zu erstellen.
+
+            **Deine Rolle:** Erstelle eine detaillierte, leitlinienbasierte Therapieempfehlung basierend auf der Diagnoseanalyse.
+
+            **Leitlinie für diese Empfehlung:** ESMO
+
+            **Patienten-Kontext und Diagnostische Zusammenfassung:**
+            ---
+            **Zusammenfassung der Diagnostik, Stadium und klinischen Punkte:**
+
+1. **Diagnose und Stadium:**  
+   - **Hauptdiagnose:** Diffuses grosszelliges B-Zell-Lymphom (DLBCL), *non Hodgkin*, *non-spezifisch* (NOS), **Stadium IV** (ESMO-Leitlinie).  
+   - **Extranodale Beteiligung:** Frontalos rechts (intrakraniell/extrakraniell), axilläre Lymphknoten, Milz (splenische Befall).  
+   - **Prognose:** **IPI-Score 3** (intermedia bis hochrisiko), **R-IPI nicht angegeben**.  
+   - **Begleitsymptome:** B-Symptom (gewichtsabnahme, Fieber, Nachtschweiß).
+
+2. **Histologie und Biomarker:**  
+   - **Histologie:** DLBCL NOS mit **Bcl-6+**, **Bcl-2+**, **MYC-**.  
+   - **FISH:** **BCL6-Translokation** (ohne MYC/BCL2-Translokation).  
+   - **Mib-1 (Ki-67):** 80% (hochproliferativ).
+
+3. **Therapieverlauf:**  
+   - **Induktionstherapie:** R-CHOP (1. Zyklus), danach **Eskalation auf MATRix/R-ICE** gemäß **MARIETTA Trial**.  
+   - **PET/CT (14.12.2023):** **Partielle Remission** (Deauville 4) nach 3 MATRix-Zyklen.  
+   - **R-ICE-Therapie:** 3 Zyklen (Stammzellsammlung im 2. Zyklus geplant).  
+   - **Aktueller Stand (22.02.2024):**  
+     - **Axilläre Lymphknoten (rechts):** Größenregression, aber **heterogene Tracerbelegung** (persistierende Aktivität).  
+     - **Milz:** Homogene Traceraufnahme unter Leberuptake, **Größenregression** (14,8 cm vs. 17 cm).  
+     - **Neue Lungenverdichtungen** (posteriores Oberlappen, beidseitig): **Mögliche Entzündung** (i. e. L.).  
+     - **Knochenmark:** Regrediente Tracerbelegung (Wirbelsäule, Becken, Rippen).  
+     - **Deauville Score 4** → **Partielle Remission** (keine vollständige Regression).  
+
+4. **Klinische Fragen und Planung:**  
+   - **Remissionsstatus?** PET/CT (22.02.2024) deutet auf **persistierende aktive Läsionen** (axillär) hin.  
+   - **Konsolidierungstherapie geplant:** **HD-CHT** (6.03.2024) und **ASZT** (13.03.2024).  
+   - **Offene Punkte:**  
+     - **Neue Lungenverdichtungen** → Differenzialdiagnose (Infekt vs. Lymphomprogress).  
+     - **Schädel-Läsion** nicht in PET/CT (22.02.2024) abgebildet → **MRT Schädel** (19.02.2024) ausstehend.  
+
+5. **Prognostische Faktoren:**  
+   - **Hochrisikoprofil:** IPI 3, B-Symptom, extranodale Beteiligung (Schädel).  
+   - **Wichtige Therapieziele:** Sicherung der konsolidierenden Therapie (ASZT) nach Teilremission.  
+
+**Fazit:** Der Patient ist in **Teilremission** mit persistierenden aktiven Läsionen (axillär). Die geplante Konsolidierung mit HD-CHT und ASZT zielt auf eine **Langzeitremission** ab. Die neuen Lungenverdichtungen erfordern **klinische und radiologische Abklärung**. Die Schädel-Läsion muss in der nächsten MRT überwacht werden.
+            ---
+
+            **Anweisungen für die Erstellung der Therapieempfehlung:**
+            1.  Analysiere die bereitgestellten Informationen im Abschnitt ""Patienten-Kontext und Diagnostische Zusammenfassung"" sorgfältig.
+            2.  Berücksichtige **ausschließlich** die angegebene Leitlinie: **ESMO**. Ignoriere andere Leitlinien oder allgemeine Informationen, es sei denn, sie sind im Kontext als relevant aufgeführt.
+            3.  Formuliere **EINE EINZIGE, KONKRETE THERAPIETHERAPIE**, die am besten zu den Fakten im Kontext und der angegebenen Leitlinie passt.
+            4.  Sollte im Kontext bereits eine mögliche Therapie vorgeschlagen sein, bewerte diese kritisch im Licht der Leitlinie und integriere oder ersetze sie durch die am besten begründete Empfehlung.
+            5.  Gib eine klare und prägnante Begründung für die empfohlene Therapie. Die Begründung muss sich explizit auf die relevanten Punkte aus dem Patienten-Kontext (Diagnose, Stadium, relevante Vorerkrankungen etc.) und die Empfehlungen der Leitlinie beziehen.
+            6.  Sollten die im Kontext enthaltenen Informationen für eine definitive Therapieempfehlung unzureichend sein (z.B. fehlendes Staging, unklare Histologie), gib dies an und schlage notwendige weitere diagnostische Schritte vor.
+            7.  Gib **ausschließlich** die Therapieempfehlung und die Begründung aus. Verwende dabei die unten angegebene Struktur der Überschriften. Füge keine zusätzlichen einleitenden oder abschliessenden Sätze hinzu, die nicht Teil der Empfehlung oder Begründung sind.
+
+            **Deine Antwort (Im folgenden Markdown-Format):**
+
+            **Therapieempfehlung:**
+            [Hier deine einzige, konkrete Therapieempfehlung einfügen. Beginne direkt mit der Empfehlung.]
+
+            **Begründung:**
+            [Hier deine detaillierte Begründung einfügen. Beziehe dich auf den Kontext und die Leitlinie.]
+            ","<think>
+Okay, let's tackle this. The user wants a therapy recommendation for a DLBCL patient according to ESMO guidelines. First, I need to parse all the info given.
+
+The patient has stage IV DLBCL NOS with extranodal involvement in the skull, axillary lymph nodes, and spleen. IPI is 3, which is high risk. They had R-CHOP induction but switched to MATRix/R-ICE, which is part of the MARIETTA trial. PET scan shows partial remission (Deauville 4) after 3 cycles. Then R-ICE for 3 cycles with stem cell collection planned. Current status: partial remission with persistent activity in axillary nodes. New lung opacities possible infection. Bone marrow shows regression. Deauville 4 still. Also, a skull lesion not in the PET, so an MRI is pending.
+
+The main question is whether the patient is in remission and what's next. The planned consolidation is high-dose chemo (HD-CHT) and ASCT. But there are new lung opacities and the skull lesion. The ESMO guidelines for DLBCL would typically recommend R-CHOP for standard risk, but high-risk (IPI 3) might need more aggressive therapy. The MARIETTA trial uses R-ICE followed by ASCT. Since the patient is in partial remission, consolidation with ASCT is crucial. However, the new lung opacities need to be ruled out as infection before proceeding. Also, the MRI for the skull lesion is pending. So the next steps should be to confirm the cause of lung opacities and the status of the skull lesion. If they're benign, proceed with consolidation. If there's progression, maybe consider alternative therapies like salvage regimens. But according to ESMO, for high-risk DLBCL with partial remission, ASCT is a key step. So the recommendation would be to proceed with the planned HD-CHT and ASCT after resolving the lung and skull issues. Also, monitor the new lung opacities and get the MRI done. That makes sense. Need to make sure the patient is fit for ASCT and there's no active infection. So the recommendation should be to continue with consolidation therapy as planned, pending the results of the MRI and lung evaluation.
+</think>
+
+**Therapieempfehlung:**  
+Die geplante **konsolidierende Hochdosis-Chemotherapie (HD-CHT) mit autologer Stammzelltransplantation (ASZT)** soll unter Klarstellung der **Lungenverdichtungen** und nach **MRT-Schädel-Abklärung** durchgeführt werden. Bei bestätigter Infektion der Lungenversionen ist eine antibakterielle Therapie vor HD-CHT erforderlich.  
+
+**Begründung:**  
+Der Patient mit **DLBCL NOS (Stadium IV), IPI 3** und **persistierender aktiver Läsion (Deauville 4)** nach 3 MATRix-Zyklen erfüllt die ESMO-Kriterien für eine **konsolidierende ASZT** nach Teilremission. Die MARIETTA-Studie (ESMO-empfohlene Strategie bei Hochrisiko-DLBCL) begründet die Eskalation auf R-ICE mit Stammzellsammlung und ASZT. 
+
+Die **neuen Lungenverdichtungen** müssen differenziell diagnostisch (Infekt vs. Progression) abgeklärt werden, um die **Indikationssicherheit der HD-CHT** zu gewährleisten. Eine aktive Infektion würde die ASZT hinauszögern, da systemische Infektionen im Kontext von Hochdosis-Chemotherapie einen schwerwiegenden Risikofaktor darstellen. 
+
+Die **MRT des Schädels** ist dringend erforderlich, um die extranodale Läsion (Frontalos) zu evaluieren, da die PET/CT (22.02.2024) sie nicht darstellte. Persistierende Aktivität im axillären Bereich (Deauville 4) unterstreicht die Notwendigkeit der Konsolidierung, um eine **Langzeitremission** zu sichern. 
+
+Die ESMO-Leitlinien empfehlen bei Hochrisiko-DLBCL nach Teilremission eine **intensivere Konsolidierung** (ASZT) mit Stammzellunterstützung, unabhängig vom R-IPI. Die geplante Therapie (06.03.2024) entspricht dieser Empfehlung, sofern die diagnostischen Unklarheiten beseitigt werden.","**Therapieempfehlung:**  
+Die geplante **konsolidierende Hochdosis-Chemotherapie (HD-CHT) mit autologer Stammzelltransplantation (ASZT)** soll unter Klarstellung der **Lungenverdichtungen** und nach **MRT-Schädel-Abklärung** durchgeführt werden. Bei bestätigter Infektion der Lungenversionen ist eine antibakterielle Therapie vor HD-CHT erforderlich.  
+
+**Begründung:**  
+Der Patient mit **DLBCL NOS (Stadium IV), IPI 3** und **persistierender aktiver Läsion (Deauville 4)** nach 3 MATRix-Zyklen erfüllt die ESMO-Kriterien für eine **konsolidierende ASZT** nach Teilremission. Die MARIETTA-Studie (ESMO-empfohlene Strategie bei Hochrisiko-DLBCL) begründet die Eskalation auf R-ICE mit Stammzellsammlung und ASZT. 
+
+Die **neuen Lungenverdichtungen** müssen differenziell diagnostisch (Infekt vs. Progression) abgeklärt werden, um die **Indikationssicherheit der HD-CHT** zu gewährleisten. Eine aktive Infektion würde die ASZT hinauszögern, da systemische Infektionen im Kontext von Hochdosis-Chemotherapie einen schwerwiegenden Risikofaktor darstellen. 
+
+Die **MRT des Schädels** ist dringend erforderlich, um die extranodale Läsion (Frontalos) zu evaluieren, da die PET/CT (22.02.2024) sie nicht darstellte. Persistierende Aktivität im axillären Bereich (Deauville 4) unterstreicht die Notwendigkeit der Konsolidierung, um eine **Langzeitremission** zu sichern. 
+
+Die ESMO-Leitlinien empfehlen bei Hochrisiko-DLBCL nach Teilremission eine **intensivere Konsolidierung** (ASZT) mit Stammzellunterstützung, unabhängig vom R-IPI. Die geplante Therapie (06.03.2024) entspricht dieser Empfehlung, sofern die diagnostischen Unklarheiten beseitigt werden.",
