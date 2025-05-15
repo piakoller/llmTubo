@@ -42,6 +42,7 @@ def save_evaluation(case_filename: str, evaluation_data: dict, expert_name: str)
 def create_sample_case_file(case_id: str, patient_context: str, llm_recommendation: str, guideline_used: str):
     case_data = {
         "case_id": case_id,
+        "llm_interaction_id": llm_interaction_id,
         "patient_context_summary": patient_context, # Keep this concise for display
         "llm_full_recommendation": llm_recommendation, # The full text including Begründung
         "guideline_used": guideline_used,
@@ -54,16 +55,16 @@ def create_sample_case_file(case_id: str, patient_context: str, llm_recommendati
     print(f"Created sample case: {filename}")
 
 if __name__ == '__main__':
-    # # Example: Create a couple of sample case files to test the evaluation tool
-    # create_sample_case_file(
-    #     case_id="case_001",
-    #     patient_context="65 y/o male, DLBCL Stage IIA, IPI 1. Post 4 cycles R-CHOP. PET-CT shows Deauville 2.",
-    #     llm_recommendation="Therapieempfehlung:\nBeobachtung gemäß ESMO-Leitlinien.\n\nBegründung:\nDer Patient hat nach 4 Zyklen R-CHOP eine komplette metabolische Remission (Deauville 2) erreicht. Gemäß ESMO-Leitlinien für DLBCL mit niedrigem IPI und CR nach Induktion ist eine Beobachtung der Standardansatz. Weitere Therapie ist nicht indiziert.",
-    #     guideline_used="ESMO DLBCL 2023"
-    # )
-    # create_sample_case_file(
-    #     case_id="case_002",
-    #     patient_context="72 y/o female, Follicular Lymphoma Grade 3A, Stage III. Symptomatic. FLIPI 3.",
-    #     llm_recommendation="Therapieempfehlung:\nInitiierung einer Erstlinientherapie mit R-Bendamustin.\n\nBegründung:\nDie Patientin ist symptomatisch mit einem FLIPI-Score von 3, was eine Therapieindikation darstellt. R-Bendamustin ist eine Standardoption für fitte, ältere Patienten mit Follicular Lymphoma gemäß Onkopedia und internationalen Leitlinien und bietet ein gutes Nutzen-Risiko-Profil.",
-    #     guideline_used="Onkopedia Follicular Lymphoma"
-    # )
+    # Example: Create a couple of sample case files to test the evaluation tool
+    create_sample_case_file(
+        case_id="case_001",
+        patient_context="65 y/o male, DLBCL Stage IIA, IPI 1. Post 4 cycles R-CHOP. PET-CT shows Deauville 2.",
+        llm_recommendation="Therapieempfehlung:\nBeobachtung gemäß ESMO-Leitlinien.\n\nBegründung:\nDer Patient hat nach 4 Zyklen R-CHOP eine komplette metabolische Remission (Deauville 2) erreicht. Gemäß ESMO-Leitlinien für DLBCL mit niedrigem IPI und CR nach Induktion ist eine Beobachtung der Standardansatz. Weitere Therapie ist nicht indiziert.",
+        guideline_used="ESMO DLBCL 2023"
+    )
+    create_sample_case_file(
+        case_id="case_002",
+        patient_context="72 y/o female, Follicular Lymphoma Grade 3A, Stage III. Symptomatic. FLIPI 3.",
+        llm_recommendation="Therapieempfehlung:\nInitiierung einer Erstlinientherapie mit R-Bendamustin.\n\nBegründung:\nDie Patientin ist symptomatisch mit einem FLIPI-Score von 3, was eine Therapieindikation darstellt. R-Bendamustin ist eine Standardoption für fitte, ältere Patienten mit Follicular Lymphoma gemäß Onkopedia und internationalen Leitlinien und bietet ein gutes Nutzen-Risiko-Profil.",
+        guideline_used="Onkopedia Follicular Lymphoma"
+    )

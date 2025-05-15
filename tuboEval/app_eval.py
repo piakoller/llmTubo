@@ -27,8 +27,8 @@ if selected_case_file:
     case_data = load_case_data(selected_case_file)
 
     if case_data:
-        st.header(f"Evaluating Case: {case_data.get('case_id', selected_case_file)}")
-        st.markdown(f"**Guideline Used by LLM:** `{case_data.get('guideline_used', 'N/A')}`")
+        st.header(f"Evaluating Case: {case_data.get('case_id_for_eval_tool', selected_case_file)}")
+        st.caption(f"Linked LLM Interaction ID (for CSV): {case_data.get('llm_interaction_id', 'N/A')}") 
         st.markdown("---")
 
         col1, col2 = st.columns(2)
