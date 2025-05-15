@@ -55,4 +55,14 @@ class TherapieAgent(Agent):
             **Begründung:**
             [Hier deine detaillierte Begründung einfügen. Beziehe dich auf den Kontext und die Leitlinie.]
             """
-        return self._invoke_llm(template, {"role": self.role_description, "guideline_provider": self.guideline_provider, "context": context})
+            # _invoke_llm now returns (final_response, interaction_id)
+        final_response, interaction_id = self._invoke_llm(
+            template,
+            {
+                "role": self.role_description,
+                "guideline_provider": self.guideline_provider,
+                "diagnostik_summary": diagnostik_summary_context
+            }
+        )
+        logger.debug(f"TherapieAgent LLM interaction ID: {interaction_id}, response: {final_response[:50]}...")
+        return final_response

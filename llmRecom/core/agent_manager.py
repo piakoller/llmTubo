@@ -14,6 +14,39 @@ from services.geocoding_service import get_geopoint
 
 logger = logging.getLogger(__name__)
 
+def save_for_human_evaluation(
+    patient_id: str,
+    patient_context_summary: str,
+    llm_full_recommendation: str,
+    guideline_used: str,
+    llm_interaction_id: str, # <-- New parameter
+    agent_name: str = "TherapieAgent"
+):
+    os.makedirs(config.HUMAN_EVAL_DATA_DIR, exist_ok=True)
+    unique_suffix = uuid.uuid4().hex[:8]
+    case_id_for_eval_tool = f"evalcase_{patient_id.replace('_', '-')}_{agent_name}_{unique_suffix}"
+    
+    case_data = {
+        "case_id_for_eval_tool": case_id_for_eval_tool, # ID for the eval tool itself
+        "llm_interaction_id": llm_interaction_id, # <-- The crucial link to the CSV
+        "patient_id_original": patient_id,
+        "patient_context_summary": patient_context_summary,
+        "llm_full_recommendation": llm_full_recommendation,
+        "guideline_used": guideline_used,
+        "agent_name_source": agent_name,
+        "timestamp_generated_for_eval": datetime.now().isoformat()
+    }
+    filename = f"{case_id_for_eval_tool}.json" # Filename based on the eval tool's case ID
+    filepath = os.path.join(config.HUMAN_EVAL_DATA_DIR, filename)
+    try:
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(case_data, f, indent=2, ensure_ascii=False)
+        logger.info(f"Saved case for human evaluation: {filepath} (linked to LLM interaction ID: {llm_interaction_id})")
+        return filepath
+    except Exception as e:
+        logger.error(f"Error saving case for human eval ({case_id_for_eval_tool}): {e}", exc_info=True)
+        return None
+
 class AgentWorkflowManager:
     def __init__(self, patient_data: dict):
         self.patient_data = patient_data
@@ -129,6 +162,27 @@ class AgentWorkflowManager:
 
         logger.info(f"Base context prepared. Studien context based on: '{studien_context}'")
         return base_context, studien_context
+    
+    def _get_patient_context_summary_for_eval(self) -> str:
+        """
+        Constructs a concise patient context summary suitable for human evaluators.
+        This should reflect what a human would quickly need to see.
+        """
+        # Customize this based on what's most important for the human evaluator
+        # to see alongside the LLM's recommendation.
+        summary_parts = [
+            f"Patient ID: {self.patient_data.get('id', 'N/A')}",
+            f"Guideline Specified: {self.patient_data.get('guideline', 'N/A')}",
+            f"Diagnosis (Code): {self.patient_data.get('main_diagnosis', 'N/A')}",
+            f"Diagnosis (Text Snippet): {self.patient_data.get('main_diagnosis_text', 'N/A')[:150]}...", # Snippet
+            f"Stage: {self.patient_data.get('ann_arbor_stage', 'N/A')}"
+        ]
+        # Add other key fields you deem necessary for the evaluator
+        if self.patient_data.get('clinical_info'):
+            summary_parts.append(f"Clinical Info/Question: {self.patient_data.get('clinical_info')[:100]}...")
+        
+        return "\n".join(summary_parts)
+
 
     def run_workflow(self):
         """Executes the full multi-agent workflow."""
@@ -172,13 +226,16 @@ class AgentWorkflowManager:
             self.results["Studien"] = studien_runner.result if not studien_runner.exception else []
             return # Stop if Diagnostik fails
         else:
-            self.results["Diagnostik"] = diag_runner.result
-            logger.info(f"Diagnostik Agent finished. Output snippet: {str(self.results['Diagnostik'])[:100]}...")
+            # diag_runner.result is now (response_text, interaction_id)
+            diag_response_text, diag_interaction_id = diag_runner.result
+            self.results["Diagnostik"] = diag_response_text
+            self.results["Diagnostik_interaction_id"] = diag_interaction_id
+            logger.info(f"Diagnostik Agent (ID: {diag_interaction_id}) finished. Output: {diag_response_text[:100]}...")
 
             # 3. Therapie Agent (Sequential after Diagnostik)
             logger.info("Starting Therapie agent.")
             # Pass the actual diagnostik_output as context to TherapieAgent
-            therapie_runner = AgentRunner(self.therapie_agent, "Therapie", self.results["Diagnostik"])
+            therapie_runner = AgentRunner(self.therapie_agent, "Therapie", diag_response_text) 
             therapie_thread = threading.Thread(target=therapie_runner.run, name="TherapieThread")
             threads.append(therapie_thread)
             therapie_thread.start()
@@ -199,15 +256,37 @@ class AgentWorkflowManager:
                  self.results["Studien"] = []
 
 
-        if 'therapie_runner' in locals(): # Check if therapie_runner was initialized
+        # Collect results for Therapie
+        if 'therapie_runner' in locals():
             self.runtimes["Therapie"] = therapie_runner.runtime
-            self.results["Therapie"] = therapie_runner.result
             if therapie_runner.exception:
                 self.errors["Therapie"] = therapie_runner.exception
                 logger.error("Therapie Agent failed.", exc_info=therapie_runner.exception)
-        else: # This case if Diagnostik failed
-            self.results["Therapie"] = None # Ensure it's None
-            logger.info("Therapie agent was not started due to prior Diagnostik failure.")
+            else:
+                # therapie_runner.result is (response_text, interaction_id)
+                therapy_response_text, therapy_interaction_id = therapie_runner.result
+                self.results["Therapie"] = therapy_response_text
+                self.results["Therapie_interaction_id"] = therapy_interaction_id # Store it
+
+                # NOW SAVE FOR HUMAN EVALUATION with the interaction_id
+                logger.info(f"Therapie Agent (ID: {therapy_interaction_id}) successful, preparing for human eval.")
+                patient_context_summary_for_eval = self._get_patient_context_summary_for_eval()
+                guideline_used = self.patient_data.get('guideline', 'Unknown Guideline')
+                original_patient_id = self.patient_data.get('id', 'UnknownPatient')
+
+                save_for_human_evaluation(
+                    patient_id=original_patient_id,
+                    patient_context_summary=patient_context_summary_for_eval,
+                    llm_full_recommendation=therapy_response_text, # The final text part
+                    guideline_used=guideline_used,
+                    llm_interaction_id=therapy_interaction_id, # Crucial link!
+                    agent_name="TherapieAgentOutput"
+                )
+                
+        elif 'Therapie' in self.errors:
+            logger_am.warning(f"Therapie Agent failed, not saving for human evaluation. Error: {self.errors['Therapie']}")
+        else:
+            logger_am.info("No therapy recommendation produced or an issue occurred, not saving for human evaluation.")
         
         logger.info("Agent workflow execution finished.")
         # ReportAgent is available as self.report_agent if needed outside (e.g., in UI for download)
