@@ -5,6 +5,7 @@ import re
 import csv
 import os
 import threading
+import uuid
 from datetime import datetime
 from abc import ABC, abstractmethod
 from langchain_ollama import OllamaLLM
@@ -32,7 +33,7 @@ def log_llm_interaction_to_csv(interaction_id: str, agent_name: str, rendered_pr
     
     interaction_data = {
         'timestamp': datetime.now().isoformat(),
-        'interaction_id': interaction_id, # Add interaction_id
+        'interaction_id': interaction_id,
         'agent_name': agent_name,
         'rendered_prompt': rendered_prompt,
         'raw_response': raw_response,

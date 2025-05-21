@@ -2,7 +2,8 @@
 from pathlib import Path
 
 # --- LLM Configuration ---
-LLM_MODEL = "qwen3:32b"
+# LLM_MODEL = "qwen3:32b"
+LLM_MODEL = "llama3"
 LLM_TEMPERATURE = 0.7
 
 # --- File Paths & Directories ---
@@ -28,5 +29,6 @@ LOG_LEVEL = "INFO"
 LOG_FORMAT = "%(asctime)s - %(levelname)s - [%(threadName)s] - %(name)s - %(module)s.%(funcName)s - %(message)s"
 
 # --- LLM Interaction Logging ---
-# LLM_INTERACTIONS_CSV_FILE = "/home/pia/projects/llmTubo/logs/llm_interactions.csv"
+LLM_INTERACTIONS_CSV_FILE = "/home/pia/projects/llmTubo/llmRecom/logs/llm_interactions.csv"
 HUMAN_EVAL_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation"
+HUMAN_EVAL_JSON_FILE = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/all_evaluation_cases.json"

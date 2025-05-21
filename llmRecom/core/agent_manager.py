@@ -2,6 +2,10 @@
 import logging
 import threading
 import time
+import os
+import uuid
+import json
+from datetime import datetime as dt
 from langchain_ollama import OllamaLLM
 
 import config
@@ -13,38 +17,70 @@ from agents.report_agent import ReportAgent
 from services.geocoding_service import get_geopoint
 
 logger = logging.getLogger(__name__)
+human_eval_json_lock = threading.Lock()
 
 def save_for_human_evaluation(
     patient_id: str,
     patient_context_summary: str,
     llm_full_recommendation: str,
     guideline_used: str,
-    llm_interaction_id: str, # <-- New parameter
-    agent_name: str = "TherapieAgent"
+    llm_interaction_id: str,
+    agent_name: str = "TherapieAgentOutput" # Default, can be specified
 ):
-    os.makedirs(config.HUMAN_EVAL_DATA_DIR, exist_ok=True)
+    # Ensure the directory for the JSON file exists
+    eval_file_path = config.HUMAN_EVAL_JSON_FILE
+    eval_dir = os.path.dirname(eval_file_path)
+    if not os.path.exists(eval_dir):
+        try:
+            os.makedirs(eval_dir)
+            logger.info(f"Created directory for human evaluation JSON file: {eval_dir}")
+        except OSError as e:
+            logger.error(f"OSError creating directory {eval_dir} for human evaluation JSON: {e}", exc_info=True)
+            return None # Cannot proceed if directory can't be made
+
+    # Generate a unique ID for this specific case being added to the evaluation set
+    # This 'case_id_for_eval_tool' is for identifying this entry within the list of cases.
     unique_suffix = uuid.uuid4().hex[:8]
     case_id_for_eval_tool = f"evalcase_{patient_id.replace('_', '-')}_{agent_name}_{unique_suffix}"
     
-    case_data = {
-        "case_id_for_eval_tool": case_id_for_eval_tool, # ID for the eval tool itself
-        "llm_interaction_id": llm_interaction_id, # <-- The crucial link to the CSV
+    new_case_data = {
+        "case_id_for_eval_tool": case_id_for_eval_tool,
+        "llm_interaction_id": llm_interaction_id, # Link to detailed LLM call in CSV
         "patient_id_original": patient_id,
         "patient_context_summary": patient_context_summary,
         "llm_full_recommendation": llm_full_recommendation,
         "guideline_used": guideline_used,
         "agent_name_source": agent_name,
-        "timestamp_generated_for_eval": datetime.now().isoformat()
+        "timestamp_generated_for_eval": dt.now().isoformat(),
+        "evaluation_status": "pending" # Add a status field
     }
-    filename = f"{case_id_for_eval_tool}.json" # Filename based on the eval tool's case ID
-    filepath = os.path.join(config.HUMAN_EVAL_DATA_DIR, filename)
-    try:
-        with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(case_data, f, indent=2, ensure_ascii=False)
-        logger.info(f"Saved case for human evaluation: {filepath} (linked to LLM interaction ID: {llm_interaction_id})")
-        return filepath
-    except Exception as e:
-        logger.error(f"Error saving case for human eval ({case_id_for_eval_tool}): {e}", exc_info=True)
+
+    with human_eval_json_lock: # Ensure thread-safe file access
+        all_cases = []
+        try:
+            if os.path.exists(eval_file_path) and os.path.getsize(eval_file_path) > 0:
+                with open(eval_file_path, 'r', encoding='utf-8') as f:
+                    try:
+                        all_cases = json.load(f)
+                        if not isinstance(all_cases, list): # Ensure it's a list
+                            logger.warning(f"Human evaluation file {eval_file_path} did not contain a list. Initializing as new list.")
+                            all_cases = []
+                    except json.JSONDecodeError:
+                        logger.error(f"Error decoding JSON from {eval_file_path}. Will overwrite with new list.", exc_info=True)
+                        all_cases = [] # Start fresh if file is corrupt
+            
+            all_cases.append(new_case_data) # Add the new case
+
+            with open(eval_file_path, 'w', encoding='utf-8') as f:
+                json.dump(all_cases, f, indent=2, ensure_ascii=False)
+            
+            logger.info(f"Appended case {case_id_for_eval_tool} for human evaluation to: {eval_file_path} (LLM interaction ID: {llm_interaction_id})")
+            return eval_file_path # Or perhaps new_case_data for confirmation
+            
+        except IOError as e:
+            logger.error(f"IOError during human evaluation save to {eval_file_path}: {e}", exc_info=True)
+        except Exception as e:
+            logger.error(f"Unexpected error during human evaluation save to {eval_file_path}: {e}", exc_info=True)
         return None
 
 class AgentWorkflowManager:
@@ -257,18 +293,17 @@ class AgentWorkflowManager:
 
 
         # Collect results for Therapie
-        if 'therapie_runner' in locals():
+        if 'therapie_runner' in locals(): # Ensure therapie_runner was created
             self.runtimes["Therapie"] = therapie_runner.runtime
             if therapie_runner.exception:
                 self.errors["Therapie"] = therapie_runner.exception
-                logger.error("Therapie Agent failed.", exc_info=therapie_runner.exception)
+                logger.error(f"Therapie Agent failed: {therapie_runner.exception}", exc_info=therapie_runner.exception)
             else:
                 # therapie_runner.result is (response_text, interaction_id)
                 therapy_response_text, therapy_interaction_id = therapie_runner.result
                 self.results["Therapie"] = therapy_response_text
-                self.results["Therapie_interaction_id"] = therapy_interaction_id # Store it
+                self.results["Therapie_interaction_id"] = therapy_interaction_id
 
-                # NOW SAVE FOR HUMAN EVALUATION with the interaction_id
                 logger.info(f"Therapie Agent (ID: {therapy_interaction_id}) successful, preparing for human eval.")
                 patient_context_summary_for_eval = self._get_patient_context_summary_for_eval()
                 guideline_used = self.patient_data.get('guideline', 'Unknown Guideline')
@@ -277,16 +312,14 @@ class AgentWorkflowManager:
                 save_for_human_evaluation(
                     patient_id=original_patient_id,
                     patient_context_summary=patient_context_summary_for_eval,
-                    llm_full_recommendation=therapy_response_text, # The final text part
+                    llm_full_recommendation=therapy_response_text,
                     guideline_used=guideline_used,
-                    llm_interaction_id=therapy_interaction_id, # Crucial link!
-                    agent_name="TherapieAgentOutput"
+                    llm_interaction_id=therapy_interaction_id,
+                    agent_name="TherapieAgentOutput" # Or simply self.therapie_agent.name
                 )
                 
-        elif 'Therapie' in self.errors:
-            logger_am.warning(f"Therapie Agent failed, not saving for human evaluation. Error: {self.errors['Therapie']}")
-        else:
-            logger_am.info("No therapy recommendation produced or an issue occurred, not saving for human evaluation.")
-        
+        elif 'Therapie' in self.errors: # Check if an error was already recorded for Therapie
+            logger.warning(f"Therapie Agent failed (error previously recorded), not saving for human evaluation. Error: {self.errors['Therapie']}")
+        else: # Fallback if therapie_runner wasn't even created (e.g., Diagnostik failed)
+             logger.info("No therapy recommendation produced (likely due to prior agent failure), not saving for human evaluation.")
         logger.info("Agent workflow execution finished.")
-        # ReportAgent is available as self.report_agent if needed outside (e.g., in UI for download)
