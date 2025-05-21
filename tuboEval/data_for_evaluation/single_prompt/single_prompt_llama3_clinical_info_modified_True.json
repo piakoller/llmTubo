@@ -1,0 +1,112 @@
+[
+  {
+    "patient_id_original": "1-20240227-ChNo",
+    "patient_data_source_file": "tubo-DLBCL-v2_modified.xlsx",
+    "timestamp_processed": "2025-05-21T17:02:41.631351",
+    "llm_model_used": "llama3",
+    "clinical_info_modified": true,
+    "guideline_used": "ESMO",
+    "single_prompt_recommendation": "**Therapieempfehlung:** R-ICE, 4 Zyklen\n\n**Begründung:**\n\nDer Patient leidet an einem diffusen grosszelligem B-Zell-Lymphom Stadium IV mit einer R-IPI von 3 Punkten. Die aktuelle Remissionsstatus ist eine partielle Remission (Deauville 4) nach drei Zyklen MATRix/R-ICE-Therapie.\n\nDie ESMO-Leitlinien empfehlen für Patienten mit DLBCL Stadium IV eine kombinierte Chemotherapie, um eine optimale Remission zu erreichen. Die Wahl der Therapieformel hängt von den vorherigen Ergebnissen und dem aktuellen Remissionsstatus des Patients ab.\n\nIm Falle unseres Patienten ist die partielle Remission nach drei Zyklen MATRix/R-ICE-Therapie ein positives Zeichen, dass die eingesetzte Therapie effektiv war. Es ist jedoch notwendig, die Therapie fortzuführen, um eine weitere Remission zu erreichen und den Tumor kontinuierlich zu bekämpfen.\n\nDie ESMO-Leitlinien empfehlen auch, dass die Wahl der Therapieformel von der R-IPI-Score abhängt. Da unser Patient eine R-IPI von 3 Punkten hat, ist die Empfehlung einer kombinierten Chemotherapie wie R-ICE gerechtfertigt.\n\nInsgesamt empfehle ich aufgrund der aktuellen Remissionsstatus und den ESMO-Leitlinien eine weitere Therapieserie mit R-ICE, um eine optimale Remission zu erreichen.",
+    "llm_generation_time_s": "4.0819",
+    "error": null
+  },
+  {
+    "patient_id_original": "2-20240227-DePe",
+    "patient_data_source_file": "tubo-DLBCL-v2_modified.xlsx",
+    "timestamp_processed": "2025-05-21T17:02:46.246357",
+    "llm_model_used": "llama3",
+    "clinical_info_modified": true,
+    "guideline_used": "ESMO",
+    "single_prompt_recommendation": "**Therapieempfehlung:** Carfilzomib-Cyp + Dexamethasone + Rituximab (CVRd) for 6 cycles, followed by consolidation therapy with Ibrutinib and Venetoclax.\n\n**Begründung:**\n\nThe patient has a high-risk DLBCL that has relapsed after initial treatment with R-CHOP. The current status of the disease is evaluated as partial remission (Deauville score 4) based on the PET-CT scan. The patient's accompanying symptoms are \"B\", indicating a significant burden of symptoms.\n\nAccording to the ESMO guidelines, for patients with relapsed or refractory DLBCL, the treatment approach should be tailored to the individual patient's characteristics and disease status. In this case, the patient has shown some response to initial therapy, but the disease has progressed, and the patient is experiencing significant symptoms.\n\nCVRd (Carfilzomib-Cyp + Dexamethasone + Rituximab) is a widely accepted treatment option for patients with relapsed or refractory DLBCL. This combination regimen has shown high response rates and improved overall survival compared to single-agent chemotherapy in several clinical trials.\n\nThe addition of Ibrutinib and Venetoclax as consolidation therapy after 6 cycles of CVRd aims to further improve the patient's response rate and overall survival. Ibrutinib is a Bruton tyrosine kinase (BTK) inhibitor that has shown significant activity in DLBCL, while Venetoclax is a BCL-2 inhibitor that can enhance the response to chemotherapy.\n\nIn conclusion, CVRd for 6 cycles followed by consolidation therapy with Ibrutinib and Venetoclax is a reasonable treatment approach for this patient based on their disease status and symptoms.",
+    "llm_generation_time_s": "4.6136",
+    "error": null
+  },
+  {
+    "patient_id_original": "3-20240227-DiEl",
+    "patient_data_source_file": "tubo-DLBCL-v2_modified.xlsx",
+    "timestamp_processed": "2025-05-21T17:02:49.658866",
+    "llm_model_used": "llama3",
+    "clinical_info_modified": true,
+    "guideline_used": "ESMO",
+    "single_prompt_recommendation": "**Therapieempfehlung:** R-CHOP plus maintenance chemotherapy with Rituximab and IV steroids\n\n**Begründung:** The patient has been diagnosed with diffuse large B-cell lymphoma (DLBCL) with secondary central nervous system (CNS) involvement, stage IV. The patient has poor prognosis according to the R-IPI score and high risk according to the IPI score. The patient has presented with symptoms of fatigue, nausea, vomiting, and weight loss.\n\nThe ESMO guidelines recommend that patients with DLBCL and CNS involvement should receive a combination chemotherapy regimen that includes rituximab, cyclophosphamide, doxorubicin, vincristine, and prednisone (R-CHOP) followed by maintenance therapy with rituximab and IV steroids.\n\nThe patient has already received 6 cycles of R-CHOP with good response. The recent PET-CT scan shows a complete metabolic response in most lymph nodes, except for some residual activity in the left hilum and small bowel mesentery. The patient's clinical symptoms have improved significantly after chemotherapy.\n\nTherefore, we recommend continuing the R-CHOP regimen followed by maintenance therapy with rituximab and IV steroids to consolidate the patient's response and prevent relapse.",
+    "llm_generation_time_s": "3.4114",
+    "error": null
+  },
+  {
+    "patient_id_original": "4-20240227-GrSv",
+    "patient_data_source_file": "tubo-DLBCL-v2_modified.xlsx",
+    "timestamp_processed": "2025-05-21T17:02:54.127175",
+    "llm_model_used": "llama3",
+    "clinical_info_modified": true,
+    "guideline_used": "ESMO",
+    "single_prompt_recommendation": "**Therapieempfehlung:** DA-EPOCH-R-Kombinationstherapie mit intrathekaler Triple-Therapie und Protonentherapie für die FDG-aviden Läsion mediastinal\n\n**Begründung:**\n\nGemäß der ESMO-Leitlinie soll bei Patienten mit PMLBL eine Kombinationschemotherapie eingesetzt werden, um eine optimale Remission zu erreichen. Da der Patient bereits unter DA-EPOCH-R-Kombinationstherapie und intrathekaler Triple-Therapie behandelt wurde und keine langfristigen Auswirkungen auf die Prognose bekannt sind, wird diese Therapieempfehlung fortgesetzt.\n\nDie FDG-aviden Läsion mediastinal ist ein wichtiger Aspekt bei der Therapieplanung. Eine Biopsie dieser Läsion ist notwendig, um eine definitive Diagnose zu stellen und die beste Therapieoption auszuwählen. Da die Leitlinie keine spezifischen Empfehlungen für die Behandlung von FDG-aviden Tumoren bei PMLBL gibt, soll ein multidisziplinäres Team (Onkologie, Radiologie, Neurologie) umfassend beraten und eine individuelle Therapieplanung erstellt werden.\n\nDie intrathekale Triple-Therapie wird aufgrund der chronischen frontalen Kopfschmerzen und des Verdachts auf Pseudotumor cerebri fortgesetzt. Eine Protonentherapie für die FDG-aviden Läsion mediastinal soll in Erwägung gezogen werden, um sicherzustellen, dass keine aggressiven Tumorzellen vorhanden sind.\n\nInsgesamt ist die empfohlene Therapie auf die ESMO-Leitlinien und die individuellen Bedürfnisse des Patienten abgestimmt. Eine weitere Diagnose oder eine Veränderung der Therapie sollte nur in Absprache mit einem multidisziplinären Team durchgeführt werden.",
+    "llm_generation_time_s": "4.4675",
+    "error": null
+  },
+  {
+    "patient_id_original": "5-20240227-HoFr",
+    "patient_data_source_file": "tubo-DLBCL-v2_modified.xlsx",
+    "timestamp_processed": "2025-05-21T17:02:57.988471",
+    "llm_model_used": "llama3",
+    "clinical_info_modified": true,
+    "guideline_used": "ESMO",
+    "single_prompt_recommendation": "**Therapieempfehlung:** Immunochemotherapie (R-ICE) mit anschließender Bestrahlung und Dexamethason-Gabe.\n\n**Begründung:**\n\nDas Patientenmaterial zeige eine aggressive Form eines follikulären Lymphoms, der primär im Knochenmark auftritt und metastatisch in das skeletale Gewebe und den Lymphknoten übergeht. Die disseminierte Osteolyse im Rumpf- und Beckenbereich deute auf eine ausgeprägte Metastase des Tumors hin.\n\nDie ESMO-Leitlinie empfiehlt für Patienten mit metastatischem follikulären Lymphom die Verwendung von immunochemotherapeutischen Regimen, wie R-ICE oder MATRIX. Da das Patientenmaterial keine abdominale Metastase zeigt, ist eine Bestrahlung des Skeletts und der Lymphknoten indiziert.\n\nDie aktuelle Therapie mit Dexamethason und Bestrahlung von C2 bis zur hinteren 2/3 der Augen kann als Vorstufe für die empfohlene Immunochemotherapie (R-ICE) angesehen werden. Nach Abschluss der Chemotherapie sollte eine weitere Bestrahlung durchgeführt werden, um die restlichen Tumorzellen zu eliminieren.\n\nDie R-ICE-Therapie bietet sich als effektivere und sicherere Alternative gegenüber anderen Immunochemotherapien an, insbesondere bei Patienten mit aggressivem Lymphom und Skelettmetastasen.",
+    "llm_generation_time_s": "3.8604",
+    "error": null
+  },
+  {
+    "patient_id_original": "6-20240227-LeGi",
+    "patient_data_source_file": "tubo-DLBCL-v2_modified.xlsx",
+    "timestamp_processed": "2025-05-21T17:03:02.118422",
+    "llm_model_used": "llama3",
+    "clinical_info_modified": true,
+    "guideline_used": "ESMO",
+    "single_prompt_recommendation": "**Therapieempfehlung:** R-CHOP (3+21) followed by consolidation therapy with Rituximab and high-dose methotrexate.\n\n**Begründung:**\n\nThe patient has a diagnosis of diffuse large B-cell lymphoma (DLBCL) with extranodal involvement, including bone and muscle lesions. The patient has received previous chemotherapy with Mabthera and CHOP, followed by radiotherapy to the right humerus and shoulder.\n\nBased on the ESMO guidelines for DLBCL, the patient's current situation is considered as relapsed disease (Ann Arbor Stage: -). Therefore, a salvage therapy approach is recommended.\n\nR-CHOP (3+21) is a commonly used regimen in relapsed DLBCL patients. The addition of high-dose methotrexate to Rituximab has been shown to improve outcomes in this setting. This combination therapy will be given for 6 cycles, followed by consolidation with Rituximab and high-dose methotrexate.\n\nThe patient's previous response to Mabthera and CHOP is moderate, which suggests that the disease may not be completely refractory to chemotherapy. The current PET/CT scan shows a solitary lesion in the medial right thigh, which could be a new tumor or a residual tumor from the previous treatment.\n\nGiven the uncertainty of the patient's current situation, it is essential to proceed with salvage therapy and monitor the response closely. The use of R-CHOP (3+21) followed by consolidation with Rituximab and high-dose methotrexate is a reasonable approach to achieve further remission and potentially improve overall survival.\n\nIt is important to note that the patient's age, performance status, and comorbidities will need to be considered when implementing this therapy. Additionally, the potential side effects of chemotherapy, including myelosuppression, neutropenia, and gastrointestinal toxicity, should be discussed with the patient and managed accordingly.",
+    "llm_generation_time_s": "4.1287",
+    "error": null
+  },
+  {
+    "patient_id_original": "7-20240207-ScEs",
+    "patient_data_source_file": "tubo-DLBCL-v2_modified.xlsx",
+    "timestamp_processed": "2025-05-21T17:03:06.076338",
+    "llm_model_used": "llama3",
+    "clinical_info_modified": true,
+    "guideline_used": "ESMO",
+    "single_prompt_recommendation": "**Therapieempfehlung:** R-CHOP-Therapeutik (6 Zyklen)\n\n**Begründung:** Der Patient hat ein diffuses großzelliges B-Zell-Lymphom Stadium IV, Non GCB-Typ, das sich in verschiedenen Organs und Geweben manifestiert. Die PET/CT-Untersuchung zeigt eine intensive Stoffwechselaktivität des Lymphoms in den betroffenen Organen.\n\nNach der ESMO-Leitlinie sollten Patienten mit DLBCL Stadium IV und Non GCB-Typ auf R-CHOP-Therapeutik behandelt werden (1). Die R-CHOP-Therapie ist eine standardisierte Therapie für DLBCL und hat sich als effektiv und sicher erwiesen (2).\n\nDie Leitlinie empfiehlt, dass die R-CHOP-Therapie 6 Zyklen lang durchgeführt werden sollte. Da der Patient ein Stadium IV-Lymphom hat, ist eine intensivere Therapie notwendig, um das Lymphom zu kontrollieren und in Remission zu bringen.\n\nEs gibt keine Hinweise auf andere relevante Diagnosen oder Symptome, die eine andere Therapieempfehlung rechtfertigen könnten. Eine individuelle Prognose Score ist nicht angegeben, aber die ESMO-Leitlinie empfiehlt allgemein, dass Patienten mit Stadium IV-Lymphomen eine intensivere Therapie benötigen.\n\nInsgesamt empfehle ich daher R-CHOP-Therapeutik (6 Zyklen) als geeignete Therapie für den Patienten.\n\nLiteratur:\n1. ESMO Guidelines for the management of diffuse large B-cell lymphoma\n2. R-CHOP chemotherapy for the treatment of diffuse large B-cell lymphoma",
+    "llm_generation_time_s": "3.9567",
+    "error": null
+  },
+  {
+    "patient_id_original": "8-20240220-ScIr",
+    "patient_data_source_file": "tubo-DLBCL-v2_modified.xlsx",
+    "timestamp_processed": "2025-05-21T17:03:09.598399",
+    "llm_model_used": "llama3",
+    "clinical_info_modified": true,
+    "guideline_used": "ESMO",
+    "single_prompt_recommendation": "**Therapieempfehlung:** Erhaltungstherapie mit R-CHOP für 6 Monate.\n\n**Begründung:**\n\nDer Patient hat bereits einen ersten Krebszyklus von DLBCL unter R-CHOP-Therapie erfolgreich überlebt. Das rezidivierende Lymphom manifestiert sich erneut in zerebraler Form, was eine hohe Prognosegefahr darstellt. Die ESMO-Leitlinie empfiehlt für Patienten mit DLBCL und höherem Risiko (IPI 3) die Verwendung von R-CHOP-Therapie als Erhaltungstherapie nach Abschluss der initialen Chemotherapie.\n\nDie klinische Praxis empfiehlt, dass erhaltende Therapien in den meisten Fällen 6-12 Monate nach Abschluss der primären Therapie begonnen werden sollten. Da der Patient bereits 26 Monate nach Abschluss der initialen Chemotherapie rezidiviert hat, ist eine Erhaltungstherapie mit R-CHOP für 6 Monate angemessen.\n\nEine Erhaltungstherapie kann das Risiko eines weiteren Rezidivs reduzieren und die Überlebensrate verbessern. Da der Patient bereits einen Krebszyklus erfolgreich überlebt hat, ist eine weitere Chemotherapie mit R-CHOP sinnvoll, um das Risiko eines weiteren Rezidivs zu minimieren.",
+    "llm_generation_time_s": "3.5212",
+    "error": null
+  },
+  {
+    "patient_id_original": "9-20240220-LaSy",
+    "patient_data_source_file": "tubo-DLBCL-v2_modified.xlsx",
+    "timestamp_processed": "2025-05-21T17:03:13.084932",
+    "llm_model_used": "llama3",
+    "clinical_info_modified": true,
+    "guideline_used": "ESMO",
+    "single_prompt_recommendation": "**Therapieempfehlung:** Autologe Stammzelltransplantation nach Hochdosischemotherapie mit Carmustin und Thiotepa, gefolgt von einer intensiven Nachbehandlung.\n\n**Begründung:**\n\nDer Patient hat bereits eine erfolgreiche autologe Stammzelltransplantation nach MATRix-Schema erhalten. Die aktuelle Situation des Patients mit chronischer Leukenzephalopathie und progredienten Zeichen nach Chemo-therapie indiziert eine weitere intensive Nachbehandlung. Eine Autologe Stammzelltransplantation nach Hochdosischemotherapie mit Carmustin und Thiotepa kann als effektivste Möglichkeit angesehen werden, um das Lymphom zu kontrollieren und die Leukenzephalopathie zu stabilisieren.\n\nDie Wahl der Autologen Stammzelltransplantation basiert auf den Resultaten der ESMO-Leitlinie für DLBCL, die eine Autologe Stammzelltransplantation als eine effektive Möglichkeit ansieht, um die Überlebensraten bei Patienten mit DLBCL zu verbessern (1).\n\nDie Begründung ist ausschließlich auf die relevanten Punkte aus den Patienteninformationen und die Empfehlungen der ESMO-Leitlinie zurückzuführen.",
+    "llm_generation_time_s": "3.4857",
+    "error": null
+  },
+  {
+    "patient_id_original": "10-ZiRo-20240220",
+    "patient_data_source_file": "tubo-DLBCL-v2_modified.xlsx",
+    "timestamp_processed": "2025-05-21T17:03:16.994746",
+    "llm_model_used": "llama3",
+    "clinical_info_modified": true,
+    "guideline_used": "ESMO",
+    "single_prompt_recommendation": "**Therapieempfehlung:** R-CHOP (Rituximab, Cyclophosphamid, Doxorubicin, Vincristin, Prednison) plus Invomictinemodified ASCT (Autologous Stem Cell Transplantation)\n\n**Begründung:**\n\nThe patient presents with a diagnosis of Diffuse Large B-Cell Lymphoma (DLBCL) and has undergone staging procedures including ultrasound, biopsy, and PET/CT scans. The histopathology report reveals DLBCL, NOS, with CD20 positivity, which is a favorable prognostic factor.\n\nAccording to the ESMO guidelines, patients with DLBCL should be treated with combination chemotherapy. R-CHOP (Rituximab, Cyclophosphamid, Doxorubicin, Vincristin, Prednison) is a well-established and effective regimen for DLBCL. The addition of Invomictinemodified ASCT (Autologous Stem Cell Transplantation) can improve overall survival and event-free survival in patients with high-risk or relapsed disease.\n\nThe patient's age, performance status, and presence of comorbidities such as hypertension, atrial fibrillation, and osteoporosis do not contraindicate the use of R-CHOP. However, it is essential to monitor the patient closely for potential toxicities, especially cardiovascular and bone marrow-related side effects.\n\nThe patient's MYC positivity does not necessarily indicate a poor prognosis, as some studies have shown that patients with MYC-positive DLBCL can still achieve good outcomes with standard therapy. Nevertheless, careful monitoring for any signs of progression or relapse is necessary.\n\nIn conclusion, R-CHOP plus Invomictinemodified ASCT is the recommended treatment for this patient based on the ESMO guidelines and the patient's individual characteristics.",
+    "llm_generation_time_s": "3.9089",
+    "error": null
+  }
+]

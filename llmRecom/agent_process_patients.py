@@ -21,10 +21,10 @@ DEFAULT_LLM_MODEL_BATCH = "qwen3:32b"
 DEFAULT_GUIDELINE_PROVIDER_BATCH = "ESMO"
 DEFAULT_STUDY_LOCATION_BATCH = "Bern, Switzerland"
 
-EVAL_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/agent/"
+EVAL_AGENT_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/agent/"
 
 setup_logging()
-logger = logging.getLogger("batch_processor")
+logger = logging.getLogger("agent_batch_processor")
 
 def get_batch_results_filename(llm_model: str, clinical_info_modified: bool) -> str: # Renamed parameter
     """
@@ -102,14 +102,14 @@ def run_batch_processing(
         logger.info(f"Using provided output file path: {final_output_file}")
     else:
         generated_filename = get_batch_results_filename(effective_llm_model, effective_clinical_info_modified)
-        final_output_file = os.path.join(EVAL_DATA_DIR, generated_filename)
+        final_output_file = os.path.join(EVAL_AGENT_DATA_DIR, generated_filename)
         logger.info(f"Generated output file path: {final_output_file}")
 
     try:
-        os.makedirs(EVAL_DATA_DIR, exist_ok=True)
-        logger.info(f"Ensured output directory exists: {EVAL_DATA_DIR}")
+        os.makedirs(EVAL_AGENT_DATA_DIR, exist_ok=True)
+        logger.info(f"Ensured output directory exists: {EVAL_AGENT_DATA_DIR}")
     except OSError as e:
-        logger.error(f"Could not create output directory {EVAL_DATA_DIR}: {e}. Exiting.")
+        logger.error(f"Could not create output directory {EVAL_AGENT_DATA_DIR}: {e}. Exiting.")
         if config.LLM_MODEL != original_config_llm_model: config.LLM_MODEL = original_config_llm_model
         if config.TUBO_EXCEL_FILE_PATH != original_config_patient_file: config.TUBO_EXCEL_FILE_PATH = original_config_patient_file
         return
@@ -240,7 +240,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--output_file", type=str, default=None,
-        help="Optional: Full path to save consolidated JSON results. If not set, generated into EVAL_DATA_DIR."
+        help="Optional: Full path to save consolidated JSON results. If not set, generated into EVAL_AGENT_DATA_DIR."
     )
     parser.add_argument(
         "--clinical_info_modified", action="store_true", # Renamed argument
