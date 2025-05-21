@@ -11,6 +11,7 @@ DATA_ROOT_DIR = Path(
     "/home/pia/projects/llmTubo/llmRecom/data"
 )
 TUBO_EXCEL_FILE_PATH = DATA_ROOT_DIR / "tubo-DLBCL-v2.xlsx"
+# TUBO_EXCEL_FILE_PATH = DATA_ROOT_DIR / "tubo-DLBCL-v2_modified.xlsx"
 REPORT_DIR = "generated_report"
 REPORT_FILE_TYPE = "md"
 
