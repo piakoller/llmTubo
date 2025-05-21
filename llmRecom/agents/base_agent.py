@@ -5,6 +5,7 @@ import re
 import csv
 import os
 import threading
+import uuid
 from datetime import datetime
 from abc import ABC, abstractmethod
 from langchain_ollama import OllamaLLM
@@ -18,24 +19,25 @@ logger = logging.getLogger(__name__)
 # Thread lock for CSV writing
 csv_writer_lock = threading.Lock()
 
-def log_llm_interaction_to_csv(agent_name: str, rendered_prompt: str, raw_response: str,
-                               think_block: str, final_response: str, error_message: str = ""):
+def log_llm_interaction_to_csv(interaction_id: str, agent_name: str, rendered_prompt: str,
+                               raw_response: str, think_block: str, final_response: str,
+                               error_message: str = ""):
     """
-    Logs the LLM interaction details to a CSV file in a thread-safe manner.
-    Includes a separate column for the <think> block.
+    Logs the LLM interaction details to a CSV file, including a unique interaction_id.
     """
     file_path = config.LLM_INTERACTIONS_CSV_FILE
     file_exists = os.path.isfile(file_path)
 
-    # Define field names for the CSV, now including 'think_block'
-    fieldnames = ['timestamp', 'agent_name', 'rendered_prompt', 'raw_response', 'think_block', 'final_response', 'error_message']
+    fieldnames = ['timestamp', 'interaction_id', 'agent_name', 'rendered_prompt',
+                  'raw_response', 'think_block', 'final_response', 'error_message']
     
     interaction_data = {
         'timestamp': datetime.now().isoformat(),
+        'interaction_id': interaction_id,
         'agent_name': agent_name,
         'rendered_prompt': rendered_prompt,
         'raw_response': raw_response,
-        'think_block': think_block, # Add the think block
+        'think_block': think_block,
         'final_response': final_response,
         'error_message': error_message
     }
@@ -51,7 +53,6 @@ def log_llm_interaction_to_csv(agent_name: str, rendered_prompt: str, raw_respon
             logger.error(f"IOError writing LLM interaction to CSV {file_path}: {e}", exc_info=True)
         except Exception as e:
             logger.error(f"Unexpected error writing LLM interaction to CSV {file_path}: {e}", exc_info=True)
-
 
 class Agent(ABC):
     def __init__(self, name: str, role_description: str, llm: OllamaLLM):
@@ -101,20 +102,21 @@ class Agent(ABC):
         return think_block_content, final_response_content
 
 
-    def _invoke_llm(self, prompt_template_str: str, context_vars: dict) -> str:
-        """Helper method to invoke the LLM, log interaction, and separate think block."""
+    def _invoke_llm(self, prompt_template_str: str, context_vars: dict) -> tuple[str, str]: #<-- Now returns (final_response, interaction_id)
+        """
+        Helper method to invoke the LLM, log interaction, and separate think block.
+        Returns a tuple: (final_response_string, interaction_id_string)
+        """
+        interaction_id = uuid.uuid4().hex # Generate unique ID for this specific interaction
+
         prompt_template = PromptTemplate.from_template(prompt_template_str)
-        
         rendered_prompt = ""
         try:
             prompt_value = prompt_template.format_prompt(**context_vars)
             rendered_prompt = prompt_value.to_string()
-        except KeyError as ke:
-            logger.error(f"KeyError rendering prompt for agent {self.name}. Missing key: {ke}. Context_vars: {context_vars.keys()}")
-            rendered_prompt = f"Error rendering prompt: Missing key {ke}"
-        except Exception as e:
-            logger.error(f"Error rendering prompt for agent {self.name}: {e}", exc_info=True)
-            rendered_prompt = f"Error rendering prompt: {e}"
+        except Exception as e: # Catch broad errors in rendering for logging
+            logger.error(f"Error rendering prompt for agent {self.name}, interaction {interaction_id}: {e}", exc_info=True)
+            rendered_prompt = f"Error rendering prompt for interaction {interaction_id}: {e}"
 
         chain = prompt_template | self.llm
         
@@ -125,7 +127,7 @@ class Agent(ABC):
 
         try:
             log_context_vars = {k: (str(v)[:50] + '...' if isinstance(v, str) and len(v) > 50 else v) for k, v in context_vars.items()}
-            logger.debug(f"Invoking LLM for agent {self.name} with vars: {log_context_vars}")
+            logger.debug(f"Invoking LLM (ID: {interaction_id}) for agent {self.name} with vars: {log_context_vars}")
             
             llm_output = chain.invoke(context_vars)
             
@@ -134,21 +136,17 @@ class Agent(ABC):
             else:
                 raw_response = llm_output
 
-            logger.info(f"LLM raw response snippet for {self.name}: {raw_response[:200]}...")
-            
-            # Extract both think block and final response
+            logger.info(f"LLM raw response (ID: {interaction_id}) snippet for {self.name}: {raw_response[:200]}...")
             think_block, final_response = self._extract_think_and_final_response(raw_response)
             
         except Exception as e:
-            logger.error(f"LLM invocation failed for agent {self.name}: {e}", exc_info=True)
+            logger.error(f"LLM invocation (ID: {interaction_id}) failed for agent {self.name}: {e}", exc_info=True)
             error_message = str(e)
-            # Log interaction even on failure (think_block and final_response might be empty or partial)
-            log_llm_interaction_to_csv(self.name, rendered_prompt, raw_response, think_block, final_response, error_message)
-            raise RuntimeError(f"LLM call failed for {self.name}") from e
+            log_llm_interaction_to_csv(interaction_id, self.name, rendered_prompt, raw_response, think_block, final_response, error_message)
+            raise RuntimeError(f"LLM call (ID: {interaction_id}) failed for {self.name}") from e
         
-        # Log interaction on success
-        log_llm_interaction_to_csv(self.name, rendered_prompt, raw_response, think_block, final_response)
-        return final_response # The agent method still returns only the final_response
+        log_llm_interaction_to_csv(interaction_id, self.name, rendered_prompt, raw_response, think_block, final_response)
+        return final_response, interaction_id
 
 
 class AgentRunner:
