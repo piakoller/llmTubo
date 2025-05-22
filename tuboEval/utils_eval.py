@@ -5,7 +5,6 @@ import pandas as pd
 from datetime import datetime
 import logging
 import glob
-import openpyxl
 
 logger = logging.getLogger(__name__)
 if not logger.hasHandlers():
