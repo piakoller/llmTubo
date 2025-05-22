@@ -2,6 +2,7 @@
 import logging
 import threading
 import time
+from datetime import datetime as dt
 import os
 import uuid
 import json
@@ -22,10 +23,12 @@ human_eval_json_lock = threading.Lock()
 def save_for_human_evaluation(
     patient_id: str,
     patient_context_summary: str,
-    llm_full_recommendation: str,
+    llm_full_recommendation: str,      
+    llm_raw_response_with_think: str, 
+    llm_think_block: str,
     guideline_used: str,
     llm_interaction_id: str,
-    agent_name: str = "TherapieAgentOutput" # Default, can be specified
+    agent_name: str = "TherapieAgentOutput"
 ):
     # Ensure the directory for the JSON file exists
     eval_file_path = config.HUMAN_EVAL_JSON_FILE
@@ -45,14 +48,16 @@ def save_for_human_evaluation(
     
     new_case_data = {
         "case_id_for_eval_tool": case_id_for_eval_tool,
-        "llm_interaction_id": llm_interaction_id, # Link to detailed LLM call in CSV
+        "llm_interaction_id": llm_interaction_id,
         "patient_id_original": patient_id,
         "patient_context_summary": patient_context_summary,
-        "llm_full_recommendation": llm_full_recommendation,
+        "llm_raw_output_with_think": llm_raw_response_with_think, 
+        "llm_think_block_extracted": llm_think_block,
+        "llm_final_recommendation": llm_full_recommendation,
         "guideline_used": guideline_used,
         "agent_name_source": agent_name,
-        "timestamp_generated_for_eval": dt.now().isoformat(),
-        "evaluation_status": "pending" # Add a status field
+        "timestamp_generated_for_eval": dt.now().isoformat(), # Use imported datetime
+        "evaluation_status": "pending"
     }
 
     with human_eval_json_lock: # Ensure thread-safe file access
@@ -74,7 +79,7 @@ def save_for_human_evaluation(
             with open(eval_file_path, 'w', encoding='utf-8') as f:
                 json.dump(all_cases, f, indent=2, ensure_ascii=False)
             
-            logger.info(f"Appended case {case_id_for_eval_tool} for human evaluation to: {eval_file_path} (LLM interaction ID: {llm_interaction_id})")
+            # logger.info(f"Appended case {case_id_for_eval_tool} for human evaluation to: {eval_file_path} (LLM interaction ID: {llm_interaction_id})")
             return eval_file_path # Or perhaps new_case_data for confirmation
             
         except IOError as e:
@@ -239,9 +244,7 @@ class AgentWorkflowManager:
         # 1. Diagnostik and Studien Agents (Parallel)
         logger.info("Starting Diagnostik and Studien agents in parallel.")
         diag_runner = AgentRunner(self.diagnostik_agent, "Diagnostik", base_context)
-        # Ensure studien_context (diagnosis string) is passed to StudienAgent
         studien_runner = AgentRunner(self.studien_agent, "Studien", studien_context)
-
 
         diag_thread = threading.Thread(target=diag_runner.run, name="DiagnostikThread")
         studien_thread = threading.Thread(target=studien_runner.run, name="StudienThread")
@@ -262,16 +265,20 @@ class AgentWorkflowManager:
             self.results["Studien"] = studien_runner.result if not studien_runner.exception else []
             return # Stop if Diagnostik fails
         else:
-            # diag_runner.result is now (response_text, interaction_id)
-            diag_response_text, diag_interaction_id = diag_runner.result
-            self.results["Diagnostik"] = diag_response_text
-            self.results["Diagnostik_interaction_id"] = diag_interaction_id
-            logger.info(f"Diagnostik Agent (ID: {diag_interaction_id}) finished. Output: {diag_response_text[:100]}...")
+            diag_final_resp, diag_raw_resp, diag_think, diag_id, diag_duration = diag_runner.result
+            logger.info(f"LLM think response {diag_think}")            
+            self.results["Diagnostik"] = diag_final_resp
+            self.results["Diagnostik_raw_response"] = diag_raw_resp
+            self.results["Diagnostik_think_block"] = diag_think
+            self.results["Diagnostik_interaction_id"] = diag_id
+            self.runtimes["Diagnostik_llm_invoke_s"] = diag_duration
+            logger.info(f"Diagnostik Agent (ID: {diag_id}, LLM invoke time: {diag_duration:.2f}s) finished.")
+
+            diag_context_for_therapie = diag_final_resp
 
             # 3. Therapie Agent (Sequential after Diagnostik)
             logger.info("Starting Therapie agent.")
-            # Pass the actual diagnostik_output as context to TherapieAgent
-            therapie_runner = AgentRunner(self.therapie_agent, "Therapie", diag_response_text) 
+            therapie_runner = AgentRunner(self.therapie_agent, "Therapie", diag_context_for_therapie) 
             therapie_thread = threading.Thread(target=therapie_runner.run, name="TherapieThread")
             threads.append(therapie_thread)
             therapie_thread.start()
@@ -282,15 +289,14 @@ class AgentWorkflowManager:
                 t.join()
         logger.info("All agent threads (Studien, Therapie) have completed.")
 
-        # 5. Collect results and errors
+        # 5. Collect results and errors for Studien
         self.runtimes["Studien"] = studien_runner.runtime
-        self.results["Studien"] = studien_runner.result
+        self.results["Studien"] = studien_runner.result # StudienAgent result is likely a list, not a 5-tuple
         if studien_runner.exception:
             self.errors["Studien"] = studien_runner.exception
             logger.warning("Studien Agent failed.", exc_info=studien_runner.exception)
-            if "Studien" not in self.results or self.results["Studien"] is None: # Ensure it's an empty list on error
+            if "Studien" not in self.results or self.results["Studien"] is None:
                  self.results["Studien"] = []
-
 
         # Collect results for Therapie
         if 'therapie_runner' in locals(): # Ensure therapie_runner was created
@@ -300,11 +306,13 @@ class AgentWorkflowManager:
                 logger.error(f"Therapie Agent failed: {therapie_runner.exception}", exc_info=therapie_runner.exception)
             else:
                 # therapie_runner.result is (response_text, interaction_id)
-                therapy_response_text, therapy_interaction_id = therapie_runner.result
-                self.results["Therapie"] = therapy_response_text
-                self.results["Therapie_interaction_id"] = therapy_interaction_id
+                therapy_final_resp, therapy_raw_resp, therapy_think, therapy_id, therapy_duration = therapie_runner.result                
+                self.results["Therapie"] = therapy_final_resp
+                self.results["Therapie_raw_response"] = therapy_raw_resp
+                self.results["Therapie_think_block"] = therapy_think
+                self.results["Therapie_interaction_id"] = therapy_id
+                self.runtimes["Therapie_llm_invoke_s"] = therapy_duration
 
-                logger.info(f"Therapie Agent (ID: {therapy_interaction_id}) successful, preparing for human eval.")
                 patient_context_summary_for_eval = self._get_patient_context_summary_for_eval()
                 guideline_used = self.patient_data.get('guideline', 'Unknown Guideline')
                 original_patient_id = self.patient_data.get('id', 'UnknownPatient')
@@ -312,10 +320,12 @@ class AgentWorkflowManager:
                 save_for_human_evaluation(
                     patient_id=original_patient_id,
                     patient_context_summary=patient_context_summary_for_eval,
-                    llm_full_recommendation=therapy_response_text,
+                    llm_full_recommendation=therapy_final_resp,
+                    llm_raw_response_with_think=therapy_raw_resp,
+                    llm_think_block=therapy_think,
                     guideline_used=guideline_used,
-                    llm_interaction_id=therapy_interaction_id,
-                    agent_name="TherapieAgentOutput" # Or simply self.therapie_agent.name
+                    llm_interaction_id=therapy_id,
+                    agent_name="TherapieAgentOutput"
                 )
                 
         elif 'Therapie' in self.errors: # Check if an error was already recorded for Therapie

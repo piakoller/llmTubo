@@ -17,11 +17,12 @@ except ImportError as e:
     exit(1)
 
 # --- Configuration for this Batch Script ---
-DEFAULT_LLM_MODEL_BATCH = "qwen3:32b"
+# DEFAULT_LLM_MODEL_BATCH = "qwen3:32b"
+DEFAULT_LLM_MODEL_BATCH = "llama3"
 DEFAULT_GUIDELINE_PROVIDER_BATCH = "ESMO"
 DEFAULT_STUDY_LOCATION_BATCH = "Bern, Switzerland"
 
-EVAL_AGENT_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/agent/"
+EVAL_AGENT_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/agent/test"
 
 setup_logging()
 logger = logging.getLogger("agent_batch_processor")
@@ -56,8 +57,6 @@ def run_batch_processing(
     clinical_info_modified_arg: bool = False, # Renamed from fragestellung_modified_arg
     patient_data_filepath_override: str | None = None
 ):
-    logger.info("Starting batch processing of patients...")
-
     # --- Determine effective clinical_info_modified state ---
     effective_clinical_info_modified = clinical_info_modified_arg # Start with arg
     
@@ -172,22 +171,35 @@ def run_batch_processing(
                 "clinical_info_modified": effective_clinical_info_modified,
                 "guideline_used": effective_guideline,
                 "study_location_input": effective_study_location,
-                "diagnostik_output": manager.results.get("Diagnostik"),
+                
+                # Diagnostik Agent Results
+                "diagnostik_output_final": manager.results.get("Diagnostik"),
+                "diagnostik_raw_response": manager.results.get("Diagnostik_raw_response"),   
+                "diagnostik_think_block": manager.results.get("Diagnostik_think_block"),     
                 "diagnostik_interaction_id": manager.results.get("Diagnostik_interaction_id"),
-                "diagnostik_llm_generation_time_s": get_llm_duration("Diagnostik"),
+                
+                # Studien Agent Results
                 "studien_output": process_study_output(manager.results.get("Studien")),
-                "therapie_output": manager.results.get("Therapie"),
+                
+                # Therapie Agent Results
+                "therapie_output_final": manager.results.get("Therapie"),
+                "therapie_raw_response": manager.results.get("Therapie_raw_response"),     
+                "therapie_think_block": manager.results.get("Therapie_think_block"),       
                 "therapie_interaction_id": manager.results.get("Therapie_interaction_id"),
-                "therapie_llm_generation_time_s": get_llm_duration("Therapie"),
+                
+                # Errors and Overall Runtimes
                 "errors": manager.errors if manager.errors else None,
                 "runtimes_overall_agents": {
-                    k: v for k, v in manager.runtimes.items() if not k.endswith("_llm_generation_s")
+                    # Store only overall agent runtimes here, LLM specific times are now separate
+                    k: v for k, v in manager.runtimes.items() 
+                    if not (k.endswith("_llm_invoke_s") or k.endswith("_llm_generation_s")) 
                 },
                 "patient_context_summary_for_eval": manager._get_patient_context_summary_for_eval() if hasattr(manager, '_get_patient_context_summary_for_eval') else "N/A"
             }
             
         except Exception as e:
             logger.error(f"CRITICAL ERROR processing patient {patient_id}: {e}", exc_info=True)
+            # Ensure all relevant fields are present in the error entry too
             patient_result_entry = {
                 "patient_id_original": str(patient_id),
                 "patient_data_source_file": os.path.basename(effective_patient_data_file),
@@ -195,15 +207,16 @@ def run_batch_processing(
                 "llm_model_used": effective_llm_model,
                 "clinical_info_modified": effective_clinical_info_modified,
                 "guideline_used": effective_guideline,
+                "study_location_input": effective_study_location, # Added for consistency in error cases
                 "status": "FAILED_CRITICAL_PROCESSING",
                 "error_message": str(e)
             }
         finally:
-            if patient_result_entry:
+            if patient_result_entry: # Ensure it's initialized
                 all_patient_results.append(patient_result_entry)
             patient_processing_time = time.perf_counter() - start_time_patient
-            logger.info(f"Finished processing patient {patient_id} in {patient_processing_time:.2f}s (Status: {'OK' if patient_result_entry.get('errors') is None and 'status' not in patient_result_entry else 'ERROR'}).")
-
+            status_ok = patient_result_entry.get('errors') is None and 'status' not in patient_result_entry
+            logger.info(f"Finished processing patient {patient_id} in {patient_processing_time:.2f}s (Status: {'OK' if status_ok else 'ERROR'}).")
     try:
         with open(final_output_file, 'w', encoding='utf-8') as f:
             json.dump(all_patient_results, f, indent=2, ensure_ascii=False)

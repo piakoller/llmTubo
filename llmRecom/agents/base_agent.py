@@ -6,53 +6,21 @@ import csv
 import os
 import threading
 import uuid
+import html
 from datetime import datetime
 from abc import ABC, abstractmethod
+from typing import Any, Dict, List, Optional, Union
+
 from langchain_ollama import OllamaLLM
 from langchain.prompts import PromptTemplate
 
-import config # Import your project's config file
+import config
 
 # This logger will use the centralized configuration from utils/logging_setup.py
 logger = logging.getLogger(__name__)
 
 # Thread lock for CSV writing
 csv_writer_lock = threading.Lock()
-
-def log_llm_interaction_to_csv(interaction_id: str, agent_name: str, rendered_prompt: str,
-                               raw_response: str, think_block: str, final_response: str,
-                               error_message: str = ""):
-    """
-    Logs the LLM interaction details to a CSV file, including a unique interaction_id.
-    """
-    file_path = config.LLM_INTERACTIONS_CSV_FILE
-    file_exists = os.path.isfile(file_path)
-
-    fieldnames = ['timestamp', 'interaction_id', 'agent_name', 'rendered_prompt',
-                  'raw_response', 'think_block', 'final_response', 'error_message']
-    
-    interaction_data = {
-        'timestamp': datetime.now().isoformat(),
-        'interaction_id': interaction_id,
-        'agent_name': agent_name,
-        'rendered_prompt': rendered_prompt,
-        'raw_response': raw_response,
-        'think_block': think_block,
-        'final_response': final_response,
-        'error_message': error_message
-    }
-
-    with csv_writer_lock:
-        try:
-            with open(file_path, mode='a', newline='', encoding='utf-8') as csvfile:
-                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-                if not file_exists or os.path.getsize(file_path) == 0:
-                    writer.writeheader()
-                writer.writerow(interaction_data)
-        except IOError as e:
-            logger.error(f"IOError writing LLM interaction to CSV {file_path}: {e}", exc_info=True)
-        except Exception as e:
-            logger.error(f"Unexpected error writing LLM interaction to CSV {file_path}: {e}", exc_info=True)
 
 class Agent(ABC):
     def __init__(self, name: str, role_description: str, llm: OllamaLLM):
@@ -68,89 +36,83 @@ class Agent(ABC):
         pass
 
     def _extract_think_and_final_response(self, full_llm_output: str) -> tuple[str, str]:
-        """
-        Extracts the <think> block and the content after the closing </think> tag.
-        Returns: (think_block_content, final_response_content)
-        If no <think> block is found, think_block_content will be empty.
-        """
         think_block_content = ""
-        final_response_content = full_llm_output.strip() # Default to full output
+        final_response_content = full_llm_output.strip()
+
+        full_llm_output = html.unescape(full_llm_output)
 
         think_tag_start_pattern = r"<think>"
         think_tag_end_pattern = r"</think>"
-        
+
         try:
-            # Case-insensitive search for the full think block
-            # Using re.DOTALL so '.' matches newlines within the think block
-            match = re.search(f"{think_tag_start_pattern}(.*?){think_tag_end_pattern}", 
-                              full_llm_output, re.IGNORECASE | re.DOTALL)
-            
+            match = re.search(f"{think_tag_start_pattern}(.*?){think_tag_end_pattern}",
+                            full_llm_output, re.IGNORECASE | re.DOTALL)
             if match:
-                think_block_content = match.group(1).strip() # Content between <think> and </think>
-                # The rest of the string after the matched </think> tag
+                think_block_content = match.group(1).strip()
                 final_response_content = full_llm_output[match.end():].strip()
-                logger.debug(f"Extracted think block. Snippet: {think_block_content[:100]}...")
-                logger.debug(f"Extracted final response after think block. Snippet: {final_response_content[:100]}...")
+                logger.debug(f"Extracted think block:\n{think_block_content}")
+                logger.debug(f"Final response after think block:\n{final_response_content}")
             else:
-                logger.debug("No <think> block found in LLM output. Final response is the original output.")
-                # final_response_content is already set to full_llm_output.strip()
+                logger.warning("No <think> block found in output.")
         except Exception as e:
-            logger.error(f"Error during extraction of think/final response: {e}", exc_info=True)
-            # Fallback: think_block remains empty, final_response is the original full output
-            final_response_content = full_llm_output.strip()
-            
+            logger.error(f"Regex extraction failed: {e}", exc_info=True)
+
         return think_block_content, final_response_content
 
 
-    def _invoke_llm(self, prompt_template_str: str, context_vars: dict) -> tuple[str, str]: #<-- Now returns (final_response, interaction_id)
-        """
-        Helper method to invoke the LLM, log interaction, and separate think block.
-        Returns a tuple: (final_response_string, interaction_id_string)
-        """
-        interaction_id = uuid.uuid4().hex # Generate unique ID for this specific interaction
+    def _invoke_llm(self, prompt_template_str: str, context_vars: dict) -> tuple[str, str, str, str, Optional[float]]:
+            """
+            Invokes LLM, logs interaction, separates think block, and captures invoke duration.
+            Returns: (final_response_str, raw_response_str, think_block_str, interaction_id_str, invoke_duration_float_sec)
+            """
+            interaction_id = uuid.uuid4().hex
 
-        prompt_template = PromptTemplate.from_template(prompt_template_str)
-        rendered_prompt = ""
-        try:
-            prompt_value = prompt_template.format_prompt(**context_vars)
-            rendered_prompt = prompt_value.to_string()
-        except Exception as e: # Catch broad errors in rendering for logging
-            logger.error(f"Error rendering prompt for agent {self.name}, interaction {interaction_id}: {e}", exc_info=True)
-            rendered_prompt = f"Error rendering prompt for interaction {interaction_id}: {e}"
+            prompt_template = PromptTemplate.from_template(prompt_template_str)
+            rendered_prompt = ""
+            try:
+                prompt_value = prompt_template.format_prompt(**context_vars)
+                rendered_prompt = prompt_value.to_string()
+            except Exception as e:
+                logger.error(f"Error rendering prompt for agent {self.name}, ID {interaction_id}: {e}", exc_info=True)
+                rendered_prompt = f"Error rendering prompt (ID: {interaction_id}): {e}"
 
-        chain = prompt_template | self.llm
-        
-        raw_response = ""
-        think_block = ""
-        final_response = ""
-        error_message = ""
-
-        try:
-            log_context_vars = {k: (str(v)[:50] + '...' if isinstance(v, str) and len(v) > 50 else v) for k, v in context_vars.items()}
-            logger.debug(f"Invoking LLM (ID: {interaction_id}) for agent {self.name} with vars: {log_context_vars}")
+            chain = prompt_template | self.llm
             
-            llm_output = chain.invoke(context_vars)
-            
-            if not isinstance(llm_output, str):
-                raw_response = str(llm_output)
-            else:
-                raw_response = llm_output
+            raw_response_from_llm = ""
+            think_block = ""
+            final_response = ""
+            error_message = ""
+            invoke_duration: Optional[float] = None # To store time for chain.invoke()
 
-            logger.info(f"LLM raw response (ID: {interaction_id}) snippet for {self.name}: {raw_response[:200]}...")
-            think_block, final_response = self._extract_think_and_final_response(raw_response)
-            
-        except Exception as e:
-            logger.error(f"LLM invocation (ID: {interaction_id}) failed for agent {self.name}: {e}", exc_info=True)
-            error_message = str(e)
-            log_llm_interaction_to_csv(interaction_id, self.name, rendered_prompt, raw_response, think_block, final_response, error_message)
-            raise RuntimeError(f"LLM call (ID: {interaction_id}) failed for {self.name}") from e
-        
-        log_llm_interaction_to_csv(interaction_id, self.name, rendered_prompt, raw_response, think_block, final_response)
-        return final_response, interaction_id
+            llm_call_start_time = time.perf_counter() # Start timer before invoke
+            try:
+                log_context_vars = {k: (str(v)[:50] + '...' if isinstance(v, str) and len(v) > 50 else v) for k, v in context_vars.items()}
+                # logger.debug(f"Invoking LLM (ID: {interaction_id}) for agent {self.name} with vars: {log_context_vars}")
+                
+                llm_output = chain.invoke(context_vars)
+                
+                raw_response_from_llm = str(llm_output) if not isinstance(llm_output, str) else llm_output
+                # print(raw_response_from_llm)
+                
+            except Exception as e:
+                invoke_duration = time.perf_counter() - llm_call_start_time # Measure time even on error
+                logger.error(f"LLM invocation (ID: {interaction_id}) failed for agent {self.name} after {invoke_duration:.4f}s: {e}", exc_info=True)
+                error_message = str(e)
+                # _extract_think_and_final_response might still be useful if raw_response_from_llm has partial data
+                think_block = self._extract_think_and_final_response(raw_response_from_llm).think_block_content
+                final_response = self._extract_think_and_final_response(raw_response_from_llm).final_response_content
 
+                raise RuntimeError(f"LLM call (ID: {interaction_id}) failed for {self.name}") from e
+            
+            invoke_duration = time.perf_counter() - llm_call_start_time # Measure time on success
+            # logger.info(f"LLM raw response (ID: {interaction_id}) for {self.name} (invoke took {invoke_duration:.4f}s): {llm_output[:200]}...")
+            think_block, final_response = self._extract_think_and_final_response(raw_response_from_llm)
+            logger.info(f"LLM raw response {think_block}")
+
+
+            return final_response, raw_response_from_llm, think_block, interaction_id, invoke_duration
 
 class AgentRunner:
-    # ... (AgentRunner class remains the same) ...
     """Handles the execution of an agent, capturing results, runtime, and exceptions."""
     def __init__(self, agent: Agent, name: str, context: str):
         self.agent = agent
@@ -163,7 +125,7 @@ class AgentRunner:
     def run(self):
         """Executes the agent's respond method and records metrics."""
         context_snippet = self.context[:100] + '...' if len(self.context) > 100 else self.context
-        logger.info(f"Agent '{self.name}' starting with context snippet: '{context_snippet}'")
+        # logger.info(f"Agent '{self.name}' starting with context snippet: '{context_snippet}'")
         start_time = time.perf_counter()
         try:
             self.result = self.agent.respond(self.context)

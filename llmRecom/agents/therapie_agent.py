@@ -25,6 +25,10 @@ class TherapieAgent(Agent):
     def respond(self, diagnostik_summary_context: str) -> tuple[str, str]:
         """Uses LLM to generate therapy recommendations."""
         template = """
+            <think>
+            [Hier deine Denkprozesse vor der finalen Antwort einfügen. Dieser Block wird später separat gespeichert.]
+            </think>
+            
             # Therapieempfehlung für Tumorboard
 
             Du bist ein erfahrener Onkologie-Experte, spezialisiert auf Therapieplanung. Deine Aufgabe ist es, basierend auf der bereitgestellten diagnostischen Zusammenfassung und unter strikter Berücksichtigung der angegebenen Leitlinie, eine präzise und begründete Therapieempfehlung für den besprochenen Patienten auf Deutsch zu erstellen.
