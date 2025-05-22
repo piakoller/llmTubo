@@ -10,8 +10,13 @@ logger = logging.getLogger(__name__)
 if not logger.hasHandlers():
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-AGGREGATED_EXCEL_INPUT_FILE = "/home/pia/projects/llmTubo/tuboEval/expert_review_sheets/expert_evaluation_sheet_v2.xlsx"
-EVALUATION_RESULTS_SAVE_DIR = "/home/pia/projects/llmTubo/tuboEval/evaluations_completed_comparative/" # New dir for these specific evals
+# AGGREGATED_EXCEL_INPUT_FILE = "/home/pia/projects/llmTubo/tuboEval/expert_review_sheets/expert_evaluation_sheet_v2.xlsx"
+# EVALUATION_RESULTS_SAVE_DIR = "/home/pia/projects/llmTubo/tuboEval/evaluations_completed_comparative/" # New dir for these specific evals
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+AGGREGATED_EXCEL_INPUT_FILE = os.path.join(script_dir, "expert_review_sheets", "expert_evaluation_sheet_v2.xlsx")
+EVALUATION_RESULTS_SAVE_DIR = os.path.join(script_dir, "evaluations_completed_comparative")
+
 
 try:
     os.makedirs(EVALUATION_RESULTS_SAVE_DIR, exist_ok=True)
