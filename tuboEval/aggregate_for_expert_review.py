@@ -6,16 +6,22 @@ from collections import defaultdict
 import logging # Added for better feedback
 
 # --- Configuration ---
-# List of directories where your batch JSON output files are stored
+# # List of directories where your batch JSON output files are stored
+# RESULTS_DIRS = [
+#     "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/agent/",
+#     "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/single_prompt/"
+# ]
+# Use paths relative to the script's location for portability
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 RESULTS_DIRS = [
-    "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/agent/",
-    "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/single_prompt/"
+    os.path.join(BASE_DIR, "data_for_evaluation", "agent"),
+    os.path.join(BASE_DIR, "data_for_evaluation", "single_prompt")
 ]
 
 # Output Excel file name
 EXCEL_OUTPUT_FILE = "expert_evaluation_sheet_v2.xlsx" # Versioning the output
 # Directory to save the Excel file
-OUTPUT_DIR_FOR_EXCEL = "/home/pia/projects/llmTubo/tuboEval/expert_review_sheets/"
+OUTPUT_DIR_FOR_EXCEL = os.path.join(BASE_DIR, "expert_review_sheets")
 
 # Setup basic logging for this script
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
