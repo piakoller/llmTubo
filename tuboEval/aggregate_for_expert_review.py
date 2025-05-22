@@ -159,7 +159,7 @@ def main():
     logger.info(f"Found recommendation types: {all_rec_types_found}")
 
     # Base columns + dynamically added recommendation and evaluation columns
-    excel_columns = ["Patient ID", "Patient Data Summary", "Source File (Example)"] # Added example source file
+    excel_columns = ["Patient ID", "Patient Data Summary", "Source File"]
 
     for rec_type in all_rec_types_found:
         excel_columns.append(f"{rec_type} - Final Recommendation")
@@ -181,7 +181,7 @@ def main():
         record = {
             "Patient ID": patient_id,
             "Patient Data Summary": data["metadata"].get("patient_data_summary", ""),
-            "Source File (Example)": data["metadata"].get("data_source_file", "") 
+            "Source File": data["metadata"].get("data_source_file", "") 
         }
         for rec_type in all_rec_types_found:
             rec_data = data["recommendations"].get(rec_type, {})
