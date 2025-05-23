@@ -274,9 +274,9 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
                 st.error("No recommendation variants were found or displayed for evaluation. Cannot submit.")
             else:
                 evaluation_payload = {
-                    "patient_id_evaluated": selected_patient_id,
-                    "llm_model_evaluated": selected_llm_model,
-                    "expert_name": st.session_state.expert_name,
+                    # "patient_id_evaluated": selected_patient_id,
+                    # "llm_model_evaluated": selected_llm_model,
+                    # "expert_name": st.session_state.expert_name,
                     "evaluation_timestamp": datetime.now().isoformat(),
                     "evaluations_per_variant": form_eval_data_storage, 
                     "overall_comments_for_llm_patient": overall_comments_for_llm_patient_input
