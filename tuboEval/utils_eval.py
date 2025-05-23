@@ -13,7 +13,7 @@ load_dotenv()
 MONGO_URI = os.environ.get("MONGO_URI")
 
 client = MongoClient(MONGO_URI)
-db = client["llm_eval_db"]
+db = client["llmTubo_eval_db"]
 collection = db["expert_evaluations"]
 
 logger = logging.getLogger(__name__)
