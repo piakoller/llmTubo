@@ -71,10 +71,7 @@ def get_case_data_for_patient(patient_id: str) -> pd.Series | None:
     return None
 
 def get_available_llm_models_for_patient(case_data_series: pd.Series | None) -> list[str]:
-    """
-    Parses column names from the case_data_series to find unique LLM model names.
-    Assumes column prefixes like "MultiAgent_Llama3_ModFalse - Final Recommendation".
-    """
+
     if case_data_series is None:
         return []
     
@@ -82,7 +79,7 @@ def get_available_llm_models_for_patient(case_data_series: pd.Series | None) -> 
     # This parsing logic needs to be robust based on your aggregate_for_expert_review.py output columns
     for col_name in case_data_series.index:
         if isinstance(col_name, str) and (" - Final Recommendation" in col_name or " - Think Block" in col_name):
-            prefix = col_name.split(" - ")[0] # e.g., "MultiAgent_Llama3_ModFalse"
+            prefix = col_name.split(" - ")[0] 
             parts = prefix.split('_')
             llm_name = ""
             script_type_found = False

@@ -10,7 +10,6 @@ try:
     from utils.logging_setup import setup_logging
     from data_loader import load_patient_data
     from core.agent_manager import AgentWorkflowManager
-    # ... (other agent imports if needed for type hinting) ...
 except ImportError as e:
     print(f"Error importing project modules: {e}")
     print("Ensure this script is run from the project root or that 'llmRecom' is in your PYTHONPATH.")
@@ -18,11 +17,11 @@ except ImportError as e:
 
 # --- Configuration for this Batch Script ---
 # DEFAULT_LLM_MODEL_BATCH = "qwen3:32b"
-DEFAULT_LLM_MODEL_BATCH = "llama3"
+DEFAULT_LLM_MODEL_BATCH = "gemma3:27b"
 DEFAULT_GUIDELINE_PROVIDER_BATCH = "ESMO"
 DEFAULT_STUDY_LOCATION_BATCH = "Bern, Switzerland"
 
-EVAL_AGENT_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/agent/test"
+EVAL_AGENT_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/agent"
 
 setup_logging()
 logger = logging.getLogger("agent_batch_processor")
@@ -54,11 +53,11 @@ def run_batch_processing(
     guideline_override: str | None = None,
     study_location_override: str | None = None,
     output_filepath_override: str | None = None,
-    clinical_info_modified_arg: bool = False, # Renamed from fragestellung_modified_arg
+    clinical_info_modified_arg: bool = False,
     patient_data_filepath_override: str | None = None
 ):
     # --- Determine effective clinical_info_modified state ---
-    effective_clinical_info_modified = clinical_info_modified_arg # Start with arg
+    effective_clinical_info_modified = clinical_info_modified_arg
     
     # --- Determine effective patient data file path ---
     effective_patient_data_file = config.TUBO_EXCEL_FILE_PATH

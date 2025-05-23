@@ -101,7 +101,6 @@ def render_evaluation_widgets(variant_prefix: str, patient_id: str, storage_dict
 def get_variant_data(case_data_series: pd.Series, llm_model: str, script_type: str, is_modified: bool) -> dict | None:
     """
     Constructs the expected column prefix and fetches data for a specific variant.
-    Example prefix: SinglePrompt_Llama3_ModTrue
     """
     mod_suffix = "ModTrue" if is_modified else "ModFalse"
    
@@ -222,6 +221,7 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
     )
     st.markdown("---")
 
+    # Clinical Info
     clinical_info_row = df_patients[df_patients["ID"] == selected_patient_id]
     if not clinical_info_row.empty:
         clinical_info = clinical_info_row.iloc[0]["clinical_info"]
@@ -237,7 +237,22 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
     )
 
     st.markdown("---")
+    # Therapieempfehlung Ärzte
+    therapy_doctor_row = df_patients[df_patients["ID"] == selected_patient_id]
+    if not therapy_doctor_row.empty:
+        therapy_doctor = therapy_doctor_row.iloc[0]["Beurteilung_und_Therapieempfehlung"]
+    else:
+        therapy_doctor = "Keine Beurteilung und Therapieempfehlung Daten"
 
+    st.text_area(
+        "Beurteilung und Therapieempfehlung",
+        value=therapy_doctor,
+        height=100,
+        disabled=False,
+        key=f"therapy_doctor_{selected_patient_id}"
+    )
+
+    st.markdown("---")
     sp_std_data = get_variant_data(case_data_series, selected_llm_model, "SinglePrompt", False)
     sp_mod_data = get_variant_data(case_data_series, selected_llm_model, "SinglePrompt", True)
     ma_std_data = get_variant_data(case_data_series, selected_llm_model, "MultiAgent", False)

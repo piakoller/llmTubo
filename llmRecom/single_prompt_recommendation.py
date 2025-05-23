@@ -22,7 +22,7 @@ except ImportError as e:
 # --- Configuration for this Script ---
 DEFAULT_LLM_MODEL_SINGLE_PROMPT = "llama3" # Updated default
 DEFAULT_GUIDELINE_PROVIDER_SINGLE_PROMPT = "ESMO"
-EVAL_SINGLE_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/single_prompt/think"
+EVAL_SINGLE_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/single_prompt"
 
 PATIENT_FIELDS_FOR_PROMPT = [
     "id", "main_diagnosis", "main_diagnosis_text", "ann_arbor_stage", 

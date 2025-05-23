@@ -1,0 +1,484 @@
+[
+  {
+    "patient_id_original": "1-20240227-ChNo",
+    "patient_data_source_file": "tubo-DLBCL-v2.xlsx",
+    "timestamp_processed": "2025-05-23T16:17:23.546594",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik:\n\n**Diagnose:** Diffuses großzelliges B-Zell-Lymphom (DLBCL), Stadium IV, mit hohem IPI-Risiko (3 Punkte) und B-Symptomen.\n\n**Klinischer Verlauf & Aktueller Status:** Der Patient erhielt eine initiale Therapie mit R-CHOP, gefolgt von MATRix/R-ICE aufgrund unzureichenden Ansprechens. Die PET-CT vom 14.12.2023 zeigte eine partielle Remission (Deauville 4). Die aktuelle PET-CT vom 22.02.2024 zeigt eine weiterhin bestehende, jedoch größenregrediente Lymphadenopathie rechts axillär und persistierende Milzbefall. Neu aufgetreten sind moderat stoffwechselaktive Verdichtungen in beiden unteren Lungenlappen, die entzündlicher Natur sein könnten. Die ossäre Lymphombefallung im Schädelbereich konnte in dieser Untersuchung nicht beurteilt werden (fehlende Bildgebung).\n\n**Wichtige Befunde:**\n\n*   **Histologie:** DLBCL, NOS, mit Mib-1 Expression (80%), Bcl-6 und Bcl-2 positiv, MYC negativ. FISH zeigte Translokation von BCL6, keine Translokation von MYC oder BCL2.\n*   **Bildgebung:**  Persistierende Lymphome im Achselbereich und Milz, neue Lungenverdichtungen.\n*   **Stadium:** IV (Befall von Lymphknoten und Milz).\n*   **Risikobewertung:** IPI 3, was auf ein intermediäres bis hohes Risiko hindeutet.\n\n**Nächste Schritte:**  Konsolidierungstherapie mit HD-CHT (geplant 06.03.24) und ASZT (geplant 13.03.24).  Zusätzliche Bildgebung des Schädels ist erforderlich, um den Befall dort adäquat beurteilen zu können.",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik:\n\n**Diagnose:** Diffuses großzelliges B-Zell-Lymphom (DLBCL), Stadium IV, mit hohem IPI-Risiko (3 Punkte) und B-Symptomen.\n\n**Klinischer Verlauf & Aktueller Status:** Der Patient erhielt eine initiale Therapie mit R-CHOP, gefolgt von MATRix/R-ICE aufgrund unzureichenden Ansprechens. Die PET-CT vom 14.12.2023 zeigte eine partielle Remission (Deauville 4). Die aktuelle PET-CT vom 22.02.2024 zeigt eine weiterhin bestehende, jedoch größenregrediente Lymphadenopathie rechts axillär und persistierende Milzbefall. Neu aufgetreten sind moderat stoffwechselaktive Verdichtungen in beiden unteren Lungenlappen, die entzündlicher Natur sein könnten. Die ossäre Lymphombefallung im Schädelbereich konnte in dieser Untersuchung nicht beurteilt werden (fehlende Bildgebung).\n\n**Wichtige Befunde:**\n\n*   **Histologie:** DLBCL, NOS, mit Mib-1 Expression (80%), Bcl-6 und Bcl-2 positiv, MYC negativ. FISH zeigte Translokation von BCL6, keine Translokation von MYC oder BCL2.\n*   **Bildgebung:**  Persistierende Lymphome im Achselbereich und Milz, neue Lungenverdichtungen.\n*   **Stadium:** IV (Befall von Lymphknoten und Milz).\n*   **Risikobewertung:** IPI 3, was auf ein intermediäres bis hohes Risiko hindeutet.\n\n**Nächste Schritte:**  Konsolidierungstherapie mit HD-CHT (geplant 06.03.24) und ASZT (geplant 13.03.24).  Zusätzliche Bildgebung des Schädels ist erforderlich, um den Befall dort adäquat beurteilen zu können.\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "fdaece86667944859000e2e7010fa297",
+    "studien_output": [
+      {
+        "title": "A Randomised Evaluation of Molecular Guided Therapy for Diffuse Large B-cell Lymphoma With Bortezomib",
+        "nct_id": "NCT01324596"
+      },
+      {
+        "title": "Assessing a Circulating Tumor (ctDNA) and Positron Emission Tomography (PET)-Oriented Therapy in Patients With Diffuse Large B-cell Lymphoma (DLBCL). A Multicenter, Open-label, Phase II Trial.",
+        "nct_id": "NCT04604067"
+      },
+      {
+        "title": "A Phase 2 Open-Label Study to Determine the Effect of Blinatumomab on Minimal Residual Disease in Subjects With High-risk Diffuse Large B-cell Lymphoma Post-autologous Hematopoietic Stem-cell Transplantation.",
+        "nct_id": "NCT03298412"
+      },
+      {
+        "title": "Copanlisib in Combination With Venetoclax in Patients With Relapsed or Refractory B-cell Non-Hodgkin Lymphoma. A Multicenter Phase Ib Trial With Two Expansion Cohorts",
+        "nct_id": "NCT03886649"
+      },
+      {
+        "title": "A Phase III, Open-Label, Multicenter, Randomized Study Evaluating the Efficacy and Safety of Glofitamab in Combination With Gemcitabine Plus Oxaliplatin Versus Rituximab in Combination With Gemcitabine and Oxaliplatin in Patients With Relapsed/Refractory Diffuse Large B-Cell Lymphoma",
+        "nct_id": "NCT04408638"
+      },
+      {
+        "title": "A Global Randomized Multicenter Phase 3 Trial of JCAR017 Compared to Standard of Care in Adult Subjects With High-risk, Second-line, Transplant-eligible Relapsed or Refractory Aggressive B-cell Non-Hodgkin Lymphomas (TRANSFORM).",
+        "nct_id": "NCT03575351"
+      },
+      {
+        "title": "A Phase 3, Randomized, Open-Label Study to Evaluate Safety and Efficacy of Epcoritamab in Combination With R-CHOP Compared to R-CHOP in Subjects With Newly Diagnosed Diffuse Large B-Cell Lymphoma (DLBCL)",
+        "nct_id": "NCT05578976"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nKonsolidierungstherapie mit HD-CHT (z.B. R-ICE, D-HAP oder GDP) gefolgt von autologer Stammzelltransplantation (ASZT). Ergänzende Bildgebung des Schädels zur Beurteilung ossärer Lymphombefallung ist vor ASZT erforderlich. Bei fehlender adäquater Remission nach HD-CHT und ASZT sollte eine allogene Stammzelltransplantation in Betracht gezogen werden.\n\n**Begründung:**\nDer Patient präsentiert ein diffuses großzelliges B-Zell-Lymphom (DLBCL) Stadium IV mit hohem IPI-Risiko (3 Punkte) und B-Symptomen, welches initial mit R-CHOP und anschliessend mit MATRix/R-ICE behandelt wurde. Die aktuelle PET-CT zeigt eine persistierende, jedoch größenregrediente Lymphadenopathie und persistierenden Milzbefall, was auf ein unzureichendes Ansprechen auf die bisherige Therapie hinweist. Gemäß der ESMO-Leitlinie für DLBCL ist bei rezidivierendem oder refraktärem DLBCL nach initialer Therapie die Konsolidierung mit HD-CHT und anschliessender ASZT die Standardtherapie, insbesondere bei Patienten mit hohem IPI-Risiko. Die geplante HD-CHT und ASZT sind daher angemessen. Die neu aufgetretenen Lungenverdichtungen bedürfen weiterer Abklärung, um eine Infektion oder Progression auszuschließen, sollten aber die geplante Therapie nicht verzögern. Die fehlende Beurteilung des Schädels ist kritisch, da ossärer Befall die ASZT-Indikation und das Outcome beeinflussen kann. Eine allogene Stammzelltransplantation sollte bei fehlender Remission nach ASZT in Betracht gezogen werden, um die Langzeitprogression zu reduzieren.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nKonsolidierungstherapie mit HD-CHT (z.B. R-ICE, D-HAP oder GDP) gefolgt von autologer Stammzelltransplantation (ASZT). Ergänzende Bildgebung des Schädels zur Beurteilung ossärer Lymphombefallung ist vor ASZT erforderlich. Bei fehlender adäquater Remission nach HD-CHT und ASZT sollte eine allogene Stammzelltransplantation in Betracht gezogen werden.\n\n**Begründung:**\nDer Patient präsentiert ein diffuses großzelliges B-Zell-Lymphom (DLBCL) Stadium IV mit hohem IPI-Risiko (3 Punkte) und B-Symptomen, welches initial mit R-CHOP und anschliessend mit MATRix/R-ICE behandelt wurde. Die aktuelle PET-CT zeigt eine persistierende, jedoch größenregrediente Lymphadenopathie und persistierenden Milzbefall, was auf ein unzureichendes Ansprechen auf die bisherige Therapie hinweist. Gemäß der ESMO-Leitlinie für DLBCL ist bei rezidivierendem oder refraktärem DLBCL nach initialer Therapie die Konsolidierung mit HD-CHT und anschliessender ASZT die Standardtherapie, insbesondere bei Patienten mit hohem IPI-Risiko. Die geplante HD-CHT und ASZT sind daher angemessen. Die neu aufgetretenen Lungenverdichtungen bedürfen weiterer Abklärung, um eine Infektion oder Progression auszuschließen, sollten aber die geplante Therapie nicht verzögern. Die fehlende Beurteilung des Schädels ist kritisch, da ossärer Befall die ASZT-Indikation und das Outcome beeinflussen kann. Eine allogene Stammzelltransplantation sollte bei fehlender Remission nach ASZT in Betracht gezogen werden, um die Langzeitprogression zu reduzieren.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "1ae396c2997c412a81e35d28c11d4414",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 20.436653207987547,
+      "Studien": 0.31742662750184536,
+      "Therapie": 13.697417294606566
+    },
+    "patient_context_summary_for_eval": "Patient ID: 1-20240227-ChNo\nGuideline Specified: ESMO\nDiagnosis (Code): DLBCL\nDiagnosis (Text Snippet): Diffuses grosszelliges B-Zell-Lymphom Stadium IV, R-IPI 3 Pkte, ED 09/2023 \n- Klinik: Tumor Schädel frontal rechts \n- 31.08.23 MRI Schädel: Läsion fro...\nStage: IV\nClinical Info/Question: Remissionsstatus? Konsolidierung mit HD-CHT (geplant 06.03.24) und ASZT (geplant 13.03.24)? ..."
+  },
+  {
+    "patient_id_original": "2-20240227-DePe",
+    "patient_data_source_file": "tubo-DLBCL-v2.xlsx",
+    "timestamp_processed": "2025-05-23T16:18:02.727298",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik – Patient 2-20240227-DePe\n\n**Diagnose:** Diffuses großzelliges B-Zell-Lymphom (DLBCL), reiches an T-Lymphozyten/Histiozyten (THRLBCL) – Stadium IVB, diagnostiziert am 06.07.2023.\n\n**Stadium:** IVB (ausgedehnte Erkrankung mit Beteiligung von Knochenmark und extra-nodalen Lokalisationen).\n\n**Risikobewertung:** Hochrisiko gemäß IPI (International Prognostic Index).\n\n**Klinischer Verlauf & Aktuelle Situation:**\n\n*   **Initial:** Diagnose nach Biopsie, initial aufgrund von Pancytopenie und B-Symptomen untersucht.\n*   **Erstlinienbehandlung (R-CHOP):** Zunächst komplette metabolische Remission nach 3 Zyklen, jedoch Rezidiv nach Abschluss der Behandlung.\n*   **Rückfall:** PET-CT zeigt Rezidiv mit Hypermetabolismus im Sternum, rechten Femur und möglicherweise hilaire Adenopathie (Deauville 5).\n*   **Salvage-Chemotherapie (R-DHAP/R-ICE):**  Nach zwei Zyklen Salvage-Chemotherapie zeigt das PET-CT (20.02.2024) eine partielle metabolische Antwort (Deauville 4) mit residueller Aktivität in vorbekannten Läsionen, insbesondere im Knochen. Es bestehen neue Verdachtsmomente auf entzündliche/infektiöse Infiltrationen in der Lunge.\n*   **CAR-T-Therapie:**  Nicht geeignet aufgrund fehlender CD19-Expression auf den malignen Lymphozyten und retrospektiven Daten, die auf eine schlechte Ansprechrate bei dieser Subentität hinweisen.\n*   **Stammzellapherese:** Erfolgreiche Stammzellapherese am 14.02.2024.\n\n**Wichtige Befunde:**\n\n*   **Knochenmarkinfiltration:** Deutliche (70-80%) Infiltration des Knochenmarks durch Lymphomzellen.\n*   **PET-CT:** Rezidiv mit persistierender metabolischer Aktivität in Knochen (Sternum, Femur, Iliosakralgelenk) und Verdacht auf pulmonale Infiltrationen.\n*   **Molekularbiologie:** TET2-Mutation (VAF 29%).\n*   **CD34-Sammlung:** Ausreichende CD34-Sammlung nach der Apherese.\n\n**Aktuelle Fragestellung:**  Diskussion der PET-Befunde nach zwei Zyklen Salvage-Chemotherapie und Entscheidung über die weitere Behandlung. Empfehlung liegt auf der Fortsetzung der platinhaltigen Chemotherapie (R-ICE) vor hochdosierter Chemotherapie (HDC) und autologer Stammzelltransplantation (ASCT).",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik – Patient 2-20240227-DePe\n\n**Diagnose:** Diffuses großzelliges B-Zell-Lymphom (DLBCL), reiches an T-Lymphozyten/Histiozyten (THRLBCL) – Stadium IVB, diagnostiziert am 06.07.2023.\n\n**Stadium:** IVB (ausgedehnte Erkrankung mit Beteiligung von Knochenmark und extra-nodalen Lokalisationen).\n\n**Risikobewertung:** Hochrisiko gemäß IPI (International Prognostic Index).\n\n**Klinischer Verlauf & Aktuelle Situation:**\n\n*   **Initial:** Diagnose nach Biopsie, initial aufgrund von Pancytopenie und B-Symptomen untersucht.\n*   **Erstlinienbehandlung (R-CHOP):** Zunächst komplette metabolische Remission nach 3 Zyklen, jedoch Rezidiv nach Abschluss der Behandlung.\n*   **Rückfall:** PET-CT zeigt Rezidiv mit Hypermetabolismus im Sternum, rechten Femur und möglicherweise hilaire Adenopathie (Deauville 5).\n*   **Salvage-Chemotherapie (R-DHAP/R-ICE):**  Nach zwei Zyklen Salvage-Chemotherapie zeigt das PET-CT (20.02.2024) eine partielle metabolische Antwort (Deauville 4) mit residueller Aktivität in vorbekannten Läsionen, insbesondere im Knochen. Es bestehen neue Verdachtsmomente auf entzündliche/infektiöse Infiltrationen in der Lunge.\n*   **CAR-T-Therapie:**  Nicht geeignet aufgrund fehlender CD19-Expression auf den malignen Lymphozyten und retrospektiven Daten, die auf eine schlechte Ansprechrate bei dieser Subentität hinweisen.\n*   **Stammzellapherese:** Erfolgreiche Stammzellapherese am 14.02.2024.\n\n**Wichtige Befunde:**\n\n*   **Knochenmarkinfiltration:** Deutliche (70-80%) Infiltration des Knochenmarks durch Lymphomzellen.\n*   **PET-CT:** Rezidiv mit persistierender metabolischer Aktivität in Knochen (Sternum, Femur, Iliosakralgelenk) und Verdacht auf pulmonale Infiltrationen.\n*   **Molekularbiologie:** TET2-Mutation (VAF 29%).\n*   **CD34-Sammlung:** Ausreichende CD34-Sammlung nach der Apherese.\n\n**Aktuelle Fragestellung:**  Diskussion der PET-Befunde nach zwei Zyklen Salvage-Chemotherapie und Entscheidung über die weitere Behandlung. Empfehlung liegt auf der Fortsetzung der platinhaltigen Chemotherapie (R-ICE) vor hochdosierter Chemotherapie (HDC) und autologer Stammzelltransplantation (ASCT).\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "b66a42d66a644542910f6c48aa1895cd",
+    "studien_output": [
+      {
+        "title": "A Randomised Evaluation of Molecular Guided Therapy for Diffuse Large B-cell Lymphoma With Bortezomib",
+        "nct_id": "NCT01324596"
+      },
+      {
+        "title": "Assessing a Circulating Tumor (ctDNA) and Positron Emission Tomography (PET)-Oriented Therapy in Patients With Diffuse Large B-cell Lymphoma (DLBCL). A Multicenter, Open-label, Phase II Trial.",
+        "nct_id": "NCT04604067"
+      },
+      {
+        "title": "A Phase 2 Open-Label Study to Determine the Effect of Blinatumomab on Minimal Residual Disease in Subjects With High-risk Diffuse Large B-cell Lymphoma Post-autologous Hematopoietic Stem-cell Transplantation.",
+        "nct_id": "NCT03298412"
+      },
+      {
+        "title": "Copanlisib in Combination With Venetoclax in Patients With Relapsed or Refractory B-cell Non-Hodgkin Lymphoma. A Multicenter Phase Ib Trial With Two Expansion Cohorts",
+        "nct_id": "NCT03886649"
+      },
+      {
+        "title": "A Phase III, Open-Label, Multicenter, Randomized Study Evaluating the Efficacy and Safety of Glofitamab in Combination With Gemcitabine Plus Oxaliplatin Versus Rituximab in Combination With Gemcitabine and Oxaliplatin in Patients With Relapsed/Refractory Diffuse Large B-Cell Lymphoma",
+        "nct_id": "NCT04408638"
+      },
+      {
+        "title": "A Global Randomized Multicenter Phase 3 Trial of JCAR017 Compared to Standard of Care in Adult Subjects With High-risk, Second-line, Transplant-eligible Relapsed or Refractory Aggressive B-cell Non-Hodgkin Lymphomas (TRANSFORM).",
+        "nct_id": "NCT03575351"
+      },
+      {
+        "title": "A Phase 3, Randomized, Open-Label Study to Evaluate Safety and Efficacy of Epcoritamab in Combination With R-CHOP Compared to R-CHOP in Subjects With Newly Diagnosed Diffuse Large B-Cell Lymphoma (DLBCL)",
+        "nct_id": "NCT05578976"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nFortsetzung der platinhaltigen Chemotherapie mit R-ICE für zwei weitere Zyklen, gefolgt von einer Beurteilung mittels PET-CT. Bei adäquatem Ansprechen (Deauville 3 oder besser) und vollständiger hämatologischer Remission, Durchführung einer hochdosierten Chemotherapie (HDC) mit anschließender autologer Stammzelltransplantation (ASCT).\n\n**Begründung:**\nDer Patient präsentiert ein rezidiviertes diffuses großzelliges B-Zell-Lymphom (DLBCL) vom THRLBCL-Subtyp mit Hochrisiko-Merkmalen (Stadium IVB, IPI hoch). Die initiale R-CHOP-Therapie zeigte zwar zunächst eine komplette Remission, jedoch kam es zum Rezidiv. Die durchgeführte Salvage-Chemotherapie (R-DHAP/R-ICE) zeigte eine partielle metabolische Antwort (Deauville 4), was auf eine gewisse Sensitivität gegenüber der Therapie hindeutet, aber keine ausreichende Remission darstellt. CAR-T-Therapie ist aufgrund fehlender CD19-Expression kontraindiziert.\n\nDie ESMO-Leitlinien empfehlen bei rezidiviertem/refraktärem DLBCL nach einer Salvage-Chemotherapie, Patienten mit adäquatem Ansprechen einer HDC mit ASCT zuzuführen. Da der Patient eine partielle metabolische Antwort gezeigt hat und eine erfolgreiche Stammzellapherese durchgeführt wurde, ist die Fortsetzung der platinhaltigen Chemotherapie (R-ICE) für zwei weitere Zyklen gerechtfertigt, um das Ansprechen zu optimieren. Nach erneuter Beurteilung mittels PET-CT kann dann über die Durchführung der HDC und ASCT entschieden werden. Die Tet2-Mutation ist zwar ein ungünstiger prognostischer Faktor, ändert jedoch nichts an der primären Behandlungsstrategie gemäß ESMO. Die Verdachtsmomente auf pulmonale Infiltrationen müssen weiterhin differenziert werden, könnten aber im Kontext der Lymphomerkrankung und der Chemotherapie bestehen.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nFortsetzung der platinhaltigen Chemotherapie mit R-ICE für zwei weitere Zyklen, gefolgt von einer Beurteilung mittels PET-CT. Bei adäquatem Ansprechen (Deauville 3 oder besser) und vollständiger hämatologischer Remission, Durchführung einer hochdosierten Chemotherapie (HDC) mit anschließender autologer Stammzelltransplantation (ASCT).\n\n**Begründung:**\nDer Patient präsentiert ein rezidiviertes diffuses großzelliges B-Zell-Lymphom (DLBCL) vom THRLBCL-Subtyp mit Hochrisiko-Merkmalen (Stadium IVB, IPI hoch). Die initiale R-CHOP-Therapie zeigte zwar zunächst eine komplette Remission, jedoch kam es zum Rezidiv. Die durchgeführte Salvage-Chemotherapie (R-DHAP/R-ICE) zeigte eine partielle metabolische Antwort (Deauville 4), was auf eine gewisse Sensitivität gegenüber der Therapie hindeutet, aber keine ausreichende Remission darstellt. CAR-T-Therapie ist aufgrund fehlender CD19-Expression kontraindiziert.\n\nDie ESMO-Leitlinien empfehlen bei rezidiviertem/refraktärem DLBCL nach einer Salvage-Chemotherapie, Patienten mit adäquatem Ansprechen einer HDC mit ASCT zuzuführen. Da der Patient eine partielle metabolische Antwort gezeigt hat und eine erfolgreiche Stammzellapherese durchgeführt wurde, ist die Fortsetzung der platinhaltigen Chemotherapie (R-ICE) für zwei weitere Zyklen gerechtfertigt, um das Ansprechen zu optimieren. Nach erneuter Beurteilung mittels PET-CT kann dann über die Durchführung der HDC und ASCT entschieden werden. Die Tet2-Mutation ist zwar ein ungünstiger prognostischer Faktor, ändert jedoch nichts an der primären Behandlungsstrategie gemäß ESMO. Die Verdachtsmomente auf pulmonale Infiltrationen müssen weiterhin differenziert werden, könnten aber im Kontext der Lymphomerkrankung und der Chemotherapie bestehen.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "419e5f24be244cc49095e19614d81894",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 23.345352042466402,
+      "Studien": 0.21123862080276012,
+      "Therapie": 15.793868992477655
+    },
+    "patient_context_summary_for_eval": "Patient ID: 2-20240227-DePe\nGuideline Specified: ESMO\nDiagnosis (Code): DLBCL\nDiagnosis (Text Snippet): Lymphome à grandes cellules B riche en lymphocytes T / histiocytes (THRLBCL selon OMS 2022/2017 et ICC 2022) - stade IVB \n- date du diagnostic définit...\nStage: IV\nClinical Info/Question: Diskussion PET Befunde nach 2x Zyklen Salvage-Chemotherapie. PET-Befund (HFR) vereinbar mit partiell..."
+  },
+  {
+    "patient_id_original": "3-20240227-DiEl",
+    "patient_data_source_file": "tubo-DLBCL-v2.xlsx",
+    "timestamp_processed": "2025-05-23T16:18:44.371107",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik – Diffus Großzelliges B-Zell-Lymphom (DLBCL)\n\n**Diagnose:** Diffus großzelliges B-Zell-Lymphom (DLBCL) Stadium IV (ICC 2022), Erstdiagnose 03/2023, mit sekundärer zerebraler Beteiligung.\n\n**Stadium:** IV (ausgedehnte Erkrankung)\n\n**Risikoeinstufung:** Hohes Risiko (IPI) und schlechte Prognose (R-IPI 4 Punkte).\n\n**Klinischer Verlauf & Aktueller Status:**\n\n*   Der Patient zeigte initial Symptome von Müdigkeit, Übelkeit, Erbrechen und Gewichtsverlust über 6 Monate.\n*   Er erhielt eine initiale Therapie mit R-CHOP, gefolgt von 3 Zyklen der IELSG-42 (Matrix) Studie (Methotrexat, Rituximab, Cytarabin).\n*   Die aktuelle PET-CT (21.02.2024) zeigt eine teilweise Remission. Hiläre Lymphknoten links sind vollständig regredient. Abdominale Lymphknoten zeigen weiterhin moderate Stoffwechselaktivität (Deauville 4).\n*   **Neu:** Intensivierung der Knochenmarkaufnahme im gesamten Skelett (außer Schädel), was eine progressive Erkrankung oder Therapieeffekt sein könnte.\n*   **Zerebrale Beteiligung:** MRT-Befund zeigt eine Raumforderung links frontotemporal mit Mittellinienverlagerung und Zeichen der Liquorzirkulationsstörung.\n\n**Wichtige Befunde:**\n\n*   **Biopsie (22.03.23):** DLBCL, CD20+, MUM1+, Ki-67 80%, EBV negativ, keine MYC, BCL-2, BCL-6 oder CCND1 Rearrangements.\n*   **PET-CT (03.08.23):** Teilremission nach R-CHOP.\n*   **PET-CT (20.12.23):** Rezidiv/Progression mit neuer Beteiligung des Knochenmarks und persistierenden abdominalen Lymphknoten.\n*   **MRT Schädel (22.12.23):** Zerebrale Manifestation.\n\n**Weitere relevante Punkte:**\n\n*   Differentialdiagnostische Abklärung von Befunden im Abdomen (z.B. Nebennieren, Niere, Dünndarm) ist notwendig, da Zöliakie und andere Ursachen in Betracht gezogen wurden.\n*   Beachte das Pelvic Congestion Syndrome, das die prominente Venenplexus und Vena ovarica erklären könnte.\n\n**Nächste Schritte:**\n\n*   Weiterführende Bildgebung (PET-CT und MR Schädel) nach Abschluss der aktuellen Therapie (R-ICE) zur Beurteilung des Ansprechens und zur Planung der Konsolidierungstherapie (autologe Stammzelltransplantation).\n*   Engmaschige Überwachung des Knochenmarksbefalls.\n*   Behandlung der zerebralen Beteiligung.",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik – Diffus Großzelliges B-Zell-Lymphom (DLBCL)\n\n**Diagnose:** Diffus großzelliges B-Zell-Lymphom (DLBCL) Stadium IV (ICC 2022), Erstdiagnose 03/2023, mit sekundärer zerebraler Beteiligung.\n\n**Stadium:** IV (ausgedehnte Erkrankung)\n\n**Risikoeinstufung:** Hohes Risiko (IPI) und schlechte Prognose (R-IPI 4 Punkte).\n\n**Klinischer Verlauf & Aktueller Status:**\n\n*   Der Patient zeigte initial Symptome von Müdigkeit, Übelkeit, Erbrechen und Gewichtsverlust über 6 Monate.\n*   Er erhielt eine initiale Therapie mit R-CHOP, gefolgt von 3 Zyklen der IELSG-42 (Matrix) Studie (Methotrexat, Rituximab, Cytarabin).\n*   Die aktuelle PET-CT (21.02.2024) zeigt eine teilweise Remission. Hiläre Lymphknoten links sind vollständig regredient. Abdominale Lymphknoten zeigen weiterhin moderate Stoffwechselaktivität (Deauville 4).\n*   **Neu:** Intensivierung der Knochenmarkaufnahme im gesamten Skelett (außer Schädel), was eine progressive Erkrankung oder Therapieeffekt sein könnte.\n*   **Zerebrale Beteiligung:** MRT-Befund zeigt eine Raumforderung links frontotemporal mit Mittellinienverlagerung und Zeichen der Liquorzirkulationsstörung.\n\n**Wichtige Befunde:**\n\n*   **Biopsie (22.03.23):** DLBCL, CD20+, MUM1+, Ki-67 80%, EBV negativ, keine MYC, BCL-2, BCL-6 oder CCND1 Rearrangements.\n*   **PET-CT (03.08.23):** Teilremission nach R-CHOP.\n*   **PET-CT (20.12.23):** Rezidiv/Progression mit neuer Beteiligung des Knochenmarks und persistierenden abdominalen Lymphknoten.\n*   **MRT Schädel (22.12.23):** Zerebrale Manifestation.\n\n**Weitere relevante Punkte:**\n\n*   Differentialdiagnostische Abklärung von Befunden im Abdomen (z.B. Nebennieren, Niere, Dünndarm) ist notwendig, da Zöliakie und andere Ursachen in Betracht gezogen wurden.\n*   Beachte das Pelvic Congestion Syndrome, das die prominente Venenplexus und Vena ovarica erklären könnte.\n\n**Nächste Schritte:**\n\n*   Weiterführende Bildgebung (PET-CT und MR Schädel) nach Abschluss der aktuellen Therapie (R-ICE) zur Beurteilung des Ansprechens und zur Planung der Konsolidierungstherapie (autologe Stammzelltransplantation).\n*   Engmaschige Überwachung des Knochenmarksbefalls.\n*   Behandlung der zerebralen Beteiligung.\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "568d801890b748ed9a9ff9fbca802fa3",
+    "studien_output": [
+      {
+        "title": "A Randomised Evaluation of Molecular Guided Therapy for Diffuse Large B-cell Lymphoma With Bortezomib",
+        "nct_id": "NCT01324596"
+      },
+      {
+        "title": "Assessing a Circulating Tumor (ctDNA) and Positron Emission Tomography (PET)-Oriented Therapy in Patients With Diffuse Large B-cell Lymphoma (DLBCL). A Multicenter, Open-label, Phase II Trial.",
+        "nct_id": "NCT04604067"
+      },
+      {
+        "title": "A Phase 2 Open-Label Study to Determine the Effect of Blinatumomab on Minimal Residual Disease in Subjects With High-risk Diffuse Large B-cell Lymphoma Post-autologous Hematopoietic Stem-cell Transplantation.",
+        "nct_id": "NCT03298412"
+      },
+      {
+        "title": "Copanlisib in Combination With Venetoclax in Patients With Relapsed or Refractory B-cell Non-Hodgkin Lymphoma. A Multicenter Phase Ib Trial With Two Expansion Cohorts",
+        "nct_id": "NCT03886649"
+      },
+      {
+        "title": "A Phase III, Open-Label, Multicenter, Randomized Study Evaluating the Efficacy and Safety of Glofitamab in Combination With Gemcitabine Plus Oxaliplatin Versus Rituximab in Combination With Gemcitabine and Oxaliplatin in Patients With Relapsed/Refractory Diffuse Large B-Cell Lymphoma",
+        "nct_id": "NCT04408638"
+      },
+      {
+        "title": "A Global Randomized Multicenter Phase 3 Trial of JCAR017 Compared to Standard of Care in Adult Subjects With High-risk, Second-line, Transplant-eligible Relapsed or Refractory Aggressive B-cell Non-Hodgkin Lymphomas (TRANSFORM).",
+        "nct_id": "NCT03575351"
+      },
+      {
+        "title": "A Phase 3, Randomized, Open-Label Study to Evaluate Safety and Efficacy of Epcoritamab in Combination With R-CHOP Compared to R-CHOP in Subjects With Newly Diagnosed Diffuse Large B-Cell Lymphoma (DLBCL)",
+        "nct_id": "NCT05578976"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nAufgrund des rezidivierten/progressiven diffusen großzelligen B-Zell-Lymphoms (DLBCL) mit zerebraler Beteiligung und hohem IPI-Risiko (4 Punkte) wird eine Hochdosis-Chemotherapie mit anschließender autologer Stammzelltransplantation (aST) empfohlen. Vor der aST sollte eine Konsolidierungstherapie mit R-ICE (Rituximab, Ifosfamid, Carboplatin, Etoposid) durchgeführt werden, um eine bestmögliche Reduktion der Krankheitslast zu erreichen. Die zerebrale Beteiligung erfordert eine aggressive Therapie, einschließlich der Überwindung der Blut-Hirn-Schranke, was durch die Hochdosis-Chemotherapie und ggf. zusätzliche intrathekale Therapie erreicht werden kann.\n\n**Begründung:**\nDer Patient präsentiert ein rezidiviertes DLBCL im Stadium IV mit hohem IPI-Risiko. Trotz initialer Therapie mit R-CHOP und IELSG-42 zeigt die aktuelle PET-CT eine persistierende Erkrankung im Abdomen und eine progressive Knochenmarkbeteiligung. Neu ist die zerebrale Manifestation, die eine dringende Behandlung erfordert. Gemäß den ESMO-Leitlinien für rezidiviertes/refraktäres DLBCL ist die aST der Standard of Care für Patienten, die nach Erstlinienbehandlung rezidivieren oder eine Progression zeigen und einen guten Performance Status aufweisen. Die vorläufige PET-CT zeigt eine partielle Remission, was die Durchführung einer Konsolidierungstherapie vor der aST rechtfertigt, um die Krankheitslast weiter zu reduzieren und die Konsolidierungstiefe zu verbessern. Die zerebrale Beteiligung erfordert eine Therapie, die die Blut-Hirn-Schranke überwindet. Die Hochdosis-Chemotherapie im Rahmen der aST ermöglicht dies. Zusätzlich sollte eine intrathekale Therapie in Betracht gezogen werden, um eine direkte Behandlung des zentralnervösen Systems zu gewährleisten. Die Abklärung der Abdominale Befunde (Zöliakie, Pelvic Congestion Syndrome) ist zwar wichtig für die Begleitbehandlung, hat aber keinen direkten Einfluss auf die onkologische Therapieentscheidung.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nAufgrund des rezidivierten/progressiven diffusen großzelligen B-Zell-Lymphoms (DLBCL) mit zerebraler Beteiligung und hohem IPI-Risiko (4 Punkte) wird eine Hochdosis-Chemotherapie mit anschließender autologer Stammzelltransplantation (aST) empfohlen. Vor der aST sollte eine Konsolidierungstherapie mit R-ICE (Rituximab, Ifosfamid, Carboplatin, Etoposid) durchgeführt werden, um eine bestmögliche Reduktion der Krankheitslast zu erreichen. Die zerebrale Beteiligung erfordert eine aggressive Therapie, einschließlich der Überwindung der Blut-Hirn-Schranke, was durch die Hochdosis-Chemotherapie und ggf. zusätzliche intrathekale Therapie erreicht werden kann.\n\n**Begründung:**\nDer Patient präsentiert ein rezidiviertes DLBCL im Stadium IV mit hohem IPI-Risiko. Trotz initialer Therapie mit R-CHOP und IELSG-42 zeigt die aktuelle PET-CT eine persistierende Erkrankung im Abdomen und eine progressive Knochenmarkbeteiligung. Neu ist die zerebrale Manifestation, die eine dringende Behandlung erfordert. Gemäß den ESMO-Leitlinien für rezidiviertes/refraktäres DLBCL ist die aST der Standard of Care für Patienten, die nach Erstlinienbehandlung rezidivieren oder eine Progression zeigen und einen guten Performance Status aufweisen. Die vorläufige PET-CT zeigt eine partielle Remission, was die Durchführung einer Konsolidierungstherapie vor der aST rechtfertigt, um die Krankheitslast weiter zu reduzieren und die Konsolidierungstiefe zu verbessern. Die zerebrale Beteiligung erfordert eine Therapie, die die Blut-Hirn-Schranke überwindet. Die Hochdosis-Chemotherapie im Rahmen der aST ermöglicht dies. Zusätzlich sollte eine intrathekale Therapie in Betracht gezogen werden, um eine direkte Behandlung des zentralnervösen Systems zu gewährleisten. Die Abklärung der Abdominale Befunde (Zöliakie, Pelvic Congestion Syndrome) ist zwar wichtig für die Begleitbehandlung, hat aber keinen direkten Einfluss auf die onkologische Therapieentscheidung.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "ed368101586b4372be2d6d91b45aef7c",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 24.375989355146885,
+      "Studien": 0.2465333603322506,
+      "Therapie": 17.23438206873834
+    },
+    "patient_context_summary_for_eval": "Patient ID: 3-20240227-DiEl\nGuideline Specified: ESMO\nDiagnosis (Code): DLBCL\nDiagnosis (Text Snippet): Diffus grosszelliges B-Zell-Lymphom (DLBCL) mit sekundärer zerebraler Beteiligung, NOS, Stadium IV (ICC 2022), ED 03/2023 \n- R-IPI: poor Prognosis (4 ...\nStage: IV\nClinical Info/Question: Bilder Demonstration; Ansprechen nach 3 Zyklen Matrix → 3 x R-ICE, Sammlung autolog. STZ & Hochdosis..."
+  },
+  {
+    "patient_id_original": "4-20240227-GrSv",
+    "patient_data_source_file": "tubo-DLBCL-v2.xlsx",
+    "timestamp_processed": "2025-05-23T16:19:05.591941",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik – Patient 4-20240227-GrSv\n\n**Hauptdiagnose:** Primär mediastinales B-Zell-Lymphom (PMLBL), CD30-positiv, Erstdiagnose am 15.09.2021. Aktuell Verdacht auf Rezidiv aufgrund FDG-avider mediastinaler Läsion, welches durch Biopsie abgeklärt werden soll.\n\n**Stadium:** Nicht angegeben.\n\n**Wichtige klinische Punkte:**\n\n*   **Anamnese:** Vorbehandelung mit DA-EPOCH-R und intrathekaler Triple-Therapie von September 2021 bis Januar 2022.\n*   **Komplikationen:** Chronische frontale Kopfschmerzen, Verdacht auf Pseudotumor cerebri (cMRI unauffällig).\n*   **Begleiterkrankungen/Risikofaktoren:** Bruder mit Hodgkin-Lymphom in der Anamnese, intermittierender Vorhofrhythmus, berufliche Benzolexposition.\n*   **Aktuelle Fragestellung:** Beurteilung der Biopsie zur Klärung des Rezidivverdachts und Erarbeitung eines Therapievorschlags.",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik – Patient 4-20240227-GrSv\n\n**Hauptdiagnose:** Primär mediastinales B-Zell-Lymphom (PMLBL), CD30-positiv, Erstdiagnose am 15.09.2021. Aktuell Verdacht auf Rezidiv aufgrund FDG-avider mediastinaler Läsion, welches durch Biopsie abgeklärt werden soll.\n\n**Stadium:** Nicht angegeben.\n\n**Wichtige klinische Punkte:**\n\n*   **Anamnese:** Vorbehandelung mit DA-EPOCH-R und intrathekaler Triple-Therapie von September 2021 bis Januar 2022.\n*   **Komplikationen:** Chronische frontale Kopfschmerzen, Verdacht auf Pseudotumor cerebri (cMRI unauffällig).\n*   **Begleiterkrankungen/Risikofaktoren:** Bruder mit Hodgkin-Lymphom in der Anamnese, intermittierender Vorhofrhythmus, berufliche Benzolexposition.\n*   **Aktuelle Fragestellung:** Beurteilung der Biopsie zur Klärung des Rezidivverdachts und Erarbeitung eines Therapievorschlags.\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "47120c9ff95341fcaa50785abbd66411",
+    "studien_output": null,
+    "therapie_output_final": "**Therapieempfehlung:**\nDurchführung einer Biopsie der mediastinalen Läsion zur histologischen Bestätigung des Rezidivs. Nach histologischer Bestätigung eines Rezidivs des CD30-positiven PMLBL wird eine Therapie mit Brentuximab-Monotherapie empfohlen, gefolgt von Konsolidierung mit Chemotherapie (z.B. DA-EPOCH-R).\n\n**Begründung:**\nDer Patient präsentiert ein Rezidiv eines CD30-positiven PMLBL nach initialer Behandlung mit DA-EPOCH-R und intrathealer Triple-Therapie. Die ESMO-Leitlinien für Hodgkin-Lymphom und B-Zell-Lymphome empfehlen bei Rezidiven oder refraktären CD30-positiven Lymphomen die Verwendung von Brentuximab, insbesondere als Monotherapie oder in Kombination mit Chemotherapie.  Da der Patient bereits eine DA-EPOCH-R-basierte Therapie erhalten hat, erscheint eine erneute Kombinationstherapie mit DA-EPOCH-R weniger optimal. Brentuximab-Monotherapie hat sich in Studien als wirksam gezeigt und kann das Ansprechen verbessern. Die nachfolgende Konsolidierung mit Chemotherapie soll das Risiko eines erneuten Rezidivs reduzieren und die Therapie vertiefen.  Die Biopsie ist essentiell, um die Histologie des Rezidivs zu bestätigen und andere Ursachen auszuschließen. Die intermittierende Vorhofrhythmus und die berufliche Benzolexposition sollten im Rahmen des Therapieplans und der Überwachung berücksichtigt werden, haben aber keinen direkten Einfluss auf die primäre Therapieempfehlung.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nDurchführung einer Biopsie der mediastinalen Läsion zur histologischen Bestätigung des Rezidivs. Nach histologischer Bestätigung eines Rezidivs des CD30-positiven PMLBL wird eine Therapie mit Brentuximab-Monotherapie empfohlen, gefolgt von Konsolidierung mit Chemotherapie (z.B. DA-EPOCH-R).\n\n**Begründung:**\nDer Patient präsentiert ein Rezidiv eines CD30-positiven PMLBL nach initialer Behandlung mit DA-EPOCH-R und intrathealer Triple-Therapie. Die ESMO-Leitlinien für Hodgkin-Lymphom und B-Zell-Lymphome empfehlen bei Rezidiven oder refraktären CD30-positiven Lymphomen die Verwendung von Brentuximab, insbesondere als Monotherapie oder in Kombination mit Chemotherapie.  Da der Patient bereits eine DA-EPOCH-R-basierte Therapie erhalten hat, erscheint eine erneute Kombinationstherapie mit DA-EPOCH-R weniger optimal. Brentuximab-Monotherapie hat sich in Studien als wirksam gezeigt und kann das Ansprechen verbessern. Die nachfolgende Konsolidierung mit Chemotherapie soll das Risiko eines erneuten Rezidivs reduzieren und die Therapie vertiefen.  Die Biopsie ist essentiell, um die Histologie des Rezidivs zu bestätigen und andere Ursachen auszuschließen. Die intermittierende Vorhofrhythmus und die berufliche Benzolexposition sollten im Rahmen des Therapieplans und der Überwachung berücksichtigt werden, haben aber keinen direkten Einfluss auf die primäre Therapieempfehlung.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "db145464a85f482f95bde6c86291510d",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 9.106885517016053,
+      "Studien": 0.1358399484306574,
+      "Therapie": 12.074827836826444
+    },
+    "patient_context_summary_for_eval": "Patient ID: 4-20240227-GrSv\nGuideline Specified: ESMO\nDiagnosis (Code): PMLBL\nDiagnosis (Text Snippet): A.e. primär mediastinales B-Zell-Lymphom (PMLBL, Referenzhistologie Kiel) im vorderen Mediastinum, CD30 positiv, ED 15.09.2021 \n- Behandlung in Anlehn...\nStage: -\nClinical Info/Question: Besprechung Histologie inkl. Referenzbeurteilung. Diagnose? Therapievorschlag ? ..."
+  },
+  {
+    "patient_id_original": "5-20240227-HoFr",
+    "patient_data_source_file": "tubo-DLBCL-v2.xlsx",
+    "timestamp_processed": "2025-05-23T16:19:35.021497",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik\n\n**Diagnose:** Aggressives B-Zell-Lymphom, transformiert aus einem follikulären Lymphom, mit Meningeosis lymphomatosa.\n\n**Stadium:** IV (disseminierte Erkrankung mit Befall des Knochenmarks, des Skeletts und der ZNS)\n\n**Wesentliche Befunde:**\n\n* **Primärdiagnose & Transformation:** Ausgangspunkt war ein follikuläres Lymphom, das in ein aggressives B-Zell-Lymphom transformiert ist.\n* **ZNS-Befall (Meningeosis Lymphomatosa):** Nachweis von Lymphomzellen in der Lumbalpunktion (46% der Zellen) und charakteristische Befunde im Schädel-MRT (pachymeningeales Enhancement, subdurale Kollektionen).\n* **Skelettbefall:** Multiple Osteolysen im gesamten Skelett (nachgewiesen durch CT, PET-CT und MRT), insbesondere im Bereich der Wirbelsäule, des Beckens und des Schädels.\n* **Knochenmarkbefall:** Infiltration des Knochenmarks mit Lymphomzellen (20% im Knochenmarkpunktat).\n* **Kieferbeteiligung:** Deutliche Atrophie des Alveolarkamms und reduzierte Knochenmineralisation der Kiefer.\n* **Systemische Beteiligung:** Hiläre Lymphknotenvergrößerung (PET-CT), leichter Pleuraerguss links.\n* **Ausschluss weiterer Infektionen:** HIV, Hepatitis B/C, CMV und EBV sind nicht akut.\n\n**Therapie:** Der Patient erhielt mehrere Zyklen einer Chemotherapie nach dem IELSG-42 (MARIETTA)-Protokoll (R-ICE und MATRIX) und eine autologe Stammzelltransplantation. Aktuell erfolgt eine Bestrahlung und Behandlung mit Dexamethason.",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik\n\n**Diagnose:** Aggressives B-Zell-Lymphom, transformiert aus einem follikulären Lymphom, mit Meningeosis lymphomatosa.\n\n**Stadium:** IV (disseminierte Erkrankung mit Befall des Knochenmarks, des Skeletts und der ZNS)\n\n**Wesentliche Befunde:**\n\n* **Primärdiagnose & Transformation:** Ausgangspunkt war ein follikuläres Lymphom, das in ein aggressives B-Zell-Lymphom transformiert ist.\n* **ZNS-Befall (Meningeosis Lymphomatosa):** Nachweis von Lymphomzellen in der Lumbalpunktion (46% der Zellen) und charakteristische Befunde im Schädel-MRT (pachymeningeales Enhancement, subdurale Kollektionen).\n* **Skelettbefall:** Multiple Osteolysen im gesamten Skelett (nachgewiesen durch CT, PET-CT und MRT), insbesondere im Bereich der Wirbelsäule, des Beckens und des Schädels.\n* **Knochenmarkbefall:** Infiltration des Knochenmarks mit Lymphomzellen (20% im Knochenmarkpunktat).\n* **Kieferbeteiligung:** Deutliche Atrophie des Alveolarkamms und reduzierte Knochenmineralisation der Kiefer.\n* **Systemische Beteiligung:** Hiläre Lymphknotenvergrößerung (PET-CT), leichter Pleuraerguss links.\n* **Ausschluss weiterer Infektionen:** HIV, Hepatitis B/C, CMV und EBV sind nicht akut.\n\n**Therapie:** Der Patient erhielt mehrere Zyklen einer Chemotherapie nach dem IELSG-42 (MARIETTA)-Protokoll (R-ICE und MATRIX) und eine autologe Stammzelltransplantation. Aktuell erfolgt eine Bestrahlung und Behandlung mit Dexamethason.\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "e89808cac2f7486480fd24e6c1a81b14",
+    "studien_output": null,
+    "therapie_output_final": "**Therapieempfehlung:**\nAufgrund des rezidivierten oder refraktären aggressiven B-Zell-Lymphoms nach autologer Stammzelltransplantation und des Vorliegens einer Meningeosis lymphomatosa wird eine Therapie mit einer Kombination aus hochdosiertem Methotrexat (HD-MTX) als intrathekalem Medikament und einer systemischen Therapie mit Rituximab, Cyclophosphamid, Doxorubicin, Vincristin und Prednisolon (R-CHOP) empfohlen. Bei unzureichendem Ansprechen oder Progression sollte eine konsolidierende Ganzkörperbestrahlung in Erwägung gezogen werden.\n\n**Begründung:**\nDer Patient präsentiert ein aggressives B-Zell-Lymphom, transformiert aus einem follikulären Lymphom, im Stadium IV mit disseminierter Erkrankung, Knochenmark-, Skelett- und ZNS-Befall (Meningeosis lymphomatosa). Die vorherige Therapie mit IELSG-42 (MARIETTA) und autologer Stammzelltransplantation war nicht ausreichend erfolgreich. Gemäß den ESMO-Leitlinien für rezidivierte oder refraktäre aggressive B-Zell-Lymphome, insbesondere bei ZNS-Befall, stellt die Kombination aus HD-MTX und systemischer Therapie den Standard dar. HD-MTX ist wirksam bei der Penetration der Blut-Hirn-Schranke und der Behandlung der Meningeosis lymphomatosa. Die gleichzeitige Gabe von R-CHOP dient der systemischen Kontrolle der Erkrankung. Eine konsolidierende Ganzkörperbestrahlung kann bei unzureichendem Ansprechen oder Progression in Betracht gezogen werden, um lokale Kontrollprobleme, insbesondere im Skelettbereich, anzugehen. Die aktuelle Behandlung mit Dexamethason und Bestrahlung dient der palliativen Symptomkontrolle und kann als Brückentherapie bis zum Therapiebeginn mit HD-MTX und R-CHOP dienen.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nAufgrund des rezidivierten oder refraktären aggressiven B-Zell-Lymphoms nach autologer Stammzelltransplantation und des Vorliegens einer Meningeosis lymphomatosa wird eine Therapie mit einer Kombination aus hochdosiertem Methotrexat (HD-MTX) als intrathekalem Medikament und einer systemischen Therapie mit Rituximab, Cyclophosphamid, Doxorubicin, Vincristin und Prednisolon (R-CHOP) empfohlen. Bei unzureichendem Ansprechen oder Progression sollte eine konsolidierende Ganzkörperbestrahlung in Erwägung gezogen werden.\n\n**Begründung:**\nDer Patient präsentiert ein aggressives B-Zell-Lymphom, transformiert aus einem follikulären Lymphom, im Stadium IV mit disseminierter Erkrankung, Knochenmark-, Skelett- und ZNS-Befall (Meningeosis lymphomatosa). Die vorherige Therapie mit IELSG-42 (MARIETTA) und autologer Stammzelltransplantation war nicht ausreichend erfolgreich. Gemäß den ESMO-Leitlinien für rezidivierte oder refraktäre aggressive B-Zell-Lymphome, insbesondere bei ZNS-Befall, stellt die Kombination aus HD-MTX und systemischer Therapie den Standard dar. HD-MTX ist wirksam bei der Penetration der Blut-Hirn-Schranke und der Behandlung der Meningeosis lymphomatosa. Die gleichzeitige Gabe von R-CHOP dient der systemischen Kontrolle der Erkrankung. Eine konsolidierende Ganzkörperbestrahlung kann bei unzureichendem Ansprechen oder Progression in Betracht gezogen werden, um lokale Kontrollprobleme, insbesondere im Skelettbereich, anzugehen. Die aktuelle Behandlung mit Dexamethason und Bestrahlung dient der palliativen Symptomkontrolle und kann als Brückentherapie bis zum Therapiebeginn mit HD-MTX und R-CHOP dienen.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "64c1318970b942e692136dfa88bc4ee0",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 14.679978039115667,
+      "Studien": 0.12787578999996185,
+      "Therapie": 14.713342348113656
+    },
+    "patient_context_summary_for_eval": "Patient ID: 5-20240227-HoFr\nGuideline Specified: ESMO\nDiagnosis (Code): ?\nDiagnosis (Text Snippet): Meningeosis lymphomatosa bei aggressivem B-Zell-Lymphom bei Transfor-mation aus einem follikulären Lymphom, ED 08/2023 \n- 21.08.23 CT-Thorax: Dissemin...\nStage: IV\nClinical Info/Question: -..."
+  },
+  {
+    "patient_id_original": "6-20240227-LeGi",
+    "patient_data_source_file": "tubo-DLBCL-v2.xlsx",
+    "timestamp_processed": "2025-05-23T16:20:00.167608",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik – Patient 6-20240227-LeGi\n\n**Hauptdiagnose:** Diffuses großzelliges B-Zell-Lymphom (DLBCL), Stadium IVE, IBI 3, initial diagnostiziert 04/2015 mit extranodaler Beteiligung (Knochen- und Muskelläsionen).\n\n**Verlauf & Therapie:** Der Patient wurde 2015 mit Mabthera und CHOP behandelt, gefolgt von Radiotherapie am rechten Humerus und Mabthera-Monotherapie. Eine Humerusgelenkprothese wurde 2016 implantiert, bei der kein Tumor gefunden wurde.\n\n**Aktuelle Situation:** Aktuell zeigt ein PET-CT einen solitären Befund am medialen Oberschenkel rechts, der differenzialdiagnostisch ein Neurinom darstellt und schmerzhaft ist. Eine ähnliche Episode wurde bereits 2018 dokumentiert.\n\n**Wichtige Punkte:**\n\n*   **Remission/Rezidiv unklar:** Es ist unklar, ob der aktuelle Befund eine Rezidivierung des DLBCL darstellt oder sich um einen unabhängigen Prozess handelt.\n*   **Differentialdiagnose:** Der aktuelle Befund am Oberschenkel muss differenzialdiagnostisch abgeklärt werden (Neurinom wahrscheinlich).\n*   **Nebendiagnosen:** Vorbestehende Nebendiagnosen sind ein unklarer Prostatabefund, eine Cholezystektomie, Strabismus und eine partielle Infraspinatussehnenruptur.\n\n**Fragestellung:** Abklärung des aktuellen PET-Befundes am Oberschenkel und Beurteilung, ob es sich um ein Rezidiv des DLBCL oder einen unabhängigen Prozess handelt.",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik – Patient 6-20240227-LeGi\n\n**Hauptdiagnose:** Diffuses großzelliges B-Zell-Lymphom (DLBCL), Stadium IVE, IBI 3, initial diagnostiziert 04/2015 mit extranodaler Beteiligung (Knochen- und Muskelläsionen).\n\n**Verlauf & Therapie:** Der Patient wurde 2015 mit Mabthera und CHOP behandelt, gefolgt von Radiotherapie am rechten Humerus und Mabthera-Monotherapie. Eine Humerusgelenkprothese wurde 2016 implantiert, bei der kein Tumor gefunden wurde.\n\n**Aktuelle Situation:** Aktuell zeigt ein PET-CT einen solitären Befund am medialen Oberschenkel rechts, der differenzialdiagnostisch ein Neurinom darstellt und schmerzhaft ist. Eine ähnliche Episode wurde bereits 2018 dokumentiert.\n\n**Wichtige Punkte:**\n\n*   **Remission/Rezidiv unklar:** Es ist unklar, ob der aktuelle Befund eine Rezidivierung des DLBCL darstellt oder sich um einen unabhängigen Prozess handelt.\n*   **Differentialdiagnose:** Der aktuelle Befund am Oberschenkel muss differenzialdiagnostisch abgeklärt werden (Neurinom wahrscheinlich).\n*   **Nebendiagnosen:** Vorbestehende Nebendiagnosen sind ein unklarer Prostatabefund, eine Cholezystektomie, Strabismus und eine partielle Infraspinatussehnenruptur.\n\n**Fragestellung:** Abklärung des aktuellen PET-Befundes am Oberschenkel und Beurteilung, ob es sich um ein Rezidiv des DLBCL oder einen unabhängigen Prozess handelt.\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "8c56cce9de6a46be83577d90ca4d4c79",
+    "studien_output": [
+      {
+        "title": "A Randomised Evaluation of Molecular Guided Therapy for Diffuse Large B-cell Lymphoma With Bortezomib",
+        "nct_id": "NCT01324596"
+      },
+      {
+        "title": "Assessing a Circulating Tumor (ctDNA) and Positron Emission Tomography (PET)-Oriented Therapy in Patients With Diffuse Large B-cell Lymphoma (DLBCL). A Multicenter, Open-label, Phase II Trial.",
+        "nct_id": "NCT04604067"
+      },
+      {
+        "title": "A Phase 2 Open-Label Study to Determine the Effect of Blinatumomab on Minimal Residual Disease in Subjects With High-risk Diffuse Large B-cell Lymphoma Post-autologous Hematopoietic Stem-cell Transplantation.",
+        "nct_id": "NCT03298412"
+      },
+      {
+        "title": "Copanlisib in Combination With Venetoclax in Patients With Relapsed or Refractory B-cell Non-Hodgkin Lymphoma. A Multicenter Phase Ib Trial With Two Expansion Cohorts",
+        "nct_id": "NCT03886649"
+      },
+      {
+        "title": "A Phase III, Open-Label, Multicenter, Randomized Study Evaluating the Efficacy and Safety of Glofitamab in Combination With Gemcitabine Plus Oxaliplatin Versus Rituximab in Combination With Gemcitabine and Oxaliplatin in Patients With Relapsed/Refractory Diffuse Large B-Cell Lymphoma",
+        "nct_id": "NCT04408638"
+      },
+      {
+        "title": "A Global Randomized Multicenter Phase 3 Trial of JCAR017 Compared to Standard of Care in Adult Subjects With High-risk, Second-line, Transplant-eligible Relapsed or Refractory Aggressive B-cell Non-Hodgkin Lymphomas (TRANSFORM).",
+        "nct_id": "NCT03575351"
+      },
+      {
+        "title": "A Phase 3, Randomized, Open-Label Study to Evaluate Safety and Efficacy of Epcoritamab in Combination With R-CHOP Compared to R-CHOP in Subjects With Newly Diagnosed Diffuse Large B-Cell Lymphoma (DLBCL)",
+        "nct_id": "NCT05578976"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nBiopsie des solitären Befundes am Oberschenkel zur histologischen Abklärung. Abhängig vom Ergebnis: Bei Rezidiv des DLBCL: PET-CT zur vollständigen Restagierung und anschließende Behandlung nach ESMO-Leitlinie für rezidiviertes/refraktäres DLBCL, unter Berücksichtigung des Performance Status und der Komorbiditäten. Bei Ausschluss DLBCL: Weiterführende Diagnostik und Therapie entsprechend der histologischen Diagnose (z.B. Neurinom).\n\n**Begründung:**\nDer Patient präsentiert einen solitären Befund am Oberschenkel, dessen Natur unklar ist. Da eine Rezidivierung des DLBCL nicht ausgeschlossen werden kann, ist eine histologische Abklärung mittels Biopsie zwingend erforderlich. Die ESMO-Leitlinie für DLBCL betont die Bedeutung einer genauen Diagnose und Stadieneinteilung bei Rezidiven oder refraktären Fällen. Erst nach histologischer Bestätigung eines DLBCL-Rezidivs kann eine adäquate Therapie gemäß der ESMO-Leitlinie (z.B. R-CHOP, R-bendamustin, oder andere regimens abhängig von dem IPI und dem ECOG Performance Status) eingeleitet werden. Sollte die Biopsie jedoch eine andere Diagnose ergeben, ist eine weiterführende Diagnostik und Therapie entsprechend der neuen histologischen Diagnose erforderlich. Die vorliegenden Informationen reichen nicht aus, um eine definitive Therapieempfehlung zu geben, da die Natur des aktuellen Befundes unklar ist.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nBiopsie des solitären Befundes am Oberschenkel zur histologischen Abklärung. Abhängig vom Ergebnis: Bei Rezidiv des DLBCL: PET-CT zur vollständigen Restagierung und anschließende Behandlung nach ESMO-Leitlinie für rezidiviertes/refraktäres DLBCL, unter Berücksichtigung des Performance Status und der Komorbiditäten. Bei Ausschluss DLBCL: Weiterführende Diagnostik und Therapie entsprechend der histologischen Diagnose (z.B. Neurinom).\n\n**Begründung:**\nDer Patient präsentiert einen solitären Befund am Oberschenkel, dessen Natur unklar ist. Da eine Rezidivierung des DLBCL nicht ausgeschlossen werden kann, ist eine histologische Abklärung mittels Biopsie zwingend erforderlich. Die ESMO-Leitlinie für DLBCL betont die Bedeutung einer genauen Diagnose und Stadieneinteilung bei Rezidiven oder refraktären Fällen. Erst nach histologischer Bestätigung eines DLBCL-Rezidivs kann eine adäquate Therapie gemäß der ESMO-Leitlinie (z.B. R-CHOP, R-bendamustin, oder andere regimens abhängig von dem IPI und dem ECOG Performance Status) eingeleitet werden. Sollte die Biopsie jedoch eine andere Diagnose ergeben, ist eine weiterführende Diagnostik und Therapie entsprechend der neuen histologischen Diagnose erforderlich. Die vorliegenden Informationen reichen nicht aus, um eine definitive Therapieempfehlung zu geben, da die Natur des aktuellen Befundes unklar ist.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "ce1c7279b71f4feb82e83ab9cb24f279",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 13.299534941092134,
+      "Studien": 0.2523645590990782,
+      "Therapie": 11.81497960165143
+    },
+    "patient_context_summary_for_eval": "Patient ID: 6-20240227-LeGi\nGuideline Specified: ESMO\nDiagnosis (Code): DLBCL\nDiagnosis (Text Snippet): Diffuses large B-Zell-Lymphom Stadium IVE. IBI 3, ED 04/15, mit extranodaler Beteiligung der Knochen- und Muskelläsionen \n- PET/CT vom 30.04.2015: Rau...\nStage: -\nClinical Info/Question: Demonstration PET; Prozedere? ..."
+  },
+  {
+    "patient_id_original": "7-20240207-ScEs",
+    "patient_data_source_file": "tubo-DLBCL-v2.xlsx",
+    "timestamp_processed": "2025-05-23T16:20:21.007378",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik:\n\n**Diagnose:** Diffuses großzelliges B-Zell-Lymphom (DLBCL), Non-GCB-Typ, Stadium IV.\n\n**Wichtigste Befunde:**\n\n*   **Histologie:** Biopsie des linken Achsellymphknotens bestätigt DLBCL, Non-GCB-Typ. Es liegen keine Rearrangements der Gene BCL2, BCL6 und MYC vor.\n*   **Ausdehnung:** Das Lymphom zeigt intensive Stoffwechselaktivität in Lymphknoten und extranodalen Manifestationen (Speiseröhre, Magen, linke Niere, Pleura, rechte Thoraxwand).\n*   **Komplikationen:** Pleuraerguss rechts aufgrund der Thoraxwandinfiltration und neuroforaminale/intraspinale Infiltration in Höhe BWK 9 rechts.\n*   **Stadium:** Stadium IV (basierend auf den extranodalen Manifestationen).\n*   **Vorstellung:** Erstvorstellung des Patienten.",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik:\n\n**Diagnose:** Diffuses großzelliges B-Zell-Lymphom (DLBCL), Non-GCB-Typ, Stadium IV.\n\n**Wichtigste Befunde:**\n\n*   **Histologie:** Biopsie des linken Achsellymphknotens bestätigt DLBCL, Non-GCB-Typ. Es liegen keine Rearrangements der Gene BCL2, BCL6 und MYC vor.\n*   **Ausdehnung:** Das Lymphom zeigt intensive Stoffwechselaktivität in Lymphknoten und extranodalen Manifestationen (Speiseröhre, Magen, linke Niere, Pleura, rechte Thoraxwand).\n*   **Komplikationen:** Pleuraerguss rechts aufgrund der Thoraxwandinfiltration und neuroforaminale/intraspinale Infiltration in Höhe BWK 9 rechts.\n*   **Stadium:** Stadium IV (basierend auf den extranodalen Manifestationen).\n*   **Vorstellung:** Erstvorstellung des Patienten.\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "1afa26f2276248cfa857c53de699dbd1",
+    "studien_output": [
+      {
+        "title": "A Randomised Evaluation of Molecular Guided Therapy for Diffuse Large B-cell Lymphoma With Bortezomib",
+        "nct_id": "NCT01324596"
+      },
+      {
+        "title": "Assessing a Circulating Tumor (ctDNA) and Positron Emission Tomography (PET)-Oriented Therapy in Patients With Diffuse Large B-cell Lymphoma (DLBCL). A Multicenter, Open-label, Phase II Trial.",
+        "nct_id": "NCT04604067"
+      },
+      {
+        "title": "A Phase 2 Open-Label Study to Determine the Effect of Blinatumomab on Minimal Residual Disease in Subjects With High-risk Diffuse Large B-cell Lymphoma Post-autologous Hematopoietic Stem-cell Transplantation.",
+        "nct_id": "NCT03298412"
+      },
+      {
+        "title": "Copanlisib in Combination With Venetoclax in Patients With Relapsed or Refractory B-cell Non-Hodgkin Lymphoma. A Multicenter Phase Ib Trial With Two Expansion Cohorts",
+        "nct_id": "NCT03886649"
+      },
+      {
+        "title": "A Phase III, Open-Label, Multicenter, Randomized Study Evaluating the Efficacy and Safety of Glofitamab in Combination With Gemcitabine Plus Oxaliplatin Versus Rituximab in Combination With Gemcitabine and Oxaliplatin in Patients With Relapsed/Refractory Diffuse Large B-Cell Lymphoma",
+        "nct_id": "NCT04408638"
+      },
+      {
+        "title": "A Global Randomized Multicenter Phase 3 Trial of JCAR017 Compared to Standard of Care in Adult Subjects With High-risk, Second-line, Transplant-eligible Relapsed or Refractory Aggressive B-cell Non-Hodgkin Lymphomas (TRANSFORM).",
+        "nct_id": "NCT03575351"
+      },
+      {
+        "title": "A Phase 3, Randomized, Open-Label Study to Evaluate Safety and Efficacy of Epcoritamab in Combination With R-CHOP Compared to R-CHOP in Subjects With Newly Diagnosed Diffuse Large B-Cell Lymphoma (DLBCL)",
+        "nct_id": "NCT05578976"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nR-CHOP-basierte Immunchemotherapie (Rituximab, Cyclophosphamid, Doxorubicin, Vincristin, Prednisolon) für sechs Zyklen, gefolgt von einer Beurteilung der Therapieantwort. Bei unvollständigem Ansprechen oder Rezidiv sollte eine PET/CT-Untersuchung erfolgen, um das weitere Vorgehen zu bestimmen. Eine konsolidierende Strahlentherapie sollte bei persistierenden extranodalen Manifestationen nach Abschluss der Immunchemotherapie erwogen werden, insbesondere im Bereich der Thoraxwand und der Niere.\n\n**Begründung:**\nDer Patient präsentiert ein diffuses großzelliges B-Zell-Lymphom (DLBCL), Non-GCB-Typ, Stadium IV mit extranodalen Manifestationen und neurospinaler Infiltration. Gemäß der ESMO-Leitlinie für DLBCL stellt eine R-CHOP-basierte Immunchemotherapie den Standard der Erstlinienbehandlung für Patienten mit DLBCL dar, unabhängig vom IPI-Score. Die neuroforaminale/intraspinale Infiltration erfordert eine besondere Beachtung, da sie das Ansprechen auf die Therapie beeinflussen kann. Die ESMO-Leitlinie empfiehlt bei neurospinaler Infiltration eine intensive Therapie, die eine hochdosierte Methotrexen-basierte Therapie oder eine intrathekale Therapie umfassen kann, jedoch ist R-CHOP in der Regel der erste Schritt. Die Beurteilung der Therapieantwort mittels PET/CT nach sechs Zyklen ist entscheidend, um das Ansprechen zu beurteilen und gegebenenfalls alternative Strategien zu erwägen. Die konsolidierende Strahlentherapie bei persistierenden extranodalen Manifestationen kann das lokale Kontrollrisiko reduzieren.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nR-CHOP-basierte Immunchemotherapie (Rituximab, Cyclophosphamid, Doxorubicin, Vincristin, Prednisolon) für sechs Zyklen, gefolgt von einer Beurteilung der Therapieantwort. Bei unvollständigem Ansprechen oder Rezidiv sollte eine PET/CT-Untersuchung erfolgen, um das weitere Vorgehen zu bestimmen. Eine konsolidierende Strahlentherapie sollte bei persistierenden extranodalen Manifestationen nach Abschluss der Immunchemotherapie erwogen werden, insbesondere im Bereich der Thoraxwand und der Niere.\n\n**Begründung:**\nDer Patient präsentiert ein diffuses großzelliges B-Zell-Lymphom (DLBCL), Non-GCB-Typ, Stadium IV mit extranodalen Manifestationen und neurospinaler Infiltration. Gemäß der ESMO-Leitlinie für DLBCL stellt eine R-CHOP-basierte Immunchemotherapie den Standard der Erstlinienbehandlung für Patienten mit DLBCL dar, unabhängig vom IPI-Score. Die neuroforaminale/intraspinale Infiltration erfordert eine besondere Beachtung, da sie das Ansprechen auf die Therapie beeinflussen kann. Die ESMO-Leitlinie empfiehlt bei neurospinaler Infiltration eine intensive Therapie, die eine hochdosierte Methotrexen-basierte Therapie oder eine intrathekale Therapie umfassen kann, jedoch ist R-CHOP in der Regel der erste Schritt. Die Beurteilung der Therapieantwort mittels PET/CT nach sechs Zyklen ist entscheidend, um das Ansprechen zu beurteilen und gegebenenfalls alternative Strategien zu erwägen. Die konsolidierende Strahlentherapie bei persistierenden extranodalen Manifestationen kann das lokale Kontrollrisiko reduzieren.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "f869eef142dd4da48090961a9da698c1",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 7.498369939625263,
+      "Studien": 0.19652732275426388,
+      "Therapie": 13.304020645096898
+    },
+    "patient_context_summary_for_eval": "Patient ID: 7-20240207-ScEs\nGuideline Specified: ESMO\nDiagnosis (Code): DLBCL\nDiagnosis (Text Snippet): Diffuses grosszelliges B-Zell-Lymphom Stadium IV, Non GCB-Typ \n- 09.02.2024 Biopsie Lymphknoten Axilla links: Diffuses grosszelliges B-Zell- Lymphom. ...\nStage: -\nClinical Info/Question: -..."
+  },
+  {
+    "patient_id_original": "8-20240220-ScIr",
+    "patient_data_source_file": "tubo-DLBCL-v2.xlsx",
+    "timestamp_processed": "2025-05-23T16:20:52.090291",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik – Patientin mit DLBCL\n\n**Diagnose:** Diffuses, großzelliges B-Zell-Lymphom (DLBCL) der Nasennebenhöhlen, nicht keimzentrumsähnlich.\n\n**Stadium:** Initial Stadium IAE (lokal fortgeschritten). Rezidiv mit zerebraler Manifestation.\n\n**Klinischer Verlauf:**\n\n*   **Initialdiagnose (2019):** DLBCL der Nasennebenhöhlen mit Befall der Orbita. Erfolgreiche Remission nach 6 Zyklen R-CHOP-Chemotherapie.\n*   **Rezidiv (2023):** Zerebrale Manifestation des DLBCL mit multiplen subkortikalen Läsionen.\n*   **Therapie (2023/2024):** Behandlung nach PRIMAIN-Protokoll.  Ansprechen unter Therapie mit Regression der zerebralen Läsionen. Erhaltungstherapie mit Procarbazin für 6 Monate wurde empfohlen.\n*   **Aktueller Befund (31.01.2024):** Bildmorphologisch vollständiger Regress des ZNS-Lymphoms im MRT.  Es bestehen jedoch persistierende Schleimretentionen in den Nasennebenhöhlen mit Spiegelbildung rechts.  Neu aufgetretene visuelle Symptome (intermittierende \"schwarze Flecken\" links) werden auf eine Glaskörperinfiltration zurückgeführt.\n\n**Wichtige Punkte:**\n\n*   Die Patientin zeigt ein gutes Ansprechen auf die systemische Therapie, jedoch persistieren Veränderungen in den Nasennebenhöhlen.\n*   Die neu aufgetretenen visuellen Symptome erfordern weitere Abklärung im Rahmen der augenärztlichen Kontrolle.\n*   Das initiale IPI von 3 deutet auf ein intermediär-hohes Risiko hin.\n*   Es liegen keine aktuellen PET-CT-Befunde vor, die zur Beurteilung eines systemischen Rezidivs herangezogen werden könnten.",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik – Patientin mit DLBCL\n\n**Diagnose:** Diffuses, großzelliges B-Zell-Lymphom (DLBCL) der Nasennebenhöhlen, nicht keimzentrumsähnlich.\n\n**Stadium:** Initial Stadium IAE (lokal fortgeschritten). Rezidiv mit zerebraler Manifestation.\n\n**Klinischer Verlauf:**\n\n*   **Initialdiagnose (2019):** DLBCL der Nasennebenhöhlen mit Befall der Orbita. Erfolgreiche Remission nach 6 Zyklen R-CHOP-Chemotherapie.\n*   **Rezidiv (2023):** Zerebrale Manifestation des DLBCL mit multiplen subkortikalen Läsionen.\n*   **Therapie (2023/2024):** Behandlung nach PRIMAIN-Protokoll.  Ansprechen unter Therapie mit Regression der zerebralen Läsionen. Erhaltungstherapie mit Procarbazin für 6 Monate wurde empfohlen.\n*   **Aktueller Befund (31.01.2024):** Bildmorphologisch vollständiger Regress des ZNS-Lymphoms im MRT.  Es bestehen jedoch persistierende Schleimretentionen in den Nasennebenhöhlen mit Spiegelbildung rechts.  Neu aufgetretene visuelle Symptome (intermittierende \"schwarze Flecken\" links) werden auf eine Glaskörperinfiltration zurückgeführt.\n\n**Wichtige Punkte:**\n\n*   Die Patientin zeigt ein gutes Ansprechen auf die systemische Therapie, jedoch persistieren Veränderungen in den Nasennebenhöhlen.\n*   Die neu aufgetretenen visuellen Symptome erfordern weitere Abklärung im Rahmen der augenärztlichen Kontrolle.\n*   Das initiale IPI von 3 deutet auf ein intermediär-hohes Risiko hin.\n*   Es liegen keine aktuellen PET-CT-Befunde vor, die zur Beurteilung eines systemischen Rezidivs herangezogen werden könnten.\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "ae7ebb44dffb4e9a9f980b22d326c4a0",
+    "studien_output": [
+      {
+        "title": "A Randomised Evaluation of Molecular Guided Therapy for Diffuse Large B-cell Lymphoma With Bortezomib",
+        "nct_id": "NCT01324596"
+      },
+      {
+        "title": "Assessing a Circulating Tumor (ctDNA) and Positron Emission Tomography (PET)-Oriented Therapy in Patients With Diffuse Large B-cell Lymphoma (DLBCL). A Multicenter, Open-label, Phase II Trial.",
+        "nct_id": "NCT04604067"
+      },
+      {
+        "title": "A Phase 2 Open-Label Study to Determine the Effect of Blinatumomab on Minimal Residual Disease in Subjects With High-risk Diffuse Large B-cell Lymphoma Post-autologous Hematopoietic Stem-cell Transplantation.",
+        "nct_id": "NCT03298412"
+      },
+      {
+        "title": "Copanlisib in Combination With Venetoclax in Patients With Relapsed or Refractory B-cell Non-Hodgkin Lymphoma. A Multicenter Phase Ib Trial With Two Expansion Cohorts",
+        "nct_id": "NCT03886649"
+      },
+      {
+        "title": "A Phase III, Open-Label, Multicenter, Randomized Study Evaluating the Efficacy and Safety of Glofitamab in Combination With Gemcitabine Plus Oxaliplatin Versus Rituximab in Combination With Gemcitabine and Oxaliplatin in Patients With Relapsed/Refractory Diffuse Large B-Cell Lymphoma",
+        "nct_id": "NCT04408638"
+      },
+      {
+        "title": "A Global Randomized Multicenter Phase 3 Trial of JCAR017 Compared to Standard of Care in Adult Subjects With High-risk, Second-line, Transplant-eligible Relapsed or Refractory Aggressive B-cell Non-Hodgkin Lymphomas (TRANSFORM).",
+        "nct_id": "NCT03575351"
+      },
+      {
+        "title": "A Phase 3, Randomized, Open-Label Study to Evaluate Safety and Efficacy of Epcoritamab in Combination With R-CHOP Compared to R-CHOP in Subjects With Newly Diagnosed Diffuse Large B-Cell Lymphoma (DLBCL)",
+        "nct_id": "NCT05578976"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nDurchführung einer PET-CT zur Beurteilung eines systemischen Rezidivs. Bei fehlendem systemischen Rezidiv oder unklarem Befund, Durchführung einer stereotaktischen Radiotherapie (SBRT) auf die persistierenden Schleimretentionen in den Nasennebenhöhlen und ggf. auf den Bereich der Glaskörperinfiltration unter augenärztlicher Kontrolle. Eine systemische Therapie ist aktuell nicht indiziert, kann aber bei Progression oder Auftreten eines systemischen Rezidivs in Betracht gezogen werden.\n\n**Begründung:**\nDie Patientin präsentiert ein rezidiviertes DLBCL, welches initial gut auf R-CHOP ansprach, jedoch nun mit zerebraler Manifestation und persistierenden Befunden in den Nasennebenhöhlen und potenzieller Glaskörperinfiltration auftritt. Das initiale IPI von 3 deutet auf ein intermediär-hohes Risiko hin. Aktuell zeigt die Patientin ein gutes Ansprechen auf die Behandlung nach dem PRIMAIN-Protokoll mit vollständigem Regress des ZNS-Lymphoms im MRT. Allerdings persistieren die Veränderungen in den Nasennebenhöhlen und es liegen neu aufgetretene visuelle Symptome vor.\n\nDa die PET-CT-Befunde fehlen, ist eine Beurteilung eines systemischen Rezidivs nicht möglich. Nach ESMO-Leitlinien ist bei lokalisiertem Rezidiv oder persistierender Erkrankung nach initialer systemischer Therapie und fehlendem systemischem Rezidiv eine lokale Therapie wie Radiotherapie indiziert. Die SBRT erlaubt eine hochpräzise Bestrahlung mit potenziell geringeren Nebenwirkungen als konventionelle Radiotherapie.  Die Therapie der Glaskörperinfiltration sollte in enger Zusammenarbeit mit dem Augenarzt erfolgen. Eine erneute systemische Therapie wäre bei fehlendem systemischen Rezidiv nicht indiziert, da die Patientin bereits eine gute Remission erreicht hat und das Rezidiv lokal begrenzt erscheint.  Die Erhaltungstherapie mit Procarbazin war bereits abgeschlossen und eine erneute Anwendung ohne Anzeichen für systemisches Rezidiv ist nicht gerechtfertigt.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nDurchführung einer PET-CT zur Beurteilung eines systemischen Rezidivs. Bei fehlendem systemischen Rezidiv oder unklarem Befund, Durchführung einer stereotaktischen Radiotherapie (SBRT) auf die persistierenden Schleimretentionen in den Nasennebenhöhlen und ggf. auf den Bereich der Glaskörperinfiltration unter augenärztlicher Kontrolle. Eine systemische Therapie ist aktuell nicht indiziert, kann aber bei Progression oder Auftreten eines systemischen Rezidivs in Betracht gezogen werden.\n\n**Begründung:**\nDie Patientin präsentiert ein rezidiviertes DLBCL, welches initial gut auf R-CHOP ansprach, jedoch nun mit zerebraler Manifestation und persistierenden Befunden in den Nasennebenhöhlen und potenzieller Glaskörperinfiltration auftritt. Das initiale IPI von 3 deutet auf ein intermediär-hohes Risiko hin. Aktuell zeigt die Patientin ein gutes Ansprechen auf die Behandlung nach dem PRIMAIN-Protokoll mit vollständigem Regress des ZNS-Lymphoms im MRT. Allerdings persistieren die Veränderungen in den Nasennebenhöhlen und es liegen neu aufgetretene visuelle Symptome vor.\n\nDa die PET-CT-Befunde fehlen, ist eine Beurteilung eines systemischen Rezidivs nicht möglich. Nach ESMO-Leitlinien ist bei lokalisiertem Rezidiv oder persistierender Erkrankung nach initialer systemischer Therapie und fehlendem systemischem Rezidiv eine lokale Therapie wie Radiotherapie indiziert. Die SBRT erlaubt eine hochpräzise Bestrahlung mit potenziell geringeren Nebenwirkungen als konventionelle Radiotherapie.  Die Therapie der Glaskörperinfiltration sollte in enger Zusammenarbeit mit dem Augenarzt erfolgen. Eine erneute systemische Therapie wäre bei fehlendem systemischen Rezidiv nicht indiziert, da die Patientin bereits eine gute Remission erreicht hat und das Rezidiv lokal begrenzt erscheint.  Die Erhaltungstherapie mit Procarbazin war bereits abgeschlossen und eine erneute Anwendung ohne Anzeichen für systemisches Rezidiv ist nicht gerechtfertigt.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "35a086159d464c7d9cb7639c98cef798",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 15.375308334827423,
+      "Studien": 3.264619218185544,
+      "Therapie": 15.668057356029749
+    },
+    "patient_context_summary_for_eval": "Patient ID: 8-20240220-ScIr\nGuideline Specified: ESMO\nDiagnosis (Code): DLBCL\nDiagnosis (Text Snippet): Diffuses, grosszelliges B-Zell-Lymphom vom Nasennebenhöhlen, NOS, nicht KeimzentrumsPhänotyp, IPI 3 von 5 high intermediate risk, Stadium IAE \nDruckge...\nStage: -\nClinical Info/Question: Besprechung MR Schädel 31.01.2024. Patientin hat seit 2 Wochen intermittierend «schwarze Flecken» vi..."
+  },
+  {
+    "patient_id_original": "9-20240220-LaSy",
+    "patient_data_source_file": "tubo-DLBCL-v2.xlsx",
+    "timestamp_processed": "2025-05-23T16:21:28.366772",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik – Patient 9-20240220-LaSy\n\n**Diagnose:** Diffus großzelliges B-Zell-Lymphom (DLBCL), NOS, initial mit ZNS-Rezidiv (frontal rechts) nach primärer Adnexmanifestation rechts. Aktuell Verdacht auf Rezidiv aufgrund unklarer AZ-Verschlechterung mit Gangstörung (02/24).\n\n**Stadium:** Initial Stadium IVBE. Aktuelles Stadium nicht explizit angegeben, aber Fokus liegt auf ZNS-Befall.\n\n**Wichtige klinische Punkte & Verlauf:**\n\n*   **Initialdiagnose & Therapie (2017-2018):** Diagnose eines DLBCL mit primärem Befall der rechten Adnexe und nachfolgendem ZNS-Rezidiv.  Erfolgreiche initiale Therapie mit R-CHOP, gefolgt von MATRix-Schema, intrathekalen Therapien und autologer Stammzelltransplantation.\n*   **Komplikationen:**  Mehrere schwerwiegende Komplikationen während der Therapie, einschließlich Tumorlysesyndrom, akutes Nierenversagen (MTX-Intoxikation mit Dialysepflicht), Luftembolie mit Reanimation, Pneumonie und respiratorische Dekompensation.\n*   **ZNS-Befall:** Das ZNS-Rezidiv (frontal rechts) wurde operativ entfernt, jedoch persistieren posttherapeutische Veränderungen im Bereich des Marklagers und Pons, die als leukenzephalopathisch interpretiert werden.\n*   **Aktuelle Situation (02/24):**  Unklare AZ-Verschlechterung mit Gangstörung wirft den Verdacht auf ein Rezidiv auf. Das MRT vom 15.02.24 soll dies klären.  Die vorliegenden MRT-Befunde deuten jedoch eher auf eine progressive Leukenzephalopathie als auf ein Lymphomrezidiv hin.\n*   **Begleiterkrankungen:**  Morbidität durch PAVK, Adipositas, Rippen- und Sternumfrakturen nach Reanimation sowie Post-Zoster-Neuralgie.\n\n**Zusammenfassend:** Der Patient präsentiert sich mit einem rezidivierten DLBCL, bei dem die Unterscheidung zwischen Rezidiv und Therapie-induzierter Leukenzephalopathie im Vordergrund steht. Die aktuelle klinische Fragestellung zielt darauf ab, ein Rezidiv anhand des MRT vom 15.02.24 auszuschließen oder zu bestätigen.",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik – Patient 9-20240220-LaSy\n\n**Diagnose:** Diffus großzelliges B-Zell-Lymphom (DLBCL), NOS, initial mit ZNS-Rezidiv (frontal rechts) nach primärer Adnexmanifestation rechts. Aktuell Verdacht auf Rezidiv aufgrund unklarer AZ-Verschlechterung mit Gangstörung (02/24).\n\n**Stadium:** Initial Stadium IVBE. Aktuelles Stadium nicht explizit angegeben, aber Fokus liegt auf ZNS-Befall.\n\n**Wichtige klinische Punkte & Verlauf:**\n\n*   **Initialdiagnose & Therapie (2017-2018):** Diagnose eines DLBCL mit primärem Befall der rechten Adnexe und nachfolgendem ZNS-Rezidiv.  Erfolgreiche initiale Therapie mit R-CHOP, gefolgt von MATRix-Schema, intrathekalen Therapien und autologer Stammzelltransplantation.\n*   **Komplikationen:**  Mehrere schwerwiegende Komplikationen während der Therapie, einschließlich Tumorlysesyndrom, akutes Nierenversagen (MTX-Intoxikation mit Dialysepflicht), Luftembolie mit Reanimation, Pneumonie und respiratorische Dekompensation.\n*   **ZNS-Befall:** Das ZNS-Rezidiv (frontal rechts) wurde operativ entfernt, jedoch persistieren posttherapeutische Veränderungen im Bereich des Marklagers und Pons, die als leukenzephalopathisch interpretiert werden.\n*   **Aktuelle Situation (02/24):**  Unklare AZ-Verschlechterung mit Gangstörung wirft den Verdacht auf ein Rezidiv auf. Das MRT vom 15.02.24 soll dies klären.  Die vorliegenden MRT-Befunde deuten jedoch eher auf eine progressive Leukenzephalopathie als auf ein Lymphomrezidiv hin.\n*   **Begleiterkrankungen:**  Morbidität durch PAVK, Adipositas, Rippen- und Sternumfrakturen nach Reanimation sowie Post-Zoster-Neuralgie.\n\n**Zusammenfassend:** Der Patient präsentiert sich mit einem rezidivierten DLBCL, bei dem die Unterscheidung zwischen Rezidiv und Therapie-induzierter Leukenzephalopathie im Vordergrund steht. Die aktuelle klinische Fragestellung zielt darauf ab, ein Rezidiv anhand des MRT vom 15.02.24 auszuschließen oder zu bestätigen.\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "c9cb649c52ac4d1db536ab08a7c942cc",
+    "studien_output": [
+      {
+        "title": "A Randomised Evaluation of Molecular Guided Therapy for Diffuse Large B-cell Lymphoma With Bortezomib",
+        "nct_id": "NCT01324596"
+      },
+      {
+        "title": "Assessing a Circulating Tumor (ctDNA) and Positron Emission Tomography (PET)-Oriented Therapy in Patients With Diffuse Large B-cell Lymphoma (DLBCL). A Multicenter, Open-label, Phase II Trial.",
+        "nct_id": "NCT04604067"
+      },
+      {
+        "title": "A Phase 2 Open-Label Study to Determine the Effect of Blinatumomab on Minimal Residual Disease in Subjects With High-risk Diffuse Large B-cell Lymphoma Post-autologous Hematopoietic Stem-cell Transplantation.",
+        "nct_id": "NCT03298412"
+      },
+      {
+        "title": "Copanlisib in Combination With Venetoclax in Patients With Relapsed or Refractory B-cell Non-Hodgkin Lymphoma. A Multicenter Phase Ib Trial With Two Expansion Cohorts",
+        "nct_id": "NCT03886649"
+      },
+      {
+        "title": "A Phase III, Open-Label, Multicenter, Randomized Study Evaluating the Efficacy and Safety of Glofitamab in Combination With Gemcitabine Plus Oxaliplatin Versus Rituximab in Combination With Gemcitabine and Oxaliplatin in Patients With Relapsed/Refractory Diffuse Large B-Cell Lymphoma",
+        "nct_id": "NCT04408638"
+      },
+      {
+        "title": "A Global Randomized Multicenter Phase 3 Trial of JCAR017 Compared to Standard of Care in Adult Subjects With High-risk, Second-line, Transplant-eligible Relapsed or Refractory Aggressive B-cell Non-Hodgkin Lymphomas (TRANSFORM).",
+        "nct_id": "NCT03575351"
+      },
+      {
+        "title": "A Phase 3, Randomized, Open-Label Study to Evaluate Safety and Efficacy of Epcoritamab in Combination With R-CHOP Compared to R-CHOP in Subjects With Newly Diagnosed Diffuse Large B-Cell Lymphoma (DLBCL)",
+        "nct_id": "NCT05578976"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nDurchführung einer erneuten Bildgebung (MRT des Gehirns mit Kontrastmittel) zur definitiven Unterscheidung zwischen Rezidiv und progressivem Leukenzephalopathie. Sofern ein Rezidiv ausgeschlossen werden kann, supportive Therapie und Behandlung der Leukenzephalopathie. Bei bestätigtem Rezidiv, insbesondere bei ZNS-Befall, sollte eine Hochdosis-Chemotherapie mit nachfolgender autologer Stammzelltransplantation in Betracht gezogen werden, sofern der Patient dafür geeignet ist und die Komorbiditäten dies zulassen. Alternativ, bei Kontraindikationen gegen eine Stammzelltransplantation, könnte eine palliative Behandlung mit zielgerichteten Therapien (z.B. Anti-CD79b) erwogen werden.\n\n**Begründung:**\nDer Patient präsentiert sich mit einem rezidivierten DLBCL nach komplexem Therapieverlauf und multiplen Komplikationen. Die aktuelle klinische Situation ist durch eine unklare AZ-Verschlechterung mit Gangstörung gekennzeichnet, wobei die Unterscheidung zwischen Rezidiv und therapieinduzierter Leukenzephalopathie entscheidend ist. Die ESMO-Leitlinien für DLBCL betonen die Notwendigkeit einer präzisen Diagnosestellung und des Staging vor Therapiebeginn. Da das aktuelle MRT vom 15.02.24 noch nicht vorliegt, ist eine definitive Therapieempfehlung nicht möglich. Erst nach Abklärung des Rezidivstatus kann eine adäquate Therapie eingeleitet werden. Sollte ein Rezidiv bestätigt werden, ist eine intensive Behandlung erforderlich, da der ZNS-Befall eine besondere Herausforderung darstellt. Die autologe Stammzelltransplantation ist bei geeigneten Patienten eine etablierte Option mit dem Potenzial für eine längere Remission. Bei Kontraindikationen oder schlechtem Allgemeinzustand können alternative Therapieansätze wie palliative Chemotherapie oder zielgerichtete Therapien in Betracht gezogen werden. Die Komorbiditäten des Patienten (PAVK, Adipositas, Frakturen, Post-Zoster-Neuralgie) müssen bei der Therapieplanung berücksichtigt werden, um das Risiko von Nebenwirkungen zu minimieren.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nDurchführung einer erneuten Bildgebung (MRT des Gehirns mit Kontrastmittel) zur definitiven Unterscheidung zwischen Rezidiv und progressivem Leukenzephalopathie. Sofern ein Rezidiv ausgeschlossen werden kann, supportive Therapie und Behandlung der Leukenzephalopathie. Bei bestätigtem Rezidiv, insbesondere bei ZNS-Befall, sollte eine Hochdosis-Chemotherapie mit nachfolgender autologer Stammzelltransplantation in Betracht gezogen werden, sofern der Patient dafür geeignet ist und die Komorbiditäten dies zulassen. Alternativ, bei Kontraindikationen gegen eine Stammzelltransplantation, könnte eine palliative Behandlung mit zielgerichteten Therapien (z.B. Anti-CD79b) erwogen werden.\n\n**Begründung:**\nDer Patient präsentiert sich mit einem rezidivierten DLBCL nach komplexem Therapieverlauf und multiplen Komplikationen. Die aktuelle klinische Situation ist durch eine unklare AZ-Verschlechterung mit Gangstörung gekennzeichnet, wobei die Unterscheidung zwischen Rezidiv und therapieinduzierter Leukenzephalopathie entscheidend ist. Die ESMO-Leitlinien für DLBCL betonen die Notwendigkeit einer präzisen Diagnosestellung und des Staging vor Therapiebeginn. Da das aktuelle MRT vom 15.02.24 noch nicht vorliegt, ist eine definitive Therapieempfehlung nicht möglich. Erst nach Abklärung des Rezidivstatus kann eine adäquate Therapie eingeleitet werden. Sollte ein Rezidiv bestätigt werden, ist eine intensive Behandlung erforderlich, da der ZNS-Befall eine besondere Herausforderung darstellt. Die autologe Stammzelltransplantation ist bei geeigneten Patienten eine etablierte Option mit dem Potenzial für eine längere Remission. Bei Kontraindikationen oder schlechtem Allgemeinzustand können alternative Therapieansätze wie palliative Chemotherapie oder zielgerichtete Therapien in Betracht gezogen werden. Die Komorbiditäten des Patienten (PAVK, Adipositas, Frakturen, Post-Zoster-Neuralgie) müssen bei der Therapieplanung berücksichtigt werden, um das Risiko von Nebenwirkungen zu minimieren.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "2c13dc1510e34ca5ae2fa01f0bd3bfcc",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 20.17918295226991,
+      "Studien": 0.3107632305473089,
+      "Therapie": 16.0593403223902
+    },
+    "patient_context_summary_for_eval": "Patient ID: 9-20240220-LaSy\nGuideline Specified: ESMO\nDiagnosis (Code): DLBCL\nDiagnosis (Text Snippet): ZNS-Rezidiv eines DLBCL NOS der Adnexe rechts, IPI-Score mind. 3, Stadium IVBE \n- 07/17 AZ-Verschlechterung mit B-Symptomatik und Aszites \n- 03.07.17 ...\nStage: -\nClinical Info/Question: Besprechung MRI vom 15.02.24. Hinweise für Rezidiv? ..."
+  },
+  {
+    "patient_id_original": "10-ZiRo-20240220",
+    "patient_data_source_file": "tubo-DLBCL-v2.xlsx",
+    "timestamp_processed": "2025-05-23T16:22:01.248609",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik – Patient 10-ZiRo-20240220\n\n**Diagnose:** Diffus großzelliges B-Zell-Lymphom (DLBCL), Keimzentrums-Typ, Double-Expressor Phänotyp (ED 01/2024).\n\n**Stadium:** Noch nicht bestimmt, PET/CT vom 19.02.2024 steht noch aus und ist zur Stadieneinteilung essentiell.\n\n**Wichtige Befunde:**\n\n*   **Klinische Präsentation:** Zunehmende Schwellung im Halsbereich rechts seit Mitte Dezember 2023, lokale Schmerzen, ungewollter Gewichtsverlust von 5 kg in 3-4 Monaten.\n*   **Bildgebung (Ultraschall 22.01.24):** 6 x 3 x 6 cm große, inhomogene Raumforderung im Halsbereich rechts mit teils hypo-, teils anechogenen Anteilen und randständiger Vaskularisation.\n*   **Histopathologie (22.01.24):** DLBCL, NOS (WHO HAEM-5/ICC 2022), CD20+, CD19+, CD30 partiell +, CD10-, MUM1-, Bcl-6+, Bcl-2+, MYC+, CD5+, Cyclin D1-, Ki-67 60%. Der Double-Expressor Phänotyp (MYC+, BCL-2+) deutet auf eine potenziell aggressive Variante hin.\n*   **Zytopathologie:** Maligne Zellen, die mit aggressivem B-Zell-Lymphom übereinstimmen.\n\n**Nebendiagnosen:** Arterielle Hypertonie, tachykardes Vorhofflimmern, frische bis subakute LWK1-Fraktur bei Osteoporose.\n\n**Aktuelle Fragestellung:** Präsentation und Diskussion des PET/CT-Befunds vom 19.02.2024 zur Stadieneinteilung und Therapieplanung.\n\n**Therapievorschlag:** 2 Zyklen R-mini-CHOP mit anschließender PET/CT-Verlaufskontrolle. Bei Anzeichen relevanter Herzinsuffizienz sollte R-GCVP in Betracht gezogen werden (TTE-Befund steht noch aus).",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik – Patient 10-ZiRo-20240220\n\n**Diagnose:** Diffus großzelliges B-Zell-Lymphom (DLBCL), Keimzentrums-Typ, Double-Expressor Phänotyp (ED 01/2024).\n\n**Stadium:** Noch nicht bestimmt, PET/CT vom 19.02.2024 steht noch aus und ist zur Stadieneinteilung essentiell.\n\n**Wichtige Befunde:**\n\n*   **Klinische Präsentation:** Zunehmende Schwellung im Halsbereich rechts seit Mitte Dezember 2023, lokale Schmerzen, ungewollter Gewichtsverlust von 5 kg in 3-4 Monaten.\n*   **Bildgebung (Ultraschall 22.01.24):** 6 x 3 x 6 cm große, inhomogene Raumforderung im Halsbereich rechts mit teils hypo-, teils anechogenen Anteilen und randständiger Vaskularisation.\n*   **Histopathologie (22.01.24):** DLBCL, NOS (WHO HAEM-5/ICC 2022), CD20+, CD19+, CD30 partiell +, CD10-, MUM1-, Bcl-6+, Bcl-2+, MYC+, CD5+, Cyclin D1-, Ki-67 60%. Der Double-Expressor Phänotyp (MYC+, BCL-2+) deutet auf eine potenziell aggressive Variante hin.\n*   **Zytopathologie:** Maligne Zellen, die mit aggressivem B-Zell-Lymphom übereinstimmen.\n\n**Nebendiagnosen:** Arterielle Hypertonie, tachykardes Vorhofflimmern, frische bis subakute LWK1-Fraktur bei Osteoporose.\n\n**Aktuelle Fragestellung:** Präsentation und Diskussion des PET/CT-Befunds vom 19.02.2024 zur Stadieneinteilung und Therapieplanung.\n\n**Therapievorschlag:** 2 Zyklen R-mini-CHOP mit anschließender PET/CT-Verlaufskontrolle. Bei Anzeichen relevanter Herzinsuffizienz sollte R-GCVP in Betracht gezogen werden (TTE-Befund steht noch aus).\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "9cfff49c30fb4c8a88718ce6ffb0cf5b",
+    "studien_output": [
+      {
+        "title": "A Randomised Evaluation of Molecular Guided Therapy for Diffuse Large B-cell Lymphoma With Bortezomib",
+        "nct_id": "NCT01324596"
+      },
+      {
+        "title": "Assessing a Circulating Tumor (ctDNA) and Positron Emission Tomography (PET)-Oriented Therapy in Patients With Diffuse Large B-cell Lymphoma (DLBCL). A Multicenter, Open-label, Phase II Trial.",
+        "nct_id": "NCT04604067"
+      },
+      {
+        "title": "A Phase 2 Open-Label Study to Determine the Effect of Blinatumomab on Minimal Residual Disease in Subjects With High-risk Diffuse Large B-cell Lymphoma Post-autologous Hematopoietic Stem-cell Transplantation.",
+        "nct_id": "NCT03298412"
+      },
+      {
+        "title": "Copanlisib in Combination With Venetoclax in Patients With Relapsed or Refractory B-cell Non-Hodgkin Lymphoma. A Multicenter Phase Ib Trial With Two Expansion Cohorts",
+        "nct_id": "NCT03886649"
+      },
+      {
+        "title": "A Phase III, Open-Label, Multicenter, Randomized Study Evaluating the Efficacy and Safety of Glofitamab in Combination With Gemcitabine Plus Oxaliplatin Versus Rituximab in Combination With Gemcitabine and Oxaliplatin in Patients With Relapsed/Refractory Diffuse Large B-Cell Lymphoma",
+        "nct_id": "NCT04408638"
+      },
+      {
+        "title": "A Global Randomized Multicenter Phase 3 Trial of JCAR017 Compared to Standard of Care in Adult Subjects With High-risk, Second-line, Transplant-eligible Relapsed or Refractory Aggressive B-cell Non-Hodgkin Lymphomas (TRANSFORM).",
+        "nct_id": "NCT03575351"
+      },
+      {
+        "title": "A Phase 3, Randomized, Open-Label Study to Evaluate Safety and Efficacy of Epcoritamab in Combination With R-CHOP Compared to R-CHOP in Subjects With Newly Diagnosed Diffuse Large B-Cell Lymphoma (DLBCL)",
+        "nct_id": "NCT05578976"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nR-CHOP-14 (Rituximab, Cyclophosphamid, Doxorubicin, Vincristin, Prednisolon) für 6 Zyklen, beginnend nach Abschluss der Stadieneinteilung mittels PET/CT. Bei deutlicher Komorbidität und/oder eingeschränkter Organfunktion sollte eine Dosisreduktion bzw. alternative Therapie wie z.B. R-mini-CHOP erwogen werden.\n\n**Begründung:**\nDer Patient präsentiert ein diffuses großzelliges B-Zell-Lymphom (DLBCL) vom Keimzentrums-Typ mit einem Double-Expressor-Phänotyp (MYC+/BCL2+). Der Double-Expressor-Status ist mit einer schlechteren Prognose verbunden, bedingt jedoch nicht automatisch eine abweichende Standardtherapie. Aktuell liegt noch kein vollständiges Staging vor, das PET/CT vom 19.02.2024 ist hier essentiell. Gemäß den ESMO-Leitlinien stellt die R-CHOP-Chemotherapie den Standard für die Erstbehandlung von DLBCL dar. Die vorliegenden Nebendiagnosen (arterielle Hypertonie, Vorhofflimmern, Osteoporose mit Fraktur) erfordern eine sorgfältige kardiale Risikobewertung vor Therapiebeginn. Ein TTE-Befund ist hierzu erforderlich. Die initial vorgeschlagene Therapie mit 2 Zyklen R-mini-CHOP mit anschließender PET/CT-Verlaufskontrolle ist zwar eine Option bei Komorbiditäten, jedoch ist R-CHOP in der Regel effektiver und wird daher bevorzugt, sofern die kardiale Funktion dies zulässt. Die Entscheidung für R-mini-CHOP sollte erst nach Abwägung der Risiken und Vorteile und im Hinblick auf die Ergebnisse der weiteren Diagnostik (PET/CT, TTE) getroffen werden. Die Dauer von 6 Zyklen R-CHOP entspricht den ESMO-Empfehlungen für die Erstbehandlung von DLBCL.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nR-CHOP-14 (Rituximab, Cyclophosphamid, Doxorubicin, Vincristin, Prednisolon) für 6 Zyklen, beginnend nach Abschluss der Stadieneinteilung mittels PET/CT. Bei deutlicher Komorbidität und/oder eingeschränkter Organfunktion sollte eine Dosisreduktion bzw. alternative Therapie wie z.B. R-mini-CHOP erwogen werden.\n\n**Begründung:**\nDer Patient präsentiert ein diffuses großzelliges B-Zell-Lymphom (DLBCL) vom Keimzentrums-Typ mit einem Double-Expressor-Phänotyp (MYC+/BCL2+). Der Double-Expressor-Status ist mit einer schlechteren Prognose verbunden, bedingt jedoch nicht automatisch eine abweichende Standardtherapie. Aktuell liegt noch kein vollständiges Staging vor, das PET/CT vom 19.02.2024 ist hier essentiell. Gemäß den ESMO-Leitlinien stellt die R-CHOP-Chemotherapie den Standard für die Erstbehandlung von DLBCL dar. Die vorliegenden Nebendiagnosen (arterielle Hypertonie, Vorhofflimmern, Osteoporose mit Fraktur) erfordern eine sorgfältige kardiale Risikobewertung vor Therapiebeginn. Ein TTE-Befund ist hierzu erforderlich. Die initial vorgeschlagene Therapie mit 2 Zyklen R-mini-CHOP mit anschließender PET/CT-Verlaufskontrolle ist zwar eine Option bei Komorbiditäten, jedoch ist R-CHOP in der Regel effektiver und wird daher bevorzugt, sofern die kardiale Funktion dies zulässt. Die Entscheidung für R-mini-CHOP sollte erst nach Abwägung der Risiken und Vorteile und im Hinblick auf die Ergebnisse der weiteren Diagnostik (PET/CT, TTE) getroffen werden. Die Dauer von 6 Zyklen R-CHOP entspricht den ESMO-Empfehlungen für die Erstbehandlung von DLBCL.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "907a10c012c34e1197f953250c9f2c05",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 17.335772715508938,
+      "Studien": 0.19457615166902542,
+      "Therapie": 15.508355224505067
+    },
+    "patient_context_summary_for_eval": "Patient ID: 10-ZiRo-20240220\nGuideline Specified: ESMO\nDiagnosis (Code): DLBCL\nDiagnosis (Text Snippet): Diffus grosszelliges B-Zell-Lymphoms zervikal rechts, NOS, Keimzentrums- Typ, Double-Expressor Phänotyp ED 01/2024 \n- 22.01.24 Ultraschall: Sonographi...\nStage: -\nClinical Info/Question: Retrospektive bemerkte die Patientin seit Mitte Dezember 2023 eine zunehmende Schwellung zervikal re..."
+  }
+]

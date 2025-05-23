@@ -3,7 +3,7 @@ import os
 import glob
 import pandas as pd
 from collections import defaultdict
-import logging # Added for better feedback
+import logging
 
 # --- Configuration ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -13,7 +13,7 @@ RESULTS_DIRS = [
 ]
 
 # Output Excel file name
-EXCEL_OUTPUT_FILE = "expert_evaluation_sheet.xlsx" # Versioning the output
+EXCEL_OUTPUT_FILE = "expert_evaluation_sheet_v2.xlsx" # Versioning the output
 # Directory to save the Excel file
 OUTPUT_DIR_FOR_EXCEL = os.path.join(BASE_DIR, "expert_review_sheets")
 
@@ -214,7 +214,7 @@ def main():
                 "Rating Scale": ["1=Poor/Strongly Disagree", "2=Fair/Disagree", "3=Neutral/Okay", "4=Good/Agree", "5=Excellent/Strongly Agree"],
                 "Adherence": ["Guideline Adherence."], "Correctness": ["Clinical Correctness & Safety."],
                 "Clarity": ["Clarity & Explainability of Justification."], "Overall (per rec)": ["Overall quality of this specific recommendation."],
-                "Overall Best Rec (Type)": ["Enter the 'Type Name' column header of the recommendation you think is best (e.g., MultiAgent_Llama3_ModTrue)."]
+                "Overall Best Rec (Type)": ["Enter the 'Type Name' column header of the recommendation you think is best."]
             }
             instructions_df = pd.DataFrame(dict([ (k,pd.Series(v)) for k,v in instructions_data.items() ])) # Handle uneven lists
             instructions_df.to_excel(writer, sheet_name='Instructions', index=False)
