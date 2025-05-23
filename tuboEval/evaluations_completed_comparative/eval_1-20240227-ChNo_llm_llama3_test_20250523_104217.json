@@ -1,0 +1,21 @@
+{
+  "patient_id_evaluated": "1-20240227-ChNo",
+  "llm_model_evaluated": "llama3",
+  "expert_name": "test",
+  "evaluation_timestamp": "2025-05-23T10:42:17.377769",
+  "evaluations_per_variant": {
+    "SinglePrompt_llama3_ModFalse": {
+      "overall_assessment_single_rec": "N/A"
+    },
+    "SinglePrompt_llama3_ModTrue": {
+      "overall_assessment_single_rec": "N/A"
+    },
+    "MultiAgent_llama3_ModFalse": {
+      "overall_assessment_single_rec": "N/A"
+    },
+    "MultiAgent_llama3_ModTrue": {
+      "overall_assessment_single_rec": "N/A"
+    }
+  },
+  "overall_comments_for_llm_patient": ""
+}

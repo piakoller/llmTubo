@@ -5,6 +5,16 @@ import pandas as pd
 from datetime import datetime
 import logging
 import glob
+from pymongo import MongoClient
+from dotenv import load_dotenv
+
+load_dotenv()
+
+MONGO_URI = os.environ.get("MONGO_URI")
+
+client = MongoClient(MONGO_URI)
+db = client["llm_eval_db"]
+collection = db["expert_evaluations"]
 
 logger = logging.getLogger(__name__)
 if not logger.hasHandlers():
@@ -101,7 +111,6 @@ def get_available_llm_models_for_patient(case_data_series: pd.Series | None) -> 
 
     return sorted(list(llm_models)) if llm_models else ["UnknownLLM"]
 
-
 def save_comparative_evaluation(patient_id: str, llm_model_evaluated: str, evaluation_data: dict, expert_name: str) -> tuple[bool, str | None]:
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     safe_patient_id = patient_id.replace('/', '_').replace('\\', '_')
@@ -110,14 +119,49 @@ def save_comparative_evaluation(patient_id: str, llm_model_evaluated: str, evalu
 
     eval_filename = f"eval_{safe_patient_id}_llm_{safe_llm_model}_{safe_expert_name}_{timestamp}.json"
     filepath = os.path.join(EVALUATION_RESULTS_SAVE_DIR, eval_filename)
+
     try:
+        # Speichere lokal als JSON-Datei
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(evaluation_data, f, indent=2, ensure_ascii=False)
-        logger.info(f"Comparative evaluation for P:{patient_id}, LLM:{llm_model_evaluated} by {expert_name} saved to: {filepath}")
+        logger.info(f"Comparative evaluation saved locally to: {filepath}")
+        
+        # Ergänze Metadaten für MongoDB-Dokument
+        mongo_document = {
+            "patient_id": patient_id,
+            "llm_model": llm_model_evaluated,
+            "expert_name": expert_name,
+            "timestamp": timestamp,
+            "evaluation_data": evaluation_data
+        }
+
+        # Speichere in MongoDB (Cloud)
+        collection.insert_one(mongo_document)
+        logger.info(f"Comparative evaluation also saved to MongoDB (Cloud).")
+
         return True, eval_filename
+
     except Exception as e:
-        logger.error(f"Error saving comparative evaluation for P:{patient_id}, LLM:{llm_model_evaluated}: {e}", exc_info=True)
+        logger.error(f"Error saving comparative evaluation: {e}", exc_info=True)
         return False, None
+
+
+# def save_comparative_evaluation(patient_id: str, llm_model_evaluated: str, evaluation_data: dict, expert_name: str) -> tuple[bool, str | None]:
+#     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+#     safe_patient_id = patient_id.replace('/', '_').replace('\\', '_')
+#     safe_expert_name = expert_name.replace(' ', '_').replace('/', '_').replace('\\', '_')
+#     safe_llm_model = llm_model_evaluated.replace(':', '_').replace('/', '_')
+
+#     eval_filename = f"eval_{safe_patient_id}_llm_{safe_llm_model}_{safe_expert_name}_{timestamp}.json"
+#     filepath = os.path.join(EVALUATION_RESULTS_SAVE_DIR, eval_filename)
+#     try:
+#         with open(filepath, 'w', encoding='utf-8') as f:
+#             json.dump(evaluation_data, f, indent=2, ensure_ascii=False)
+#         logger.info(f"Comparative evaluation for P:{patient_id}, LLM:{llm_model_evaluated} by {expert_name} saved to: {filepath}")
+#         return True, eval_filename
+#     except Exception as e:
+#         logger.error(f"Error saving comparative evaluation for P:{patient_id}, LLM:{llm_model_evaluated}: {e}", exc_info=True)
+#         return False, None
 
 def check_if_evaluated(patient_id: str, llm_model: str, expert_name: str) -> bool:
     """Checks if an evaluation file already exists for this patient-LLM-expert combo."""
