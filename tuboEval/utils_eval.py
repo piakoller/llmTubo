@@ -20,10 +20,9 @@ logger = logging.getLogger(__name__)
 if not logger.hasHandlers():
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-# AGGREGATED_EXCEL_INPUT_FILE = "/home/pia/projects/llmTubo/tuboEval/expert_review_sheets/expert_evaluation_sheet_v2.xlsx"
-# EVALUATION_RESULTS_SAVE_DIR = "/home/pia/projects/llmTubo/tuboEval/evaluations_completed_comparative/" # New dir for these specific evals
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
+PATIENT_DATA = os.path.join(script_dir, "tubo-DLBCL-v2.xlsx")
 AGGREGATED_EXCEL_INPUT_FILE = os.path.join(script_dir, "expert_review_sheets", "expert_evaluation_sheet_v2.xlsx")
 EVALUATION_RESULTS_SAVE_DIR = os.path.join(script_dir, "evaluations_completed_comparative")
 
@@ -85,9 +84,7 @@ def get_available_llm_models_for_patient(case_data_series: pd.Series | None) -> 
         if isinstance(col_name, str) and (" - Final Recommendation" in col_name or " - Think Block" in col_name):
             prefix = col_name.split(" - ")[0] # e.g., "MultiAgent_Llama3_ModFalse"
             parts = prefix.split('_')
-            # Example: MultiAgent_Llama3_ModFalse -> Llama3
-            # Example: SinglePrompt_Qwen3_7B_ModTrue -> Qwen3_7B
-            potential_llm_name = ""
+            llm_name = ""
             script_type_found = False
             if parts[0].lower() in ["multiagent", "singleprompt"]:
                 script_type_found = True
@@ -102,12 +99,12 @@ def get_available_llm_models_for_patient(case_data_series: pd.Series | None) -> 
                     break
             
             if mod_indicator_index != -1 and mod_indicator_index > start_index :
-                potential_llm_name = "_".join(parts[start_index:mod_indicator_index])
+                llm_name = "_".join(parts[start_index:mod_indicator_index])
             elif mod_indicator_index == -1 and len(parts) > start_index: # No Mod indicator
-                potential_llm_name = "_".join(parts[start_index:])
+                llm_name = "_".join(parts[start_index:])
             
-            if potential_llm_name:
-                 llm_models.add(potential_llm_name)
+            if llm_name:
+                 llm_models.add(llm_name)
 
     return sorted(list(llm_models)) if llm_models else ["UnknownLLM"]
 
@@ -121,12 +118,10 @@ def save_comparative_evaluation(patient_id: str, llm_model_evaluated: str, evalu
     filepath = os.path.join(EVALUATION_RESULTS_SAVE_DIR, eval_filename)
 
     try:
-        # Speichere lokal als JSON-Datei
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(evaluation_data, f, indent=2, ensure_ascii=False)
         logger.info(f"Comparative evaluation saved locally to: {filepath}")
         
-        # Ergänze Metadaten für MongoDB-Dokument
         mongo_document = {
             "patient_id": patient_id,
             "llm_model": llm_model_evaluated,
@@ -135,7 +130,6 @@ def save_comparative_evaluation(patient_id: str, llm_model_evaluated: str, evalu
             "evaluation_data": evaluation_data
         }
 
-        # Speichere in MongoDB (Cloud)
         collection.insert_one(mongo_document)
         logger.info(f"Comparative evaluation also saved to MongoDB (Cloud).")
 
@@ -145,32 +139,12 @@ def save_comparative_evaluation(patient_id: str, llm_model_evaluated: str, evalu
         logger.error(f"Error saving comparative evaluation: {e}", exc_info=True)
         return False, None
 
-
-# def save_comparative_evaluation(patient_id: str, llm_model_evaluated: str, evaluation_data: dict, expert_name: str) -> tuple[bool, str | None]:
-#     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-#     safe_patient_id = patient_id.replace('/', '_').replace('\\', '_')
-#     safe_expert_name = expert_name.replace(' ', '_').replace('/', '_').replace('\\', '_')
-#     safe_llm_model = llm_model_evaluated.replace(':', '_').replace('/', '_')
-
-#     eval_filename = f"eval_{safe_patient_id}_llm_{safe_llm_model}_{safe_expert_name}_{timestamp}.json"
-#     filepath = os.path.join(EVALUATION_RESULTS_SAVE_DIR, eval_filename)
-#     try:
-#         with open(filepath, 'w', encoding='utf-8') as f:
-#             json.dump(evaluation_data, f, indent=2, ensure_ascii=False)
-#         logger.info(f"Comparative evaluation for P:{patient_id}, LLM:{llm_model_evaluated} by {expert_name} saved to: {filepath}")
-#         return True, eval_filename
-#     except Exception as e:
-#         logger.error(f"Error saving comparative evaluation for P:{patient_id}, LLM:{llm_model_evaluated}: {e}", exc_info=True)
-#         return False, None
-
 def check_if_evaluated(patient_id: str, llm_model: str, expert_name: str) -> bool:
     """Checks if an evaluation file already exists for this patient-LLM-expert combo."""
     safe_patient_id = patient_id.replace('/', '_').replace('\\', '_')
     safe_expert_name = expert_name.replace(' ', '_').replace('/', '_').replace('\\', '_')
     safe_llm_model = llm_model.replace(':', '_').replace('/', '_')
     
-    # Search for files matching the pattern
-    # This is a simple check; more robust would be to store a status in a DB or the Excel itself.
     pattern = f"eval_{safe_patient_id}_llm_{safe_llm_model}_{safe_expert_name}_*.json"
     matching_files = glob.glob(os.path.join(EVALUATION_RESULTS_SAVE_DIR, pattern))
     return bool(matching_files)

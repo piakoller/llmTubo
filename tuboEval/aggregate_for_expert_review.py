@@ -6,12 +6,6 @@ from collections import defaultdict
 import logging # Added for better feedback
 
 # --- Configuration ---
-# # List of directories where your batch JSON output files are stored
-# RESULTS_DIRS = [
-#     "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/agent/",
-#     "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/single_prompt/"
-# ]
-# Use paths relative to the script's location for portability
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 RESULTS_DIRS = [
     os.path.join(BASE_DIR, "data_for_evaluation", "agent"),
@@ -19,7 +13,7 @@ RESULTS_DIRS = [
 ]
 
 # Output Excel file name
-EXCEL_OUTPUT_FILE = "expert_evaluation_sheet_v2.xlsx" # Versioning the output
+EXCEL_OUTPUT_FILE = "expert_evaluation_sheet.xlsx" # Versioning the output
 # Directory to save the Excel file
 OUTPUT_DIR_FOR_EXCEL = os.path.join(BASE_DIR, "expert_review_sheets")
 
@@ -68,9 +62,7 @@ def extract_recommendation_details(filename: str, patient_run_entry: dict) -> tu
             except Exception:
                 pass # Ignore if regex fails for some reason on raw text
     else:
-        # Fallback if filename doesn't match known patterns, try to infer from content
         rec_type = f"Other_{llm_model}_Mod{modified}"
-        # Try common keys for recommendation text
         final_rec_text = patient_run_entry.get("single_prompt_recommendation_final") or \
                          patient_run_entry.get("therapie_output_final") or \
                          patient_run_entry.get("therapie_output")
@@ -99,7 +91,6 @@ def main():
         logger.error(f"No JSON files found in any of the specified results directories: {RESULTS_DIRS}")
         return
 
-    # Structure: { patient_id: { "metadata": {...}, "recommendations": { "type1": {"final_rec": "...", "think": "...", "raw": "..."}, ... } } }
     patient_aggregated_data = defaultdict(lambda: {"metadata": {}, "recommendations": {}})
     logger.info(f"Processing {len(all_json_files_to_process)} JSON files...")
 
@@ -120,13 +111,10 @@ def main():
                         logger.warning(f"Entry missing 'patient_id_original' in {filename_only}. Skipping entry.")
                         continue
 
-                    # Store patient summary/metadata only once if it's consistent
-                    # Or, if metadata like data_source_file can vary per run for the same patient, store it differently
                     if not patient_aggregated_data[patient_id]["metadata"]:
                         patient_aggregated_data[patient_id]["metadata"] = {
                             "patient_data_summary": patient_run_entry.get("patient_context_summary_for_eval", f"Summary N/A for {patient_id}"),
                             "data_source_file": patient_run_entry.get("patient_data_source_file", "N/A"),
-                            # Add any other consistent patient metadata here
                         }
                     
                     rec_type, final_rec, think_block, raw_response = extract_recommendation_details(filename_only, patient_run_entry)

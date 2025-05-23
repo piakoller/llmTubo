@@ -5,20 +5,38 @@ from utils_eval import (
     get_case_data_for_patient, 
     get_available_llm_models_for_patient,
     save_comparative_evaluation,
-    check_if_evaluated # New function to check evaluation status
+    check_if_evaluated,
+    PATIENT_DATA
 )
 from datetime import datetime
 import logging
 import pandas as pd
 from collections import defaultdict
+from data_loader import load_patient_data
 
 logger = logging.getLogger(__name__)
 if not logger.hasHandlers():
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-st.set_page_config(page_title="LLM Comparative Evaluation", layout="wide")
-st.title("🧑‍⚕️ LLM Recommendation - Comparative Expert Evaluation")
+st.set_page_config(page_title="LLM Comparative Evaluation", page_icon="🧬", layout="wide")
+st.title("LLM Tumorboard Recommendation - Comparative Expert Evaluation")
 st.markdown("---")
+
+if 'df_patients' not in st.session_state:
+    st.session_state.df_patients = load_patient_data(PATIENT_DATA)
+
+df_patients = st.session_state.df_patients
+
+def display_patient_information(df_patients, patient_id):
+    st.subheader("Patienteninformationen")
+    patient_row = df_patients[df_patients["Patient ID"] == patient_id]
+    if patient_row.empty:
+        st.error("Keine Patientendaten gefunden.")
+        return
+
+    patient_data = patient_row.iloc[0]
+    for col, val in patient_data.items():
+        st.markdown(f"**{col}:** {val}")
 
 def parse_rec_type_prefix(prefix: str) -> tuple[str | None, str | None, bool | None]:
     script_type = None; llm_model = None; is_modified = None
@@ -187,10 +205,37 @@ if selected_patient_id and selected_llm_model and st.session_state.expert_name:
 if selected_patient_id and selected_llm_model and case_data_series is not None:
     st.header(f"Patient ID: {selected_patient_id} - Evaluating LLM: `{selected_llm_model}`")
     st.subheader("📄 Patient Data Summary")
+    # Patient Data
+    patient_row = df_patients[df_patients["ID"] == selected_patient_id]
+    if not patient_row.empty:
+        patient_data = patient_row.iloc[0]
+        patient_summary_text = "\n".join([f"{col}: {patient_data[col]}" for col in patient_row.columns])
+    else:
+        patient_summary_text = "Keine Patientendaten gefunden."
+
     st.text_area(
-        "Patient Summary", value=str(case_data_series.get("Patient Data Summary", "N/A")),
-        height=150, disabled=True, key=f"summary_{selected_patient_id}_main_v3"
+        "Patient Summary",
+        value=patient_summary_text,
+        height=300,
+        disabled=False,
+        key=f"summary_{selected_patient_id}"
     )
+    st.markdown("---")
+
+    clinical_info_row = df_patients[df_patients["ID"] == selected_patient_id]
+    if not clinical_info_row.empty:
+        clinical_info = clinical_info_row.iloc[0]["clinical_info"]
+    else:
+        clinical_info = "Keine clinical_info Daten"
+
+    st.text_area(
+        "Clinical Info",
+        value=clinical_info,
+        height=100,
+        disabled=False,
+        key=f"clinical_info_{selected_patient_id}"
+    )
+
     st.markdown("---")
 
     sp_std_data = get_variant_data(case_data_series, selected_llm_model, "SinglePrompt", False)
@@ -202,9 +247,9 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
     form_eval_data_storage = {} 
 
     # --- THE SINGLE FORM STARTS HERE ---
-    form_key = f"eval_form_comparative_{selected_patient_id}_{selected_llm_model}_{st.session_state.expert_name.replace(' ', '_')}_v3"
+    form_key = f"eval_form_comparative_{selected_patient_id}_{selected_llm_model}_{st.session_state.expert_name.replace(' ', '_')}"
     with st.form(key=form_key):
-        st.subheader(f"🤖 LLM: `{selected_llm_model}` - Recommendation Variants & Your Evaluation")
+        st.subheader(f"LLM: `{selected_llm_model}` - Recommendation Variants & Your Evaluation")
 
         # --- ROW 1: SINGLE-PROMPT ---
         st.markdown("#### Single-Prompt Approach")
@@ -214,8 +259,8 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
             st.markdown("**Standard Clinical Info**")
             if sp_std_data and sp_std_data.get("final_text"):
                 st.caption(f"ID: `{sp_std_data['full_prefix']}`")
-                with st.expander("Think Block", expanded=False): st.text_area("SP_Std_Think_Display", sp_std_data['think_block'], height=100, disabled=True, key=f"dsp_think_sp_std_{selected_patient_id}_v3")
-                st.text_area("SP_Std_Rec_Display", sp_std_data['final_text'], height=150, disabled=True, key=f"dsp_rec_sp_std_{selected_patient_id}_v3")
+                with st.expander("Think Block", expanded=False): st.text_area("SP_Std_Think_Display", sp_std_data['think_block'], height=300, disabled=True, key=f"dsp_think_sp_std_{selected_patient_id}")
+                st.text_area("SP_Std_Rec_Display", sp_std_data['final_text'], height=300, disabled=True, key=f"dsp_rec_sp_std_{selected_patient_id}")
                 form_eval_data_storage[sp_std_data['full_prefix']] = {}
                 render_evaluation_widgets(sp_std_data['full_prefix'], selected_patient_id, form_eval_data_storage, form_key)
             else: st.info("N/A or no recommendation text.")
@@ -224,8 +269,8 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
             st.markdown("**Modified Clinical Info**")
             if sp_mod_data and sp_mod_data.get("final_text"):
                 st.caption(f"ID: `{sp_mod_data['full_prefix']}`")
-                with st.expander("Think Block", expanded=False): st.text_area("SP_Mod_Think_Display", sp_mod_data['think_block'], height=100, disabled=True, key=f"dsp_think_sp_mod_{selected_patient_id}_v3")
-                st.text_area("SP_Mod_Rec_Display", sp_mod_data['final_text'], height=150, disabled=True, key=f"dsp_rec_sp_mod_{selected_patient_id}_v3")
+                with st.expander("Think Block", expanded=False): st.text_area("SP_Mod_Think_Display", sp_mod_data['think_block'], height=300, disabled=True, key=f"dsp_think_sp_mod_{selected_patient_id}")
+                st.text_area("SP_Mod_Rec_Display", sp_mod_data['final_text'], height=300, disabled=True, key=f"dsp_rec_sp_mod_{selected_patient_id}")
                 form_eval_data_storage[sp_mod_data['full_prefix']] = {}
                 render_evaluation_widgets(sp_mod_data['full_prefix'], selected_patient_id, form_eval_data_storage, form_key)
             else: st.info("N/A or no recommendation text.")
@@ -239,8 +284,8 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
             st.markdown("**Standard Clinical Info**")
             if ma_std_data and ma_std_data.get("final_text"):
                 st.caption(f"ID: `{ma_std_data['full_prefix']}`")
-                with st.expander("Think Block", expanded=False): st.text_area("MA_Std_Think_Display", ma_std_data['think_block'], height=100, disabled=True, key=f"dsp_think_ma_std_{selected_patient_id}_v3")
-                st.text_area("MA_Std_Rec_Display", ma_std_data['final_text'], height=150, disabled=True, key=f"dsp_rec_ma_std_{selected_patient_id}_v3")
+                with st.expander("Think Block", expanded=False): st.text_area("MA_Std_Think_Display", ma_std_data['think_block'], height=300, disabled=True, key=f"dsp_think_ma_std_{selected_patient_id}")
+                st.text_area("MA_Std_Rec_Display", ma_std_data['final_text'], height=300, disabled=True, key=f"dsp_rec_ma_std_{selected_patient_id}")
                 form_eval_data_storage[ma_std_data['full_prefix']] = {}
                 render_evaluation_widgets(ma_std_data['full_prefix'], selected_patient_id, form_eval_data_storage, form_key)
             else: st.info("N/A or no recommendation text.")
@@ -249,17 +294,17 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
             st.markdown("**Modified Clinical Info**")
             if ma_mod_data and ma_mod_data.get("final_text"):
                 st.caption(f"ID: `{ma_mod_data['full_prefix']}`")
-                with st.expander("Think Block", expanded=False): st.text_area("MA_Mod_Think_Display", ma_mod_data['think_block'], height=100, disabled=True, key=f"dsp_think_ma_mod_{selected_patient_id}_v3")
-                st.text_area("MA_Mod_Rec_Display", ma_mod_data['final_text'], height=150, disabled=True, key=f"dsp_rec_ma_mod_{selected_patient_id}_v3")
+                with st.expander("Think Block", expanded=False): st.text_area("MA_Mod_Think_Display", ma_mod_data['think_block'], height=300, disabled=True, key=f"dsp_think_ma_mod_{selected_patient_id}")
+                st.text_area("MA_Mod_Rec_Display", ma_mod_data['final_text'], height=300, disabled=True, key=f"dsp_rec_ma_mod_{selected_patient_id}")
                 form_eval_data_storage[ma_mod_data['full_prefix']] = {}
                 render_evaluation_widgets(ma_mod_data['full_prefix'], selected_patient_id, form_eval_data_storage, form_key)
             else: st.info("N/A or no recommendation text.")
         
-        st.markdown("\n**💬 Overall Comments for this LLM's (`{selected_llm_model}`) Performance on Patient `{selected_patient_id}`**")
+        st.markdown(f"\n**💬 Overall Comments for this LLM's ({selected_llm_model}) Performance on Patient {selected_patient_id}**")
         # This input widget must also be inside the form
         overall_comments_for_llm_patient_input = st.text_area(
             "General comments:",
-            height=100, key=f"gen_comments_llm_pat_{selected_patient_id}_{selected_llm_model}_v3"
+            height=100, key=f"gen_comments_llm_pat_{selected_patient_id}_{selected_llm_model}"
         )
 
         # Submit button for the entire form
