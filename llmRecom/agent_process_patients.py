@@ -21,7 +21,7 @@ DEFAULT_LLM_MODEL_BATCH = "gemma3:27b"
 DEFAULT_GUIDELINE_PROVIDER_BATCH = "ESMO"
 DEFAULT_STUDY_LOCATION_BATCH = "Bern, Switzerland"
 
-EVAL_AGENT_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/agent"
+EVAL_AGENT_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/agent/net"
 
 setup_logging()
 logger = logging.getLogger("agent_batch_processor")

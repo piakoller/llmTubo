@@ -10,8 +10,10 @@ LLM_TEMPERATURE = 0.7
 DATA_ROOT_DIR = Path(
     "/home/pia/projects/llmTubo/llmRecom/data"
 )
-TUBO_EXCEL_FILE_PATH = DATA_ROOT_DIR / "tubo-DLBCL-v2.xlsx"
+# TUBO_EXCEL_FILE_PATH = DATA_ROOT_DIR / "tubo-DLBCL-v2.xlsx"
 # TUBO_EXCEL_FILE_PATH = DATA_ROOT_DIR / "tubo-DLBCL-v2_modified.xlsx"
+TUBO_EXCEL_FILE_PATH = DATA_ROOT_DIR / "NET/NET Tubo.xlsx"
+
 REPORT_DIR = "generated_report"
 REPORT_FILE_TYPE = "md"
 

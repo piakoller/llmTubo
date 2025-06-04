@@ -9,6 +9,7 @@ How to tun single_prompt_recommendation.py:
     python single_prompt_recommendation.py --llm_model "gemma3:27b"
     - with modification: 
     python single_prompt_recommendation.py --llm_model "gemma3:27b" --patient_data_file "/home/pia/projects/llmTubo/llmRecom/data/tubo-DLBCL-v2_modified.xlsx"
+    python single_prompt_recommendation.py --llm_model "gemma3:27b" --patient_data_file "/home/pia/projects/llmTubo/llmRecom/data/NET/NET Tubo_modified.xlsx"
 
 How to run aggregate_for_expert_review.py
     python aggregate_for_expert_review.py

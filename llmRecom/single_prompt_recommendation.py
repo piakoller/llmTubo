@@ -3,7 +3,11 @@ import json
 import os
 import time
 from datetime import datetime
-import re # For <think> tag removal
+import re
+import glob
+
+# -- NET -- '
+NET = True
 
 # --- Project Imports ---
 try:
@@ -23,6 +27,11 @@ except ImportError as e:
 DEFAULT_LLM_MODEL_SINGLE_PROMPT = "llama3" # Updated default
 DEFAULT_GUIDELINE_PROVIDER_SINGLE_PROMPT = "ESMO"
 EVAL_SINGLE_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/single_prompt"
+EVAL_SINGLE_NET_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/single_prompt/net"
+
+
+GUIDELINE_DATA_DIR_NET = "/home/pia/projects/llmTubo/llmRecom/data/NET/"
+GUIDELINE_DATA_DIR_LMYPH = "/home/pia/projects/llmTubo/llmRecom/data/guidelines/mds"
 
 PATIENT_FIELDS_FOR_PROMPT = [
     "id", "main_diagnosis", "main_diagnosis_text", "ann_arbor_stage", 
@@ -32,6 +41,40 @@ PATIENT_FIELDS_FOR_PROMPT = [
 
 setup_logging()
 logger = logging.getLogger("single_prompt_processor")
+
+def find_guideline_and_net_files(guideline_name: str, main_diagnosis: str, net_mode: bool) -> list[str]:
+    """
+    Sucht nach der passenden Guideline-Datei und – falls NET aktiv – nach NET-spezifischen Attachments.
+    Gibt eine Liste aller zu attachenden Dateien zurück.
+    """
+    attachments = []
+    if net_mode:
+        guideline_dir = GUIDELINE_DATA_DIR_NET
+        # Guideline-Datei suchen
+        guideline_name_lower = guideline_name.lower()
+        main_diag_lower = main_diagnosis.lower().replace(" ", "_")
+        pattern = f"*{guideline_name_lower}*{main_diag_lower}*"
+        files = glob.glob(os.path.join(guideline_dir, pattern + ".mds")) + \
+                glob.glob(os.path.join(guideline_dir, pattern + ".pdf"))
+        if files:
+            attachments.append(files[0])
+        # NET Pressemittelung und NET Studie hinzufügen (Dateien mit "press" oder "study" im Namen)
+        net_guideline = glob.glob(os.path.join(guideline_dir, "*Guideline"))
+        net_press = glob.glob(os.path.join(guideline_dir, "*press*"))
+        net_study = glob.glob(os.path.join(guideline_dir, "*study*"))
+        for f in net_press + net_study:
+            if f not in attachments:
+                attachments.append(f)
+    else:
+        guideline_dir = GUIDELINE_DATA_DIR_LMYPH
+        guideline_name_lower = guideline_name.lower()
+        main_diag_lower = main_diagnosis.lower().replace(" ", "_")
+        pattern = f"*{guideline_name_lower}*{main_diag_lower}*"
+        files = glob.glob(os.path.join(guideline_dir, pattern + ".mds")) + \
+                glob.glob(os.path.join(guideline_dir, pattern + ".pdf"))
+        if files:
+            attachments.append(files[0])
+    return attachments
 
 def get_results_filename(llm_model: str, clinical_info_modified: bool) -> str:
     llm_safe = llm_model.replace(":", "_").replace("/", "_").replace(".", "_")
@@ -51,12 +94,18 @@ def generate_single_recommendation(
     guideline_name: str,
     llm: OllamaLLM,
     clinical_info_modified_flag: bool
-) -> tuple[str | None, str | None, str | None, float | None]: # Added raw_response to tuple
-    
+) -> tuple[str | None, str | None, str | None, float | None]:
     patient_data_string = format_patient_data_for_prompt(patient_data_dict, PATIENT_FIELDS_FOR_PROMPT)
     if clinical_info_modified_flag:
         logger.info(f"Clinical info modified flag is TRUE for patient {patient_data_dict.get('id', 'N/A')}.")
-        # Example: patient_data_string = "[MODIFIED CONTEXT]\n" + patient_data_string
+
+ # --- Guideline-Dateien und ggf. NET-Anhänge suchen ---
+    main_diagnosis = str(patient_data_dict.get("main_diagnosis", "")).strip()
+    attachments = find_guideline_and_net_files(guideline_name, main_diagnosis, NET)
+    if attachments:
+        logger.info(f"Attachments used: {attachments}")
+    else:
+        logger.warning(f"Keine Guideline-Datei gefunden für {guideline_name} und Diagnose {main_diagnosis}")
 
     prompt_template_str = """
 Du bist ein erfahrener Onkologie-Experte. Deine Aufgabe ist es, eine präzise und begründete Therapieempfehlung für den unten beschriebenen Patienten zu erstellen.
@@ -64,11 +113,12 @@ Stütze deine Empfehlung AUSSCHLIESSLICH auf die bereitgestellten Patienteninfor
 {modified_context_indicator}
 **Zu berücksichtigende Leitlinie:** {guideline_name}
 
-**{patient_data_string}**
+**Patienteninformationen:**
+{patient_data_string}
 
 **Anweisungen für die Therapieempfehlung:**
 1.  Analysiere die oben genannten "Patienteninformationen" sorgfältig.
-2.  Berücksichtige **ausschließlich** die angegebene Leitlinie: **{guideline_name}**.
+2.  Berücksichtige **ausschließlich** die angegebene Leitlinie: **{guideline_name}** und die als Datei angehängten Dokumente.
 3.  Formuliere **EINE EINZIGE, KONKRETE THERAPIEEMPFEHLUNG** auf Deutsch.
 4.  Gib eine klare und prägnante **Begründung** für die empfohlene Therapie auf Deutsch. Die Begründung muss sich explizit auf die relevanten Punkte aus den Patienteninformationen und die Empfehlungen der Leitlinie beziehen.
 5.  Wenn die Informationen für eine definitive Empfehlung unzureichend sind, gib dies an und schlage notwendige weitere diagnostische Schritte vor.
@@ -83,8 +133,7 @@ Stütze deine Empfehlung AUSSCHLIESSLICH auf die bereitgestellten Patienteninfor
 **Begründung:**
 [Hier deine detaillierte Begründung einfügen.]
     """
-    # Added instruction for LLM to produce a <think> block.
-    
+
     modified_context_indicator_text = ""
     if clinical_info_modified_flag:
         modified_context_indicator_text = "**Hinweis: Der für diese Anfrage verwendete klinische Kontext wurde als 'modifiziert' gekennzeichnet.**\n"
@@ -97,41 +146,41 @@ Stütze deine Empfehlung AUSSCHLIESSLICH auf die bereitgestellten Patienteninfor
     chain = LLMChain(llm=llm, prompt=prompt)
 
     llm_duration = None
-    raw_llm_response = None # To store the full output
+    raw_llm_response = None
     final_recommendation_text = None
     start_time = time.perf_counter()
 
     try:
         logger.info(f"Generating single-prompt recommendation for Patient ID: {patient_data_dict.get('id', 'N/A')} using {guideline_name} guideline. Modified: {clinical_info_modified_flag}")
         
-        response_dict = chain.invoke({ # LLMChain returns a dict
+        llm_kwargs = {}
+        if attachments:
+            llm_kwargs["attachments"] = attachments
+
+        response_dict = chain.invoke({
             "guideline_name": guideline_name,
             "patient_data_string": patient_data_string,
             "modified_context_indicator": modified_context_indicator_text
-        })
+        }, **llm_kwargs)
         llm_duration = time.perf_counter() - start_time
         
-        raw_llm_response = response_dict.get('text', '').strip() # Get the full text output
-        
-        # Extract final recommendation (after </think> tag)
+        raw_llm_response = response_dict.get('text', '').strip()
         think_tag_end = "</think>"
         match = re.search(re.escape(think_tag_end), raw_llm_response, re.IGNORECASE)
         if match:
             final_recommendation_text = raw_llm_response[match.end():].strip()
         else:
-            # If no think tag, the raw response is considered the final recommendation
-            final_recommendation_text = raw_llm_response 
+            final_recommendation_text = raw_llm_response
             logger.warning(f"No <think> block found in LLM response for patient {patient_data_dict.get('id', 'N/A')}. Raw response used as final.")
             
         logger.info(f"LLM ({llm.model}) for patient {patient_data_dict.get('id', 'N/A')} took {llm_duration:.2f}s. Final recommendation snippet: {final_recommendation_text[:100]}...")
-        return final_recommendation_text, raw_llm_response, None, llm_duration # (final_rec, raw_output, error_msg, duration)
+        return final_recommendation_text, raw_llm_response, None, llm_duration
 
     except Exception as e:
         llm_duration = time.perf_counter() - start_time if start_time else None
         error_msg = str(e)
         logger.error(f"Error generating single-prompt recommendation for Patient ID {patient_data_dict.get('id', 'N/A')}: {error_msg}", exc_info=True)
-        return None, raw_llm_response, error_msg, llm_duration # Return raw_response even on error if available
-
+        return None, raw_llm_response, error_msg, llm_duration
 
 def run_single_prompt_processing(
     llm_model_override: str | None = None,
@@ -172,7 +221,10 @@ def run_single_prompt_processing(
         final_output_file = output_filepath_override
     else:
         generated_filename = get_results_filename(effective_llm_model, effective_clinical_info_modified)
-        final_output_file = os.path.join(EVAL_SINGLE_DATA_DIR, generated_filename)
+        if NET:
+            final_output_file = os.path.join(EVAL_SINGLE_NET_DATA_DIR, generated_filename)
+        else:
+            final_output_file = os.path.join(EVAL_SINGLE_DATA_DIR, generated_filename)
     logger.info(f"Output will be saved to: {final_output_file}")
     
     try:
