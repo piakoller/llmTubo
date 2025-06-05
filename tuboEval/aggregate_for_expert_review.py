@@ -8,12 +8,14 @@ import logging
 # --- Configuration ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 RESULTS_DIRS = [
-    os.path.join(BASE_DIR, "data_for_evaluation", "agent"),
-    os.path.join(BASE_DIR, "data_for_evaluation", "single_prompt")
+    os.path.join(BASE_DIR, "data_for_evaluation", "agent", "net"),
+    os.path.join(BASE_DIR, "data_for_evaluation", "single_prompt", "net")
 ]
 
 # Output Excel file name
-EXCEL_OUTPUT_FILE = "expert_evaluation_sheet_v2.xlsx" # Versioning the output
+# EXCEL_OUTPUT_FILE = "expert_evaluation_sheet_v2.xlsx"
+EXCEL_OUTPUT_FILE = "net_expert_evaluation_sheet.xlsx"
+
 # Directory to save the Excel file
 OUTPUT_DIR_FOR_EXCEL = os.path.join(BASE_DIR, "expert_review_sheets")
 

@@ -1,4 +1,5 @@
-# utils_eval.py
+# NET
+# utils_eval_net.py
 import json
 import os
 import pandas as pd
@@ -22,9 +23,11 @@ if not logger.hasHandlers():
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-PATIENT_DATA = os.path.join(script_dir, "tubo-DLBCL-v2.xlsx")
-AGGREGATED_EXCEL_INPUT_FILE = os.path.join(script_dir, "expert_review_sheets", "expert_evaluation_sheet_v2.xlsx")
+#NET
+PATIENT_DATA = os.path.join(script_dir, "NET Tubo.xlsx")
+AGGREGATED_EXCEL_INPUT_FILE = os.path.join(script_dir, "expert_review_sheets", "net_expert_evaluation_sheet.xlsx")
 EVALUATION_RESULTS_SAVE_DIR = os.path.join(script_dir, "evaluations_completed_comparative")
+
 
 try:
     os.makedirs(EVALUATION_RESULTS_SAVE_DIR, exist_ok=True)
