@@ -1,0 +1,430 @@
+[
+  {
+    "patient_id_original": "1",
+    "patient_data_source_file": "NET Tubo_modified.xlsx",
+    "timestamp_processed": "2025-06-05T11:14:20.724073",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": true,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "{'role': 'Analysiere Diagnose, Symptome und klinische Berichte und fasse die wichtigsten Punkte zusammen.', 'context': '\\n            Patient ID: 1\\n            Leitlinie: ESMO\\n            Diagnose-Kürzel: \\n            Hauptdiagnose (Text): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhalb der Ileozökalklappe. G1 NET.\\n07/2015 CT staging Thorax/Abdomen: Primärtumor des Ileums 40 x 40 x 70 mm. V.a. Lymphknotenmetastasen lokoregionär. V.a. Lebermetastasen in Segment VI und VIII.\\n\\n07/2015 Resektion der Lebermetastasen in Segment VI und Ablation der Läsion in Segment VIII. Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie.\\n01/2017 V.a. neue Lebermetastase\\n02/2017 Start Somatoline\\n02/2018 CT Abdomen: stable disease\\n03/2019 CT Abdomen: V.a. gering progrediente Lebermetastasen. \\n            Stadium: \\n            Nebendiagnosen: \\n            Klinik/Fragestellung: \\n            PET-CT Bericht: \\n            Begleitsymptome: \\n            Prognose Score: \\n            Vorstellungsart: \\n        ', 'attachments_info': 'Berücksichtige die angefügten Dokumente (z.B. Leitlinien) für deine Analyse.', 'text': '## Zusammenfassung der Diagnostik:\\n\\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen (Diagnose 2015). Histologisch G1.\\n\\n**Stadium:**  Die initiale Diagnostik (CT 2015) deutet auf ein fortgeschrittenes Stadium hin, vermutlich Stadium IV, aufgrund der Lymphknoten- und Lebermetastasen. Eine genaue TNM-Klassifikation fehlt im Kontext.\\n\\n**Wesentliche klinische Punkte:**\\n\\n*   **Ersterkennung:** Tumor im Ileum bei Koloskopie 2015 aufgrund unklarer abdomineller Beschwerden.\\n*   **Therapie:** Resektion der Lebermetastasen (Segment VI) und Ablation einer Läsion (Segment VIII) sowie Hemicolektomie rechts mit Ileumteilresektion und Lymphadenektomie im Jahr 2015.\\n*   **Verlauf:**  Nach initialer Therapie zunächst stabile Erkrankung (CT 2018). Ab 2019 Hinweise auf eine geringe Progression der Lebermetastasen (CT 03/2019).  Somatoline wurde ab 02/2017 eingesetzt.\\n*   **Aktuelle Fragestellung:** Verdacht auf erneute Progression der Lebermetastasen (01/2017).\\n\\n**Fehlende Informationen:**\\n\\n*   **TNM-Stadium:** Eine genaue TNM-Klassifikation fehlt.\\n*   **PET-CT Bericht:** Der PET-CT Bericht ist nicht verfügbar, was die Beurteilung der Krankheitsausdehnung erschwert.\\n*   **Prognose Score:** Der Prognose Score ist nicht angegeben.\\n*   **Nebendiagnosen:** Keine Nebendiagnosen angegeben.\\n*   **Begleitsymptome:** Keine Begleitsymptome angegeben.\\n\\n**Hinweis:**  Die Zusammenfassung basiert ausschließlich auf den vorliegenden Informationen. Eine vollständige Beurteilung erfordert die Einsicht in alle relevanten medizinischen Unterlagen, insbesondere den PET-CT Bericht und die genaue TNM-Klassifikation.\\n'}",
+    "diagnostik_raw_response": "{'role': 'Analysiere Diagnose, Symptome und klinische Berichte und fasse die wichtigsten Punkte zusammen.', 'context': '\\n            Patient ID: 1\\n            Leitlinie: ESMO\\n            Diagnose-Kürzel: \\n            Hauptdiagnose (Text): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhalb der Ileozökalklappe. G1 NET.\\n07/2015 CT staging Thorax/Abdomen: Primärtumor des Ileums 40 x 40 x 70 mm. V.a. Lymphknotenmetastasen lokoregionär. V.a. Lebermetastasen in Segment VI und VIII.\\n\\n07/2015 Resektion der Lebermetastasen in Segment VI und Ablation der Läsion in Segment VIII. Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie.\\n01/2017 V.a. neue Lebermetastase\\n02/2017 Start Somatoline\\n02/2018 CT Abdomen: stable disease\\n03/2019 CT Abdomen: V.a. gering progrediente Lebermetastasen. \\n            Stadium: \\n            Nebendiagnosen: \\n            Klinik/Fragestellung: \\n            PET-CT Bericht: \\n            Begleitsymptome: \\n            Prognose Score: \\n            Vorstellungsart: \\n        ', 'attachments_info': 'Berücksichtige die angefügten Dokumente (z.B. Leitlinien) für deine Analyse.', 'text': '## Zusammenfassung der Diagnostik:\\n\\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen (Diagnose 2015). Histologisch G1.\\n\\n**Stadium:**  Die initiale Diagnostik (CT 2015) deutet auf ein fortgeschrittenes Stadium hin, vermutlich Stadium IV, aufgrund der Lymphknoten- und Lebermetastasen. Eine genaue TNM-Klassifikation fehlt im Kontext.\\n\\n**Wesentliche klinische Punkte:**\\n\\n*   **Ersterkennung:** Tumor im Ileum bei Koloskopie 2015 aufgrund unklarer abdomineller Beschwerden.\\n*   **Therapie:** Resektion der Lebermetastasen (Segment VI) und Ablation einer Läsion (Segment VIII) sowie Hemicolektomie rechts mit Ileumteilresektion und Lymphadenektomie im Jahr 2015.\\n*   **Verlauf:**  Nach initialer Therapie zunächst stabile Erkrankung (CT 2018). Ab 2019 Hinweise auf eine geringe Progression der Lebermetastasen (CT 03/2019).  Somatoline wurde ab 02/2017 eingesetzt.\\n*   **Aktuelle Fragestellung:** Verdacht auf erneute Progression der Lebermetastasen (01/2017).\\n\\n**Fehlende Informationen:**\\n\\n*   **TNM-Stadium:** Eine genaue TNM-Klassifikation fehlt.\\n*   **PET-CT Bericht:** Der PET-CT Bericht ist nicht verfügbar, was die Beurteilung der Krankheitsausdehnung erschwert.\\n*   **Prognose Score:** Der Prognose Score ist nicht angegeben.\\n*   **Nebendiagnosen:** Keine Nebendiagnosen angegeben.\\n*   **Begleitsymptome:** Keine Begleitsymptome angegeben.\\n\\n**Hinweis:**  Die Zusammenfassung basiert ausschließlich auf den vorliegenden Informationen. Eine vollständige Beurteilung erfordert die Einsicht in alle relevanten medizinischen Unterlagen, insbesondere den PET-CT Bericht und die genaue TNM-Klassifikation.\\n'}",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "a1f4c06908a148a1bfc4a84874e71d84",
+    "studien_output": [
+      {
+        "title": "Randomized Phase II Trial on Fitness- and Comorbidity- Tailored Treatment in Elderly Patients With Newly Diagnosed Primary CNS Lymphoma (FIORELLA Trial)",
+        "nct_id": "NCT03495960"
+      },
+      {
+        "title": "A European Randomised Phase 3 Study to Assess the Efficacy and Safety of TOOKAD® Soluble for Localised Prostate Cancer Compared to Active Surveillance",
+        "nct_id": "NCT01310894"
+      },
+      {
+        "title": "Neoadjuvant Chemotherapy and Extrapleural Pneumonectomy of Malignant Pleural Mesothelioma (MPM) With or Without Hemithoracic Radiotherapy. A Randomized Multicenter Phase II Trial",
+        "nct_id": "NCT00334594"
+      },
+      {
+        "title": "A Prospective, Multicentre European Registry for Newly Diagnosed Patients With Myelodysplastic Syndromes (MDS), Including Acute Myeloid Leukaemia With 20-<30 Percent Marrow Blasts (Former RAEB-t), and Chronic Myelomonocytic Leukaemia (CMML)",
+        "nct_id": "NCT00600860"
+      },
+      {
+        "title": "Adjuvant Aspirin Treatment in PIK3CA Mutated Colon Cancer Patients. A Randomized, Double-blinded, Placebo-controlled, Phase III Trial",
+        "nct_id": "NCT02467582"
+      },
+      {
+        "title": "Efficacy of the \"Consilium\" Smartphone App for Detecting Symptoms and Treatment Side Effects in Cancer Patients Depending on Form of Medication Application, Age and Outpatient Characteristics: Observational Study",
+        "nct_id": "NCT03578731"
+      },
+      {
+        "title": "SPOG 2015 FN Definition. A Swiss Pediatric Oncology Group (SPOG) Initiated Multi-center Open-label Randomized Controlled Multiple Crossover Non-inferiority Trial on Safety of a High Versus Low Temperature Limit Defining Fever in Pediatric Patients With Cancer at Risk for Fever in Chemotherapy-induced Neutropenia (FN)",
+        "nct_id": "NCT02324231"
+      },
+      {
+        "title": "A Randomised Phase-III Trial of the Cooperative Weichteilsarkom Study Group (CWS) for Localised High-risk Rhabdomyosarcoma and Localised Rhabdomyosarcoma-like Soft Tissue Sarcoma in Children, Adolescents, and Young Adults",
+        "nct_id": "NCT00876031"
+      },
+      {
+        "title": "An Expanded Access Program of Ipilimumab for Patients With Glioblastomas and Gliomas",
+        "nct_id": "NCT03460782"
+      },
+      {
+        "title": "A Multicentre Single-arm Phase II Trial of Amivantamab, Lazertinib Plus Bevacizumab in Patients With EGFR-mutant Advanced NSCLC With Progression on Previous Third-generation EGFR-TKI",
+        "nct_id": "NCT05601973"
+      },
+      {
+        "title": "A Phase I/II Feasibility Study of Oral Etoposide Given Concurrently With Radiotherapy Followed With Dose Intensive Adjuvant Chemotherapy for Children With Newly Diagnosed High Stage Medulloblastoma",
+        "nct_id": "NCT00003573"
+      },
+      {
+        "title": "An Investigator Initiated, Non-randomized Controlled Trial on the Effect of Cognitively Challenging Physical Activity on Executive Functions in Paediatric Cancer Patients",
+        "nct_id": "NCT06839794"
+      },
+      {
+        "title": "External Beam Radiotherapy for Unresectable Hepatocellular Carcinoma. A Multicenter Phase I/II Trial.",
+        "nct_id": "NCT00777894"
+      },
+      {
+        "title": "Accuracy Assessment for Computer-assisted Surgical Interventions of the Liver: A Prospective, Non Randomized Study",
+        "nct_id": "NCT01474694"
+      },
+      {
+        "title": "Pembrolizumab and Radiotherapy for OLigometastatic Squamous Cell Carcinoma of the Head and Neck: a Randomized Phase III Study",
+        "nct_id": "NCT05815927"
+      },
+      {
+        "title": "Real-World Treatment Patterns, BRCA Testing Practices, Outcomes, and Health Care Utilization in Platinum-Sensitive Recurrent Serous Ovarian Cancer: A Multi-Country Retrospective Study",
+        "nct_id": "NCT02262273"
+      },
+      {
+        "title": "A Phase II, Multicentre, Open-label Study of Cabozantinib as 2nd Line Treatment in Subjects With Unresectable, Locally Advanced or Metastatic Renal Cell Carcinoma With a Clear-Cell Component Who Progressed After 1st Line Treatment With Checkpoint Inhibitors.",
+        "nct_id": "NCT03945773"
+      },
+      {
+        "title": "Assessing the Clinical Acceptability of Ultra-low Dose PET/CT and CT-less PET Using a Long Axial Field-of-view PET/CT System: a Single-centre, Single-blinded Method Agreement Study",
+        "nct_id": "NCT05496920"
+      },
+      {
+        "title": "Phase I Study to Determine the Safety of MEN-10755 (BMS-195615) in Patients With a Solid Tumor on a Short I.V. Infusion Given Once Every Week for 3 Consecutive Weeks, Followed by One Week's Rest",
+        "nct_id": "NCT00003982"
+      },
+      {
+        "title": "Ibritumomab Tiuxetan and High-Dose Melphalan as Conditioning Regimen Before Autologous Stem Cell Transplantation for Elderly Patients With Lymphoma in Relapse or Resistant to Chemotherapy. A Multicenter Phase I Trial",
+        "nct_id": "NCT00392691"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nAufgrund der Progression der Lebermetastasen trotz initialer chirurgischer Resektion und Somatoline-Therapie, sowie unter Berücksichtigung der ESMO-Leitlinie für neuroendokrine Tumore, wird eine systemische Therapie mit einem hochwirksamen Medikament empfohlen.  Konkret wird die Gabe von Lanreotid (oder Octreotid LAR, falls Lanreotid nicht verfügbar) in Kombination mit Everolimus als Erstlinien-Therapie nach Progression empfohlen. Sollte diese Kombination nicht vertragen werden oder nicht ausreichend wirksam sein, ist die Beteiligung an einer klinischen Studie mit neuen Wirkstoffen (z.B. Sunitinib, Afinitor) zu erwägen.\n\n**Begründung:**\nDer Patient präsentiert einen neuroendokrinen Tumor des Dünndarms (NET) mit Lymphknoten- und Lebermetastasen, diagnostiziert im Jahr 2015. Trotz initialer chirurgischer Resektion und Somatoline-Therapie zeigt sich eine Progression der Lebermetastasen (CT 03/2019). Die ESMO-Leitlinie empfiehlt bei progressiven, gut differenzierten NETs mit somatostatinrezeptor-positiven Tumoren (was durch die initiale Somatoline-Therapie impliziert wird) eine systemische Therapie.  Die Leitlinie bevorzugt die Kombination von Somatostatin-Analoga (wie Lanreotid oder Octreotid LAR) mit mTOR-Inhibitoren (wie Everolimus) als Erstlinien-Therapie nach Progression. Diese Kombination hat in klinischen Studien eine Verbesserung des progressionsfreien Überlebens gezeigt. Da der Patient bereits Somatoline erhalten hat, ist die Kombination mit Everolimus eine logische nächste Maßnahme. Sollte diese Kombination nicht vertragen werden oder nicht ausreichend wirksam sein, sollte eine Beteiligung an einer klinischen Studie mit neuen Wirkstoffen in Erwägung gezogen werden, um dem Patienten Zugang zu innovativen Therapieansätzen zu ermöglichen. Ein vollständiges Staging (TNM) und die Bestätigung der Somatostatinrezeptor-Positivität mittels Rezeptorszintigraphie wären ideal, sind aber für die Einleitung der Therapie nicht zwingend erforderlich, da bereits eine Somatoline-Therapie durchgeführt wurde.",
+    "therapie_raw_response": "{'role': 'Erstelle eine detaillierte, leitlinienbasierte Therapieempfehlung basierend auf der Diagnoseanalyse.', 'guideline_provider': 'ESMO', 'context': \"{'role': 'Analysiere Diagnose, Symptome und klinische Berichte und fasse die wichtigsten Punkte zusammen.', 'context': '\\\\n            Patient ID: 1\\\\n            Leitlinie: ESMO\\\\n            Diagnose-Kürzel: \\\\n            Hauptdiagnose (Text): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\\\\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhalb der Ileozökalklappe. G1 NET.\\\\n07/2015 CT staging Thorax/Abdomen: Primärtumor des Ileums 40 x 40 x 70 mm. V.a. Lymphknotenmetastasen lokoregionär. V.a. Lebermetastasen in Segment VI und VIII.\\\\n\\\\n07/2015 Resektion der Lebermetastasen in Segment VI und Ablation der Läsion in Segment VIII. Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie.\\\\n01/2017 V.a. neue Lebermetastase\\\\n02/2017 Start Somatoline\\\\n02/2018 CT Abdomen: stable disease\\\\n03/2019 CT Abdomen: V.a. gering progrediente Lebermetastasen. \\\\n            Stadium: \\\\n            Nebendiagnosen: \\\\n            Klinik/Fragestellung: \\\\n            PET-CT Bericht: \\\\n            Begleitsymptome: \\\\n            Prognose Score: \\\\n            Vorstellungsart: \\\\n        ', 'attachments_info': 'Berücksichtige die angefügten Dokumente (z.B. Leitlinien) für deine Analyse.', 'text': '## Zusammenfassung der Diagnostik:\\\\n\\\\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen (Diagnose 2015). Histologisch G1.\\\\n\\\\n**Stadium:**  Die initiale Diagnostik (CT 2015) deutet auf ein fortgeschrittenes Stadium hin, vermutlich Stadium IV, aufgrund der Lymphknoten- und Lebermetastasen. Eine genaue TNM-Klassifikation fehlt im Kontext.\\\\n\\\\n**Wesentliche klinische Punkte:**\\\\n\\\\n*   **Ersterkennung:** Tumor im Ileum bei Koloskopie 2015 aufgrund unklarer abdomineller Beschwerden.\\\\n*   **Therapie:** Resektion der Lebermetastasen (Segment VI) und Ablation einer Läsion (Segment VIII) sowie Hemicolektomie rechts mit Ileumteilresektion und Lymphadenektomie im Jahr 2015.\\\\n*   **Verlauf:**  Nach initialer Therapie zunächst stabile Erkrankung (CT 2018). Ab 2019 Hinweise auf eine geringe Progression der Lebermetastasen (CT 03/2019).  Somatoline wurde ab 02/2017 eingesetzt.\\\\n*   **Aktuelle Fragestellung:** Verdacht auf erneute Progression der Lebermetastasen (01/2017).\\\\n\\\\n**Fehlende Informationen:**\\\\n\\\\n*   **TNM-Stadium:** Eine genaue TNM-Klassifikation fehlt.\\\\n*   **PET-CT Bericht:** Der PET-CT Bericht ist nicht verfügbar, was die Beurteilung der Krankheitsausdehnung erschwert.\\\\n*   **Prognose Score:** Der Prognose Score ist nicht angegeben.\\\\n*   **Nebendiagnosen:** Keine Nebendiagnosen angegeben.\\\\n*   **Begleitsymptome:** Keine Begleitsymptome angegeben.\\\\n\\\\n**Hinweis:**  Die Zusammenfassung basiert ausschließlich auf den vorliegenden Informationen. Eine vollständige Beurteilung erfordert die Einsicht in alle relevanten medizinischen Unterlagen, insbesondere den PET-CT Bericht und die genaue TNM-Klassifikation.\\\\n'}\", 'text': '**Therapieempfehlung:**\\nAufgrund der Progression der Lebermetastasen trotz initialer chirurgischer Resektion und Somatoline-Therapie, sowie unter Berücksichtigung der ESMO-Leitlinie für neuroendokrine Tumore, wird eine systemische Therapie mit einem hochwirksamen Medikament empfohlen.  Konkret wird die Gabe von Lanreotid (oder Octreotid LAR, falls Lanreotid nicht verfügbar) in Kombination mit Everolimus als Erstlinien-Therapie nach Progression empfohlen. Sollte diese Kombination nicht vertragen werden oder nicht ausreichend wirksam sein, ist die Beteiligung an einer klinischen Studie mit neuen Wirkstoffen (z.B. Sunitinib, Afinitor) zu erwägen.\\n\\n**Begründung:**\\nDer Patient präsentiert einen neuroendokrinen Tumor des Dünndarms (NET) mit Lymphknoten- und Lebermetastasen, diagnostiziert im Jahr 2015. Trotz initialer chirurgischer Resektion und Somatoline-Therapie zeigt sich eine Progression der Lebermetastasen (CT 03/2019). Die ESMO-Leitlinie empfiehlt bei progressiven, gut differenzierten NETs mit somatostatinrezeptor-positiven Tumoren (was durch die initiale Somatoline-Therapie impliziert wird) eine systemische Therapie.  Die Leitlinie bevorzugt die Kombination von Somatostatin-Analoga (wie Lanreotid oder Octreotid LAR) mit mTOR-Inhibitoren (wie Everolimus) als Erstlinien-Therapie nach Progression. Diese Kombination hat in klinischen Studien eine Verbesserung des progressionsfreien Überlebens gezeigt. Da der Patient bereits Somatoline erhalten hat, ist die Kombination mit Everolimus eine logische nächste Maßnahme. Sollte diese Kombination nicht vertragen werden oder nicht ausreichend wirksam sein, sollte eine Beteiligung an einer klinischen Studie mit neuen Wirkstoffen in Erwägung gezogen werden, um dem Patienten Zugang zu innovativen Therapieansätzen zu ermöglichen. Ein vollständiges Staging (TNM) und die Bestätigung der Somatostatinrezeptor-Positivität mittels Rezeptorszintigraphie wären ideal, sind aber für die Einleitung der Therapie nicht zwingend erforderlich, da bereits eine Somatoline-Therapie durchgeführt wurde.\\n'}",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "e9d5568b56814003a894057f358a0024",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik_total_s": 20.235164683312178,
+      "Studien_total_s": 0.37872021459043026,
+      "Therapie_total_s": 17.38762839138508,
+      "Overall_workflow_s": 38.001513289287686
+    },
+    "patient_context_summary_for_eval": "Patient ID: 1\nGuideline Specified: ESMO\nDiagnosis (Code): \nDiagnosis (Text Snippet): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhal...\nStage: "
+  },
+  {
+    "patient_id_original": "2",
+    "patient_data_source_file": "NET Tubo_modified.xlsx",
+    "timestamp_processed": "2025-06-05T11:14:54.377210",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": true,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "{'role': 'Analysiere Diagnose, Symptome und klinische Berichte und fasse die wichtigsten Punkte zusammen.', 'context': '\\n            Patient ID: 2\\n            Leitlinie: ESMO\\n            Diagnose-Kürzel: \\n            Hauptdiagnose (Text): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhalb der Ileozökalklappe. G3 NET, Ki67 48%.\\n07/2015 CT staging Thorax/Abdomen: Primärtumor des Ileums 40 x 40 x 70 mm. V.a. Lymphknotenmetastasen lokoregionär. V.a. Lebermetastasen in Segment VI und VIII.\\n\\n07/2015 Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie.\\n            Stadium: \\n            Nebendiagnosen: \\n            Klinik/Fragestellung: \\n            PET-CT Bericht: \\n            Begleitsymptome: \\n            Prognose Score: \\n            Vorstellungsart: \\n        ', 'attachments_info': 'Berücksichtige die angefügten Dokumente (z.B. Leitlinien) für deine Analyse.', 'text': '## Zusammenfassung der Diagnostik:\\n\\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms (Ileum) mit Lymphknoten- und Lebermetastasen (Diagnosejahr 2015). Es handelt sich um einen G3-NET mit einem hohen Proliferationsindex (Ki67 48%), was auf eine aggressive Tumorbiologie hindeutet.\\n\\n**Stadium:** Das Stadium ist nicht explizit angegeben, jedoch deuten die Befunde (Primärtumor, Lymphknotenmetastasen, Lebermetastasen) auf ein fortgeschrittenes Stadium (mindestens Stadium IV) hin. Eine genaue Stadialisierung gemäß TNM-Klassifikation fehlt in den vorliegenden Informationen.\\n\\n**Klinische Details & Befunde:**\\n\\n*   **Tumorlokalisation:** Ileum, ca. 25 cm oberhalb der Ileozökalklappe.\\n*   **Tumorgröße:** 40 x 40 x 70 mm.\\n*   **Lymphknotenmetastasen:** Verdacht auf lokoregionäre Lymphknotenmetastasen.\\n*   **Lebermetastasen:** Verdacht auf Metastasen in den Lebersegmenten VI und VIII.\\n*   **Therapeutisches Vorgehen:** Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie wurden durchgeführt.\\n*   **PET-CT Bericht:** Der Bericht ist nicht vorhanden, wäre aber für die Beurteilung des Ansprechens auf die Therapie und das Auffinden weiterer Metastasen essentiell.\\n*   **Begleitsymptome, Nebendiagnosen, Prognose Score und Vorstellungsart:** Diese Informationen fehlen ebenfalls.\\n\\n**Wichtiger Hinweis:**\\n\\nUm eine vollständige Beurteilung zu ermöglichen, sind folgende Informationen erforderlich:\\n\\n*   **PET-CT Bericht:** Zur Bestätigung und genauen Lokalisierung von Metastasen.\\n*   **Vollständige Pathologie:**  Detaillierte Angaben zur Histologie, Grading und Immunhistochemie des Tumors.\\n*   **TNM-Stadium:** Eine genaue Festlegung des TNM-Stadiums.\\n*   **Weitere Informationen:**  Begleitsymptome, Nebendiagnosen, Prognose Score und Vorstellungsart.\\n*   **ESMO Leitlinie:** Die Anwendung der ESMO Leitlinie ist essentiell, um die optimale Therapie zu definieren, insbesondere hinsichtlich der Auswahl von somatostatinanaloga, zielgerichteten Therapien oder Chemotherapie.\\n'}",
+    "diagnostik_raw_response": "{'role': 'Analysiere Diagnose, Symptome und klinische Berichte und fasse die wichtigsten Punkte zusammen.', 'context': '\\n            Patient ID: 2\\n            Leitlinie: ESMO\\n            Diagnose-Kürzel: \\n            Hauptdiagnose (Text): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhalb der Ileozökalklappe. G3 NET, Ki67 48%.\\n07/2015 CT staging Thorax/Abdomen: Primärtumor des Ileums 40 x 40 x 70 mm. V.a. Lymphknotenmetastasen lokoregionär. V.a. Lebermetastasen in Segment VI und VIII.\\n\\n07/2015 Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie.\\n            Stadium: \\n            Nebendiagnosen: \\n            Klinik/Fragestellung: \\n            PET-CT Bericht: \\n            Begleitsymptome: \\n            Prognose Score: \\n            Vorstellungsart: \\n        ', 'attachments_info': 'Berücksichtige die angefügten Dokumente (z.B. Leitlinien) für deine Analyse.', 'text': '## Zusammenfassung der Diagnostik:\\n\\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms (Ileum) mit Lymphknoten- und Lebermetastasen (Diagnosejahr 2015). Es handelt sich um einen G3-NET mit einem hohen Proliferationsindex (Ki67 48%), was auf eine aggressive Tumorbiologie hindeutet.\\n\\n**Stadium:** Das Stadium ist nicht explizit angegeben, jedoch deuten die Befunde (Primärtumor, Lymphknotenmetastasen, Lebermetastasen) auf ein fortgeschrittenes Stadium (mindestens Stadium IV) hin. Eine genaue Stadialisierung gemäß TNM-Klassifikation fehlt in den vorliegenden Informationen.\\n\\n**Klinische Details & Befunde:**\\n\\n*   **Tumorlokalisation:** Ileum, ca. 25 cm oberhalb der Ileozökalklappe.\\n*   **Tumorgröße:** 40 x 40 x 70 mm.\\n*   **Lymphknotenmetastasen:** Verdacht auf lokoregionäre Lymphknotenmetastasen.\\n*   **Lebermetastasen:** Verdacht auf Metastasen in den Lebersegmenten VI und VIII.\\n*   **Therapeutisches Vorgehen:** Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie wurden durchgeführt.\\n*   **PET-CT Bericht:** Der Bericht ist nicht vorhanden, wäre aber für die Beurteilung des Ansprechens auf die Therapie und das Auffinden weiterer Metastasen essentiell.\\n*   **Begleitsymptome, Nebendiagnosen, Prognose Score und Vorstellungsart:** Diese Informationen fehlen ebenfalls.\\n\\n**Wichtiger Hinweis:**\\n\\nUm eine vollständige Beurteilung zu ermöglichen, sind folgende Informationen erforderlich:\\n\\n*   **PET-CT Bericht:** Zur Bestätigung und genauen Lokalisierung von Metastasen.\\n*   **Vollständige Pathologie:**  Detaillierte Angaben zur Histologie, Grading und Immunhistochemie des Tumors.\\n*   **TNM-Stadium:** Eine genaue Festlegung des TNM-Stadiums.\\n*   **Weitere Informationen:**  Begleitsymptome, Nebendiagnosen, Prognose Score und Vorstellungsart.\\n*   **ESMO Leitlinie:** Die Anwendung der ESMO Leitlinie ist essentiell, um die optimale Therapie zu definieren, insbesondere hinsichtlich der Auswahl von somatostatinanaloga, zielgerichteten Therapien oder Chemotherapie.\\n'}",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "85394c22015f42ee9967ec651b6cef23",
+    "studien_output": [
+      {
+        "title": "Randomized Phase II Trial on Fitness- and Comorbidity- Tailored Treatment in Elderly Patients With Newly Diagnosed Primary CNS Lymphoma (FIORELLA Trial)",
+        "nct_id": "NCT03495960"
+      },
+      {
+        "title": "A European Randomised Phase 3 Study to Assess the Efficacy and Safety of TOOKAD® Soluble for Localised Prostate Cancer Compared to Active Surveillance",
+        "nct_id": "NCT01310894"
+      },
+      {
+        "title": "Neoadjuvant Chemotherapy and Extrapleural Pneumonectomy of Malignant Pleural Mesothelioma (MPM) With or Without Hemithoracic Radiotherapy. A Randomized Multicenter Phase II Trial",
+        "nct_id": "NCT00334594"
+      },
+      {
+        "title": "A Prospective, Multicentre European Registry for Newly Diagnosed Patients With Myelodysplastic Syndromes (MDS), Including Acute Myeloid Leukaemia With 20-<30 Percent Marrow Blasts (Former RAEB-t), and Chronic Myelomonocytic Leukaemia (CMML)",
+        "nct_id": "NCT00600860"
+      },
+      {
+        "title": "Adjuvant Aspirin Treatment in PIK3CA Mutated Colon Cancer Patients. A Randomized, Double-blinded, Placebo-controlled, Phase III Trial",
+        "nct_id": "NCT02467582"
+      },
+      {
+        "title": "Efficacy of the \"Consilium\" Smartphone App for Detecting Symptoms and Treatment Side Effects in Cancer Patients Depending on Form of Medication Application, Age and Outpatient Characteristics: Observational Study",
+        "nct_id": "NCT03578731"
+      },
+      {
+        "title": "SPOG 2015 FN Definition. A Swiss Pediatric Oncology Group (SPOG) Initiated Multi-center Open-label Randomized Controlled Multiple Crossover Non-inferiority Trial on Safety of a High Versus Low Temperature Limit Defining Fever in Pediatric Patients With Cancer at Risk for Fever in Chemotherapy-induced Neutropenia (FN)",
+        "nct_id": "NCT02324231"
+      },
+      {
+        "title": "A Randomised Phase-III Trial of the Cooperative Weichteilsarkom Study Group (CWS) for Localised High-risk Rhabdomyosarcoma and Localised Rhabdomyosarcoma-like Soft Tissue Sarcoma in Children, Adolescents, and Young Adults",
+        "nct_id": "NCT00876031"
+      },
+      {
+        "title": "An Expanded Access Program of Ipilimumab for Patients With Glioblastomas and Gliomas",
+        "nct_id": "NCT03460782"
+      },
+      {
+        "title": "A Multicentre Single-arm Phase II Trial of Amivantamab, Lazertinib Plus Bevacizumab in Patients With EGFR-mutant Advanced NSCLC With Progression on Previous Third-generation EGFR-TKI",
+        "nct_id": "NCT05601973"
+      },
+      {
+        "title": "A Phase I/II Feasibility Study of Oral Etoposide Given Concurrently With Radiotherapy Followed With Dose Intensive Adjuvant Chemotherapy for Children With Newly Diagnosed High Stage Medulloblastoma",
+        "nct_id": "NCT00003573"
+      },
+      {
+        "title": "An Investigator Initiated, Non-randomized Controlled Trial on the Effect of Cognitively Challenging Physical Activity on Executive Functions in Paediatric Cancer Patients",
+        "nct_id": "NCT06839794"
+      },
+      {
+        "title": "External Beam Radiotherapy for Unresectable Hepatocellular Carcinoma. A Multicenter Phase I/II Trial.",
+        "nct_id": "NCT00777894"
+      },
+      {
+        "title": "Accuracy Assessment for Computer-assisted Surgical Interventions of the Liver: A Prospective, Non Randomized Study",
+        "nct_id": "NCT01474694"
+      },
+      {
+        "title": "Pembrolizumab and Radiotherapy for OLigometastatic Squamous Cell Carcinoma of the Head and Neck: a Randomized Phase III Study",
+        "nct_id": "NCT05815927"
+      },
+      {
+        "title": "Real-World Treatment Patterns, BRCA Testing Practices, Outcomes, and Health Care Utilization in Platinum-Sensitive Recurrent Serous Ovarian Cancer: A Multi-Country Retrospective Study",
+        "nct_id": "NCT02262273"
+      },
+      {
+        "title": "A Phase II, Multicentre, Open-label Study of Cabozantinib as 2nd Line Treatment in Subjects With Unresectable, Locally Advanced or Metastatic Renal Cell Carcinoma With a Clear-Cell Component Who Progressed After 1st Line Treatment With Checkpoint Inhibitors.",
+        "nct_id": "NCT03945773"
+      },
+      {
+        "title": "Assessing the Clinical Acceptability of Ultra-low Dose PET/CT and CT-less PET Using a Long Axial Field-of-view PET/CT System: a Single-centre, Single-blinded Method Agreement Study",
+        "nct_id": "NCT05496920"
+      },
+      {
+        "title": "Phase I Study to Determine the Safety of MEN-10755 (BMS-195615) in Patients With a Solid Tumor on a Short I.V. Infusion Given Once Every Week for 3 Consecutive Weeks, Followed by One Week's Rest",
+        "nct_id": "NCT00003982"
+      },
+      {
+        "title": "Ibritumomab Tiuxetan and High-Dose Melphalan as Conditioning Regimen Before Autologous Stem Cell Transplantation for Elderly Patients With Lymphoma in Relapse or Resistant to Chemotherapy. A Multicenter Phase I Trial",
+        "nct_id": "NCT00392691"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nAufgrund des fortgeschrittenen Stadiums (Lymphknoten- und Lebermetastasen), des hohen Proliferationsindex (Ki67 48%) und der fehlenden vollständigen Informationen zur Pathologie und zum TNM-Stadium, wird eine systemische Therapie mit einem Somatostatinanalogon (z.B. Lanreotid oder Octreotid) in Kombination mit einer zielgerichteten Therapie mit Sunitinib empfohlen. Eine regelmäßige Bildgebung (CT/MRT/PET-CT) zur Beurteilung des Therapieansprechens ist obligat.\n\n**Begründung:**\nDer Patient präsentiert einen neuroendokrinen Tumor des Dünndarms (NET) mit Lymphknoten- und Lebermetastasen. Der hohe Ki67-Wert von 48% deutet auf einen aggressiven Tumor hin, der eine systemische Therapie erfordert. Die ESMO-Leitlinie für neuroendokrine Tumore (NET) empfiehlt bei gut differenzierten NETs mit Progression oder Symptomen eine Behandlung mit Somatostatinanaloga. Bei höhergradigen Tumoren oder bei unzureichendem Ansprechen auf Somatostatinanaloga wird die Kombination mit zielgerichteten Therapien wie Sunitinib empfohlen. Sunitinib hat in Studien eine Verbesserung des progressionsfreien Überlebens bei fortgeschrittenen, gut differenzierten oder mittelschwer differenzierten NETs gezeigt. Da die vorliegenden Informationen unvollständig sind (fehlendes TNM-Stadium, unvollständige Pathologie), ist eine genaue Risikostratifizierung und Anpassung der Therapie schwierig. Eine regelmäßige Bildgebung ist essentiell, um das Ansprechen auf die Therapie zu beurteilen und gegebenenfalls die Therapie anzupassen. Eine vollständige Pathologie und ein genaues TNM-Stadium sind für eine optimierte Therapieplanung erforderlich. Sollte die Therapie mit Somatostatinanalogon und Sunitinib nicht ausreichend wirksam sein, könnte eine Chemotherapie (z.B. mit Streptozotin) in Betracht gezogen werden.",
+    "therapie_raw_response": "{'role': 'Erstelle eine detaillierte, leitlinienbasierte Therapieempfehlung basierend auf der Diagnoseanalyse.', 'guideline_provider': 'ESMO', 'context': \"{'role': 'Analysiere Diagnose, Symptome und klinische Berichte und fasse die wichtigsten Punkte zusammen.', 'context': '\\\\n            Patient ID: 2\\\\n            Leitlinie: ESMO\\\\n            Diagnose-Kürzel: \\\\n            Hauptdiagnose (Text): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\\\\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhalb der Ileozökalklappe. G3 NET, Ki67 48%.\\\\n07/2015 CT staging Thorax/Abdomen: Primärtumor des Ileums 40 x 40 x 70 mm. V.a. Lymphknotenmetastasen lokoregionär. V.a. Lebermetastasen in Segment VI und VIII.\\\\n\\\\n07/2015 Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie.\\\\n            Stadium: \\\\n            Nebendiagnosen: \\\\n            Klinik/Fragestellung: \\\\n            PET-CT Bericht: \\\\n            Begleitsymptome: \\\\n            Prognose Score: \\\\n            Vorstellungsart: \\\\n        ', 'attachments_info': 'Berücksichtige die angefügten Dokumente (z.B. Leitlinien) für deine Analyse.', 'text': '## Zusammenfassung der Diagnostik:\\\\n\\\\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms (Ileum) mit Lymphknoten- und Lebermetastasen (Diagnosejahr 2015). Es handelt sich um einen G3-NET mit einem hohen Proliferationsindex (Ki67 48%), was auf eine aggressive Tumorbiologie hindeutet.\\\\n\\\\n**Stadium:** Das Stadium ist nicht explizit angegeben, jedoch deuten die Befunde (Primärtumor, Lymphknotenmetastasen, Lebermetastasen) auf ein fortgeschrittenes Stadium (mindestens Stadium IV) hin. Eine genaue Stadialisierung gemäß TNM-Klassifikation fehlt in den vorliegenden Informationen.\\\\n\\\\n**Klinische Details & Befunde:**\\\\n\\\\n*   **Tumorlokalisation:** Ileum, ca. 25 cm oberhalb der Ileozökalklappe.\\\\n*   **Tumorgröße:** 40 x 40 x 70 mm.\\\\n*   **Lymphknotenmetastasen:** Verdacht auf lokoregionäre Lymphknotenmetastasen.\\\\n*   **Lebermetastasen:** Verdacht auf Metastasen in den Lebersegmenten VI und VIII.\\\\n*   **Therapeutisches Vorgehen:** Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie wurden durchgeführt.\\\\n*   **PET-CT Bericht:** Der Bericht ist nicht vorhanden, wäre aber für die Beurteilung des Ansprechens auf die Therapie und das Auffinden weiterer Metastasen essentiell.\\\\n*   **Begleitsymptome, Nebendiagnosen, Prognose Score und Vorstellungsart:** Diese Informationen fehlen ebenfalls.\\\\n\\\\n**Wichtiger Hinweis:**\\\\n\\\\nUm eine vollständige Beurteilung zu ermöglichen, sind folgende Informationen erforderlich:\\\\n\\\\n*   **PET-CT Bericht:** Zur Bestätigung und genauen Lokalisierung von Metastasen.\\\\n*   **Vollständige Pathologie:**  Detaillierte Angaben zur Histologie, Grading und Immunhistochemie des Tumors.\\\\n*   **TNM-Stadium:** Eine genaue Festlegung des TNM-Stadiums.\\\\n*   **Weitere Informationen:**  Begleitsymptome, Nebendiagnosen, Prognose Score und Vorstellungsart.\\\\n*   **ESMO Leitlinie:** Die Anwendung der ESMO Leitlinie ist essentiell, um die optimale Therapie zu definieren, insbesondere hinsichtlich der Auswahl von somatostatinanaloga, zielgerichteten Therapien oder Chemotherapie.\\\\n'}\", 'text': '**Therapieempfehlung:**\\nAufgrund des fortgeschrittenen Stadiums (Lymphknoten- und Lebermetastasen), des hohen Proliferationsindex (Ki67 48%) und der fehlenden vollständigen Informationen zur Pathologie und zum TNM-Stadium, wird eine systemische Therapie mit einem Somatostatinanalogon (z.B. Lanreotid oder Octreotid) in Kombination mit einer zielgerichteten Therapie mit Sunitinib empfohlen. Eine regelmäßige Bildgebung (CT/MRT/PET-CT) zur Beurteilung des Therapieansprechens ist obligat.\\n\\n**Begründung:**\\nDer Patient präsentiert einen neuroendokrinen Tumor des Dünndarms (NET) mit Lymphknoten- und Lebermetastasen. Der hohe Ki67-Wert von 48% deutet auf einen aggressiven Tumor hin, der eine systemische Therapie erfordert. Die ESMO-Leitlinie für neuroendokrine Tumore (NET) empfiehlt bei gut differenzierten NETs mit Progression oder Symptomen eine Behandlung mit Somatostatinanaloga. Bei höhergradigen Tumoren oder bei unzureichendem Ansprechen auf Somatostatinanaloga wird die Kombination mit zielgerichteten Therapien wie Sunitinib empfohlen. Sunitinib hat in Studien eine Verbesserung des progressionsfreien Überlebens bei fortgeschrittenen, gut differenzierten oder mittelschwer differenzierten NETs gezeigt. Da die vorliegenden Informationen unvollständig sind (fehlendes TNM-Stadium, unvollständige Pathologie), ist eine genaue Risikostratifizierung und Anpassung der Therapie schwierig. Eine regelmäßige Bildgebung ist essentiell, um das Ansprechen auf die Therapie zu beurteilen und gegebenenfalls die Therapie anzupassen. Eine vollständige Pathologie und ein genaues TNM-Stadium sind für eine optimierte Therapieplanung erforderlich. Sollte die Therapie mit Somatostatinanalogon und Sunitinib nicht ausreichend wirksam sein, könnte eine Chemotherapie (z.B. mit Streptozotin) in Betracht gezogen werden.\\n'}",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "c269061384a24c449844e7adeec376ad",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik_total_s": 17.721741147339344,
+      "Studien_total_s": 0.41257372312247753,
+      "Therapie_total_s": 15.88760762475431,
+      "Overall_workflow_s": 34.02192249521613
+    },
+    "patient_context_summary_for_eval": "Patient ID: 2\nGuideline Specified: ESMO\nDiagnosis (Code): \nDiagnosis (Text Snippet): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhal...\nStage: "
+  },
+  {
+    "patient_id_original": "3",
+    "patient_data_source_file": "NET Tubo_modified.xlsx",
+    "timestamp_processed": "2025-06-05T11:15:21.845119",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": true,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "{'role': 'Analysiere Diagnose, Symptome und klinische Berichte und fasse die wichtigsten Punkte zusammen.', 'context': '\\n            Patient ID: 3\\n            Leitlinie: ESMO\\n            Diagnose-Kürzel: \\n            Hauptdiagnose (Text): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhalb der Ileozökalklappe. G2 NET.\\n07/2015 CT staging Thorax/Abdomen: Primärtumor des Ileums 40 x 40 x 70 mm. V.a. Lymphknotenmetastasen lokoregionär. V.a. Lebermetastasen in Segment VI und VIII.\\n\\n07/2015 DOTATOC PET: nur geringe Speicherung der Leberläsionen.\\n07/2015 Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie.\\n            Stadium: \\n            Nebendiagnosen: \\n            Klinik/Fragestellung: \\n            PET-CT Bericht: \\n            Begleitsymptome: \\n            Prognose Score: \\n            Vorstellungsart: \\n        ', 'attachments_info': 'Berücksichtige die angefügten Dokumente (z.B. Leitlinien) für deine Analyse.', 'text': '## Zusammenfassung der Diagnostik:\\n\\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen (Diagnose gestellt 2015).\\n\\n**Stadium:**  Die vorliegenden Informationen deuten auf ein fortgeschrittenes Stadium hin, da sowohl regionale Lymphknotenmetastasen als auch Lebermetastasen vorliegen. Eine genaue Stadieneinteilung nach TNM-Kriterien ist ohne vollständige Informationen nicht möglich.\\n\\n**Wichtige klinische Punkte:**\\n\\n* **Primärtumor:** Im Ileum lokalisiert (ca. 25 cm oberhalb der Ileozökalklappe), Größe 40 x 40 x 70 mm. Histologisch als G2 NET klassifiziert (mittlergradig differenziert).\\n* **Metastasierung:**  Nachweis von Lymphknotenmetastasen lokoregionär und Verdacht auf Lebermetastasen in Segment VI und VIII.\\n* **DOTATOC PET:**  Geringe Speicherung der Leberläsionen im DOTATOC PET deutet auf eine geringe Expression von Somatostatinrezeptoren hin. Dies könnte die Therapieplanung beeinflussen.\\n* **Therapeutisches Vorgehen:** Es erfolgte eine Hemicolektomie rechts mit Ileumteilresektion und Lymphadenektomie.\\n* **Fragestellung:** Die initiale Fragestellung war die Abklärung unklarer abdomineller Beschwerden.\\n\\n**Zusammenfassend** handelt es sich um einen fortgeschrittenen neuroendokrinen Tumor des Dünndarms mit Metastasierung, der bereits operativ behandelt wurde. Die geringe Speicherung im DOTATOC PET ist ein wichtiger Faktor bei der weiteren Therapieplanung.\\n'}",
+    "diagnostik_raw_response": "{'role': 'Analysiere Diagnose, Symptome und klinische Berichte und fasse die wichtigsten Punkte zusammen.', 'context': '\\n            Patient ID: 3\\n            Leitlinie: ESMO\\n            Diagnose-Kürzel: \\n            Hauptdiagnose (Text): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhalb der Ileozökalklappe. G2 NET.\\n07/2015 CT staging Thorax/Abdomen: Primärtumor des Ileums 40 x 40 x 70 mm. V.a. Lymphknotenmetastasen lokoregionär. V.a. Lebermetastasen in Segment VI und VIII.\\n\\n07/2015 DOTATOC PET: nur geringe Speicherung der Leberläsionen.\\n07/2015 Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie.\\n            Stadium: \\n            Nebendiagnosen: \\n            Klinik/Fragestellung: \\n            PET-CT Bericht: \\n            Begleitsymptome: \\n            Prognose Score: \\n            Vorstellungsart: \\n        ', 'attachments_info': 'Berücksichtige die angefügten Dokumente (z.B. Leitlinien) für deine Analyse.', 'text': '## Zusammenfassung der Diagnostik:\\n\\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen (Diagnose gestellt 2015).\\n\\n**Stadium:**  Die vorliegenden Informationen deuten auf ein fortgeschrittenes Stadium hin, da sowohl regionale Lymphknotenmetastasen als auch Lebermetastasen vorliegen. Eine genaue Stadieneinteilung nach TNM-Kriterien ist ohne vollständige Informationen nicht möglich.\\n\\n**Wichtige klinische Punkte:**\\n\\n* **Primärtumor:** Im Ileum lokalisiert (ca. 25 cm oberhalb der Ileozökalklappe), Größe 40 x 40 x 70 mm. Histologisch als G2 NET klassifiziert (mittlergradig differenziert).\\n* **Metastasierung:**  Nachweis von Lymphknotenmetastasen lokoregionär und Verdacht auf Lebermetastasen in Segment VI und VIII.\\n* **DOTATOC PET:**  Geringe Speicherung der Leberläsionen im DOTATOC PET deutet auf eine geringe Expression von Somatostatinrezeptoren hin. Dies könnte die Therapieplanung beeinflussen.\\n* **Therapeutisches Vorgehen:** Es erfolgte eine Hemicolektomie rechts mit Ileumteilresektion und Lymphadenektomie.\\n* **Fragestellung:** Die initiale Fragestellung war die Abklärung unklarer abdomineller Beschwerden.\\n\\n**Zusammenfassend** handelt es sich um einen fortgeschrittenen neuroendokrinen Tumor des Dünndarms mit Metastasierung, der bereits operativ behandelt wurde. Die geringe Speicherung im DOTATOC PET ist ein wichtiger Faktor bei der weiteren Therapieplanung.\\n'}",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "a04f5422200d45ad91ca38334119cfcd",
+    "studien_output": [
+      {
+        "title": "Randomized Phase II Trial on Fitness- and Comorbidity- Tailored Treatment in Elderly Patients With Newly Diagnosed Primary CNS Lymphoma (FIORELLA Trial)",
+        "nct_id": "NCT03495960"
+      },
+      {
+        "title": "A European Randomised Phase 3 Study to Assess the Efficacy and Safety of TOOKAD® Soluble for Localised Prostate Cancer Compared to Active Surveillance",
+        "nct_id": "NCT01310894"
+      },
+      {
+        "title": "Neoadjuvant Chemotherapy and Extrapleural Pneumonectomy of Malignant Pleural Mesothelioma (MPM) With or Without Hemithoracic Radiotherapy. A Randomized Multicenter Phase II Trial",
+        "nct_id": "NCT00334594"
+      },
+      {
+        "title": "A Prospective, Multicentre European Registry for Newly Diagnosed Patients With Myelodysplastic Syndromes (MDS), Including Acute Myeloid Leukaemia With 20-<30 Percent Marrow Blasts (Former RAEB-t), and Chronic Myelomonocytic Leukaemia (CMML)",
+        "nct_id": "NCT00600860"
+      },
+      {
+        "title": "Adjuvant Aspirin Treatment in PIK3CA Mutated Colon Cancer Patients. A Randomized, Double-blinded, Placebo-controlled, Phase III Trial",
+        "nct_id": "NCT02467582"
+      },
+      {
+        "title": "Efficacy of the \"Consilium\" Smartphone App for Detecting Symptoms and Treatment Side Effects in Cancer Patients Depending on Form of Medication Application, Age and Outpatient Characteristics: Observational Study",
+        "nct_id": "NCT03578731"
+      },
+      {
+        "title": "SPOG 2015 FN Definition. A Swiss Pediatric Oncology Group (SPOG) Initiated Multi-center Open-label Randomized Controlled Multiple Crossover Non-inferiority Trial on Safety of a High Versus Low Temperature Limit Defining Fever in Pediatric Patients With Cancer at Risk for Fever in Chemotherapy-induced Neutropenia (FN)",
+        "nct_id": "NCT02324231"
+      },
+      {
+        "title": "A Randomised Phase-III Trial of the Cooperative Weichteilsarkom Study Group (CWS) for Localised High-risk Rhabdomyosarcoma and Localised Rhabdomyosarcoma-like Soft Tissue Sarcoma in Children, Adolescents, and Young Adults",
+        "nct_id": "NCT00876031"
+      },
+      {
+        "title": "An Expanded Access Program of Ipilimumab for Patients With Glioblastomas and Gliomas",
+        "nct_id": "NCT03460782"
+      },
+      {
+        "title": "A Multicentre Single-arm Phase II Trial of Amivantamab, Lazertinib Plus Bevacizumab in Patients With EGFR-mutant Advanced NSCLC With Progression on Previous Third-generation EGFR-TKI",
+        "nct_id": "NCT05601973"
+      },
+      {
+        "title": "A Phase I/II Feasibility Study of Oral Etoposide Given Concurrently With Radiotherapy Followed With Dose Intensive Adjuvant Chemotherapy for Children With Newly Diagnosed High Stage Medulloblastoma",
+        "nct_id": "NCT00003573"
+      },
+      {
+        "title": "An Investigator Initiated, Non-randomized Controlled Trial on the Effect of Cognitively Challenging Physical Activity on Executive Functions in Paediatric Cancer Patients",
+        "nct_id": "NCT06839794"
+      },
+      {
+        "title": "External Beam Radiotherapy for Unresectable Hepatocellular Carcinoma. A Multicenter Phase I/II Trial.",
+        "nct_id": "NCT00777894"
+      },
+      {
+        "title": "Accuracy Assessment for Computer-assisted Surgical Interventions of the Liver: A Prospective, Non Randomized Study",
+        "nct_id": "NCT01474694"
+      },
+      {
+        "title": "Pembrolizumab and Radiotherapy for OLigometastatic Squamous Cell Carcinoma of the Head and Neck: a Randomized Phase III Study",
+        "nct_id": "NCT05815927"
+      },
+      {
+        "title": "Real-World Treatment Patterns, BRCA Testing Practices, Outcomes, and Health Care Utilization in Platinum-Sensitive Recurrent Serous Ovarian Cancer: A Multi-Country Retrospective Study",
+        "nct_id": "NCT02262273"
+      },
+      {
+        "title": "A Phase II, Multicentre, Open-label Study of Cabozantinib as 2nd Line Treatment in Subjects With Unresectable, Locally Advanced or Metastatic Renal Cell Carcinoma With a Clear-Cell Component Who Progressed After 1st Line Treatment With Checkpoint Inhibitors.",
+        "nct_id": "NCT03945773"
+      },
+      {
+        "title": "Assessing the Clinical Acceptability of Ultra-low Dose PET/CT and CT-less PET Using a Long Axial Field-of-view PET/CT System: a Single-centre, Single-blinded Method Agreement Study",
+        "nct_id": "NCT05496920"
+      },
+      {
+        "title": "Phase I Study to Determine the Safety of MEN-10755 (BMS-195615) in Patients With a Solid Tumor on a Short I.V. Infusion Given Once Every Week for 3 Consecutive Weeks, Followed by One Week's Rest",
+        "nct_id": "NCT00003982"
+      },
+      {
+        "title": "Ibritumomab Tiuxetan and High-Dose Melphalan as Conditioning Regimen Before Autologous Stem Cell Transplantation for Elderly Patients With Lymphoma in Relapse or Resistant to Chemotherapy. A Multicenter Phase I Trial",
+        "nct_id": "NCT00392691"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nAufgrund des fortgeschrittenen Stadiums (Lymphknoten- und Lebermetastasen) und der geringen Somatostatinrezeptor-Expression (geringe Speicherung im DOTATOC PET) wird eine systemische Therapie mit einer Kombination aus Streptozocin und 5-Fluorouracil (5-FU) empfohlen.  Eine Überprüfung der Möglichkeit einer Teilnahme an klinischen Studien mit neuen Wirkstoffen sollte ebenfalls erfolgen.\n\n**Begründung:**\nDer Patient präsentiert einen neuroendokrinen Tumor des Dünndarms (NET) mit Lymphknoten- und Lebermetastasen, was ein fortgeschrittenes Stadium darstellt. Die vorliegende Zusammenfassung deutet auf eine geringe Expression von Somatostatinrezeptoren in den Lebermetastasen hin, was die Wirksamkeit von Somatostatinanaloga (z.B. Octreotid, Lanreotid) als Monotherapie einschränkt.  Die ESMO-Leitlinie (siehe angefügte Dokumente) empfiehlt bei fortgeschrittenen, nicht operablen NETs mit geringer Somatostatinrezeptor-Expression eine Chemotherapie.  Die Kombination aus Streptozocin und 5-FU ist eine etablierte und in der ESMO-Leitlinie genannte Chemotherapie-Option für gut differenzierte bis moderat differenzierte NETs (G1-G2).  Da der Tumor des Patienten als G2 klassifiziert ist, ist diese Kombination eine geeignete Erstlinientherapie.  Zusätzlich sollte die Möglichkeit einer Teilnahme an klinischen Studien mit neuen Wirkstoffen, wie z.B. Peptide Receptor Radionuclide Therapy (PRRT) oder zielgerichteten Therapien, evaluiert werden, um den Patienten Zugang zu innovativen Behandlungsoptionen zu ermöglichen.  Eine regelmäßige Bildgebung zur Beurteilung des Therapieansprechens ist obligatorisch.",
+    "therapie_raw_response": "{'role': 'Erstelle eine detaillierte, leitlinienbasierte Therapieempfehlung basierend auf der Diagnoseanalyse.', 'guideline_provider': 'ESMO', 'context': \"{'role': 'Analysiere Diagnose, Symptome und klinische Berichte und fasse die wichtigsten Punkte zusammen.', 'context': '\\\\n            Patient ID: 3\\\\n            Leitlinie: ESMO\\\\n            Diagnose-Kürzel: \\\\n            Hauptdiagnose (Text): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\\\\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhalb der Ileozökalklappe. G2 NET.\\\\n07/2015 CT staging Thorax/Abdomen: Primärtumor des Ileums 40 x 40 x 70 mm. V.a. Lymphknotenmetastasen lokoregionär. V.a. Lebermetastasen in Segment VI und VIII.\\\\n\\\\n07/2015 DOTATOC PET: nur geringe Speicherung der Leberläsionen.\\\\n07/2015 Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie.\\\\n            Stadium: \\\\n            Nebendiagnosen: \\\\n            Klinik/Fragestellung: \\\\n            PET-CT Bericht: \\\\n            Begleitsymptome: \\\\n            Prognose Score: \\\\n            Vorstellungsart: \\\\n        ', 'attachments_info': 'Berücksichtige die angefügten Dokumente (z.B. Leitlinien) für deine Analyse.', 'text': '## Zusammenfassung der Diagnostik:\\\\n\\\\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen (Diagnose gestellt 2015).\\\\n\\\\n**Stadium:**  Die vorliegenden Informationen deuten auf ein fortgeschrittenes Stadium hin, da sowohl regionale Lymphknotenmetastasen als auch Lebermetastasen vorliegen. Eine genaue Stadieneinteilung nach TNM-Kriterien ist ohne vollständige Informationen nicht möglich.\\\\n\\\\n**Wichtige klinische Punkte:**\\\\n\\\\n* **Primärtumor:** Im Ileum lokalisiert (ca. 25 cm oberhalb der Ileozökalklappe), Größe 40 x 40 x 70 mm. Histologisch als G2 NET klassifiziert (mittlergradig differenziert).\\\\n* **Metastasierung:**  Nachweis von Lymphknotenmetastasen lokoregionär und Verdacht auf Lebermetastasen in Segment VI und VIII.\\\\n* **DOTATOC PET:**  Geringe Speicherung der Leberläsionen im DOTATOC PET deutet auf eine geringe Expression von Somatostatinrezeptoren hin. Dies könnte die Therapieplanung beeinflussen.\\\\n* **Therapeutisches Vorgehen:** Es erfolgte eine Hemicolektomie rechts mit Ileumteilresektion und Lymphadenektomie.\\\\n* **Fragestellung:** Die initiale Fragestellung war die Abklärung unklarer abdomineller Beschwerden.\\\\n\\\\n**Zusammenfassend** handelt es sich um einen fortgeschrittenen neuroendokrinen Tumor des Dünndarms mit Metastasierung, der bereits operativ behandelt wurde. Die geringe Speicherung im DOTATOC PET ist ein wichtiger Faktor bei der weiteren Therapieplanung.\\\\n'}\", 'text': '**Therapieempfehlung:**\\nAufgrund des fortgeschrittenen Stadiums (Lymphknoten- und Lebermetastasen) und der geringen Somatostatinrezeptor-Expression (geringe Speicherung im DOTATOC PET) wird eine systemische Therapie mit einer Kombination aus Streptozocin und 5-Fluorouracil (5-FU) empfohlen.  Eine Überprüfung der Möglichkeit einer Teilnahme an klinischen Studien mit neuen Wirkstoffen sollte ebenfalls erfolgen.\\n\\n**Begründung:**\\nDer Patient präsentiert einen neuroendokrinen Tumor des Dünndarms (NET) mit Lymphknoten- und Lebermetastasen, was ein fortgeschrittenes Stadium darstellt. Die vorliegende Zusammenfassung deutet auf eine geringe Expression von Somatostatinrezeptoren in den Lebermetastasen hin, was die Wirksamkeit von Somatostatinanaloga (z.B. Octreotid, Lanreotid) als Monotherapie einschränkt.  Die ESMO-Leitlinie (siehe angefügte Dokumente) empfiehlt bei fortgeschrittenen, nicht operablen NETs mit geringer Somatostatinrezeptor-Expression eine Chemotherapie.  Die Kombination aus Streptozocin und 5-FU ist eine etablierte und in der ESMO-Leitlinie genannte Chemotherapie-Option für gut differenzierte bis moderat differenzierte NETs (G1-G2).  Da der Tumor des Patienten als G2 klassifiziert ist, ist diese Kombination eine geeignete Erstlinientherapie.  Zusätzlich sollte die Möglichkeit einer Teilnahme an klinischen Studien mit neuen Wirkstoffen, wie z.B. Peptide Receptor Radionuclide Therapy (PRRT) oder zielgerichteten Therapien, evaluiert werden, um den Patienten Zugang zu innovativen Behandlungsoptionen zu ermöglichen.  Eine regelmäßige Bildgebung zur Beurteilung des Therapieansprechens ist obligatorisch.\\n'}",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "082ce3c5ee964690af1dcde7970a35c5",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik_total_s": 12.636247348040342,
+      "Studien_total_s": 0.5582197122275829,
+      "Therapie_total_s": 14.758606253191829,
+      "Overall_workflow_s": 27.953073313459754
+    },
+    "patient_context_summary_for_eval": "Patient ID: 3\nGuideline Specified: ESMO\nDiagnosis (Code): \nDiagnosis (Text Snippet): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhal...\nStage: "
+  },
+  {
+    "patient_id_original": "4",
+    "patient_data_source_file": "NET Tubo_modified.xlsx",
+    "timestamp_processed": "2025-06-05T11:15:49.200809",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": true,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "{'role': 'Analysiere Diagnose, Symptome und klinische Berichte und fasse die wichtigsten Punkte zusammen.', 'context': '\\n            Patient ID: 4\\n            Leitlinie: ESMO\\n            Diagnose-Kürzel: \\n            Hauptdiagnose (Text): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhalb der Ileozökalklappe. G2 NET.\\n07/2015 CT staging Thorax/Abdomen: Primärtumor des Ileums 40 x 40 x 70 mm. V.a. Lymphknotenmetastasen lokoregionär. V.a. Lebermetastasen in Segment VI und VIII.\\n\\n07/2015 Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie.\\n08/2015 Start Somatuline\\n05/2016 Progress der Lebermetastasen\\n06/2016 DOTATOC PET: starke Speicherung der Leberläsionen.\\n            Stadium: \\n            Nebendiagnosen: \\n            Klinik/Fragestellung: \\n            PET-CT Bericht: \\n            Begleitsymptome: \\n            Prognose Score: \\n            Vorstellungsart: \\n        ', 'attachments_info': 'Berücksichtige die angefügten Dokumente (z.B. Leitlinien) für deine Analyse.', 'text': '## Zusammenfassung der Diagnostik:\\n\\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms (Ileum) mit Lymphknoten- und Lebermetastasen (Diagnose 2015). Es handelt sich um einen G2-Tumor.\\n\\n**Stadium:** Das Stadium ist nicht explizit angegeben, aber aufgrund der vorhandenen Lymphknotenmetastasen und Lebermetastasen handelt es sich um ein fortgeschrittenes Stadium (mindestens Stadium IV) gemäß der ESMO-Leitlinie.\\n\\n**Wichtige klinische Punkte:**\\n\\n* **Ersterdiagnose:** Tumor im Ileum, entdeckt bei Koloskopie aufgrund unklarer abdomineller Beschwerden.\\n* **Chirurgische Intervention:** Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie wurden durchgeführt.\\n* **Systemische Therapie:** Behandlung mit Somatuline wurde begonnen.\\n* **Progress:** Trotz Therapie erfolgte ein Progress der Lebermetastasen im Mai 2016.\\n* **DOTATOC PET-CT:** Zeigt eine starke Speicherung in den Leberläsionen, was auf eine Expression von Somatostatinrezeptoren hinweist und die Eignung für eine Peptidrezeptorradiotherapie (PRRT) nahelegt.\\n\\n**Zusammenfassend:** Der Patient leidet an einem fortgeschrittenen neuroendokrinen Tumor des Dünndarms mit Metastasen. Trotz Operation und Somatuline-Therapie kommt es zu einem Progress der Erkrankung. Die DOTATOC PET-CT-Ergebnisse unterstützen die Annahme einer guten Ansprechbarkeit auf PRRT. Eine weitere Stadieneinteilung und Beurteilung der Prognose sind unter Berücksichtigung der ESMO-Leitlinie und weiterer klinischer Daten notwendig.\\n'}",
+    "diagnostik_raw_response": "{'role': 'Analysiere Diagnose, Symptome und klinische Berichte und fasse die wichtigsten Punkte zusammen.', 'context': '\\n            Patient ID: 4\\n            Leitlinie: ESMO\\n            Diagnose-Kürzel: \\n            Hauptdiagnose (Text): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhalb der Ileozökalklappe. G2 NET.\\n07/2015 CT staging Thorax/Abdomen: Primärtumor des Ileums 40 x 40 x 70 mm. V.a. Lymphknotenmetastasen lokoregionär. V.a. Lebermetastasen in Segment VI und VIII.\\n\\n07/2015 Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie.\\n08/2015 Start Somatuline\\n05/2016 Progress der Lebermetastasen\\n06/2016 DOTATOC PET: starke Speicherung der Leberläsionen.\\n            Stadium: \\n            Nebendiagnosen: \\n            Klinik/Fragestellung: \\n            PET-CT Bericht: \\n            Begleitsymptome: \\n            Prognose Score: \\n            Vorstellungsart: \\n        ', 'attachments_info': 'Berücksichtige die angefügten Dokumente (z.B. Leitlinien) für deine Analyse.', 'text': '## Zusammenfassung der Diagnostik:\\n\\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms (Ileum) mit Lymphknoten- und Lebermetastasen (Diagnose 2015). Es handelt sich um einen G2-Tumor.\\n\\n**Stadium:** Das Stadium ist nicht explizit angegeben, aber aufgrund der vorhandenen Lymphknotenmetastasen und Lebermetastasen handelt es sich um ein fortgeschrittenes Stadium (mindestens Stadium IV) gemäß der ESMO-Leitlinie.\\n\\n**Wichtige klinische Punkte:**\\n\\n* **Ersterdiagnose:** Tumor im Ileum, entdeckt bei Koloskopie aufgrund unklarer abdomineller Beschwerden.\\n* **Chirurgische Intervention:** Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie wurden durchgeführt.\\n* **Systemische Therapie:** Behandlung mit Somatuline wurde begonnen.\\n* **Progress:** Trotz Therapie erfolgte ein Progress der Lebermetastasen im Mai 2016.\\n* **DOTATOC PET-CT:** Zeigt eine starke Speicherung in den Leberläsionen, was auf eine Expression von Somatostatinrezeptoren hinweist und die Eignung für eine Peptidrezeptorradiotherapie (PRRT) nahelegt.\\n\\n**Zusammenfassend:** Der Patient leidet an einem fortgeschrittenen neuroendokrinen Tumor des Dünndarms mit Metastasen. Trotz Operation und Somatuline-Therapie kommt es zu einem Progress der Erkrankung. Die DOTATOC PET-CT-Ergebnisse unterstützen die Annahme einer guten Ansprechbarkeit auf PRRT. Eine weitere Stadieneinteilung und Beurteilung der Prognose sind unter Berücksichtigung der ESMO-Leitlinie und weiterer klinischer Daten notwendig.\\n'}",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "0bfe3a6d4d274f3999ba9b0e0fca707f",
+    "studien_output": [
+      {
+        "title": "Randomized Phase II Trial on Fitness- and Comorbidity- Tailored Treatment in Elderly Patients With Newly Diagnosed Primary CNS Lymphoma (FIORELLA Trial)",
+        "nct_id": "NCT03495960"
+      },
+      {
+        "title": "A European Randomised Phase 3 Study to Assess the Efficacy and Safety of TOOKAD® Soluble for Localised Prostate Cancer Compared to Active Surveillance",
+        "nct_id": "NCT01310894"
+      },
+      {
+        "title": "Neoadjuvant Chemotherapy and Extrapleural Pneumonectomy of Malignant Pleural Mesothelioma (MPM) With or Without Hemithoracic Radiotherapy. A Randomized Multicenter Phase II Trial",
+        "nct_id": "NCT00334594"
+      },
+      {
+        "title": "A Prospective, Multicentre European Registry for Newly Diagnosed Patients With Myelodysplastic Syndromes (MDS), Including Acute Myeloid Leukaemia With 20-<30 Percent Marrow Blasts (Former RAEB-t), and Chronic Myelomonocytic Leukaemia (CMML)",
+        "nct_id": "NCT00600860"
+      },
+      {
+        "title": "Adjuvant Aspirin Treatment in PIK3CA Mutated Colon Cancer Patients. A Randomized, Double-blinded, Placebo-controlled, Phase III Trial",
+        "nct_id": "NCT02467582"
+      },
+      {
+        "title": "Efficacy of the \"Consilium\" Smartphone App for Detecting Symptoms and Treatment Side Effects in Cancer Patients Depending on Form of Medication Application, Age and Outpatient Characteristics: Observational Study",
+        "nct_id": "NCT03578731"
+      },
+      {
+        "title": "SPOG 2015 FN Definition. A Swiss Pediatric Oncology Group (SPOG) Initiated Multi-center Open-label Randomized Controlled Multiple Crossover Non-inferiority Trial on Safety of a High Versus Low Temperature Limit Defining Fever in Pediatric Patients With Cancer at Risk for Fever in Chemotherapy-induced Neutropenia (FN)",
+        "nct_id": "NCT02324231"
+      },
+      {
+        "title": "A Randomised Phase-III Trial of the Cooperative Weichteilsarkom Study Group (CWS) for Localised High-risk Rhabdomyosarcoma and Localised Rhabdomyosarcoma-like Soft Tissue Sarcoma in Children, Adolescents, and Young Adults",
+        "nct_id": "NCT00876031"
+      },
+      {
+        "title": "An Expanded Access Program of Ipilimumab for Patients With Glioblastomas and Gliomas",
+        "nct_id": "NCT03460782"
+      },
+      {
+        "title": "A Multicentre Single-arm Phase II Trial of Amivantamab, Lazertinib Plus Bevacizumab in Patients With EGFR-mutant Advanced NSCLC With Progression on Previous Third-generation EGFR-TKI",
+        "nct_id": "NCT05601973"
+      },
+      {
+        "title": "A Phase I/II Feasibility Study of Oral Etoposide Given Concurrently With Radiotherapy Followed With Dose Intensive Adjuvant Chemotherapy for Children With Newly Diagnosed High Stage Medulloblastoma",
+        "nct_id": "NCT00003573"
+      },
+      {
+        "title": "An Investigator Initiated, Non-randomized Controlled Trial on the Effect of Cognitively Challenging Physical Activity on Executive Functions in Paediatric Cancer Patients",
+        "nct_id": "NCT06839794"
+      },
+      {
+        "title": "External Beam Radiotherapy for Unresectable Hepatocellular Carcinoma. A Multicenter Phase I/II Trial.",
+        "nct_id": "NCT00777894"
+      },
+      {
+        "title": "Accuracy Assessment for Computer-assisted Surgical Interventions of the Liver: A Prospective, Non Randomized Study",
+        "nct_id": "NCT01474694"
+      },
+      {
+        "title": "Pembrolizumab and Radiotherapy for OLigometastatic Squamous Cell Carcinoma of the Head and Neck: a Randomized Phase III Study",
+        "nct_id": "NCT05815927"
+      },
+      {
+        "title": "Real-World Treatment Patterns, BRCA Testing Practices, Outcomes, and Health Care Utilization in Platinum-Sensitive Recurrent Serous Ovarian Cancer: A Multi-Country Retrospective Study",
+        "nct_id": "NCT02262273"
+      },
+      {
+        "title": "A Phase II, Multicentre, Open-label Study of Cabozantinib as 2nd Line Treatment in Subjects With Unresectable, Locally Advanced or Metastatic Renal Cell Carcinoma With a Clear-Cell Component Who Progressed After 1st Line Treatment With Checkpoint Inhibitors.",
+        "nct_id": "NCT03945773"
+      },
+      {
+        "title": "Assessing the Clinical Acceptability of Ultra-low Dose PET/CT and CT-less PET Using a Long Axial Field-of-view PET/CT System: a Single-centre, Single-blinded Method Agreement Study",
+        "nct_id": "NCT05496920"
+      },
+      {
+        "title": "Phase I Study to Determine the Safety of MEN-10755 (BMS-195615) in Patients With a Solid Tumor on a Short I.V. Infusion Given Once Every Week for 3 Consecutive Weeks, Followed by One Week's Rest",
+        "nct_id": "NCT00003982"
+      },
+      {
+        "title": "Ibritumomab Tiuxetan and High-Dose Melphalan as Conditioning Regimen Before Autologous Stem Cell Transplantation for Elderly Patients With Lymphoma in Relapse or Resistant to Chemotherapy. A Multicenter Phase I Trial",
+        "nct_id": "NCT00392691"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nAufgrund des fortgeschrittenen neuroendokrinen Tumors (NET) des Dünndarms mit Lebermetastasen und der positiven Somatostatinrezeptor-Expression (DOTATOC PET-CT) wird eine Peptidrezeptorradiotherapie (PRRT) mit Lutetium-177-DOTATATE empfohlen.  Als Begleittherapie sollte ein Long-Acting Somatostatin-Analogon (z.B. Lanreotid oder Pasireotid) fortgesetzt werden.\n\n**Begründung:**\nDer Patient präsentiert einen fortgeschrittenen NET des Dünndarms (G2) mit Lymphknoten- und Lebermetastasen.  Die DOTATOC PET-CT zeigt eine starke Speicherung in den Leberläsionen, was auf eine hohe Expression von Somatostatinrezeptoren hinweist. Gemäß der ESMO-Leitlinie (siehe angefügte Dokumente) stellt die PRRT mit Lutetium-177-DOTATATE eine Standardtherapieoption für Patienten mit gut differenzierten, metastasierten NETs mit Somatostatinrezeptor-Expression dar.  Die ESMO-Leitlinie empfiehlt die PRRT als primäre systemische Therapie bei Patienten mit progressiver Erkrankung unter Somatostatin-Analoga. Die fortgesetzte Gabe eines Long-Acting Somatostatin-Analogs dient der Rezeptorbesetzung und Optimierung der PRRT-Effektivität, wie in der ESMO-Leitlinie beschrieben.  Da der Patient unter Somatuline bereits einen Progress erlitt, ist die PRRT indiziert.  Ein detailliertes Staging (z.B. mittels Ganzkörper-MRT) kann zur Beurteilung des Ansprechens auf die Therapie und zur Erkennung von potenziellen Fernmetastasen durchgeführt werden.",
+    "therapie_raw_response": "{'role': 'Erstelle eine detaillierte, leitlinienbasierte Therapieempfehlung basierend auf der Diagnoseanalyse.', 'guideline_provider': 'ESMO', 'context': \"{'role': 'Analysiere Diagnose, Symptome und klinische Berichte und fasse die wichtigsten Punkte zusammen.', 'context': '\\\\n            Patient ID: 4\\\\n            Leitlinie: ESMO\\\\n            Diagnose-Kürzel: \\\\n            Hauptdiagnose (Text): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\\\\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhalb der Ileozökalklappe. G2 NET.\\\\n07/2015 CT staging Thorax/Abdomen: Primärtumor des Ileums 40 x 40 x 70 mm. V.a. Lymphknotenmetastasen lokoregionär. V.a. Lebermetastasen in Segment VI und VIII.\\\\n\\\\n07/2015 Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie.\\\\n08/2015 Start Somatuline\\\\n05/2016 Progress der Lebermetastasen\\\\n06/2016 DOTATOC PET: starke Speicherung der Leberläsionen.\\\\n            Stadium: \\\\n            Nebendiagnosen: \\\\n            Klinik/Fragestellung: \\\\n            PET-CT Bericht: \\\\n            Begleitsymptome: \\\\n            Prognose Score: \\\\n            Vorstellungsart: \\\\n        ', 'attachments_info': 'Berücksichtige die angefügten Dokumente (z.B. Leitlinien) für deine Analyse.', 'text': '## Zusammenfassung der Diagnostik:\\\\n\\\\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms (Ileum) mit Lymphknoten- und Lebermetastasen (Diagnose 2015). Es handelt sich um einen G2-Tumor.\\\\n\\\\n**Stadium:** Das Stadium ist nicht explizit angegeben, aber aufgrund der vorhandenen Lymphknotenmetastasen und Lebermetastasen handelt es sich um ein fortgeschrittenes Stadium (mindestens Stadium IV) gemäß der ESMO-Leitlinie.\\\\n\\\\n**Wichtige klinische Punkte:**\\\\n\\\\n* **Ersterdiagnose:** Tumor im Ileum, entdeckt bei Koloskopie aufgrund unklarer abdomineller Beschwerden.\\\\n* **Chirurgische Intervention:** Hemicolektomie rechts und Ileumteilresektion mit Lymphadenektomie wurden durchgeführt.\\\\n* **Systemische Therapie:** Behandlung mit Somatuline wurde begonnen.\\\\n* **Progress:** Trotz Therapie erfolgte ein Progress der Lebermetastasen im Mai 2016.\\\\n* **DOTATOC PET-CT:** Zeigt eine starke Speicherung in den Leberläsionen, was auf eine Expression von Somatostatinrezeptoren hinweist und die Eignung für eine Peptidrezeptorradiotherapie (PRRT) nahelegt.\\\\n\\\\n**Zusammenfassend:** Der Patient leidet an einem fortgeschrittenen neuroendokrinen Tumor des Dünndarms mit Metastasen. Trotz Operation und Somatuline-Therapie kommt es zu einem Progress der Erkrankung. Die DOTATOC PET-CT-Ergebnisse unterstützen die Annahme einer guten Ansprechbarkeit auf PRRT. Eine weitere Stadieneinteilung und Beurteilung der Prognose sind unter Berücksichtigung der ESMO-Leitlinie und weiterer klinischer Daten notwendig.\\\\n'}\", 'text': '**Therapieempfehlung:**\\nAufgrund des fortgeschrittenen neuroendokrinen Tumors (NET) des Dünndarms mit Lebermetastasen und der positiven Somatostatinrezeptor-Expression (DOTATOC PET-CT) wird eine Peptidrezeptorradiotherapie (PRRT) mit Lutetium-177-DOTATATE empfohlen.  Als Begleittherapie sollte ein Long-Acting Somatostatin-Analogon (z.B. Lanreotid oder Pasireotid) fortgesetzt werden.\\n\\n**Begründung:**\\nDer Patient präsentiert einen fortgeschrittenen NET des Dünndarms (G2) mit Lymphknoten- und Lebermetastasen.  Die DOTATOC PET-CT zeigt eine starke Speicherung in den Leberläsionen, was auf eine hohe Expression von Somatostatinrezeptoren hinweist. Gemäß der ESMO-Leitlinie (siehe angefügte Dokumente) stellt die PRRT mit Lutetium-177-DOTATATE eine Standardtherapieoption für Patienten mit gut differenzierten, metastasierten NETs mit Somatostatinrezeptor-Expression dar.  Die ESMO-Leitlinie empfiehlt die PRRT als primäre systemische Therapie bei Patienten mit progressiver Erkrankung unter Somatostatin-Analoga. Die fortgesetzte Gabe eines Long-Acting Somatostatin-Analogs dient der Rezeptorbesetzung und Optimierung der PRRT-Effektivität, wie in der ESMO-Leitlinie beschrieben.  Da der Patient unter Somatuline bereits einen Progress erlitt, ist die PRRT indiziert.  Ein detailliertes Staging (z.B. mittels Ganzkörper-MRT) kann zur Beurteilung des Ansprechens auf die Therapie und zur Erkennung von potenziellen Fernmetastasen durchgeführt werden.\\n'}",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "2971f70258e44807a2de0943bf1b7452",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik_total_s": 12.87115720845759,
+      "Studien_total_s": 0.22404772602021694,
+      "Therapie_total_s": 14.442078404128551,
+      "Overall_workflow_s": 27.537283338606358
+    },
+    "patient_context_summary_for_eval": "Patient ID: 4\nGuideline Specified: ESMO\nDiagnosis (Code): \nDiagnosis (Text Snippet): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhal...\nStage: "
+  }
+]
