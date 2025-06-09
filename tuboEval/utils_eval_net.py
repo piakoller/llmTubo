@@ -24,7 +24,8 @@ if not logger.hasHandlers():
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
 #NET
-PATIENT_DATA = os.path.join(script_dir, "NET Tubo.xlsx")
+# updated Patient Data
+PATIENT_DATA = os.path.join(script_dir, "NET Tubo v2.xlsx")
 AGGREGATED_EXCEL_INPUT_FILE = os.path.join(script_dir, "expert_review_sheets", "net_expert_evaluation_sheet.xlsx")
 EVALUATION_RESULTS_SAVE_DIR = os.path.join(script_dir, "evaluations_completed_comparative")
 
