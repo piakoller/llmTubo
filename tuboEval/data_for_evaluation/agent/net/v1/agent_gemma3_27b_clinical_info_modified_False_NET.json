@@ -1,0 +1,430 @@
+[
+  {
+    "patient_id_original": "1",
+    "patient_data_source_file": "NET Tubo.xlsx",
+    "timestamp_processed": "2025-06-09T11:51:30.799148",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": null,
+    "diagnostik_raw_response": null,
+    "diagnostik_think_block": null,
+    "diagnostik_interaction_id": null,
+    "studien_output": [
+      {
+        "title": "ALFApump System Post Marketing Surveillance Registry, In Support of the Following Indication: Automated Removal of Excess Peritoneal Fluid Into the Urinary Bladder in Patients With Cirrhosis or Malignancy, With Persistent or Refractory Ascites",
+        "nct_id": "NCT01532427"
+      },
+      {
+        "title": "Biomarker Signature of Stroke Aetiology Study: The BIOSIGNAL-Study",
+        "nct_id": "NCT02274727"
+      },
+      {
+        "title": "Real-World Treatment Patterns, BRCA Testing Practices, Outcomes, and Health Care Utilization in Platinum-Sensitive Recurrent Serous Ovarian Cancer: A Multi-Country Retrospective Study",
+        "nct_id": "NCT02262273"
+      },
+      {
+        "title": "Accuracy Assessment for Computer-assisted Surgical Interventions of the Liver: A Prospective, Non Randomized Study",
+        "nct_id": "NCT01474694"
+      },
+      {
+        "title": "An Open-label Phase 1/2a Study of BAL101553 Administered as Intravenous 48-hour Infusions in Adult Patients With Advanced Solid Tumors or Recurrent Glioblastoma",
+        "nct_id": "NCT02895360"
+      },
+      {
+        "title": "Dose-Intensive Melphalan and Cyclophosphamide With Autologous Bone Marrow Rescue for Recurrent Medulloblastoma and Germ Cell Tumors",
+        "nct_id": "NCT00002594"
+      },
+      {
+        "title": "A STUDY OF NERATINIB PLUS CAPECITABINE VERSUS LAPATINIB PLUS CAPECITABINE IN PATIENTS WITH HER2+ METASTATIC BREAST CANCER WHO HAVE RECEIVED TWO OR MORE PRIOR HER2-DIRECTED REGIMENS IN THE METASTATIC SETTING (NALA)",
+        "nct_id": "NCT01808573"
+      },
+      {
+        "title": "Substudy of Efficacy, Safety and Toxicology of Electronic Nicotine Delivery Systems as an Aid for Smoking Cessation (ESTxENDS Trial)- the Micronuclei Substudy of ESTxENDS",
+        "nct_id": "NCT04244773"
+      },
+      {
+        "title": "ADVATE/ ADYNOVI Hemophilia A Outcome Database",
+        "nct_id": "NCT02078427"
+      },
+      {
+        "title": "A Phase II, Multicentre, Open-label Study of Cabozantinib as 2nd Line Treatment in Subjects With Unresectable, Locally Advanced or Metastatic Renal Cell Carcinoma With a Clear-Cell Component Who Progressed After 1st Line Treatment With Checkpoint Inhibitors.",
+        "nct_id": "NCT03945773"
+      },
+      {
+        "title": "Randomized Phase II Trial on Fitness- and Comorbidity- Tailored Treatment in Elderly Patients With Newly Diagnosed Primary CNS Lymphoma (FIORELLA Trial)",
+        "nct_id": "NCT03495960"
+      },
+      {
+        "title": "A Multicenter, International, Randomized, Active Comparator-controlled, Double-blind, Double-dummy, Parallel-group, 2-arm, Phase 3 Study to Compare the Efficacy and Safety of the Oral FXIa Inhibitor Asundexian (BAY 2433334) With Apixaban for the Prevention of Stroke or Systemic Embolism in Male and Female Participants Aged 18 Years and Older With Atrial Fibrillation at Risk for Stroke",
+        "nct_id": "NCT05643573"
+      },
+      {
+        "title": "An Expanded Access Program of Ipilimumab for Patients With Glioblastomas and Gliomas",
+        "nct_id": "NCT03460782"
+      },
+      {
+        "title": "Assessing the Clinical Acceptability of Ultra-low Dose PET/CT and CT-less PET Using a Long Axial Field-of-view PET/CT System: a Single-centre, Single-blinded Method Agreement Study",
+        "nct_id": "NCT05496920"
+      },
+      {
+        "title": "A Phase II Study To Assess The Ability Of Neoadjuvant Chemotherapy Plus/Minus Second Look Surgery To Eliminate All Measurable Disease Prior To Radiotherapy For NGGCT",
+        "nct_id": "NCT00047320"
+      },
+      {
+        "title": "Safety and Efficiency of the YEARS Algorithm Versus Computed Tomography Pulmonary Angiography Alone for Suspected Pulmonary Embolism in Patients With Malignancy : HYDRA Study",
+        "nct_id": "NCT04657120"
+      },
+      {
+        "title": "A Phase Ib/II, Open-Label, Multicenter Study Evaluating the Safety, Activity, and Pharmacokinetics of Divarasib in Combination With Other Anti-Cancer Therapies in Patients With Previously Untreated Advanced Or Metastatic Non-Small Cell Lung Cancer With a KRAS G12C Mutation",
+        "nct_id": "NCT05789082"
+      },
+      {
+        "title": "A Phase 3, Randomized, Placebo-Controlled, Double-Blind Study to Evaluate Efficacy and Safety of Upadacitinib in Adult and Adolescent Subjects With Moderate to Severe Hidradenitis Suppurativa Who Have Failed Anti-TNF Therapy",
+        "nct_id": "NCT05889182"
+      },
+      {
+        "title": "Phase III Study of Tomudex and Cisplatin Versus Cisplatin in Malignant Pleural Mesothelioma",
+        "nct_id": "NCT00004920"
+      },
+      {
+        "title": "A Randomized Phase II Study Comparing Atezolizumab After Concurrent Chemo-radiotherapy With Chemo-radiotherapy Alone in Limited Disease Small-cell Lung Cancer",
+        "nct_id": "NCT03540420"
+      }
+    ],
+    "therapie_output_final": null,
+    "therapie_raw_response": null,
+    "therapie_think_block": null,
+    "therapie_interaction_id": null,
+    "errors": {
+      "Diagnostik": "module 'langfuse' has no attribute 'Trace'"
+    },
+    "runtimes_overall_agents": {
+      "Diagnostik_total_s": 0.002187442034482956,
+      "Studien_total_s": 0.4582529775798321
+    },
+    "patient_context_summary_for_eval": "Patient ID: 1\nGuideline Specified: ESMO\nDiagnosis (Code): \nDiagnosis (Text Snippet): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhal...\nStage: "
+  },
+  {
+    "patient_id_original": "2",
+    "patient_data_source_file": "NET Tubo.xlsx",
+    "timestamp_processed": "2025-06-09T11:51:31.206317",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": null,
+    "diagnostik_raw_response": null,
+    "diagnostik_think_block": null,
+    "diagnostik_interaction_id": null,
+    "studien_output": [
+      {
+        "title": "ALFApump System Post Marketing Surveillance Registry, In Support of the Following Indication: Automated Removal of Excess Peritoneal Fluid Into the Urinary Bladder in Patients With Cirrhosis or Malignancy, With Persistent or Refractory Ascites",
+        "nct_id": "NCT01532427"
+      },
+      {
+        "title": "Biomarker Signature of Stroke Aetiology Study: The BIOSIGNAL-Study",
+        "nct_id": "NCT02274727"
+      },
+      {
+        "title": "Real-World Treatment Patterns, BRCA Testing Practices, Outcomes, and Health Care Utilization in Platinum-Sensitive Recurrent Serous Ovarian Cancer: A Multi-Country Retrospective Study",
+        "nct_id": "NCT02262273"
+      },
+      {
+        "title": "Accuracy Assessment for Computer-assisted Surgical Interventions of the Liver: A Prospective, Non Randomized Study",
+        "nct_id": "NCT01474694"
+      },
+      {
+        "title": "An Open-label Phase 1/2a Study of BAL101553 Administered as Intravenous 48-hour Infusions in Adult Patients With Advanced Solid Tumors or Recurrent Glioblastoma",
+        "nct_id": "NCT02895360"
+      },
+      {
+        "title": "Dose-Intensive Melphalan and Cyclophosphamide With Autologous Bone Marrow Rescue for Recurrent Medulloblastoma and Germ Cell Tumors",
+        "nct_id": "NCT00002594"
+      },
+      {
+        "title": "A STUDY OF NERATINIB PLUS CAPECITABINE VERSUS LAPATINIB PLUS CAPECITABINE IN PATIENTS WITH HER2+ METASTATIC BREAST CANCER WHO HAVE RECEIVED TWO OR MORE PRIOR HER2-DIRECTED REGIMENS IN THE METASTATIC SETTING (NALA)",
+        "nct_id": "NCT01808573"
+      },
+      {
+        "title": "Substudy of Efficacy, Safety and Toxicology of Electronic Nicotine Delivery Systems as an Aid for Smoking Cessation (ESTxENDS Trial)- the Micronuclei Substudy of ESTxENDS",
+        "nct_id": "NCT04244773"
+      },
+      {
+        "title": "ADVATE/ ADYNOVI Hemophilia A Outcome Database",
+        "nct_id": "NCT02078427"
+      },
+      {
+        "title": "A Phase II, Multicentre, Open-label Study of Cabozantinib as 2nd Line Treatment in Subjects With Unresectable, Locally Advanced or Metastatic Renal Cell Carcinoma With a Clear-Cell Component Who Progressed After 1st Line Treatment With Checkpoint Inhibitors.",
+        "nct_id": "NCT03945773"
+      },
+      {
+        "title": "Randomized Phase II Trial on Fitness- and Comorbidity- Tailored Treatment in Elderly Patients With Newly Diagnosed Primary CNS Lymphoma (FIORELLA Trial)",
+        "nct_id": "NCT03495960"
+      },
+      {
+        "title": "A Multicenter, International, Randomized, Active Comparator-controlled, Double-blind, Double-dummy, Parallel-group, 2-arm, Phase 3 Study to Compare the Efficacy and Safety of the Oral FXIa Inhibitor Asundexian (BAY 2433334) With Apixaban for the Prevention of Stroke or Systemic Embolism in Male and Female Participants Aged 18 Years and Older With Atrial Fibrillation at Risk for Stroke",
+        "nct_id": "NCT05643573"
+      },
+      {
+        "title": "An Expanded Access Program of Ipilimumab for Patients With Glioblastomas and Gliomas",
+        "nct_id": "NCT03460782"
+      },
+      {
+        "title": "Assessing the Clinical Acceptability of Ultra-low Dose PET/CT and CT-less PET Using a Long Axial Field-of-view PET/CT System: a Single-centre, Single-blinded Method Agreement Study",
+        "nct_id": "NCT05496920"
+      },
+      {
+        "title": "A Phase II Study To Assess The Ability Of Neoadjuvant Chemotherapy Plus/Minus Second Look Surgery To Eliminate All Measurable Disease Prior To Radiotherapy For NGGCT",
+        "nct_id": "NCT00047320"
+      },
+      {
+        "title": "Safety and Efficiency of the YEARS Algorithm Versus Computed Tomography Pulmonary Angiography Alone for Suspected Pulmonary Embolism in Patients With Malignancy : HYDRA Study",
+        "nct_id": "NCT04657120"
+      },
+      {
+        "title": "A Phase Ib/II, Open-Label, Multicenter Study Evaluating the Safety, Activity, and Pharmacokinetics of Divarasib in Combination With Other Anti-Cancer Therapies in Patients With Previously Untreated Advanced Or Metastatic Non-Small Cell Lung Cancer With a KRAS G12C Mutation",
+        "nct_id": "NCT05789082"
+      },
+      {
+        "title": "A Phase 3, Randomized, Placebo-Controlled, Double-Blind Study to Evaluate Efficacy and Safety of Upadacitinib in Adult and Adolescent Subjects With Moderate to Severe Hidradenitis Suppurativa Who Have Failed Anti-TNF Therapy",
+        "nct_id": "NCT05889182"
+      },
+      {
+        "title": "Phase III Study of Tomudex and Cisplatin Versus Cisplatin in Malignant Pleural Mesothelioma",
+        "nct_id": "NCT00004920"
+      },
+      {
+        "title": "A Randomized Phase II Study Comparing Atezolizumab After Concurrent Chemo-radiotherapy With Chemo-radiotherapy Alone in Limited Disease Small-cell Lung Cancer",
+        "nct_id": "NCT03540420"
+      }
+    ],
+    "therapie_output_final": null,
+    "therapie_raw_response": null,
+    "therapie_think_block": null,
+    "therapie_interaction_id": null,
+    "errors": {
+      "Diagnostik": "module 'langfuse' has no attribute 'Trace'"
+    },
+    "runtimes_overall_agents": {
+      "Diagnostik_total_s": 0.001188468188047409,
+      "Studien_total_s": 0.3718571327626705
+    },
+    "patient_context_summary_for_eval": "Patient ID: 2\nGuideline Specified: ESMO\nDiagnosis (Code): \nDiagnosis (Text Snippet): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhal...\nStage: "
+  },
+  {
+    "patient_id_original": "3",
+    "patient_data_source_file": "NET Tubo.xlsx",
+    "timestamp_processed": "2025-06-09T11:51:31.609947",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": null,
+    "diagnostik_raw_response": null,
+    "diagnostik_think_block": null,
+    "diagnostik_interaction_id": null,
+    "studien_output": [
+      {
+        "title": "ALFApump System Post Marketing Surveillance Registry, In Support of the Following Indication: Automated Removal of Excess Peritoneal Fluid Into the Urinary Bladder in Patients With Cirrhosis or Malignancy, With Persistent or Refractory Ascites",
+        "nct_id": "NCT01532427"
+      },
+      {
+        "title": "Biomarker Signature of Stroke Aetiology Study: The BIOSIGNAL-Study",
+        "nct_id": "NCT02274727"
+      },
+      {
+        "title": "Real-World Treatment Patterns, BRCA Testing Practices, Outcomes, and Health Care Utilization in Platinum-Sensitive Recurrent Serous Ovarian Cancer: A Multi-Country Retrospective Study",
+        "nct_id": "NCT02262273"
+      },
+      {
+        "title": "Accuracy Assessment for Computer-assisted Surgical Interventions of the Liver: A Prospective, Non Randomized Study",
+        "nct_id": "NCT01474694"
+      },
+      {
+        "title": "An Open-label Phase 1/2a Study of BAL101553 Administered as Intravenous 48-hour Infusions in Adult Patients With Advanced Solid Tumors or Recurrent Glioblastoma",
+        "nct_id": "NCT02895360"
+      },
+      {
+        "title": "Dose-Intensive Melphalan and Cyclophosphamide With Autologous Bone Marrow Rescue for Recurrent Medulloblastoma and Germ Cell Tumors",
+        "nct_id": "NCT00002594"
+      },
+      {
+        "title": "A STUDY OF NERATINIB PLUS CAPECITABINE VERSUS LAPATINIB PLUS CAPECITABINE IN PATIENTS WITH HER2+ METASTATIC BREAST CANCER WHO HAVE RECEIVED TWO OR MORE PRIOR HER2-DIRECTED REGIMENS IN THE METASTATIC SETTING (NALA)",
+        "nct_id": "NCT01808573"
+      },
+      {
+        "title": "Substudy of Efficacy, Safety and Toxicology of Electronic Nicotine Delivery Systems as an Aid for Smoking Cessation (ESTxENDS Trial)- the Micronuclei Substudy of ESTxENDS",
+        "nct_id": "NCT04244773"
+      },
+      {
+        "title": "ADVATE/ ADYNOVI Hemophilia A Outcome Database",
+        "nct_id": "NCT02078427"
+      },
+      {
+        "title": "A Phase II, Multicentre, Open-label Study of Cabozantinib as 2nd Line Treatment in Subjects With Unresectable, Locally Advanced or Metastatic Renal Cell Carcinoma With a Clear-Cell Component Who Progressed After 1st Line Treatment With Checkpoint Inhibitors.",
+        "nct_id": "NCT03945773"
+      },
+      {
+        "title": "Randomized Phase II Trial on Fitness- and Comorbidity- Tailored Treatment in Elderly Patients With Newly Diagnosed Primary CNS Lymphoma (FIORELLA Trial)",
+        "nct_id": "NCT03495960"
+      },
+      {
+        "title": "A Multicenter, International, Randomized, Active Comparator-controlled, Double-blind, Double-dummy, Parallel-group, 2-arm, Phase 3 Study to Compare the Efficacy and Safety of the Oral FXIa Inhibitor Asundexian (BAY 2433334) With Apixaban for the Prevention of Stroke or Systemic Embolism in Male and Female Participants Aged 18 Years and Older With Atrial Fibrillation at Risk for Stroke",
+        "nct_id": "NCT05643573"
+      },
+      {
+        "title": "An Expanded Access Program of Ipilimumab for Patients With Glioblastomas and Gliomas",
+        "nct_id": "NCT03460782"
+      },
+      {
+        "title": "Assessing the Clinical Acceptability of Ultra-low Dose PET/CT and CT-less PET Using a Long Axial Field-of-view PET/CT System: a Single-centre, Single-blinded Method Agreement Study",
+        "nct_id": "NCT05496920"
+      },
+      {
+        "title": "A Phase II Study To Assess The Ability Of Neoadjuvant Chemotherapy Plus/Minus Second Look Surgery To Eliminate All Measurable Disease Prior To Radiotherapy For NGGCT",
+        "nct_id": "NCT00047320"
+      },
+      {
+        "title": "Safety and Efficiency of the YEARS Algorithm Versus Computed Tomography Pulmonary Angiography Alone for Suspected Pulmonary Embolism in Patients With Malignancy : HYDRA Study",
+        "nct_id": "NCT04657120"
+      },
+      {
+        "title": "A Phase Ib/II, Open-Label, Multicenter Study Evaluating the Safety, Activity, and Pharmacokinetics of Divarasib in Combination With Other Anti-Cancer Therapies in Patients With Previously Untreated Advanced Or Metastatic Non-Small Cell Lung Cancer With a KRAS G12C Mutation",
+        "nct_id": "NCT05789082"
+      },
+      {
+        "title": "A Phase 3, Randomized, Placebo-Controlled, Double-Blind Study to Evaluate Efficacy and Safety of Upadacitinib in Adult and Adolescent Subjects With Moderate to Severe Hidradenitis Suppurativa Who Have Failed Anti-TNF Therapy",
+        "nct_id": "NCT05889182"
+      },
+      {
+        "title": "Phase III Study of Tomudex and Cisplatin Versus Cisplatin in Malignant Pleural Mesothelioma",
+        "nct_id": "NCT00004920"
+      },
+      {
+        "title": "A Randomized Phase II Study Comparing Atezolizumab After Concurrent Chemo-radiotherapy With Chemo-radiotherapy Alone in Limited Disease Small-cell Lung Cancer",
+        "nct_id": "NCT03540420"
+      }
+    ],
+    "therapie_output_final": null,
+    "therapie_raw_response": null,
+    "therapie_think_block": null,
+    "therapie_interaction_id": null,
+    "errors": {
+      "Diagnostik": "module 'langfuse' has no attribute 'Trace'"
+    },
+    "runtimes_overall_agents": {
+      "Diagnostik_total_s": 0.0012934058904647827,
+      "Studien_total_s": 0.36622680723667145
+    },
+    "patient_context_summary_for_eval": "Patient ID: 3\nGuideline Specified: ESMO\nDiagnosis (Code): \nDiagnosis (Text Snippet): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhal...\nStage: "
+  },
+  {
+    "patient_id_original": "4",
+    "patient_data_source_file": "NET Tubo.xlsx",
+    "timestamp_processed": "2025-06-09T11:51:32.020380",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": null,
+    "diagnostik_raw_response": null,
+    "diagnostik_think_block": null,
+    "diagnostik_interaction_id": null,
+    "studien_output": [
+      {
+        "title": "ALFApump System Post Marketing Surveillance Registry, In Support of the Following Indication: Automated Removal of Excess Peritoneal Fluid Into the Urinary Bladder in Patients With Cirrhosis or Malignancy, With Persistent or Refractory Ascites",
+        "nct_id": "NCT01532427"
+      },
+      {
+        "title": "Biomarker Signature of Stroke Aetiology Study: The BIOSIGNAL-Study",
+        "nct_id": "NCT02274727"
+      },
+      {
+        "title": "Real-World Treatment Patterns, BRCA Testing Practices, Outcomes, and Health Care Utilization in Platinum-Sensitive Recurrent Serous Ovarian Cancer: A Multi-Country Retrospective Study",
+        "nct_id": "NCT02262273"
+      },
+      {
+        "title": "Accuracy Assessment for Computer-assisted Surgical Interventions of the Liver: A Prospective, Non Randomized Study",
+        "nct_id": "NCT01474694"
+      },
+      {
+        "title": "An Open-label Phase 1/2a Study of BAL101553 Administered as Intravenous 48-hour Infusions in Adult Patients With Advanced Solid Tumors or Recurrent Glioblastoma",
+        "nct_id": "NCT02895360"
+      },
+      {
+        "title": "Dose-Intensive Melphalan and Cyclophosphamide With Autologous Bone Marrow Rescue for Recurrent Medulloblastoma and Germ Cell Tumors",
+        "nct_id": "NCT00002594"
+      },
+      {
+        "title": "A STUDY OF NERATINIB PLUS CAPECITABINE VERSUS LAPATINIB PLUS CAPECITABINE IN PATIENTS WITH HER2+ METASTATIC BREAST CANCER WHO HAVE RECEIVED TWO OR MORE PRIOR HER2-DIRECTED REGIMENS IN THE METASTATIC SETTING (NALA)",
+        "nct_id": "NCT01808573"
+      },
+      {
+        "title": "Substudy of Efficacy, Safety and Toxicology of Electronic Nicotine Delivery Systems as an Aid for Smoking Cessation (ESTxENDS Trial)- the Micronuclei Substudy of ESTxENDS",
+        "nct_id": "NCT04244773"
+      },
+      {
+        "title": "ADVATE/ ADYNOVI Hemophilia A Outcome Database",
+        "nct_id": "NCT02078427"
+      },
+      {
+        "title": "A Phase II, Multicentre, Open-label Study of Cabozantinib as 2nd Line Treatment in Subjects With Unresectable, Locally Advanced or Metastatic Renal Cell Carcinoma With a Clear-Cell Component Who Progressed After 1st Line Treatment With Checkpoint Inhibitors.",
+        "nct_id": "NCT03945773"
+      },
+      {
+        "title": "Randomized Phase II Trial on Fitness- and Comorbidity- Tailored Treatment in Elderly Patients With Newly Diagnosed Primary CNS Lymphoma (FIORELLA Trial)",
+        "nct_id": "NCT03495960"
+      },
+      {
+        "title": "A Multicenter, International, Randomized, Active Comparator-controlled, Double-blind, Double-dummy, Parallel-group, 2-arm, Phase 3 Study to Compare the Efficacy and Safety of the Oral FXIa Inhibitor Asundexian (BAY 2433334) With Apixaban for the Prevention of Stroke or Systemic Embolism in Male and Female Participants Aged 18 Years and Older With Atrial Fibrillation at Risk for Stroke",
+        "nct_id": "NCT05643573"
+      },
+      {
+        "title": "An Expanded Access Program of Ipilimumab for Patients With Glioblastomas and Gliomas",
+        "nct_id": "NCT03460782"
+      },
+      {
+        "title": "Assessing the Clinical Acceptability of Ultra-low Dose PET/CT and CT-less PET Using a Long Axial Field-of-view PET/CT System: a Single-centre, Single-blinded Method Agreement Study",
+        "nct_id": "NCT05496920"
+      },
+      {
+        "title": "A Phase II Study To Assess The Ability Of Neoadjuvant Chemotherapy Plus/Minus Second Look Surgery To Eliminate All Measurable Disease Prior To Radiotherapy For NGGCT",
+        "nct_id": "NCT00047320"
+      },
+      {
+        "title": "Safety and Efficiency of the YEARS Algorithm Versus Computed Tomography Pulmonary Angiography Alone for Suspected Pulmonary Embolism in Patients With Malignancy : HYDRA Study",
+        "nct_id": "NCT04657120"
+      },
+      {
+        "title": "A Phase Ib/II, Open-Label, Multicenter Study Evaluating the Safety, Activity, and Pharmacokinetics of Divarasib in Combination With Other Anti-Cancer Therapies in Patients With Previously Untreated Advanced Or Metastatic Non-Small Cell Lung Cancer With a KRAS G12C Mutation",
+        "nct_id": "NCT05789082"
+      },
+      {
+        "title": "A Phase 3, Randomized, Placebo-Controlled, Double-Blind Study to Evaluate Efficacy and Safety of Upadacitinib in Adult and Adolescent Subjects With Moderate to Severe Hidradenitis Suppurativa Who Have Failed Anti-TNF Therapy",
+        "nct_id": "NCT05889182"
+      },
+      {
+        "title": "Phase III Study of Tomudex and Cisplatin Versus Cisplatin in Malignant Pleural Mesothelioma",
+        "nct_id": "NCT00004920"
+      },
+      {
+        "title": "A Randomized Phase II Study Comparing Atezolizumab After Concurrent Chemo-radiotherapy With Chemo-radiotherapy Alone in Limited Disease Small-cell Lung Cancer",
+        "nct_id": "NCT03540420"
+      }
+    ],
+    "therapie_output_final": null,
+    "therapie_raw_response": null,
+    "therapie_think_block": null,
+    "therapie_interaction_id": null,
+    "errors": {
+      "Diagnostik": "module 'langfuse' has no attribute 'Trace'"
+    },
+    "runtimes_overall_agents": {
+      "Diagnostik_total_s": 0.0010299216955900192,
+      "Studien_total_s": 0.37296353094279766
+    },
+    "patient_context_summary_for_eval": "Patient ID: 4\nGuideline Specified: ESMO\nDiagnosis (Code): \nDiagnosis (Text Snippet): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhal...\nStage: "
+  }
+]

@@ -1,0 +1,532 @@
+[
+  {
+    "patient_id_original": "1",
+    "patient_data_source_file": "NET Tubo v2.xlsx",
+    "timestamp_processed": "2025-06-09T11:59:19.433636",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik – Patient ID 1\n\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen (Diagnose 2015).\n\n**Diagnostischer Verlauf:**\n\n* **2015:** Erstdiagnose eines G1 NET im Ileum (Dünndarm) mittels Koloskopie. CT-Untersuchung zeigte Verdacht auf Lymphknoten- und Lebermetastasen.\n* **2015:** Operative Resektion der Lebermetastasen (Segment VI) und Ablation einer Läsion in Segment VIII.  Rechtsseitige Hemicolektomie mit Ileumteilresektion und Lymphadenektomie.\n* **2017:** Verdacht auf neue Lebermetastase.\n* **2018:** CT zeigte stabile Erkrankung.\n* **2019:** CT deutet auf eine geringe Progression der Lebermetastasen hin.\n\n**Aktuelles Stadium:**  Das Stadium ist nicht explizit angegeben, jedoch deutet die Progression der Lebermetastasen trotz Operation und Somatoline-Therapie auf ein fortgeschrittenes Stadium hin.\n\n**Wichtige klinische Punkte:**\n\n* Der Patient leidet an einem neuroendokrinen Tumor des Dünndarms mit Metastasierung.\n* Trotz initialer operativer Behandlung und Somatoline-Therapie kommt es zu einer Progression der Lebermetastasen.\n* Eine erneute Beurteilung des Stadiums und die Festlegung einer weiterführenden Therapie sind indiziert.",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik – Patient ID 1\n\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen (Diagnose 2015).\n\n**Diagnostischer Verlauf:**\n\n* **2015:** Erstdiagnose eines G1 NET im Ileum (Dünndarm) mittels Koloskopie. CT-Untersuchung zeigte Verdacht auf Lymphknoten- und Lebermetastasen.\n* **2015:** Operative Resektion der Lebermetastasen (Segment VI) und Ablation einer Läsion in Segment VIII.  Rechtsseitige Hemicolektomie mit Ileumteilresektion und Lymphadenektomie.\n* **2017:** Verdacht auf neue Lebermetastase.\n* **2018:** CT zeigte stabile Erkrankung.\n* **2019:** CT deutet auf eine geringe Progression der Lebermetastasen hin.\n\n**Aktuelles Stadium:**  Das Stadium ist nicht explizit angegeben, jedoch deutet die Progression der Lebermetastasen trotz Operation und Somatoline-Therapie auf ein fortgeschrittenes Stadium hin.\n\n**Wichtige klinische Punkte:**\n\n* Der Patient leidet an einem neuroendokrinen Tumor des Dünndarms mit Metastasierung.\n* Trotz initialer operativer Behandlung und Somatoline-Therapie kommt es zu einer Progression der Lebermetastasen.\n* Eine erneute Beurteilung des Stadiums und die Festlegung einer weiterführenden Therapie sind indiziert.\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "886809e6c65147d8a001679ca630ec77",
+    "studien_output": [
+      {
+        "title": "ALFApump System Post Marketing Surveillance Registry, In Support of the Following Indication: Automated Removal of Excess Peritoneal Fluid Into the Urinary Bladder in Patients With Cirrhosis or Malignancy, With Persistent or Refractory Ascites",
+        "nct_id": "NCT01532427"
+      },
+      {
+        "title": "Biomarker Signature of Stroke Aetiology Study: The BIOSIGNAL-Study",
+        "nct_id": "NCT02274727"
+      },
+      {
+        "title": "Real-World Treatment Patterns, BRCA Testing Practices, Outcomes, and Health Care Utilization in Platinum-Sensitive Recurrent Serous Ovarian Cancer: A Multi-Country Retrospective Study",
+        "nct_id": "NCT02262273"
+      },
+      {
+        "title": "Accuracy Assessment for Computer-assisted Surgical Interventions of the Liver: A Prospective, Non Randomized Study",
+        "nct_id": "NCT01474694"
+      },
+      {
+        "title": "An Open-label Phase 1/2a Study of BAL101553 Administered as Intravenous 48-hour Infusions in Adult Patients With Advanced Solid Tumors or Recurrent Glioblastoma",
+        "nct_id": "NCT02895360"
+      },
+      {
+        "title": "Dose-Intensive Melphalan and Cyclophosphamide With Autologous Bone Marrow Rescue for Recurrent Medulloblastoma and Germ Cell Tumors",
+        "nct_id": "NCT00002594"
+      },
+      {
+        "title": "A STUDY OF NERATINIB PLUS CAPECITABINE VERSUS LAPATINIB PLUS CAPECITABINE IN PATIENTS WITH HER2+ METASTATIC BREAST CANCER WHO HAVE RECEIVED TWO OR MORE PRIOR HER2-DIRECTED REGIMENS IN THE METASTATIC SETTING (NALA)",
+        "nct_id": "NCT01808573"
+      },
+      {
+        "title": "Substudy of Efficacy, Safety and Toxicology of Electronic Nicotine Delivery Systems as an Aid for Smoking Cessation (ESTxENDS Trial)- the Micronuclei Substudy of ESTxENDS",
+        "nct_id": "NCT04244773"
+      },
+      {
+        "title": "ADVATE/ ADYNOVI Hemophilia A Outcome Database",
+        "nct_id": "NCT02078427"
+      },
+      {
+        "title": "A Phase II, Multicentre, Open-label Study of Cabozantinib as 2nd Line Treatment in Subjects With Unresectable, Locally Advanced or Metastatic Renal Cell Carcinoma With a Clear-Cell Component Who Progressed After 1st Line Treatment With Checkpoint Inhibitors.",
+        "nct_id": "NCT03945773"
+      },
+      {
+        "title": "Randomized Phase II Trial on Fitness- and Comorbidity- Tailored Treatment in Elderly Patients With Newly Diagnosed Primary CNS Lymphoma (FIORELLA Trial)",
+        "nct_id": "NCT03495960"
+      },
+      {
+        "title": "A Multicenter, International, Randomized, Active Comparator-controlled, Double-blind, Double-dummy, Parallel-group, 2-arm, Phase 3 Study to Compare the Efficacy and Safety of the Oral FXIa Inhibitor Asundexian (BAY 2433334) With Apixaban for the Prevention of Stroke or Systemic Embolism in Male and Female Participants Aged 18 Years and Older With Atrial Fibrillation at Risk for Stroke",
+        "nct_id": "NCT05643573"
+      },
+      {
+        "title": "An Expanded Access Program of Ipilimumab for Patients With Glioblastomas and Gliomas",
+        "nct_id": "NCT03460782"
+      },
+      {
+        "title": "Assessing the Clinical Acceptability of Ultra-low Dose PET/CT and CT-less PET Using a Long Axial Field-of-view PET/CT System: a Single-centre, Single-blinded Method Agreement Study",
+        "nct_id": "NCT05496920"
+      },
+      {
+        "title": "A Phase II Study To Assess The Ability Of Neoadjuvant Chemotherapy Plus/Minus Second Look Surgery To Eliminate All Measurable Disease Prior To Radiotherapy For NGGCT",
+        "nct_id": "NCT00047320"
+      },
+      {
+        "title": "Safety and Efficiency of the YEARS Algorithm Versus Computed Tomography Pulmonary Angiography Alone for Suspected Pulmonary Embolism in Patients With Malignancy : HYDRA Study",
+        "nct_id": "NCT04657120"
+      },
+      {
+        "title": "A Phase Ib/II, Open-Label, Multicenter Study Evaluating the Safety, Activity, and Pharmacokinetics of Divarasib in Combination With Other Anti-Cancer Therapies in Patients With Previously Untreated Advanced Or Metastatic Non-Small Cell Lung Cancer With a KRAS G12C Mutation",
+        "nct_id": "NCT05789082"
+      },
+      {
+        "title": "A Phase 3, Randomized, Placebo-Controlled, Double-Blind Study to Evaluate Efficacy and Safety of Upadacitinib in Adult and Adolescent Subjects With Moderate to Severe Hidradenitis Suppurativa Who Have Failed Anti-TNF Therapy",
+        "nct_id": "NCT05889182"
+      },
+      {
+        "title": "Phase III Study of Tomudex and Cisplatin Versus Cisplatin in Malignant Pleural Mesothelioma",
+        "nct_id": "NCT00004920"
+      },
+      {
+        "title": "A Randomized Phase II Study Comparing Atezolizumab After Concurrent Chemo-radiotherapy With Chemo-radiotherapy Alone in Limited Disease Small-cell Lung Cancer",
+        "nct_id": "NCT03540420"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nEine Therapie mit Lutetium-177-DOTATATE (Lutetium-Therapie) sollte in Erwägung gezogen werden, falls eine somatostatinrezeptor-positive (SSTR+) Erkrankung nachgewiesen wird. Alternativ, falls keine SSTR-Positivität vorliegt oder die Lutetium-Therapie nicht indiziert ist, sollte eine systemische Therapie mit Strep-Torcin oder Everolimus in Betracht gezogen werden. Eine erneute Stadienebestimmung mittels Ganzkörper-MRT oder CT ist vor Therapiebeginn notwendig.\n\n**Begründung:**\nDer Patient präsentiert einen neuroendokrinen Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen. Trotz initialer chirurgischer Resektion und Somatoline-Therapie kommt es zu einer Progression der Lebermetastasen, was auf ein fortgeschrittenes Stadium hinweist. Die ESMO-Leitlinie für neuroendokrine Tumore empfiehlt bei fortgeschrittenen, gut differenzierten NETs mit Progression unter Somatostatinanaloga eine Therapie mit Lutetium-177-DOTATATE, vorausgesetzt die Tumore exprimieren Somatostatinrezeptoren (SSTR). Da die SSTR-Positivität nicht explizit erwähnt wird, muss dies vor Therapiebeginn mittels SSTR-Scintigraphie oder PET/CT nachgewiesen werden. Sollte keine SSTR-Positivität vorliegen oder die Lutetium-Therapie kontraindiziert sein, sind Strep-Torcin oder Everolimus als Zweitlinienoptionen indiziert. Vor Therapiebeginn ist eine erneute Stadienebestimmung mittels Bildgebung (Ganzkörper-MRT oder CT) notwendig, um das Ausmaß der Erkrankung genau zu erfassen und die Therapieplanung zu optimieren.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nEine Therapie mit Lutetium-177-DOTATATE (Lutetium-Therapie) sollte in Erwägung gezogen werden, falls eine somatostatinrezeptor-positive (SSTR+) Erkrankung nachgewiesen wird. Alternativ, falls keine SSTR-Positivität vorliegt oder die Lutetium-Therapie nicht indiziert ist, sollte eine systemische Therapie mit Strep-Torcin oder Everolimus in Betracht gezogen werden. Eine erneute Stadienebestimmung mittels Ganzkörper-MRT oder CT ist vor Therapiebeginn notwendig.\n\n**Begründung:**\nDer Patient präsentiert einen neuroendokrinen Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen. Trotz initialer chirurgischer Resektion und Somatoline-Therapie kommt es zu einer Progression der Lebermetastasen, was auf ein fortgeschrittenes Stadium hinweist. Die ESMO-Leitlinie für neuroendokrine Tumore empfiehlt bei fortgeschrittenen, gut differenzierten NETs mit Progression unter Somatostatinanaloga eine Therapie mit Lutetium-177-DOTATATE, vorausgesetzt die Tumore exprimieren Somatostatinrezeptoren (SSTR). Da die SSTR-Positivität nicht explizit erwähnt wird, muss dies vor Therapiebeginn mittels SSTR-Scintigraphie oder PET/CT nachgewiesen werden. Sollte keine SSTR-Positivität vorliegen oder die Lutetium-Therapie kontraindiziert sein, sind Strep-Torcin oder Everolimus als Zweitlinienoptionen indiziert. Vor Therapiebeginn ist eine erneute Stadienebestimmung mittels Bildgebung (Ganzkörper-MRT oder CT) notwendig, um das Ausmaß der Erkrankung genau zu erfassen und die Therapieplanung zu optimieren.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "af7270a3886648d18300e8838128d766",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 12.56223849952221,
+      "Studien": 0.3891270160675049,
+      "Therapie": 13.675236996263266
+    },
+    "patient_context_summary_for_eval": "Patient ID: 1\nGuideline Specified: ESMO\nDiagnosis (Code): \nDiagnosis (Text Snippet): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhal...\nStage: "
+  },
+  {
+    "patient_id_original": "2",
+    "patient_data_source_file": "NET Tubo v2.xlsx",
+    "timestamp_processed": "2025-06-09T11:59:41.609413",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik – Patient ID 2\n\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen (diagnostiziert 2015).\n\n**Diagnostische Befunde:**\n\n*   **Tumorlokalisation:** Ileum, ca. 25 cm oberhalb der Ileozökalklappe.\n*   **Tumorcharakteristik:** G3 NET mit hohem Proliferationsindex (Ki67 48%), was auf ein aggressives Tumorwachstum hindeutet.\n*   **Tumorausdehnung:** Primärtumor 40 x 40 x 70 mm. Verdacht auf lokoregionäre Lymphknotenmetastasen und Lebermetastasen in Segment VI und VIII.\n*   **Therapeutisches Vorgehen:** Rechte Hemicolektomie und Ileumteilresektion mit Lymphadenektomie wurden durchgeführt.\n*   **Stadium:** Nicht angegeben (benötigt weitere Informationen zur vollständigen Stadieneinteilung).\n\n**Wichtige klinische Punkte:** Der hohe Ki67-Wert deutet auf eine ungünstigere Prognose hin. Eine vollständige Stadieneinteilung ist erforderlich, um die Therapieplanung und Prognoseeinschätzung zu optimieren.",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik – Patient ID 2\n\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen (diagnostiziert 2015).\n\n**Diagnostische Befunde:**\n\n*   **Tumorlokalisation:** Ileum, ca. 25 cm oberhalb der Ileozökalklappe.\n*   **Tumorcharakteristik:** G3 NET mit hohem Proliferationsindex (Ki67 48%), was auf ein aggressives Tumorwachstum hindeutet.\n*   **Tumorausdehnung:** Primärtumor 40 x 40 x 70 mm. Verdacht auf lokoregionäre Lymphknotenmetastasen und Lebermetastasen in Segment VI und VIII.\n*   **Therapeutisches Vorgehen:** Rechte Hemicolektomie und Ileumteilresektion mit Lymphadenektomie wurden durchgeführt.\n*   **Stadium:** Nicht angegeben (benötigt weitere Informationen zur vollständigen Stadieneinteilung).\n\n**Wichtige klinische Punkte:** Der hohe Ki67-Wert deutet auf eine ungünstigere Prognose hin. Eine vollständige Stadieneinteilung ist erforderlich, um die Therapieplanung und Prognoseeinschätzung zu optimieren.\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "0bbe11e7472f4f1ab954278ede4b6058",
+    "studien_output": [
+      {
+        "title": "ALFApump System Post Marketing Surveillance Registry, In Support of the Following Indication: Automated Removal of Excess Peritoneal Fluid Into the Urinary Bladder in Patients With Cirrhosis or Malignancy, With Persistent or Refractory Ascites",
+        "nct_id": "NCT01532427"
+      },
+      {
+        "title": "Biomarker Signature of Stroke Aetiology Study: The BIOSIGNAL-Study",
+        "nct_id": "NCT02274727"
+      },
+      {
+        "title": "Real-World Treatment Patterns, BRCA Testing Practices, Outcomes, and Health Care Utilization in Platinum-Sensitive Recurrent Serous Ovarian Cancer: A Multi-Country Retrospective Study",
+        "nct_id": "NCT02262273"
+      },
+      {
+        "title": "Accuracy Assessment for Computer-assisted Surgical Interventions of the Liver: A Prospective, Non Randomized Study",
+        "nct_id": "NCT01474694"
+      },
+      {
+        "title": "An Open-label Phase 1/2a Study of BAL101553 Administered as Intravenous 48-hour Infusions in Adult Patients With Advanced Solid Tumors or Recurrent Glioblastoma",
+        "nct_id": "NCT02895360"
+      },
+      {
+        "title": "Dose-Intensive Melphalan and Cyclophosphamide With Autologous Bone Marrow Rescue for Recurrent Medulloblastoma and Germ Cell Tumors",
+        "nct_id": "NCT00002594"
+      },
+      {
+        "title": "A STUDY OF NERATINIB PLUS CAPECITABINE VERSUS LAPATINIB PLUS CAPECITABINE IN PATIENTS WITH HER2+ METASTATIC BREAST CANCER WHO HAVE RECEIVED TWO OR MORE PRIOR HER2-DIRECTED REGIMENS IN THE METASTATIC SETTING (NALA)",
+        "nct_id": "NCT01808573"
+      },
+      {
+        "title": "Substudy of Efficacy, Safety and Toxicology of Electronic Nicotine Delivery Systems as an Aid for Smoking Cessation (ESTxENDS Trial)- the Micronuclei Substudy of ESTxENDS",
+        "nct_id": "NCT04244773"
+      },
+      {
+        "title": "ADVATE/ ADYNOVI Hemophilia A Outcome Database",
+        "nct_id": "NCT02078427"
+      },
+      {
+        "title": "A Phase II, Multicentre, Open-label Study of Cabozantinib as 2nd Line Treatment in Subjects With Unresectable, Locally Advanced or Metastatic Renal Cell Carcinoma With a Clear-Cell Component Who Progressed After 1st Line Treatment With Checkpoint Inhibitors.",
+        "nct_id": "NCT03945773"
+      },
+      {
+        "title": "Randomized Phase II Trial on Fitness- and Comorbidity- Tailored Treatment in Elderly Patients With Newly Diagnosed Primary CNS Lymphoma (FIORELLA Trial)",
+        "nct_id": "NCT03495960"
+      },
+      {
+        "title": "A Multicenter, International, Randomized, Active Comparator-controlled, Double-blind, Double-dummy, Parallel-group, 2-arm, Phase 3 Study to Compare the Efficacy and Safety of the Oral FXIa Inhibitor Asundexian (BAY 2433334) With Apixaban for the Prevention of Stroke or Systemic Embolism in Male and Female Participants Aged 18 Years and Older With Atrial Fibrillation at Risk for Stroke",
+        "nct_id": "NCT05643573"
+      },
+      {
+        "title": "An Expanded Access Program of Ipilimumab for Patients With Glioblastomas and Gliomas",
+        "nct_id": "NCT03460782"
+      },
+      {
+        "title": "Assessing the Clinical Acceptability of Ultra-low Dose PET/CT and CT-less PET Using a Long Axial Field-of-view PET/CT System: a Single-centre, Single-blinded Method Agreement Study",
+        "nct_id": "NCT05496920"
+      },
+      {
+        "title": "A Phase II Study To Assess The Ability Of Neoadjuvant Chemotherapy Plus/Minus Second Look Surgery To Eliminate All Measurable Disease Prior To Radiotherapy For NGGCT",
+        "nct_id": "NCT00047320"
+      },
+      {
+        "title": "Safety and Efficiency of the YEARS Algorithm Versus Computed Tomography Pulmonary Angiography Alone for Suspected Pulmonary Embolism in Patients With Malignancy : HYDRA Study",
+        "nct_id": "NCT04657120"
+      },
+      {
+        "title": "A Phase Ib/II, Open-Label, Multicenter Study Evaluating the Safety, Activity, and Pharmacokinetics of Divarasib in Combination With Other Anti-Cancer Therapies in Patients With Previously Untreated Advanced Or Metastatic Non-Small Cell Lung Cancer With a KRAS G12C Mutation",
+        "nct_id": "NCT05789082"
+      },
+      {
+        "title": "A Phase 3, Randomized, Placebo-Controlled, Double-Blind Study to Evaluate Efficacy and Safety of Upadacitinib in Adult and Adolescent Subjects With Moderate to Severe Hidradenitis Suppurativa Who Have Failed Anti-TNF Therapy",
+        "nct_id": "NCT05889182"
+      },
+      {
+        "title": "Phase III Study of Tomudex and Cisplatin Versus Cisplatin in Malignant Pleural Mesothelioma",
+        "nct_id": "NCT00004920"
+      },
+      {
+        "title": "A Randomized Phase II Study Comparing Atezolizumab After Concurrent Chemo-radiotherapy With Chemo-radiotherapy Alone in Limited Disease Small-cell Lung Cancer",
+        "nct_id": "NCT03540420"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nEine systemische Therapie mit einem Somatostatin-Analogon (z.B. Lanreotid oder Octreotid) in Kombination mit einer mTOR-Inhibitor-Therapie (Everolimus) sollte eingeleitet werden.\n\n**Begründung:**\nDer Patient präsentiert einen G3 NET des Dünndarms mit Lymphknoten- und Lebermetastasen und einem hohen Proliferationsindex (Ki67 48%). Dies deutet auf ein aggressives Tumorwachstum und ein hohes Rezidivrisiko hin. Nach der resektiven Operation (rechte Hemicolektomie und Ileumteilresektion mit Lymphadenektomie) ist eine adjuvante systemische Therapie indiziert, um das Fortschreiten der Erkrankung zu verhindern. Gemäß der ESMO-Leitlinie für neuroendokrine Tumore (NET) stellt die Kombination aus Somatostatin-Analoga und mTOR-Inhibitoren (insbesondere Everolimus) eine Standardtherapie für Patienten mit fortgeschrittenen, gut differenzierten oder mittelschwer differenzierten NET (G1-G2) dar. Obwohl der vorliegende Tumor ein G3-NET ist, zeigt Everolimus in Kombination mit Somatostatin-Analoga auch bei G3-Tumoren eine gewisse Wirksamkeit. Eine vollständige Stadieneinteilung (TNM) ist erforderlich, um die Prognose genauer einschätzen und die Therapie entsprechend anpassen zu können. Sollte der Patient nicht für diese Therapie geeignet sein (z.B. aufgrund von Kontraindikationen oder unzureichender Organfunktion), könnte eine Chemotherapie mit Streptozocin-basierten Regimen in Betracht gezogen werden.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nEine systemische Therapie mit einem Somatostatin-Analogon (z.B. Lanreotid oder Octreotid) in Kombination mit einer mTOR-Inhibitor-Therapie (Everolimus) sollte eingeleitet werden.\n\n**Begründung:**\nDer Patient präsentiert einen G3 NET des Dünndarms mit Lymphknoten- und Lebermetastasen und einem hohen Proliferationsindex (Ki67 48%). Dies deutet auf ein aggressives Tumorwachstum und ein hohes Rezidivrisiko hin. Nach der resektiven Operation (rechte Hemicolektomie und Ileumteilresektion mit Lymphadenektomie) ist eine adjuvante systemische Therapie indiziert, um das Fortschreiten der Erkrankung zu verhindern. Gemäß der ESMO-Leitlinie für neuroendokrine Tumore (NET) stellt die Kombination aus Somatostatin-Analoga und mTOR-Inhibitoren (insbesondere Everolimus) eine Standardtherapie für Patienten mit fortgeschrittenen, gut differenzierten oder mittelschwer differenzierten NET (G1-G2) dar. Obwohl der vorliegende Tumor ein G3-NET ist, zeigt Everolimus in Kombination mit Somatostatin-Analoga auch bei G3-Tumoren eine gewisse Wirksamkeit. Eine vollständige Stadieneinteilung (TNM) ist erforderlich, um die Prognose genauer einschätzen und die Therapie entsprechend anpassen zu können. Sollte der Patient nicht für diese Therapie geeignet sein (z.B. aufgrund von Kontraindikationen oder unzureichender Organfunktion), könnte eine Chemotherapie mit Streptozocin-basierten Regimen in Betracht gezogen werden.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "1ed2f6ca35864ac387ee46b0867ec1b8",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 9.473836690187454,
+      "Studien": 0.49103298783302307,
+      "Therapie": 12.652261292561889
+    },
+    "patient_context_summary_for_eval": "Patient ID: 2\nGuideline Specified: ESMO\nDiagnosis (Code): \nDiagnosis (Text Snippet): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhal...\nStage: "
+  },
+  {
+    "patient_id_original": "3",
+    "patient_data_source_file": "NET Tubo v2.xlsx",
+    "timestamp_processed": "2025-06-09T12:00:03.099751",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik – Patient ID 3\n\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen (Diagnose gestellt 2015). Es handelt sich um einen G2 NET.\n\n**Staging (07/2015):** Primärtumor im Ileum (40 x 40 x 70 mm). Verdacht auf lokoregionäre Lymphknotenmetastasen und Lebermetastasen in Segment VI und VIII.\n\n**Bildgebung:** DOTATOC PET zeigte geringe Speicherung in den Leberläsionen, was die Diagnose und Ausdehnung der Metastasen bestätigt.\n\n**Therapie:** Rechte Hemicolektomie und Ileumteilresektion mit Lymphadenektomie wurden durchgeführt.\n\n**Aktuelle Fragestellung/Klinik:** Nicht angegeben, aber die initiale Diagnostik erfolgte aufgrund von unklaren abdominellen Beschwerden.\n\n**Zusammenfassend:** Der Patient leidet an einem fortgeschrittenen (metastasierten) neuroendokrinen Tumor des Dünndarms, der bereits bei der Diagnosestellung Lymphknoten und Leber befallen hatte. Eine operative Resektion wurde durchgeführt.",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik – Patient ID 3\n\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen (Diagnose gestellt 2015). Es handelt sich um einen G2 NET.\n\n**Staging (07/2015):** Primärtumor im Ileum (40 x 40 x 70 mm). Verdacht auf lokoregionäre Lymphknotenmetastasen und Lebermetastasen in Segment VI und VIII.\n\n**Bildgebung:** DOTATOC PET zeigte geringe Speicherung in den Leberläsionen, was die Diagnose und Ausdehnung der Metastasen bestätigt.\n\n**Therapie:** Rechte Hemicolektomie und Ileumteilresektion mit Lymphadenektomie wurden durchgeführt.\n\n**Aktuelle Fragestellung/Klinik:** Nicht angegeben, aber die initiale Diagnostik erfolgte aufgrund von unklaren abdominellen Beschwerden.\n\n**Zusammenfassend:** Der Patient leidet an einem fortgeschrittenen (metastasierten) neuroendokrinen Tumor des Dünndarms, der bereits bei der Diagnosestellung Lymphknoten und Leber befallen hatte. Eine operative Resektion wurde durchgeführt.\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "0339a115dd224bcb8d6a866ee398280b",
+    "studien_output": [
+      {
+        "title": "ALFApump System Post Marketing Surveillance Registry, In Support of the Following Indication: Automated Removal of Excess Peritoneal Fluid Into the Urinary Bladder in Patients With Cirrhosis or Malignancy, With Persistent or Refractory Ascites",
+        "nct_id": "NCT01532427"
+      },
+      {
+        "title": "Biomarker Signature of Stroke Aetiology Study: The BIOSIGNAL-Study",
+        "nct_id": "NCT02274727"
+      },
+      {
+        "title": "Real-World Treatment Patterns, BRCA Testing Practices, Outcomes, and Health Care Utilization in Platinum-Sensitive Recurrent Serous Ovarian Cancer: A Multi-Country Retrospective Study",
+        "nct_id": "NCT02262273"
+      },
+      {
+        "title": "Accuracy Assessment for Computer-assisted Surgical Interventions of the Liver: A Prospective, Non Randomized Study",
+        "nct_id": "NCT01474694"
+      },
+      {
+        "title": "An Open-label Phase 1/2a Study of BAL101553 Administered as Intravenous 48-hour Infusions in Adult Patients With Advanced Solid Tumors or Recurrent Glioblastoma",
+        "nct_id": "NCT02895360"
+      },
+      {
+        "title": "Dose-Intensive Melphalan and Cyclophosphamide With Autologous Bone Marrow Rescue for Recurrent Medulloblastoma and Germ Cell Tumors",
+        "nct_id": "NCT00002594"
+      },
+      {
+        "title": "A STUDY OF NERATINIB PLUS CAPECITABINE VERSUS LAPATINIB PLUS CAPECITABINE IN PATIENTS WITH HER2+ METASTATIC BREAST CANCER WHO HAVE RECEIVED TWO OR MORE PRIOR HER2-DIRECTED REGIMENS IN THE METASTATIC SETTING (NALA)",
+        "nct_id": "NCT01808573"
+      },
+      {
+        "title": "Substudy of Efficacy, Safety and Toxicology of Electronic Nicotine Delivery Systems as an Aid for Smoking Cessation (ESTxENDS Trial)- the Micronuclei Substudy of ESTxENDS",
+        "nct_id": "NCT04244773"
+      },
+      {
+        "title": "ADVATE/ ADYNOVI Hemophilia A Outcome Database",
+        "nct_id": "NCT02078427"
+      },
+      {
+        "title": "A Phase II, Multicentre, Open-label Study of Cabozantinib as 2nd Line Treatment in Subjects With Unresectable, Locally Advanced or Metastatic Renal Cell Carcinoma With a Clear-Cell Component Who Progressed After 1st Line Treatment With Checkpoint Inhibitors.",
+        "nct_id": "NCT03945773"
+      },
+      {
+        "title": "Randomized Phase II Trial on Fitness- and Comorbidity- Tailored Treatment in Elderly Patients With Newly Diagnosed Primary CNS Lymphoma (FIORELLA Trial)",
+        "nct_id": "NCT03495960"
+      },
+      {
+        "title": "A Multicenter, International, Randomized, Active Comparator-controlled, Double-blind, Double-dummy, Parallel-group, 2-arm, Phase 3 Study to Compare the Efficacy and Safety of the Oral FXIa Inhibitor Asundexian (BAY 2433334) With Apixaban for the Prevention of Stroke or Systemic Embolism in Male and Female Participants Aged 18 Years and Older With Atrial Fibrillation at Risk for Stroke",
+        "nct_id": "NCT05643573"
+      },
+      {
+        "title": "An Expanded Access Program of Ipilimumab for Patients With Glioblastomas and Gliomas",
+        "nct_id": "NCT03460782"
+      },
+      {
+        "title": "Assessing the Clinical Acceptability of Ultra-low Dose PET/CT and CT-less PET Using a Long Axial Field-of-view PET/CT System: a Single-centre, Single-blinded Method Agreement Study",
+        "nct_id": "NCT05496920"
+      },
+      {
+        "title": "A Phase II Study To Assess The Ability Of Neoadjuvant Chemotherapy Plus/Minus Second Look Surgery To Eliminate All Measurable Disease Prior To Radiotherapy For NGGCT",
+        "nct_id": "NCT00047320"
+      },
+      {
+        "title": "Safety and Efficiency of the YEARS Algorithm Versus Computed Tomography Pulmonary Angiography Alone for Suspected Pulmonary Embolism in Patients With Malignancy : HYDRA Study",
+        "nct_id": "NCT04657120"
+      },
+      {
+        "title": "A Phase Ib/II, Open-Label, Multicenter Study Evaluating the Safety, Activity, and Pharmacokinetics of Divarasib in Combination With Other Anti-Cancer Therapies in Patients With Previously Untreated Advanced Or Metastatic Non-Small Cell Lung Cancer With a KRAS G12C Mutation",
+        "nct_id": "NCT05789082"
+      },
+      {
+        "title": "A Phase 3, Randomized, Placebo-Controlled, Double-Blind Study to Evaluate Efficacy and Safety of Upadacitinib in Adult and Adolescent Subjects With Moderate to Severe Hidradenitis Suppurativa Who Have Failed Anti-TNF Therapy",
+        "nct_id": "NCT05889182"
+      },
+      {
+        "title": "Phase III Study of Tomudex and Cisplatin Versus Cisplatin in Malignant Pleural Mesothelioma",
+        "nct_id": "NCT00004920"
+      },
+      {
+        "title": "A Randomized Phase II Study Comparing Atezolizumab After Concurrent Chemo-radiotherapy With Chemo-radiotherapy Alone in Limited Disease Small-cell Lung Cancer",
+        "nct_id": "NCT03540420"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nEine somatostatinanaloga-basierte Therapie mit Pasireotid oder Lanreotid, in Kombination mit einer begleitenden Überwachung mittels bildgebender Verfahren (z.B. MRT oder CT) und Tumormarkern (z.B. Chromogranin A, 5-HIAA), wird empfohlen. Bei unzureichendem Ansprechen auf die Somatostatinanaloga-Therapie sollte eine Behandlung mit Everolimus in Erwägung gezogen werden.\n\n**Begründung:**\nDer Patient präsentiert einen metastasierten, gut differenzierten (G2) neuroendokrinen Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen. Gemäß der ESMO-Leitlinie für neuroendokrine Neoplasien (NET) ist die Behandlung von metastasierten gut differenzierten NETs primär mit Somatostatinanaloga indiziert. Die DOTATOC PET-CT zeigte eine geringe Speicherung in den Leberläsionen, was zwar die Diagnose bestätigt, aber eine begrenzte Rezeptorexpressivität andeuten könnte. Dennoch stellt die Somatostatinanaloga-Therapie die initiale Standardbehandlung dar. Da die initiale Diagnose und Behandlung (Hemicolektomie mit Lymphadenektomie) bereits 2015 erfolgten, ist eine regelmäßige Überwachung und gegebenenfalls Anpassung der Therapie erforderlich. Sollte die Somatostatinanaloga-Therapie nicht ausreichend wirksam sein, empfiehlt die ESMO Everolimus als Zweitlinientherapie. Eine weitere Option wäre die Teilnahme an klinischen Studien, falls verfügbar.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nEine somatostatinanaloga-basierte Therapie mit Pasireotid oder Lanreotid, in Kombination mit einer begleitenden Überwachung mittels bildgebender Verfahren (z.B. MRT oder CT) und Tumormarkern (z.B. Chromogranin A, 5-HIAA), wird empfohlen. Bei unzureichendem Ansprechen auf die Somatostatinanaloga-Therapie sollte eine Behandlung mit Everolimus in Erwägung gezogen werden.\n\n**Begründung:**\nDer Patient präsentiert einen metastasierten, gut differenzierten (G2) neuroendokrinen Tumor (NET) des Dünndarms mit Lymphknoten- und Lebermetastasen. Gemäß der ESMO-Leitlinie für neuroendokrine Neoplasien (NET) ist die Behandlung von metastasierten gut differenzierten NETs primär mit Somatostatinanaloga indiziert. Die DOTATOC PET-CT zeigte eine geringe Speicherung in den Leberläsionen, was zwar die Diagnose bestätigt, aber eine begrenzte Rezeptorexpressivität andeuten könnte. Dennoch stellt die Somatostatinanaloga-Therapie die initiale Standardbehandlung dar. Da die initiale Diagnose und Behandlung (Hemicolektomie mit Lymphadenektomie) bereits 2015 erfolgten, ist eine regelmäßige Überwachung und gegebenenfalls Anpassung der Therapie erforderlich. Sollte die Somatostatinanaloga-Therapie nicht ausreichend wirksam sein, empfiehlt die ESMO Everolimus als Zweitlinientherapie. Eine weitere Option wäre die Teilnahme an klinischen Studien, falls verfügbar.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "036308d1b0104caf840bb93db05e4ad7",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 9.101172091439366,
+      "Studien": 0.38716656900942326,
+      "Therapie": 12.34348581917584
+    },
+    "patient_context_summary_for_eval": "Patient ID: 3\nGuideline Specified: ESMO\nDiagnosis (Code): \nDiagnosis (Text Snippet): NET des Dünndarms mit Lymphknoten und Lebermetastasen (ED 2015)\nKoloskopie bei unklaren abdominellen Beschwerden 06/2015: Tumor im Ileum 25 cm oberhal...\nStage: "
+  },
+  {
+    "patient_id_original": "4",
+    "patient_data_source_file": "NET Tubo v2.xlsx",
+    "timestamp_processed": "2025-06-09T12:00:29.717303",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik - Patient ID 4\n\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Pankreas mit Lymphknoten- und Lebermetastasen (diagnostiziert 2015). Der Tumor wird als G2 klassifiziert.\n\n**Stadium:** Nicht explizit angegeben, aber aufgrund der Lymphknoten- und Lebermetastasen handelt es sich um ein fortgeschrittenes Stadium.\n\n**Wichtige klinische Punkte:**\n\n*   **Tumorlokalisation:** Pankreas (20 x 40 x 30 mm).\n*   **Metastasierung:** Lymphknoten (lokoregionär) und Leber (Segmente VI und VIII).\n*   **Progress:** DOTATOC PET-CT zeigt Progression der Lebermetastasen mit starker Speicherung, was auf eine aktive Erkrankung hinweist.\n*   **Therapie:** Der Patient erhält seit 08/2015 Somatuline.\n*   **Weitere Informationen fehlen:** Nebendiagnosen, Klinik/Fragestellung, PET-CT Bericht, Begleitsymptome und Prognose Score sind nicht dokumentiert.",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik - Patient ID 4\n\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Pankreas mit Lymphknoten- und Lebermetastasen (diagnostiziert 2015). Der Tumor wird als G2 klassifiziert.\n\n**Stadium:** Nicht explizit angegeben, aber aufgrund der Lymphknoten- und Lebermetastasen handelt es sich um ein fortgeschrittenes Stadium.\n\n**Wichtige klinische Punkte:**\n\n*   **Tumorlokalisation:** Pankreas (20 x 40 x 30 mm).\n*   **Metastasierung:** Lymphknoten (lokoregionär) und Leber (Segmente VI und VIII).\n*   **Progress:** DOTATOC PET-CT zeigt Progression der Lebermetastasen mit starker Speicherung, was auf eine aktive Erkrankung hinweist.\n*   **Therapie:** Der Patient erhält seit 08/2015 Somatuline.\n*   **Weitere Informationen fehlen:** Nebendiagnosen, Klinik/Fragestellung, PET-CT Bericht, Begleitsymptome und Prognose Score sind nicht dokumentiert.\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "ba594ff50c0d406790496c5dba87593e",
+    "studien_output": [
+      {
+        "title": "ALFApump System Post Marketing Surveillance Registry, In Support of the Following Indication: Automated Removal of Excess Peritoneal Fluid Into the Urinary Bladder in Patients With Cirrhosis or Malignancy, With Persistent or Refractory Ascites",
+        "nct_id": "NCT01532427"
+      },
+      {
+        "title": "Biomarker Signature of Stroke Aetiology Study: The BIOSIGNAL-Study",
+        "nct_id": "NCT02274727"
+      },
+      {
+        "title": "Real-World Treatment Patterns, BRCA Testing Practices, Outcomes, and Health Care Utilization in Platinum-Sensitive Recurrent Serous Ovarian Cancer: A Multi-Country Retrospective Study",
+        "nct_id": "NCT02262273"
+      },
+      {
+        "title": "Accuracy Assessment for Computer-assisted Surgical Interventions of the Liver: A Prospective, Non Randomized Study",
+        "nct_id": "NCT01474694"
+      },
+      {
+        "title": "An Open-label Phase 1/2a Study of BAL101553 Administered as Intravenous 48-hour Infusions in Adult Patients With Advanced Solid Tumors or Recurrent Glioblastoma",
+        "nct_id": "NCT02895360"
+      },
+      {
+        "title": "Dose-Intensive Melphalan and Cyclophosphamide With Autologous Bone Marrow Rescue for Recurrent Medulloblastoma and Germ Cell Tumors",
+        "nct_id": "NCT00002594"
+      },
+      {
+        "title": "A STUDY OF NERATINIB PLUS CAPECITABINE VERSUS LAPATINIB PLUS CAPECITABINE IN PATIENTS WITH HER2+ METASTATIC BREAST CANCER WHO HAVE RECEIVED TWO OR MORE PRIOR HER2-DIRECTED REGIMENS IN THE METASTATIC SETTING (NALA)",
+        "nct_id": "NCT01808573"
+      },
+      {
+        "title": "Substudy of Efficacy, Safety and Toxicology of Electronic Nicotine Delivery Systems as an Aid for Smoking Cessation (ESTxENDS Trial)- the Micronuclei Substudy of ESTxENDS",
+        "nct_id": "NCT04244773"
+      },
+      {
+        "title": "ADVATE/ ADYNOVI Hemophilia A Outcome Database",
+        "nct_id": "NCT02078427"
+      },
+      {
+        "title": "A Phase II, Multicentre, Open-label Study of Cabozantinib as 2nd Line Treatment in Subjects With Unresectable, Locally Advanced or Metastatic Renal Cell Carcinoma With a Clear-Cell Component Who Progressed After 1st Line Treatment With Checkpoint Inhibitors.",
+        "nct_id": "NCT03945773"
+      },
+      {
+        "title": "Randomized Phase II Trial on Fitness- and Comorbidity- Tailored Treatment in Elderly Patients With Newly Diagnosed Primary CNS Lymphoma (FIORELLA Trial)",
+        "nct_id": "NCT03495960"
+      },
+      {
+        "title": "A Multicenter, International, Randomized, Active Comparator-controlled, Double-blind, Double-dummy, Parallel-group, 2-arm, Phase 3 Study to Compare the Efficacy and Safety of the Oral FXIa Inhibitor Asundexian (BAY 2433334) With Apixaban for the Prevention of Stroke or Systemic Embolism in Male and Female Participants Aged 18 Years and Older With Atrial Fibrillation at Risk for Stroke",
+        "nct_id": "NCT05643573"
+      },
+      {
+        "title": "An Expanded Access Program of Ipilimumab for Patients With Glioblastomas and Gliomas",
+        "nct_id": "NCT03460782"
+      },
+      {
+        "title": "Assessing the Clinical Acceptability of Ultra-low Dose PET/CT and CT-less PET Using a Long Axial Field-of-view PET/CT System: a Single-centre, Single-blinded Method Agreement Study",
+        "nct_id": "NCT05496920"
+      },
+      {
+        "title": "A Phase II Study To Assess The Ability Of Neoadjuvant Chemotherapy Plus/Minus Second Look Surgery To Eliminate All Measurable Disease Prior To Radiotherapy For NGGCT",
+        "nct_id": "NCT00047320"
+      },
+      {
+        "title": "Safety and Efficiency of the YEARS Algorithm Versus Computed Tomography Pulmonary Angiography Alone for Suspected Pulmonary Embolism in Patients With Malignancy : HYDRA Study",
+        "nct_id": "NCT04657120"
+      },
+      {
+        "title": "A Phase Ib/II, Open-Label, Multicenter Study Evaluating the Safety, Activity, and Pharmacokinetics of Divarasib in Combination With Other Anti-Cancer Therapies in Patients With Previously Untreated Advanced Or Metastatic Non-Small Cell Lung Cancer With a KRAS G12C Mutation",
+        "nct_id": "NCT05789082"
+      },
+      {
+        "title": "A Phase 3, Randomized, Placebo-Controlled, Double-Blind Study to Evaluate Efficacy and Safety of Upadacitinib in Adult and Adolescent Subjects With Moderate to Severe Hidradenitis Suppurativa Who Have Failed Anti-TNF Therapy",
+        "nct_id": "NCT05889182"
+      },
+      {
+        "title": "Phase III Study of Tomudex and Cisplatin Versus Cisplatin in Malignant Pleural Mesothelioma",
+        "nct_id": "NCT00004920"
+      },
+      {
+        "title": "A Randomized Phase II Study Comparing Atezolizumab After Concurrent Chemo-radiotherapy With Chemo-radiotherapy Alone in Limited Disease Small-cell Lung Cancer",
+        "nct_id": "NCT03540420"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nAufgrund der Progression der Lebermetastasen unter Somatuline-Therapie und der Klassifizierung als G2-NET des Pankreas wird eine Therapie mit einem hochdosierten, langwirkenden Somatostatin-Analogon in Kombination mit einer zielgerichteten Therapie mittels mTOR-Inhibitor (Everolimus) empfohlen. Alternativ kann, falls eine funktionelle Karzinoid-Syndrom-Symptomatik vorliegt, eine Telebrium-Therapie (Lutetium-177-DOTATATE) evaluiert werden, nachdem eine umfassende Bildgebung zur Beurteilung der Somatostatin-Rezeptor-Expression durchgeführt wurde.\n\n**Begründung:**\nDer Patient leidet an einem fortgeschrittenen, metastasierten neuroendokrinen Tumor (NET) des Pankreas (G2) mit Progression unter laufender Somatuline-Therapie. Die ESMO-Leitlinien für pankreatische NET empfehlen bei progressiver Erkrankung unter Somatostatin-Analoga (SSA) eine Eskalation der Therapie. Die Kombination von SSA mit einem mTOR-Inhibitor (Everolimus) hat in klinischen Studien eine Verbesserung des progressionsfreien Überlebens gezeigt und ist somit eine valide Option. Die Progression der Lebermetastasen, belegt durch die DOTATOC PET-CT, deutet auf eine weiterhin aktive Erkrankung hin, die eine Therapieänderung erfordert. Eine Telebrium-Therapie kann in Betracht gezogen werden, wenn die Erkrankung eine ausreichende Somatostatin-Rezeptor-Expression aufweist und eine funktionelle Karzinoid-Syndrom-Symptomatik besteht, um das Behandlungsspektrum zu erweitern. Da wichtige Informationen wie das genaue Stadium, Nebendiagnosen, Begleitsymptome und ein Prognose-Score fehlen, ist eine umfassende weitere Diagnostik zur vollständigen Beurteilung des Patientenstatus und zur Optimierung der Therapieplanung erforderlich. Dies beinhaltet eine erneute Bildgebung zur Bestimmung des genauen Tumorstadiums und zur Beurteilung der Somatostatin-Rezeptor-Expression sowie eine umfassende Anamnese und körperliche Untersuchung zur Erfassung von Begleitsymptomen und Begleiterkrankungen.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nAufgrund der Progression der Lebermetastasen unter Somatuline-Therapie und der Klassifizierung als G2-NET des Pankreas wird eine Therapie mit einem hochdosierten, langwirkenden Somatostatin-Analogon in Kombination mit einer zielgerichteten Therapie mittels mTOR-Inhibitor (Everolimus) empfohlen. Alternativ kann, falls eine funktionelle Karzinoid-Syndrom-Symptomatik vorliegt, eine Telebrium-Therapie (Lutetium-177-DOTATATE) evaluiert werden, nachdem eine umfassende Bildgebung zur Beurteilung der Somatostatin-Rezeptor-Expression durchgeführt wurde.\n\n**Begründung:**\nDer Patient leidet an einem fortgeschrittenen, metastasierten neuroendokrinen Tumor (NET) des Pankreas (G2) mit Progression unter laufender Somatuline-Therapie. Die ESMO-Leitlinien für pankreatische NET empfehlen bei progressiver Erkrankung unter Somatostatin-Analoga (SSA) eine Eskalation der Therapie. Die Kombination von SSA mit einem mTOR-Inhibitor (Everolimus) hat in klinischen Studien eine Verbesserung des progressionsfreien Überlebens gezeigt und ist somit eine valide Option. Die Progression der Lebermetastasen, belegt durch die DOTATOC PET-CT, deutet auf eine weiterhin aktive Erkrankung hin, die eine Therapieänderung erfordert. Eine Telebrium-Therapie kann in Betracht gezogen werden, wenn die Erkrankung eine ausreichende Somatostatin-Rezeptor-Expression aufweist und eine funktionelle Karzinoid-Syndrom-Symptomatik besteht, um das Behandlungsspektrum zu erweitern. Da wichtige Informationen wie das genaue Stadium, Nebendiagnosen, Begleitsymptome und ein Prognose-Score fehlen, ist eine umfassende weitere Diagnostik zur vollständigen Beurteilung des Patientenstatus und zur Optimierung der Therapieplanung erforderlich. Dies beinhaltet eine erneute Bildgebung zur Bestimmung des genauen Tumorstadiums und zur Beurteilung der Somatostatin-Rezeptor-Expression sowie eine umfassende Anamnese und körperliche Untersuchung zur Erfassung von Begleitsymptomen und Begleiterkrankungen.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "82b159761c69428385cc4b9043dcd916",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 8.576721848919988,
+      "Studien": 0.6081008892506361,
+      "Therapie": 17.994717860594392
+    },
+    "patient_context_summary_for_eval": "Patient ID: 4\nGuideline Specified: ESMO\nDiagnosis (Code): \nDiagnosis (Text Snippet): NET des Pankreas mit Lymphknoten und Lebermetastasen (ED 2015)\nCT bei unklaren abdominellen Beschwerden 06/2015: Tumor im Pankreas. G2 NET.\n07/2015 CT...\nStage: "
+  },
+  {
+    "patient_id_original": "5",
+    "patient_data_source_file": "NET Tubo v2.xlsx",
+    "timestamp_processed": "2025-06-09T12:00:51.459803",
+    "llm_model_used": "gemma3:27b",
+    "clinical_info_modified": false,
+    "guideline_used": "ESMO",
+    "study_location_input": "Bern, Switzerland",
+    "diagnostik_output_final": "## Zusammenfassung der Diagnostik – Patient ID 5\n\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Pankreas mit Lymphknoten- und Lebermetastasen (diagnostiziert 2015).\n\n**Diagnostische Befunde:**\n\n*   **CT (06/2015 & 07/2015):** Primärtumor im Pankreas (20 x 40 x 30 mm). Verdacht auf lokoregionäre Lymphknotenmetastasen und Lebermetastasen in Segment VI und VIII.\n*   **DOTATOC PET-CT (06/2015):** Starker Uptake in den identifizierten Läsionen, was die Diagnose NET bestätigt und zur Stadieneinteilung beiträgt.\n\n**Stadium:** Nicht explizit angegeben, aber aufgrund des Vorliegens von Lymphknoten- und Lebermetastasen handelt es sich um ein fortgeschrittenes Stadium (wahrscheinlich Stadium IV).\n\n**Klinische Relevanz:** Der Patient präsentiert einen fortgeschrittenen neuroendokrinen Pankreastumor mit Metastasen, was eine umfassende Behandlung erfordert. Die starke Speicherung in der DOTATOC PET-CT deutet auf eine Expression von Somatostatinrezeptoren hin, was den Patienten möglicherweise für eine Peptidrezeptor-Radiotherapie (PRRT) geeignet macht.",
+    "diagnostik_raw_response": "## Zusammenfassung der Diagnostik – Patient ID 5\n\n**Hauptdiagnose:** Neuroendokriner Tumor (NET) des Pankreas mit Lymphknoten- und Lebermetastasen (diagnostiziert 2015).\n\n**Diagnostische Befunde:**\n\n*   **CT (06/2015 & 07/2015):** Primärtumor im Pankreas (20 x 40 x 30 mm). Verdacht auf lokoregionäre Lymphknotenmetastasen und Lebermetastasen in Segment VI und VIII.\n*   **DOTATOC PET-CT (06/2015):** Starker Uptake in den identifizierten Läsionen, was die Diagnose NET bestätigt und zur Stadieneinteilung beiträgt.\n\n**Stadium:** Nicht explizit angegeben, aber aufgrund des Vorliegens von Lymphknoten- und Lebermetastasen handelt es sich um ein fortgeschrittenes Stadium (wahrscheinlich Stadium IV).\n\n**Klinische Relevanz:** Der Patient präsentiert einen fortgeschrittenen neuroendokrinen Pankreastumor mit Metastasen, was eine umfassende Behandlung erfordert. Die starke Speicherung in der DOTATOC PET-CT deutet auf eine Expression von Somatostatinrezeptoren hin, was den Patienten möglicherweise für eine Peptidrezeptor-Radiotherapie (PRRT) geeignet macht.\n",
+    "diagnostik_think_block": "",
+    "diagnostik_interaction_id": "b299d95258e94a00add47295f51ca13e",
+    "studien_output": [
+      {
+        "title": "ALFApump System Post Marketing Surveillance Registry, In Support of the Following Indication: Automated Removal of Excess Peritoneal Fluid Into the Urinary Bladder in Patients With Cirrhosis or Malignancy, With Persistent or Refractory Ascites",
+        "nct_id": "NCT01532427"
+      },
+      {
+        "title": "Biomarker Signature of Stroke Aetiology Study: The BIOSIGNAL-Study",
+        "nct_id": "NCT02274727"
+      },
+      {
+        "title": "Real-World Treatment Patterns, BRCA Testing Practices, Outcomes, and Health Care Utilization in Platinum-Sensitive Recurrent Serous Ovarian Cancer: A Multi-Country Retrospective Study",
+        "nct_id": "NCT02262273"
+      },
+      {
+        "title": "Accuracy Assessment for Computer-assisted Surgical Interventions of the Liver: A Prospective, Non Randomized Study",
+        "nct_id": "NCT01474694"
+      },
+      {
+        "title": "An Open-label Phase 1/2a Study of BAL101553 Administered as Intravenous 48-hour Infusions in Adult Patients With Advanced Solid Tumors or Recurrent Glioblastoma",
+        "nct_id": "NCT02895360"
+      },
+      {
+        "title": "Dose-Intensive Melphalan and Cyclophosphamide With Autologous Bone Marrow Rescue for Recurrent Medulloblastoma and Germ Cell Tumors",
+        "nct_id": "NCT00002594"
+      },
+      {
+        "title": "A STUDY OF NERATINIB PLUS CAPECITABINE VERSUS LAPATINIB PLUS CAPECITABINE IN PATIENTS WITH HER2+ METASTATIC BREAST CANCER WHO HAVE RECEIVED TWO OR MORE PRIOR HER2-DIRECTED REGIMENS IN THE METASTATIC SETTING (NALA)",
+        "nct_id": "NCT01808573"
+      },
+      {
+        "title": "Substudy of Efficacy, Safety and Toxicology of Electronic Nicotine Delivery Systems as an Aid for Smoking Cessation (ESTxENDS Trial)- the Micronuclei Substudy of ESTxENDS",
+        "nct_id": "NCT04244773"
+      },
+      {
+        "title": "ADVATE/ ADYNOVI Hemophilia A Outcome Database",
+        "nct_id": "NCT02078427"
+      },
+      {
+        "title": "A Phase II, Multicentre, Open-label Study of Cabozantinib as 2nd Line Treatment in Subjects With Unresectable, Locally Advanced or Metastatic Renal Cell Carcinoma With a Clear-Cell Component Who Progressed After 1st Line Treatment With Checkpoint Inhibitors.",
+        "nct_id": "NCT03945773"
+      },
+      {
+        "title": "Randomized Phase II Trial on Fitness- and Comorbidity- Tailored Treatment in Elderly Patients With Newly Diagnosed Primary CNS Lymphoma (FIORELLA Trial)",
+        "nct_id": "NCT03495960"
+      },
+      {
+        "title": "A Multicenter, International, Randomized, Active Comparator-controlled, Double-blind, Double-dummy, Parallel-group, 2-arm, Phase 3 Study to Compare the Efficacy and Safety of the Oral FXIa Inhibitor Asundexian (BAY 2433334) With Apixaban for the Prevention of Stroke or Systemic Embolism in Male and Female Participants Aged 18 Years and Older With Atrial Fibrillation at Risk for Stroke",
+        "nct_id": "NCT05643573"
+      },
+      {
+        "title": "An Expanded Access Program of Ipilimumab for Patients With Glioblastomas and Gliomas",
+        "nct_id": "NCT03460782"
+      },
+      {
+        "title": "Assessing the Clinical Acceptability of Ultra-low Dose PET/CT and CT-less PET Using a Long Axial Field-of-view PET/CT System: a Single-centre, Single-blinded Method Agreement Study",
+        "nct_id": "NCT05496920"
+      },
+      {
+        "title": "A Phase II Study To Assess The Ability Of Neoadjuvant Chemotherapy Plus/Minus Second Look Surgery To Eliminate All Measurable Disease Prior To Radiotherapy For NGGCT",
+        "nct_id": "NCT00047320"
+      },
+      {
+        "title": "Safety and Efficiency of the YEARS Algorithm Versus Computed Tomography Pulmonary Angiography Alone for Suspected Pulmonary Embolism in Patients With Malignancy : HYDRA Study",
+        "nct_id": "NCT04657120"
+      },
+      {
+        "title": "A Phase Ib/II, Open-Label, Multicenter Study Evaluating the Safety, Activity, and Pharmacokinetics of Divarasib in Combination With Other Anti-Cancer Therapies in Patients With Previously Untreated Advanced Or Metastatic Non-Small Cell Lung Cancer With a KRAS G12C Mutation",
+        "nct_id": "NCT05789082"
+      },
+      {
+        "title": "A Phase 3, Randomized, Placebo-Controlled, Double-Blind Study to Evaluate Efficacy and Safety of Upadacitinib in Adult and Adolescent Subjects With Moderate to Severe Hidradenitis Suppurativa Who Have Failed Anti-TNF Therapy",
+        "nct_id": "NCT05889182"
+      },
+      {
+        "title": "Phase III Study of Tomudex and Cisplatin Versus Cisplatin in Malignant Pleural Mesothelioma",
+        "nct_id": "NCT00004920"
+      },
+      {
+        "title": "A Randomized Phase II Study Comparing Atezolizumab After Concurrent Chemo-radiotherapy With Chemo-radiotherapy Alone in Limited Disease Small-cell Lung Cancer",
+        "nct_id": "NCT03540420"
+      }
+    ],
+    "therapie_output_final": "**Therapieempfehlung:**\nPeptidrezeptor-Radiotherapie (PRRT) mit Lutetium-177-DOTATATE, kombiniert mit langwirksamen Somatostatinanaloga (z.B. Lanreotid oder Octreotid LAR).\n\n**Begründung:**\nDer Patient präsentiert einen fortgeschrittenen neuroendokrinen Pankreastumor (NET) mit Lymphknoten- und Lebermetastasen (wahrscheinlich Stadium IV). Die DOTATOC PET-CT zeigt einen starken Uptake in den Läsionen, was eine hohe Expression von Somatostatinrezeptoren bestätigt. Gemäß den ESMO-Leitlinien für gastrointestinale NETs ist die PRRT eine Standardtherapieoption für Patienten mit gut differenzierten, progressiven NETs und Somatostatinrezeptor-positiven Metastasen. Die Kombination mit langwirksamen Somatostatinanaloga dient der Rezeptorsättigung und kann die Wirksamkeit der PRRT erhöhen. Da der Patient bereits Metastasen aufweist, ist eine systemische Therapie indiziert, und die PRRT stellt eine geeignete Behandlungsoption dar. Eine kurative Resektion ist aufgrund des fortgeschrittenen Stadiums unwahrscheinlich.",
+    "therapie_raw_response": "**Therapieempfehlung:**\nPeptidrezeptor-Radiotherapie (PRRT) mit Lutetium-177-DOTATATE, kombiniert mit langwirksamen Somatostatinanaloga (z.B. Lanreotid oder Octreotid LAR).\n\n**Begründung:**\nDer Patient präsentiert einen fortgeschrittenen neuroendokrinen Pankreastumor (NET) mit Lymphknoten- und Lebermetastasen (wahrscheinlich Stadium IV). Die DOTATOC PET-CT zeigt einen starken Uptake in den Läsionen, was eine hohe Expression von Somatostatinrezeptoren bestätigt. Gemäß den ESMO-Leitlinien für gastrointestinale NETs ist die PRRT eine Standardtherapieoption für Patienten mit gut differenzierten, progressiven NETs und Somatostatinrezeptor-positiven Metastasen. Die Kombination mit langwirksamen Somatostatinanaloga dient der Rezeptorsättigung und kann die Wirksamkeit der PRRT erhöhen. Da der Patient bereits Metastasen aufweist, ist eine systemische Therapie indiziert, und die PRRT stellt eine geeignete Behandlungsoption dar. Eine kurative Resektion ist aufgrund des fortgeschrittenen Stadiums unwahrscheinlich.\n",
+    "therapie_think_block": "",
+    "therapie_interaction_id": "416beeff3a024ce5813f1216de08724d",
+    "errors": null,
+    "runtimes_overall_agents": {
+      "Diagnostik": 11.316790180280805,
+      "Studien": 0.495245099067688,
+      "Therapie": 10.375953873619437
+    },
+    "patient_context_summary_for_eval": "Patient ID: 5\nGuideline Specified: ESMO\nDiagnosis (Code): \nDiagnosis (Text Snippet): NET des Pankreas mit Lymphknoten und Lebermetastasen (ED 2015)\nCT bei unklaren abdominellen Beschwerden 06/2015: Tumor im Pankreas. G2 NET.\n07/2015 CT...\nStage: "
+  }
+]
