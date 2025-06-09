@@ -1,19 +1,25 @@
+# agent_process_patients.py
 import logging
 import json
 import os
 import time
 from datetime import datetime
+import glob
 
 # --- Project Imports ---
 try:
     import config
     from utils.logging_setup import setup_logging
+    from utils.guidelines_utils import find_guideline_and_net_files
     from data_loader import load_patient_data
     from core.agent_manager import AgentWorkflowManager
 except ImportError as e:
     print(f"Error importing project modules: {e}")
     print("Ensure this script is run from the project root or that 'llmRecom' is in your PYTHONPATH.")
     exit(1)
+
+# -- NET -- #
+NET = True
 
 # --- Configuration for this Batch Script ---
 # DEFAULT_LLM_MODEL_BATCH = "qwen3:32b"
@@ -32,7 +38,9 @@ def get_batch_results_filename(llm_model: str, clinical_info_modified: bool) -> 
     and clinical_info_modified flag.
     """
     llm_safe = llm_model.replace(":", "_").replace("/", "_")
-    return f"agent_{llm_safe}_clinical_info_modified_{clinical_info_modified}.json" # Updated filename pattern
+    # Include NET state in filename for clarity
+    net_suffix = "_NET" if NET else ""
+    return f"agent_{llm_safe}_clinical_info_modified_{clinical_info_modified}{net_suffix}.json" # Updated filename pattern
 
 def process_study_output(studien_results: list | None) -> list | None:
     if not studien_results or not isinstance(studien_results, list):
@@ -144,7 +152,8 @@ def run_batch_processing(
                 "accompanying_symptoms": str(patient_row.get("accompanying_symptoms", "")),
                 "prognosis_score": str(patient_row.get("prognosis_score", "")),
                 "guideline": effective_guideline,
-                "location": effective_study_location
+                "location": effective_study_location,
+                "net_mode": NET
             }
             
             if effective_clinical_info_modified:

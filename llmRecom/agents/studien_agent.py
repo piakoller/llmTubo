@@ -127,10 +127,11 @@ class StudienAgent(Agent):
             key=lambda s: (s.get('min_distance_km') is None, s.get('min_distance_km', float('inf')))
         )
 
-    def respond(self, diagnosis_search_term: str) -> list[dict]:
+    def respond(self, diagnosis_search_term: str, attachments: list[str] | None = None) -> list[dict]:
         """
         Searches trials based on the diagnosis_search_term.
         The context for this agent should be ONLY the diagnosis string.
+        Attachments are ignored for StudienAgent.
         """
         if not diagnosis_search_term or not diagnosis_search_term.strip():
             logger.warning("StudienAgent received empty diagnosis search term. Skipping search.")

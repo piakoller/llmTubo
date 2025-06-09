@@ -3,6 +3,7 @@ How to run agent_prcoess_patients.py:
     python agent_process_patients.py --llm_model "gemma3:27b"
     - with modification: 
     python agent_process_patients.py --llm_model "gemma3:27b" --patient_data_file "/home/pia/projects/llmTubo/llmRecom/data/tubo-DLBCL-v2_modified.xlsx"
+    python agent_process_patients.py --llm_model "gemma3:27b" --patient_data_file "/home/pia/projects/llmTubo/llmRecom/data/NET/NET Tubo_modified.xlsx"
 
 How to tun single_prompt_recommendation.py:
     - no modification: 

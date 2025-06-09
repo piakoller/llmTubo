@@ -16,6 +16,8 @@ from agents.studien_agent import StudienAgent
 from agents.therapie_agent import TherapieAgent
 from agents.report_agent import ReportAgent
 from services.geocoding_service import get_geopoint
+from utils.guidelines_utils import find_guideline_and_net_files
+import ast
 
 logger = logging.getLogger(__name__)
 human_eval_json_lock = threading.Lock()
@@ -95,8 +97,9 @@ class AgentWorkflowManager:
         self.diagnostik_agent = None
         self.studien_agent = None
         self.therapie_agent = None
-        self.report_agent = None # Initialize ReportAgent here
+        self.report_agent = None
         self.user_geopoint = None
+        self.net_mode = patient_data.get("net_mode", False)
 
         self.results = {}
         self.runtimes = {}
@@ -223,6 +226,25 @@ class AgentWorkflowManager:
             summary_parts.append(f"Clinical Info/Question: {self.patient_data.get('clinical_info')[:100]}...")
         
         return "\n".join(summary_parts)
+    
+    def extract_therapy_text(self, therapy_final_resp):
+        # Versuche, das Dict zu parsen und das Feld 'text' zu extrahieren
+        if not therapy_final_resp:
+            return ""
+        try:
+            # Falls therapy_final_resp ein echtes Dict ist, nicht als String
+            if isinstance(therapy_final_resp, dict):
+                return therapy_final_resp.get("text", "").strip()
+            # Falls therapy_final_resp ein String-Dict ist
+            parsed = ast.literal_eval(therapy_final_resp)
+            return parsed.get("text", "").strip()
+        except Exception:
+            # Fallback: Suche nach "Therapieempfehlung" im Text
+            for key in ["Therapieempfehlung", "Begründung"]:
+                idx = therapy_final_resp.find(key)
+                if idx != -1:
+                    return therapy_final_resp[idx:].strip()
+            return therapy_final_resp.strip()
 
 
     def run_workflow(self):
@@ -241,10 +263,22 @@ class AgentWorkflowManager:
 
         base_context, studien_context = self._prepare_contexts()
 
+        # --- Find and attach relevant files ---
+        guideline_name = self.patient_data.get('guideline', '')
+        main_diagnosis = self.patient_data.get('main_diagnosis', '')
+        # Use the net_mode passed to the manager's constructor
+        attachments_for_agents = find_guideline_and_net_files(guideline_name, main_diagnosis, net_mode=self.net_mode)
+
+        if attachments_for_agents:
+            logger.info(f"Found {len(attachments_for_agents)} attachment(s) for agents: {attachments_for_agents}")
+        else:
+            logger.warning("No attachments found for agents.")
+
         # 1. Diagnostik and Studien Agents (Parallel)
         logger.info("Starting Diagnostik and Studien agents in parallel.")
-        diag_runner = AgentRunner(self.diagnostik_agent, "Diagnostik", base_context)
-        studien_runner = AgentRunner(self.studien_agent, "Studien", studien_context)
+        # Pass attachments to the AgentRunners
+        diag_runner = AgentRunner(self.diagnostik_agent, "Diagnostik", base_context, attachments=attachments_for_agents)
+        studien_runner = AgentRunner(self.studien_agent, "Studien", studien_context) # StudienAgent might not need attachments, but the prompt doesn't use them anyway. Could pass here too if needed.
 
         diag_thread = threading.Thread(target=diag_runner.run, name="DiagnostikThread")
         studien_thread = threading.Thread(target=studien_runner.run, name="StudienThread")
@@ -254,82 +288,108 @@ class AgentWorkflowManager:
 
         # 2. Wait for Diagnostik (Therapie depends on it)
         diag_thread.join()
-        self.runtimes["Diagnostik"] = diag_runner.runtime
+        self.runtimes["Diagnostik_total_s"] = diag_runner.runtime # Rename for clarity (total thread runtime)
         if diag_runner.exception:
-            self.errors["Diagnostik"] = diag_runner.exception
-            logger.error("Diagnostik Agent failed. Therapie Agent will not run.", exc_info=diag_runner.exception)
+            self.errors["Diagnostik"] = str(diag_runner.exception)
+            logger.error(f"Diagnostik Agent failed: {diag_runner.exception}. Therapie Agent will not run.", exc_info=diag_runner.exception)
             # Ensure studien thread is also joined if we might return early
             if studien_thread.is_alive(): studien_thread.join()
-            self.runtimes["Studien"] = studien_runner.runtime # Collect runtime
-            if studien_runner.exception: self.errors["Studien"] = studien_runner.exception
-            self.results["Studien"] = studien_runner.result if not studien_runner.exception else []
+            self.runtimes["Studien_total_s"] = studien_runner.runtime # Collect runtime
+            if studien_runner.exception: self.errors["Studien"] = str(studien_runner.exception)
+            # Ensure Studien results are collected even if Diagnostik failed
+            if studien_runner.result is not None:
+                 self.results["Studien"] = studien_runner.result
+            elif "Studien" not in self.results: # Ensure key exists even if result is None
+                 self.results["Studien"] = []
             return # Stop if Diagnostik fails
         else:
-            diag_final_resp, diag_raw_resp, diag_think, diag_id, diag_duration = diag_runner.result
-            logger.info(f"LLM think response {diag_think}")            
+            # diag_runner.result is (final_response_text, raw_response, think_block, interaction_id, duration_s)
+            diag_final_resp, diag_raw_resp, diag_think, diag_id, diag_llm_duration = diag_runner.result
+            logger.info(f"Diagnostik Agent finished (ID: {diag_id}, LLM invoke time: {diag_llm_duration:.2f}s).")
+            # logger.debug(f"Diagnostik LLM think block: {diag_think}")
+
             self.results["Diagnostik"] = diag_final_resp
             self.results["Diagnostik_raw_response"] = diag_raw_resp
             self.results["Diagnostik_think_block"] = diag_think
             self.results["Diagnostik_interaction_id"] = diag_id
-            self.runtimes["Diagnostik_llm_invoke_s"] = diag_duration
-            logger.info(f"Diagnostik Agent (ID: {diag_id}, LLM invoke time: {diag_duration:.2f}s) finished.")
+            self.runtimes["Diagnostik_llm_invoke_s"] = diag_llm_duration # Store LLM invoke duration
 
-            diag_context_for_therapie = diag_final_resp
+            diag_context_for_therapie = diag_final_resp # Therapie uses the final summary from Diagnostik
 
-            # 3. Therapie Agent (Sequential after Diagnostik)
+        # 3. Therapie Agent (Sequential after Diagnostik)
             logger.info("Starting Therapie agent.")
-            therapie_runner = AgentRunner(self.therapie_agent, "Therapie", diag_context_for_therapie) 
+            # Pass attachments to the Therapie AgentRunner as well
+            therapie_runner = AgentRunner(self.therapie_agent, "Therapie", diag_context_for_therapie, attachments=attachments_for_agents)
             therapie_thread = threading.Thread(target=therapie_runner.run, name="TherapieThread")
             threads.append(therapie_thread)
             therapie_thread.start()
 
-        # 4. Wait for all remaining threads
+        # 4. Wait for all remaining threads (Studien, Therapie)
         for t in threads:
-            if t.is_alive() and t is not diag_thread : # diag_thread already joined
+            if t.is_alive() and t is not diag_thread: # diag_thread already joined
                 t.join()
         logger.info("All agent threads (Studien, Therapie) have completed.")
 
         # 5. Collect results and errors for Studien
-        self.runtimes["Studien"] = studien_runner.runtime
-        self.results["Studien"] = studien_runner.result # StudienAgent result is likely a list, not a 5-tuple
+        # Studien result is likely just the data, not the 5-tuple like LLM agents
+        self.runtimes["Studien_total_s"] = studien_runner.runtime
         if studien_runner.exception:
-            self.errors["Studien"] = studien_runner.exception
-            logger.warning("Studien Agent failed.", exc_info=studien_runner.exception)
-            if "Studien" not in self.results or self.results["Studien"] is None:
-                 self.results["Studien"] = []
+            self.errors["Studien"] = str(studien_runner.exception)
+            logger.warning(f"Studien Agent failed: {studien_runner.exception}", exc_info=studien_runner.exception)
+            if studien_runner.result is None:
+                 self.results["Studien"] = [] # Ensure key exists with empty list if failed before results
+            else:
+                 self.results["Studien"] = studien_runner.result # Collect partial results if any
+        else:
+            self.results["Studien"] = studien_runner.result
 
         # Collect results for Therapie
         if 'therapie_runner' in locals(): # Ensure therapie_runner was created
-            self.runtimes["Therapie"] = therapie_runner.runtime
+            self.runtimes["Therapie_total_s"] = therapie_runner.runtime
             if therapie_runner.exception:
-                self.errors["Therapie"] = therapie_runner.exception
+                self.errors["Therapie"] = str(therapie_runner.exception)
                 logger.error(f"Therapie Agent failed: {therapie_runner.exception}", exc_info=therapie_runner.exception)
+                # Ensure Therapie results are set to None or empty if failed
+                self.results["Therapie"] = None
+                self.results["Therapie_raw_response"] = None
+                self.results["Therapie_think_block"] = None
+                self.results["Therapie_interaction_id"] = None
+                self.runtimes["Therapie_llm_invoke_s"] = 0.0 # No LLM duration on failure
+
             else:
-                # therapie_runner.result is (response_text, interaction_id)
-                therapy_final_resp, therapy_raw_resp, therapy_think, therapy_id, therapy_duration = therapie_runner.result                
-                self.results["Therapie"] = therapy_final_resp
+                # therapie_runner.result is (final_response_text, raw_response, think_block, interaction_id, duration_s)
+                therapy_final_resp, therapy_raw_resp, therapy_think, therapy_id, therapy_llm_duration = therapie_runner.result
+                self.results["Therapie"] = self.extract_therapy_text(therapy_final_resp)
                 self.results["Therapie_raw_response"] = therapy_raw_resp
                 self.results["Therapie_think_block"] = therapy_think
                 self.results["Therapie_interaction_id"] = therapy_id
-                self.runtimes["Therapie_llm_invoke_s"] = therapy_duration
+                self.runtimes["Therapie_llm_invoke_s"] = therapy_llm_duration
 
                 patient_context_summary_for_eval = self._get_patient_context_summary_for_eval()
                 guideline_used = self.patient_data.get('guideline', 'Unknown Guideline')
                 original_patient_id = self.patient_data.get('id', 'UnknownPatient')
 
-                save_for_human_evaluation(
-                    patient_id=original_patient_id,
-                    patient_context_summary=patient_context_summary_for_eval,
-                    llm_full_recommendation=therapy_final_resp,
-                    llm_raw_response_with_think=therapy_raw_resp,
-                    llm_think_block=therapy_think,
-                    guideline_used=guideline_used,
-                    llm_interaction_id=therapy_id,
-                    agent_name="TherapieAgentOutput"
-                )
-                
-        elif 'Therapie' in self.errors: # Check if an error was already recorded for Therapie
-            logger.warning(f"Therapie Agent failed (error previously recorded), not saving for human evaluation. Error: {self.errors['Therapie']}")
+                # Save for human evaluation ONLY if Therapie Agent succeeded and produced a result
+                if therapy_final_resp is not None and therapy_final_resp.strip() != "":
+                    save_for_human_evaluation(
+                        patient_id=original_patient_id,
+                        patient_context_summary=patient_context_summary_for_eval,
+                        llm_full_recommendation=therapy_final_resp,
+                        llm_raw_response_with_think=therapy_raw_resp,
+                        llm_think_block=therapy_think,
+                        guideline_used=guideline_used,
+                        llm_interaction_id=therapy_id,
+                        agent_name="TherapieAgentOutput"
+                    )
+                else:
+                     logger.warning(f"Therapie Agent succeeded but produced empty/None final response for patient {original_patient_id}, not saving for human evaluation.")
+
+
+        elif 'Therapie' in self.errors: # Check if an error was already recorded for Therapie (e.g. Diagnostik failed)
+            logger.warning(f"Therapie Agent was not run or failed due to a prior error, not saving for human evaluation. Error: {self.errors.get('Therapie', 'Unknown prior error')}")
         else: # Fallback if therapie_runner wasn't even created (e.g., Diagnostik failed)
              logger.info("No therapy recommendation produced (likely due to prior agent failure), not saving for human evaluation.")
+
+        # Store overall runtimes, excluding LLM invoke times (which are separate now)
+        self.runtimes["Overall_workflow_s"] = sum(v for k, v in self.runtimes.items() if k.endswith('_total_s')) # Sum up total thread runtimes
         logger.info("Agent workflow execution finished.")

@@ -2,8 +2,8 @@
 from pathlib import Path
 
 # --- LLM Configuration ---
-# LLM_MODEL = "qwen3:32b"
-LLM_MODEL = "llama3"
+LLM_MODEL = "qwen3:32b"
+# LLM_MODEL = "llama3"
 LLM_TEMPERATURE = 0.7
 
 # --- File Paths & Directories ---
@@ -13,6 +13,9 @@ DATA_ROOT_DIR = Path(
 # TUBO_EXCEL_FILE_PATH = DATA_ROOT_DIR / "tubo-DLBCL-v2.xlsx"
 # TUBO_EXCEL_FILE_PATH = DATA_ROOT_DIR / "tubo-DLBCL-v2_modified.xlsx"
 TUBO_EXCEL_FILE_PATH = DATA_ROOT_DIR / "NET/NET Tubo.xlsx"
+
+GUIDELINE_DATA_DIR_NET = "/home/pia/projects/llmTubo/llmRecom/data/NET/mds"
+GUIDELINE_DATA_DIR_LMYPH = "/home/pia/projects/llmTubo/llmRecom/data/guidelines/mds"
 
 REPORT_DIR = "generated_report"
 REPORT_FILE_TYPE = "md"

@@ -6,7 +6,22 @@ from datetime import datetime
 import re
 import glob
 
-# -- NET -- '
+from langfuse.openai import OpenAI
+from langfuse.langchain import LangfuseCallbackHandler
+
+openai = OpenAI(
+    api_key="ollama",
+    base_url="http://localhost:11434/v1",
+    callbacks=[langfuse_handler]
+)
+
+langfuse_handler = LangfuseCallbackHandler(
+    public_key="pk-lf-4422f1b6-b576-45d3-af3b-fc0047e21051",
+    secret_key="sk-lf-c7877fa2-03ff-4e9a-a7cc-e23ff78d7610",
+    host="https://cloud.langfuse.com"
+)
+
+# -- NET -- #
 NET = True
 
 # --- Project Imports ---
@@ -24,7 +39,7 @@ except ImportError as e:
     exit(1)
 
 # --- Configuration for this Script ---
-DEFAULT_LLM_MODEL_SINGLE_PROMPT = "llama3" # Updated default
+DEFAULT_LLM_MODEL_SINGLE_PROMPT = "qwen3_32b"
 DEFAULT_GUIDELINE_PROVIDER_SINGLE_PROMPT = "ESMO"
 EVAL_SINGLE_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/single_prompt"
 EVAL_SINGLE_NET_DATA_DIR = "/home/pia/projects/llmTubo/tuboEval/data_for_evaluation/single_prompt/net"
@@ -99,39 +114,64 @@ def generate_single_recommendation(
     if clinical_info_modified_flag:
         logger.info(f"Clinical info modified flag is TRUE for patient {patient_data_dict.get('id', 'N/A')}.")
 
- # --- Guideline-Dateien und ggf. NET-Anhänge suchen ---
+    trace = langfuse_handler.langfuse.trace(
+        name="SinglePromptRecommendation",
+        metadata={
+            "patient_id": patient_data_dict.get("id"),
+            "guideline": guideline_name,
+            "llm_model": llm.model,
+            "clinical_info_modified": clinical_info_modified_flag,
+            "attachments": attachments
+        }
+    )
+
+    observation = trace.generation(
+        name="LLM Prompt",
+        input={
+            "guideline_name": guideline_name,
+            "patient_data_string": patient_data_string,
+            "modified_context_indicator": modified_context_indicator_text,
+            "attachments_info": attachments_info
+        }
+    )
+
+    # --- Guideline-Dateien und ggf. NET-Anhänge suchen ---
     main_diagnosis = str(patient_data_dict.get("main_diagnosis", "")).strip()
     attachments = find_guideline_and_net_files(guideline_name, main_diagnosis, NET)
     if attachments:
         logger.info(f"Attachments used: {attachments}")
+        attachments_info = "Folgende Dokumente stehen als Anhang zur Verfügung:\n" + "\n".join(f"- {os.path.basename(a)}" for a in attachments)
     else:
         logger.warning(f"Keine Guideline-Datei gefunden für {guideline_name} und Diagnose {main_diagnosis}")
-
+        attachments_info = "Es sind keine zusätzlichen Anhänge vorhanden."
+    
     prompt_template_str = """
-Du bist ein erfahrener Onkologie-Experte. Deine Aufgabe ist es, eine präzise und begründete Therapieempfehlung für den unten beschriebenen Patienten zu erstellen.
-Stütze deine Empfehlung AUSSCHLIESSLICH auf die bereitgestellten Patienteninformationen und die angegebene medizinische Leitlinie.
-{modified_context_indicator}
-**Zu berücksichtigende Leitlinie:** {guideline_name}
+    Du bist ein erfahrener Onkologie-Experte. Deine Aufgabe ist es, eine präzise und begründete Therapieempfehlung für den unten beschriebenen Patienten zu erstellen.
+    Stütze deine Empfehlung AUSSCHLIESSLICH auf die bereitgestellten Patienteninformationen, die angegebene medizinische Leitlinie **und alle als Datei angehängten Dokumente** (siehe ggf. Anhang unten).
+    {modified_context_indicator}
+    {attachments_info}
+    **Zu berücksichtigende Leitlinie:** {guideline_name}
 
-**Patienteninformationen:**
-{patient_data_string}
+    **Patienteninformationen:**
+    {patient_data_string}
 
-**Anweisungen für die Therapieempfehlung:**
-1.  Analysiere die oben genannten "Patienteninformationen" sorgfältig.
-2.  Berücksichtige **ausschließlich** die angegebene Leitlinie: **{guideline_name}** und die als Datei angehängten Dokumente.
-3.  Formuliere **EINE EINZIGE, KONKRETE THERAPIEEMPFEHLUNG** auf Deutsch.
-4.  Gib eine klare und prägnante **Begründung** für die empfohlene Therapie auf Deutsch. Die Begründung muss sich explizit auf die relevanten Punkte aus den Patienteninformationen und die Empfehlungen der Leitlinie beziehen.
-5.  Wenn die Informationen für eine definitive Empfehlung unzureichend sind, gib dies an und schlage notwendige weitere diagnostische Schritte vor.
-6.  Strukturiere deine Antwort wie folgt und füge keine zusätzlichen einleitenden oder abschließenden Sätze hinzu (gib auch einen <think> Block aus, bevor du antwortest):
+    **Anweisungen für die Therapieempfehlung:**
+    1.  Analysiere die oben genannten "Patienteninformationen" sorgfältig.
+    2.  Berücksichtige **ausschließlich** die angegebene Leitlinie: **{guideline_name}** **und alle als Datei angehängten Dokumente** (z.B. Studien, Pressemitteilungen, Zusatzmaterialien), falls vorhanden.
+    3.  Überprüfe wenn sinnvoll (aber nur wenn sinnvoll), ob die NETTER-2 Studie aus dem Anhang anwendbar ist
+    4.  Formuliere **EINE EINZIGE, KONKRETE THERAPIEEMPFEHLUNG** auf Deutsch.
+    5.  Gib eine klare und prägnante **Begründung** für die empfohlene Therapie auf Deutsch. Die Begründung muss sich explizit auf die relevanten Punkte aus den Patienteninformationen, die Empfehlungen der Leitlinie **und ggf. die Inhalte der Anhänge** beziehen.
+    6.  Wenn die Informationen für eine definitive Empfehlung unzureichend sind, gib dies an und schlage notwendige weitere diagnostische Schritte vor.
+    7.  Strukturiere deine Antwort wie folgt und füge keine zusätzlichen einleitenden oder abschließenden Sätze hinzu (gib auch einen <think> Block aus, bevor du antwortest):
 
-<think>
-[Hier deine Denkprozesse vor der finalen Antwort einfügen. Dieser Block wird später separat gespeichert.]
-</think>
-**Therapieempfehlung:**
-[Hier deine konkrete Therapieempfehlung einfügen.]
+    <think>
+    [Hier deine Denkprozesse vor der finalen Antwort einfügen. Dieser Block wird später separat gespeichert.]
+    </think>
+    **Therapieempfehlung:**
+    [Hier deine konkrete Therapieempfehlung einfügen.]
 
-**Begründung:**
-[Hier deine detaillierte Begründung einfügen.]
+    **Begründung:**
+    [Hier deine detaillierte Begründung einfügen.]
     """
 
     modified_context_indicator_text = ""
@@ -140,10 +180,10 @@ Stütze deine Empfehlung AUSSCHLIESSLICH auf die bereitgestellten Patienteninfor
 
     prompt = PromptTemplate(
         template=prompt_template_str,
-        input_variables=["guideline_name", "patient_data_string", "modified_context_indicator"]
+        input_variables=["guideline_name", "patient_data_string", "modified_context_indicator", "attachments_info"]
     )
 
-    chain = LLMChain(llm=llm, prompt=prompt)
+    chain = prompt | llm
 
     llm_duration = None
     raw_llm_response = None
@@ -160,23 +200,35 @@ Stütze deine Empfehlung AUSSCHLIESSLICH auf die bereitgestellten Patienteninfor
         response_dict = chain.invoke({
             "guideline_name": guideline_name,
             "patient_data_string": patient_data_string,
-            "modified_context_indicator": modified_context_indicator_text
-        }, **llm_kwargs)
+            "modified_context_indicator": modified_context_indicator_text,
+            "attachments_info": attachments_info
+        }, config={"callbacks": [langfuse_handler]}, **llm_kwargs)
+
         llm_duration = time.perf_counter() - start_time
-        
-        raw_llm_response = response_dict.get('text', '').strip()
+
+        raw_llm_response = response_dict.get('text', '').strip() if isinstance(response_dict, dict) else str(response_dict).strip()
         think_tag_end = "</think>"
         match = re.search(re.escape(think_tag_end), raw_llm_response, re.IGNORECASE)
-        if match:
-            final_recommendation_text = raw_llm_response[match.end():].strip()
-        else:
-            final_recommendation_text = raw_llm_response
+        final_recommendation_text = raw_llm_response[match.end():].strip() if match else raw_llm_response
+
+        observation.end(
+            output=raw_llm_response,
+            metadata={"duration": llm_duration}
+        )
+        trace.end()
+
+        if not match:
             logger.warning(f"No <think> block found in LLM response for patient {patient_data_dict.get('id', 'N/A')}. Raw response used as final.")
-            
+
         logger.info(f"LLM ({llm.model}) for patient {patient_data_dict.get('id', 'N/A')} took {llm_duration:.2f}s. Final recommendation snippet: {final_recommendation_text[:100]}...")
         return final_recommendation_text, raw_llm_response, None, llm_duration
 
     except Exception as e:
+        observation.end(
+            output=str(e),
+            metadata={"error": True}
+        )
+        trace.end()
         llm_duration = time.perf_counter() - start_time if start_time else None
         error_msg = str(e)
         logger.error(f"Error generating single-prompt recommendation for Patient ID {patient_data_dict.get('id', 'N/A')}: {error_msg}", exc_info=True)

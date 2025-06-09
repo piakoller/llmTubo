@@ -13,6 +13,8 @@ from typing import Any, Dict, List, Optional, Union
 
 from langchain_ollama import OllamaLLM
 from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
+import langfuse
 
 import config
 
@@ -60,79 +62,104 @@ class Agent(ABC):
         return think_block_content, final_response_content
 
 
-    def _invoke_llm(self, prompt_template_str: str, context_vars: dict) -> tuple[str, str, str, str, Optional[float]]:
-            """
-            Invokes LLM, logs interaction, separates think block, and captures invoke duration.
-            Returns: (final_response_str, raw_response_str, think_block_str, interaction_id_str, invoke_duration_float_sec)
-            """
-            interaction_id = uuid.uuid4().hex
+    def _invoke_llm(
+        self,
+        template: str,
+        variables: dict,
+        attachments: list[str] | None = None,
+        **kwargs
+    ):
+        """
+        Invokes LLM, logs interaction, separates think block, and captures invoke duration.
+        Returns: (final_response_str, raw_response_str, think_block_str, interaction_id_str, invoke_duration_float_sec)
+        """
+        interaction_id = uuid.uuid4().hex
 
-            prompt_template = PromptTemplate.from_template(prompt_template_str)
-            rendered_prompt = ""
-            try:
-                prompt_value = prompt_template.format_prompt(**context_vars)
-                rendered_prompt = prompt_value.to_string()
-            except Exception as e:
-                logger.error(f"Error rendering prompt for agent {self.name}, ID {interaction_id}: {e}", exc_info=True)
-                rendered_prompt = f"Error rendering prompt (ID: {interaction_id}): {e}"
+        # Langfuse: Trace anlegen
+        trace = langfuse.Trace(
+            name=f"{self.name}_LLM_Call",
+            metadata={
+                "agent": self.name,
+                "interaction_id": interaction_id,
+                "attachments": attachments,
+                "variables": {k: (str(v)[:200] + "..." if isinstance(v, str) and len(v) > 200 else v) for k, v in variables.items()}
+            }
+        )
 
-            chain = prompt_template | self.llm
+        # Prepare the prompt template
+        prompt = PromptTemplate(
+            template=template,
+            input_variables=list(variables.keys())
+        )
+        chain = prompt | self.llm
+        
+        llm_kwargs = {}
+        if attachments:
+            llm_kwargs["attachments"] = attachments
+
+        raw_response_from_llm = ""
+        think_block = ""
+        final_response = ""
+        error_message = ""
+        invoke_duration: Optional[float] = None
+
+        llm_call_start_time = time.perf_counter()
+        try:
+            # Optionally log input variables (shortened for large strings)
+            log_context_vars = {k: (str(v)[:50] + '...' if isinstance(v, str) and len(v) > 50 else v) for k, v in variables.items()}
+            logger.debug(f"Invoking LLM for agent {self.name}, ID {interaction_id} with variables: {log_context_vars} and attachments: {attachments}")
+
+            # Call the LLM with attachments if provided
+            llm_output = chain.invoke(variables, **llm_kwargs)
+            raw_response_from_llm = str(llm_output) if not isinstance(llm_output, str) else llm_output
             
-            raw_response_from_llm = ""
-            think_block = ""
-            final_response = ""
-            error_message = ""
-            invoke_duration: Optional[float] = None # To store time for chain.invoke()
+            # Langfuse: Output loggen
+            prompt_obs.end(
+                output=raw_response_from_llm,
+                metadata={"duration": time.perf_counter() - llm_call_start_time}
+            )
+            trace.end()
 
-            llm_call_start_time = time.perf_counter() # Start timer before invoke
-            try:
-                log_context_vars = {k: (str(v)[:50] + '...' if isinstance(v, str) and len(v) > 50 else v) for k, v in context_vars.items()}
-                # logger.debug(f"Invoking LLM (ID: {interaction_id}) for agent {self.name} with vars: {log_context_vars}")
-                
-                llm_output = chain.invoke(context_vars)
-                
-                raw_response_from_llm = str(llm_output) if not isinstance(llm_output, str) else llm_output
-                # print(raw_response_from_llm)
-                
-            except Exception as e:
-                invoke_duration = time.perf_counter() - llm_call_start_time # Measure time even on error
-                logger.error(f"LLM invocation (ID: {interaction_id}) failed for agent {self.name} after {invoke_duration:.4f}s: {e}", exc_info=True)
-                error_message = str(e)
-                # _extract_think_and_final_response might still be useful if raw_response_from_llm has partial data
-                think_block = self._extract_think_and_final_response(raw_response_from_llm).think_block_content
-                final_response = self._extract_think_and_final_response(raw_response_from_llm).final_response_content
-
-                raise RuntimeError(f"LLM call (ID: {interaction_id}) failed for {self.name}") from e
-            
-            invoke_duration = time.perf_counter() - llm_call_start_time # Measure time on success
-            # logger.info(f"LLM raw response (ID: {interaction_id}) for {self.name} (invoke took {invoke_duration:.4f}s): {llm_output[:200]}...")
+        except Exception as e:
+            prompt_obs.end(
+                output=str(e),
+                metadata={"error": True}
+            )
+            trace.end()
+            invoke_duration = time.perf_counter() - llm_call_start_time
+            logger.error(f"LLM invocation (ID: {interaction_id}) failed for agent {self.name} after {invoke_duration:.4f}s: {e}", exc_info=True)
+            error_message = str(e)
+            # Try to extract think/final even from partial output
             think_block, final_response = self._extract_think_and_final_response(raw_response_from_llm)
-            logger.info(f"LLM raw response {think_block}")
+            raise RuntimeError(f"LLM call (ID: {interaction_id}) failed for {self.name}") from e
 
+        invoke_duration = time.perf_counter() - llm_call_start_time
+        think_block, final_response = self._extract_think_and_final_response(raw_response_from_llm)
+        logger.info(f"LLM raw response (ID: {interaction_id}) think block: {think_block}")
 
-            return final_response, raw_response_from_llm, think_block, interaction_id, invoke_duration
-
+        return final_response, raw_response_from_llm, think_block, interaction_id, invoke_duration
+        
 class AgentRunner:
     """Handles the execution of an agent, capturing results, runtime, and exceptions."""
-    def __init__(self, agent: Agent, name: str, context: str):
+    def __init__(self, agent: Agent, name: str, context: str, attachments: List[str] | None = None):
         self.agent = agent
         self.name = name
         self.context = context
-        self.result: any = None
-        self.runtime: float | None = None
-        self.exception: Exception | None = None
+        self.attachments = attachments # Store attachments here
+        self.result: Optional[Tuple[str, str, str | None, str, float] | List[Any]] = None # Updated return type hint
+        self.exception: Optional[Exception] = None
+        self.runtime: float = 0.0
+        logger.debug(f"AgentRunner for '{self.name}' initialized.")
 
     def run(self):
-        """Executes the agent's respond method and records metrics."""
-        context_snippet = self.context[:100] + '...' if len(self.context) > 100 else self.context
-        # logger.info(f"Agent '{self.name}' starting with context snippet: '{context_snippet}'")
+        """Executes the agent's respond method."""
         start_time = time.perf_counter()
         try:
-            self.result = self.agent.respond(self.context)
+            # Pass attachments to the agent's respond method
+            self.result = self.agent.respond(self.context, attachments=self.attachments)
+            logger.debug(f"Agent '{self.name}' finished execution.")
         except Exception as e:
-            logger.error(f"Agent '{self.name}' encountered an error: {e}", exc_info=True)
+            logger.error(f"Agent '{self.name}' encountered an exception.", exc_info=True)
             self.exception = e
         finally:
             self.runtime = time.perf_counter() - start_time
-            status = "failed" if self.exception else "completed"
-            logger.info(f"Agent '{self.name}' {status} in {self.runtime:.2f}s.")
