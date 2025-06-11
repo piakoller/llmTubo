@@ -1,17 +1,19 @@
-# app_eval.py
 import streamlit as st
+import pandas as pd
+import logging
+from datetime import datetime
+from collections import defaultdict
+import re # Importiere das re-Modul für reguläre Ausdrücke
+
+# Importiere deine eigenen Module
 from utils_eval_net import (
-    get_patient_ids_for_selection, 
-    get_case_data_for_patient, 
+    get_patient_ids_for_selection,
+    get_case_data_for_patient,
     get_available_llm_models_for_patient,
     save_comparative_evaluation,
     check_if_evaluated,
     PATIENT_DATA
 )
-from datetime import datetime
-import logging
-import pandas as pd
-from collections import defaultdict
 from data_loader import load_patient_data
 
 logger = logging.getLogger(__name__)
@@ -66,7 +68,7 @@ def get_recommendation_data_structured(case_data_series: pd.Series | None) -> di
     rec_type_prefixes = set()
     for col_name in case_data_series.index:
         if isinstance(col_name, str):
-            for suffix in [" - Final Recommendation", " - Think Block", " - Full Raw Response"]:
+            for suffix in [" - Final Recommendation", " - Think Block", " - Full Raw Response", " - LLM Input"]:
                 if suffix in col_name:
                     rec_type_prefixes.add(col_name.split(suffix)[0])
                     break 
@@ -78,6 +80,7 @@ def get_recommendation_data_structured(case_data_series: pd.Series | None) -> di
             "final_text": str(case_data_series.get(f"{prefix} - Final Recommendation", "")),
             "think_block": str(case_data_series.get(f"{prefix} - Think Block", "")),
             "raw_response": str(case_data_series.get(f"{prefix} - Full Raw Response", "")),
+            "llm_input": str(case_data_series.get(f"{prefix} - LLM Input", "")),
             "full_prefix": prefix 
         }
         if llm_name_parsed not in structured_variants:
@@ -88,15 +91,16 @@ def get_recommendation_data_structured(case_data_series: pd.Series | None) -> di
         structured_variants[llm_name_parsed][variant_key] = data_for_variant
     return structured_variants
 
-def render_evaluation_widgets(variant_prefix: str, patient_id: str, storage_dict: dict, form_key: str):
-    key_suffix = f"{variant_prefix}_{patient_id}_{form_key}"
+def render_evaluation_widgets(variant_prefix: str, patient_id: str, storage_dict: dict, form_key: str): # form_key is passed in but not used here for element keys
+    key_suffix = f"{variant_prefix}_{patient_id}_{st.session_state.expert_name.replace(' ', '_')}" # Use expert_name directly
+    
     st.markdown(f"**Evaluation for: `{variant_prefix}`**")
     eval_options_overall_single = ["N/A", "1-Poor", "2-Fair", "3-Good", "4-Excellent"]
     storage_dict[variant_prefix]["overall_assessment_single_rec"] = st.radio(
         f"Overall Assessment", 
         options=eval_options_overall_single, 
         index=0, 
-        key=f"overall_s_{key_suffix}",
+        key=f"overall_s_{key_suffix}", # This should now be unique
         horizontal=True
     )
     st.markdown("---")
@@ -106,45 +110,69 @@ def clean_newlines(text: str) -> str:
         return text
     return text.replace("\\n", "\n").replace("\\\\n", "\n")
 
-# --- Helper Function to get recommendation data for a specific variant ---
-def get_variant_data(case_data_series: pd.Series, llm_model: str, script_type: str, is_modified: bool) -> dict | None:
+def get_variant_data(case_data: dict, base_llm_model_name: str, script_type: str, is_modified: bool) -> dict | None:
     """
-    Constructs the expected column prefix and fetches data for a specific variant.
+    Konstruiert das erwartete Spaltenpräfix und holt Daten für eine spezifische Variante
+    aus dem 'recommendation_variants'-Unter-Dictionary des Falles.
     """
-    mod_suffix = "ModTrue" if is_modified else "ModFalse"
-   
-    full_prefix_found = None
-    for col_name in case_data_series.index:
-        if isinstance(col_name, str) and " - Final Recommendation" in col_name:
-            prefix_candidate = col_name.split(" - Final Recommendation")[0]
-
-            if llm_model in prefix_candidate and script_type.lower() in prefix_candidate.lower() and mod_suffix.lower() in prefix_candidate.lower():
-                full_prefix_found = prefix_candidate
-                break
-    
-    if not full_prefix_found:
-        expected_prefix_pattern_start = f"{script_type}_{llm_model}"
-        expected_prefix_pattern_end = f"{mod_suffix}"
-        
-        for col_prefix in case_data_series.index:
-             if isinstance(col_prefix, str) and col_prefix.startswith(expected_prefix_pattern_start) and col_prefix.endswith(expected_prefix_pattern_end):
-                  if " - Final Recommendation" in col_prefix: # Check it's a base prefix
-                       full_prefix_found = col_prefix.split(" - Final Recommendation")[0]
-                       break
-        
-        if not full_prefix_found:
-            logger.warning(f"Could not find matching full_prefix for LLM:{llm_model}, Script:{script_type}, Mod:{is_modified}")
-            return None
-
-    data = {
-        "full_prefix": full_prefix_found,
-        "final_text": str(case_data_series.get(f"{full_prefix_found} - Final Recommendation", "")),
-        "think_block": str(case_data_series.get(f"{full_prefix_found} - Think Block", "")),
-        "raw_response": str(case_data_series.get(f"{full_prefix_found} - Full Raw Response", "")),
-    }
-    if not data["final_text"] and not data["raw_response"]: # No useful data
+    if case_data is None:
+        logger.warning("case_data is None in get_variant_data.")
         return None
-    return data
+
+    recommendation_variants_data = case_data.get("recommendation_variants")
+    if not isinstance(recommendation_variants_data, dict):
+        logger.error(f"Expected 'recommendation_variants' to be a dictionary, but got {type(recommendation_variants_data)} for patient.")
+        return None
+
+    mod_suffix = "ModTrue" if is_modified else "ModFalse"
+    
+    expected_full_prefix = f"{script_type}_{base_llm_model_name}_{mod_suffix}"
+    
+    if expected_full_prefix in recommendation_variants_data:
+        variant_content = recommendation_variants_data[expected_full_prefix]
+
+        data = {
+            "full_prefix": expected_full_prefix, # Behalte das volle Präfix bei
+            "final_text": str(variant_content.get("final_recommendation", "")),
+            "think_block": str(variant_content.get("think_block", "")),
+            "raw_response": str(variant_content.get("raw_response_with_think", "")), # Beachte raw_response_with_think
+            "llm_input": str(variant_content.get("llm_input_full", "")), # Beachte llm_input_full
+        }
+        
+        if not data["final_text"] and not data["raw_response"]: # Keine nützlichen Daten
+            logger.info(f"No useful data (final_text or raw_response) for variant {expected_full_prefix}.")
+            return None
+        return data
+    else:
+        logger.warning(f"Could not find matching full_prefix: '{expected_full_prefix}' for LLM:{base_llm_model_name}, Script:{script_type}, Mod:{is_modified}")
+        return None
+
+def extract_llm_input_sections(llm_input_text: str) -> dict:
+    """
+    Extracts specific sections like system_instruction, context_info, patient_information,
+    and attached_documents from the LLM input string using regex.
+    """
+    sections = {
+        "system_instruction": "",
+        "context_info": "",
+        "patient_information": "",
+        "attached_documents": ""
+    }
+
+    # Regex patterns for each section
+    patterns = {
+        "system_instruction": r"<system_instruction>(.*?)</system_instruction>",
+        "context_info": r"<context_info>(.*?)</context_info>",
+        "patient_information": r"<patient_information>(.*?)</patient_information>",
+        "attached_documents": r"<attached_documents>(.*?)</attached_documents>"
+    }
+
+    for section, pattern in patterns.items():
+        match = re.search(pattern, llm_input_text, re.DOTALL | re.IGNORECASE)
+        if match:
+            sections[section] = match.group(1).strip()
+    return sections
+
 
 # --- Session State Initialization ---
 if "expert_name" not in st.session_state: st.session_state.expert_name = ""
@@ -175,8 +203,9 @@ st.session_state.selected_patient_id = selected_patient_id # Update session stat
 case_data_series = None
 llm_model_options = []
 if selected_patient_id:
-    case_data_series = get_case_data_for_patient(selected_patient_id)
-    if case_data_series is not None:
+    case_data_for_patient_dict = get_case_data_for_patient(selected_patient_id)
+    if case_data_for_patient_dict is not None:
+        case_data_series = pd.Series(case_data_for_patient_dict)
         llm_model_options = get_available_llm_models_for_patient(case_data_series)
         if not llm_model_options:
             st.sidebar.warning(f"No LLM variants found for patient {selected_patient_id}. Check Excel data and parsing.")
@@ -210,7 +239,7 @@ if selected_patient_id and selected_llm_model and st.session_state.expert_name:
 
 
 # --- Main Content Display & Evaluation Form ---
-if selected_patient_id and selected_llm_model and case_data_series is not None:
+if selected_patient_id and selected_llm_model and case_data_for_patient_dict is not None: # Use case_data_for_patient_dict here
     st.header(f"Patient ID: {selected_patient_id} - Evaluating LLM: `{selected_llm_model}`")
     st.subheader("📄 Patient Data Summary")
     # Patient Data
@@ -225,7 +254,7 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
     st.markdown("---")
 
     # Clinical Info
-    clinical_info_row = df_patients[df_patients["ID"].astype(str).str.strip() == str(selected_patient_id).strip()]    
+    clinical_info_row = df_patients[df_patients["ID"].astype(str).str.strip() == str(selected_patient_id).strip()]     
     if not clinical_info_row.empty:
         clinical_info = clinical_info_row.iloc[0]["Fragestellung"]
     else:
@@ -255,16 +284,16 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
     )
 
     st.markdown("---")
-    sp_std_data = get_variant_data(case_data_series, selected_llm_model, "SinglePrompt", False)
-    sp_mod_data = get_variant_data(case_data_series, selected_llm_model, "SinglePrompt", True)
-    ma_std_data = get_variant_data(case_data_series, selected_llm_model, "MultiAgent", False)
-    ma_mod_data = get_variant_data(case_data_series, selected_llm_model, "MultiAgent", True)
+    # Make sure to pass the dictionary, not the Series, to get_variant_data
+    sp_std_data = get_variant_data(case_data_for_patient_dict, selected_llm_model, "SinglePrompt", False)
+    sp_mod_data = get_variant_data(case_data_for_patient_dict, selected_llm_model, "SinglePrompt", True)
+    ma_std_data = get_variant_data(case_data_for_patient_dict, selected_llm_model, "MultiAgent", False)
+    ma_mod_data = get_variant_data(case_data_for_patient_dict, selected_llm_model, "MultiAgent", True)
 
-    # This dictionary will store the expert's input collected inside the form
     form_eval_data_storage = {} 
 
-    # --- THE SINGLE FORM STARTS HERE ---
-    form_key = f"eval_form_comparative_{selected_patient_id}_{selected_llm_model}_{st.session_state.expert_name.replace(' ', '_')}"
+       # --- THE SINGLE FORM STARTS HERE ---
+    form_key = f"eval_form_comparative_{selected_patient_id}_{selected_llm_model.replace(' ', '_')}_{st.session_state.expert_name.replace(' ', '_')}" # Ensure selected_llm_model is safe for key
     with st.form(key=form_key):
         st.subheader(f"LLM: `{selected_llm_model}` - Recommendation Variants & Your Evaluation")
 
@@ -274,9 +303,40 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
         
         with col_sp_std_disp:
             st.markdown(f"**Standard 'Fragestellung'**")
-            if sp_std_data and sp_std_data.get("final_text"):
+            if sp_std_data and (sp_std_data.get("final_text") or sp_std_data.get("think_block") or sp_std_data.get("llm_input")):
                 st.caption(f"ID: `{sp_std_data['full_prefix']}`")
-                with st.expander("Think Block", expanded=False): st.text_area("SP_Std_Think_Display", sp_std_data['think_block'], height=300, disabled=True, key=f"dsp_think_sp_std_{selected_patient_id}")
+                
+                # LLM Input
+                if sp_std_data.get("llm_input"):
+                    with st.expander("LLM Input", expanded=False): 
+                        llm_input_sections = extract_llm_input_sections(sp_std_data['llm_input'])
+                        
+                        if llm_input_sections["system_instruction"]:
+                            st.markdown("**System Instruction:**")
+                            st.markdown(f"```xml\n{llm_input_sections['system_instruction']}\n```", unsafe_allow_html=True)
+                        if llm_input_sections["context_info"]:
+                            st.markdown("**Context Info:**")
+                            st.markdown(f"```xml\n{llm_input_sections['context_info']}\n```", unsafe_allow_html=True)
+                        if llm_input_sections["patient_information"]:
+                            st.markdown("**Patient Information:**")
+                            st.markdown(f"```xml\n{llm_input_sections['patient_information']}\n```", unsafe_allow_html=True)
+                    if llm_input_sections["attached_documents"]:
+                        with st.expander("Attached Documents", expanded=False): # NOT NESTED anymore
+                            st.markdown(f"```xml\n{llm_input_sections['attached_documents']}\n```", unsafe_allow_html=True)
+                    else:
+                        st.info("No Attached Documents for this variant.")
+
+                else:
+                    st.info("No LLM Input for this variant.")
+
+                # Think Block (formatted with HTML for better rendering of XML-like tags)
+                if sp_std_data.get("think_block"):
+                    with st.expander("Think Block", expanded=False):
+                        # Use st.markdown with unsafe_allow_html=True for formatting with XML tags
+                        st.markdown(f"```xml\n{sp_std_data['think_block']}\n```", unsafe_allow_html=True)
+                else:
+                    st.info("No Think Block for this variant.")
+
                 st.text_area("SP_Std_Rec_Display", sp_std_data['final_text'], height=300, disabled=True, key=f"dsp_rec_sp_std_{selected_patient_id}")
                 form_eval_data_storage[sp_std_data['full_prefix']] = {}
                 render_evaluation_widgets(sp_std_data['full_prefix'], selected_patient_id, form_eval_data_storage, form_key)
@@ -284,9 +344,39 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
 
         with col_sp_mod_disp:
             st.markdown(f"**Modified 'Fragestellung'**")
-            if sp_mod_data and sp_mod_data.get("final_text"):
+            if sp_mod_data and (sp_mod_data.get("final_text") or sp_mod_data.get("think_block") or sp_mod_data.get("llm_input")):
                 st.caption(f"ID: `{sp_mod_data['full_prefix']}`")
-                with st.expander("Think Block", expanded=False): st.text_area("SP_Mod_Think_Display", sp_mod_data['think_block'], height=300, disabled=True, key=f"dsp_think_sp_mod_{selected_patient_id}")
+                
+                # LLM Input
+                if sp_mod_data.get("llm_input"):
+                    with st.expander("LLM Input", expanded=False):
+                        llm_input_sections = extract_llm_input_sections(sp_mod_data['llm_input'])
+                        
+                        if llm_input_sections["system_instruction"]:
+                            st.markdown("**System Instruction:**")
+                            st.markdown(f"```xml\n{llm_input_sections['system_instruction']}\n```", unsafe_allow_html=True)
+                        if llm_input_sections["context_info"]:
+                            st.markdown("**Context Info:**")
+                            st.markdown(f"```xml\n{llm_input_sections['context_info']}\n```", unsafe_allow_html=True)
+                        if llm_input_sections["patient_information"]:
+                            st.markdown("**Patient Information:**")
+                            st.markdown(f"```xml\n{llm_input_sections['patient_information']}\n```", unsafe_allow_html=True)
+                        
+                    if llm_input_sections["attached_documents"]:
+                        with st.expander("Attached Documents", expanded=False):
+                            st.markdown(f"```xml\n{llm_input_sections['attached_documents']}\n```", unsafe_allow_html=True)
+                    else:
+                        st.info("No Attached Documents for this variant.")
+                else:
+                    st.info("No LLM Input for this variant.")
+
+                # Think Block
+                if sp_mod_data.get("think_block"):
+                    with st.expander("Think Block", expanded=False):
+                        st.markdown(f"```xml\n{sp_mod_data['think_block']}\n```", unsafe_allow_html=True)
+                else:
+                    st.info("No Think Block for this variant.")
+
                 st.text_area("SP_Mod_Rec_Display", sp_mod_data['final_text'], height=300, disabled=True, key=f"dsp_rec_sp_mod_{selected_patient_id}")
                 form_eval_data_storage[sp_mod_data['full_prefix']] = {}
                 render_evaluation_widgets(sp_mod_data['full_prefix'], selected_patient_id, form_eval_data_storage, form_key)
@@ -299,9 +389,39 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
 
         with col_ma_std_disp:
             st.markdown(f"**Standard 'Fragestellung'**")
-            if ma_std_data and ma_std_data.get("final_text"):
+            if ma_std_data and (ma_std_data.get("final_text") or ma_std_data.get("think_block") or ma_std_data.get("llm_input")):
                 st.caption(f"ID: `{ma_std_data['full_prefix']}`")
-                with st.expander("Think Block", expanded=False): st.text_area("MA_Std_Think_Display", ma_std_data['think_block'], height=300, disabled=True, key=f"dsp_think_ma_std_{selected_patient_id}")
+                
+                # LLM Input
+                if ma_std_data.get("llm_input"):
+                    with st.expander("LLM Input", expanded=False):
+                        llm_input_sections = extract_llm_input_sections(ma_std_data['llm_input'])
+
+                        if llm_input_sections["system_instruction"]:
+                            st.markdown("**System Instruction:**")
+                            st.markdown(f"```xml\n{llm_input_sections['system_instruction']}\n```", unsafe_allow_html=True)
+                        if llm_input_sections["context_info"]:
+                            st.markdown("**Context Info:**")
+                            st.markdown(f"```xml\n{llm_input_sections['context_info']}\n```", unsafe_allow_html=True)
+                        if llm_input_sections["patient_information"]:
+                            st.markdown("**Patient Information:**")
+                            st.markdown(f"```xml\n{llm_input_sections['patient_information']}\n```", unsafe_allow_html=True)
+                        
+                    if llm_input_sections["attached_documents"]:
+                        with st.expander("Attached Documents", expanded=False): # NOT NESTED anymore
+                            st.markdown(f"```xml\n{llm_input_sections['attached_documents']}\n```", unsafe_allow_html=True)
+                    else:
+                        st.info("No Attached Documents for this variant.")
+                else:
+                    st.info("No LLM Input for this variant.")
+
+                # Think Block
+                if ma_std_data.get("think_block"):
+                    with st.expander("Think Block", expanded=False):
+                        st.markdown(f"```xml\n{ma_std_data['think_block']}\n```", unsafe_allow_html=True)
+                else:
+                    st.info("No Think Block for this variant.")
+
                 st.text_area(
                     "MA_Std_Rec_Display",
                     clean_newlines(ma_std_data['final_text']),
@@ -315,9 +435,39 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
 
         with col_ma_mod_disp:
             st.markdown(f"**Modified 'Fragestellung'**")
-            if ma_mod_data and ma_mod_data.get("final_text"):
+            if ma_mod_data and (ma_mod_data.get("final_text") or ma_mod_data.get("think_block") or ma_mod_data.get("llm_input")):
                 st.caption(f"ID: `{ma_mod_data['full_prefix']}`")
-                with st.expander("Think Block", expanded=False): st.text_area("MA_Mod_Think_Display", ma_mod_data['think_block'], height=300, disabled=True, key=f"dsp_think_ma_mod_{selected_patient_id}")
+                
+                # LLM Input
+                if ma_mod_data.get("llm_input"):
+                    with st.expander("LLM Input", expanded=False):
+                        llm_input_sections = extract_llm_input_sections(ma_mod_data['llm_input'])
+                        
+                        if llm_input_sections["system_instruction"]:
+                            st.markdown("**System Instruction:**")
+                            st.markdown(f"```xml\n{llm_input_sections['system_instruction']}\n```", unsafe_allow_html=True)
+                        if llm_input_sections["context_info"]:
+                            st.markdown("**Context Info:**")
+                            st.markdown(f"```xml\n{llm_input_sections['context_info']}\n```", unsafe_allow_html=True)
+                        if llm_input_sections["patient_information"]:
+                            st.markdown("**Patient Information:**")
+                            st.markdown(f"```xml\n{llm_input_sections['patient_information']}\n```", unsafe_allow_html=True)
+                        
+                    if llm_input_sections["attached_documents"]:
+                        with st.expander("Attached Documents", expanded=False): # NOT NESTED anymore
+                            st.markdown(f"```xml\n{llm_input_sections['attached_documents']}\n```", unsafe_allow_html=True)
+                    else:
+                        st.info("No Attached Documents for this variant.")
+                else:
+                    st.info("No LLM Input for this variant.")
+
+                # Think Block
+                if ma_mod_data.get("think_block"):
+                    with st.expander("Think Block", expanded=False):
+                        st.markdown(f"```xml\n{ma_mod_data['think_block']}\n```", unsafe_allow_html=True)
+                else:
+                    st.info("No Think Block for this variant.")
+
                 st.text_area(
                     "MA_Mod_Rec_Display",
                     clean_newlines(ma_mod_data['final_text']),
@@ -348,9 +498,6 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
                 st.error("No recommendation variants were found or displayed for evaluation. Cannot submit.")
             else:
                 evaluation_payload = {
-                    # "patient_id_evaluated": selected_patient_id,
-                    # "llm_model_evaluated": selected_llm_model,
-                    # "expert_name": st.session_state.expert_name,
                     "evaluation_timestamp": datetime.now().isoformat(),
                     "evaluations_per_variant": form_eval_data_storage, 
                     "overall_comments_for_llm_patient": overall_comments_for_llm_patient_input
@@ -362,7 +509,7 @@ if selected_patient_id and selected_llm_model and case_data_series is not None:
                     st.session_state.expert_name
                 )
                 if success:
-                    st.success(f"Evaluation submitted successfully! Saved as: {saved_filename}")
+                    st.success(f"Evaluation submitted successfully! Saved as: **{saved_filename}**")
                     st.balloons()
                     st.rerun() 
                 else:
